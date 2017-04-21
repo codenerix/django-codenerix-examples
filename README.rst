@@ -9,6 +9,13 @@ Here you can find examples using `CODENERIX <https://github.com/centrologic/djan
     :alt: Try our demo with Centrologic Cloud
 
 
+****
+Demo
+****
+
+You can have a look to our `demo online <http://demo.codenerix.com>`_.
+
+
 **********
 Quickstart
 **********
@@ -36,13 +43,6 @@ Quickstart
 
     In python 2: python2 manage.py runserver
     In python 3: python3 manage.py runserver
-
-
-****
-Demo
-****
-
-You can have a look to our `demo online <http://demo.codenerix.com>`_.
 
 
 ******************
