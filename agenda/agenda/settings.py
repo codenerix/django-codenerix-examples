@@ -1,6 +1,6 @@
 # Django settings for agenda project.
 import os
-from agenda.debug import codenerix_statics, autoload as autoload_debug, autourl as autourl_debug
+from codenerix.debug import codenerix_statics, autoload as autoload_debug, autourl as autourl_debug
 
 VERSION = "0.1"
 
