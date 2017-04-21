@@ -89,7 +89,7 @@ class ContactCreate(GenCreate):
 
         try:
             contact = form.save(commit=False)
-        except IntegrityError, e:
+        except IntegrityError as e:
             errors = form._errors.setdefault("first_name", ErrorList())
             errors.append(e)
             return super(ContactCreate, self).form_invalid(form)
@@ -216,7 +216,7 @@ class ContactGroupCreate(GenCreate):
             return super(ContactGroupCreate, self).form_invalid(form)
         try:
             contact = form.save(commit=False)
-        except IntegrityError, e:
+        except IntegrityError as e:
             errors = form._errors.setdefault("name", ErrorList())
             errors.append(e)
             return super(ContactGroupCreate, self).form_invalid(form)
