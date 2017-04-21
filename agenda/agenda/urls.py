@@ -2,8 +2,8 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 
-from base import urls as base_urls
-from base.views import home, alarms, status
+from agenda.base import urls as base_urls
+from agenda.base.views import home, alarms, status
 from agenda.settings import autourl
 
 

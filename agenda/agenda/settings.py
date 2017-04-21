@@ -27,16 +27,7 @@ ALL_PAGESALLOWED = True
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.4/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = [
-    'demotest.codenerix.com',
-    'www.demotest.codenerix.com',
-    'demo.codenerix.com',
-    'www.demo.codenerix.com',
-    'rbecerra.centrologic.net',
-    'www.rbecerra.centrologic.net',
-    '127.0.0.1',
-    'localhost',
-]
+ALLOWED_HOSTS = ['*']
 
 RECAPTCHA_PUBLIC_KEY = '6Ld-qxUUAAAAAN26LtGvceifXdltI985Y_AXlKXZ'
 RECAPTCHA_PRIVATE_KEY = '6Ld-qxUUAAAAAI4qGY4wDlYGEJkIC-mCNUzw4mdv'
