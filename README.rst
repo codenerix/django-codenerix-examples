@@ -13,7 +13,7 @@ Here you can find examples using `CODENERIX <https://github.com/centrologic/djan
 Quickstart
 **********
 
-* Install your Linux (we checked it out on Debian 8.7):
+* Install your Linux (we checked it out on Debian 8.7)
 * Make sure you have installed the required packages to work with GIT and Python
     apt-get install git python-pip python3-pip
 * Clone the `CODENERIX Examples <https://github.com/centrologic/django-codenerix-examples>`_ project:
