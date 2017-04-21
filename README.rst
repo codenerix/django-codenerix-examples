@@ -13,27 +13,27 @@ Here you can find examples using `CODENERIX <https://github.com/centrologic/djan
 Quickstart
 **********
 
-* Install your Linux (we checked it out on Debian 8.7)
+1. Install your Linux (we checked it out on Debian 8.7)
 
-* Make sure you have installed the required packages to work with GIT and Python
+2. Make sure you have installed the required packages to work with GIT and Python
 
     apt-get install git python-pip python3-pip
 
-* Clone the `CODENERIX Examples <https://github.com/centrologic/django-codenerix-examples>`_ project:
+3. Clone the `CODENERIX Examples <https://github.com/centrologic/django-codenerix-examples>`_ project:
 
     git clone https://github.com/centrologic/django-codenerix-examples
 
-* Go to the desired folder (we will go to agenda):
+4. Go to the desired folder (we will go to agenda):
 
     cd django-codenerix-examples/agenda/
 
-* Install all requirements for the choosen example:
+5. Install all requirements for the choosen example:
 
     For python 2: sudo pip2 install -r requirements.txt
 
     For python 3: sudo pip3 install -r requirements.txt
 
-* That's all...check it out
+6. That's all...check it out
 
     In python 2: python2 manage.py runserver
 
