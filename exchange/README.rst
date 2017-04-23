@@ -5,7 +5,7 @@ Exchange Manager
 
 About the development process
 -----------------------------
-**Development Time:** About 4 hours
+**Development Time:** About 5 hours (missing testing)
 **Previous Knowledge of Codenerix:** full [I am a developer of Codenerix]
 **Previous Knowledge of Django:** Advanced
 
