@@ -1,0 +1,11 @@
+{% extends "codenerix/list.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block angular_app_libraries %}
+    <script type="text/javascript" src="{% static "codenerix/js/app.js" %}"></script>
+    <script type="text/javascript" src="{% static "codenerix/js/controllers.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/app.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/controllers.js" %}"></script>
+    <script type="text/javascript" src="{% static static_filters_row %}"></script>
+{% endblock %}
