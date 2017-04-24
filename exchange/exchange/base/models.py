@@ -38,10 +38,10 @@ class Currency(CodenerixModel):
         url = "http://api.fixer.io/latest"
         payload = {'base':self.iso4217, 'symbols':buy.iso4217}
         r = requests.get(url, params=payload)
-        if not r.raise_for_status():
-            # Read the answer
-            data = r.json()
-            rate = data['rates'][buy.iso4217]
+        r.raise_for_status()
+        # Read the answer
+        data = r.json()
+        rate = data['rates'][buy.iso4217]
         return rate
         
     class Meta:
