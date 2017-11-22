@@ -30,7 +30,6 @@ class Currency(CodenerixModel):
         fields=[]
         fields.append(('name',_('Name'),100))
         fields.append(('symbol',_('Symbol'),100))
-        fields.append(('price',_('Price'),100))
         return fields
     
     def rate(self, buy):
