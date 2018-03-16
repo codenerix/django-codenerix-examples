@@ -207,7 +207,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'multi_email_field',
     # Internal
-    'djng',
     'codenerix',
     # Project
     'agenda.base',
