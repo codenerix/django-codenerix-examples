@@ -1,7 +1,7 @@
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
-from django.core.urlresolvers import reverse_lazy
+from django.urls import reverse_lazy
 from django.views.generic import RedirectView
 
 from exchange.base import urls as base_urls

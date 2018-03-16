@@ -8,7 +8,7 @@ from django.utils.http import urlsafe_base64_decode
 from django.utils.translation import ugettext as _
 from django.views.generic import View
 from django.utils.decorators import method_decorator
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 
 # Codenerix
@@ -49,7 +49,7 @@ class CurrencyDelete(GenDelete):
 class CurrencyForeign(GenForeignKey):
     model = Currency
     label = '{symbol} {name} ({iso4217})'
-    
+
     def custom_choice(self, obj, info):
         if 'buy_currency' in self.filters:
             buy = self.filters['buy_currency']
@@ -60,12 +60,12 @@ class CurrencyForeign(GenForeignKey):
         else:
             buy = None
             sell = None
-        
+
         if buy and sell:
             info['rate:__SERVICE_CALL__']=reverse('currency_online',kwargs={'sell':sell, 'buy':buy})
-        
+
         return info
-    
+
     def get_foreign(self, queryset, search, filters):
         return queryset.filter(
             Q(name__icontains=search) |
@@ -75,7 +75,7 @@ class CurrencyForeign(GenForeignKey):
 
 
 class CurrencyOnline(View):
-    
+
     @method_decorator(login_required)
     def get(self, request, *args, **kwargs):
         # Get both values
