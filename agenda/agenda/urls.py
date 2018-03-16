@@ -8,7 +8,7 @@ from agenda.settings import autourl
 
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', admin.site.urls),
 
     url('^$', home, name='home'),
     url('^alarmspopups$', alarms, name='alarms'),

@@ -10,7 +10,7 @@ from exchange.settings import autourl
 
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', admin.site.urls),
 
     url(r'^$', RedirectView.as_view(url=reverse_lazy('exchange_list'), permanent=True), name='home'),
     url('^alarmspopups$', alarms, name='alarms'),

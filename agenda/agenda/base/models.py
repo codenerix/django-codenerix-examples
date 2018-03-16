@@ -22,7 +22,7 @@ class Contact(CodenerixModel):
     organization = models.CharField(verbose_name=_(u'Organización'), max_length=64, blank=True, null=True)
     borndate = models.DateField(verbose_name=_(u'Cumpleaños'), blank=True, null=True)
     address = models.TextField(verbose_name=_(u'Dirección'), blank=True, null=True)
-    created_by = models.ForeignKey(User, verbose_name=_(u'Creado por'), related_name='contacts')
+    created_by = models.ForeignKey(User, verbose_name=_(u'Creado por'), on_delete=models.CASCADE, related_name='contacts')
 
     def __fields__(self, info):
         return (
@@ -75,7 +75,7 @@ class Phone(CodenerixModel):
     location = models.PositiveSmallIntegerField(verbose_name=_(u'ubicación'), choices=PHONE_LOCATIONS, default=0)
     country_prefix = models.PositiveSmallIntegerField(verbose_name=_(u'código pais'), blank=True)
     number = models.PositiveIntegerField(verbose_name=_(u'número'))
-    contact = models.ForeignKey(Contact, verbose_name=_(u'contacto'), related_name='phones')
+    contact = models.ForeignKey(Contact, verbose_name=_(u'contacto'), on_delete=models.CASCADE, related_name='phones')
 
     def __fields__(self, info):
         return (
@@ -105,7 +105,7 @@ class Phone(CodenerixModel):
 class ContactGroup(CodenerixModel):
     name = models.CharField(verbose_name=_(u'nombre'), max_length=32)
     contacts = models.ManyToManyField(Contact, verbose_name=_(u'contactos'), related_name='group')
-    created_by = models.ForeignKey(User, verbose_name=_(u'creado por'), related_name='contact_groups')
+    created_by = models.ForeignKey(User, verbose_name=_(u'creado por'), on_delete=models.CASCADE, related_name='contact_groups')
 
     @property
     def edit_url(self):

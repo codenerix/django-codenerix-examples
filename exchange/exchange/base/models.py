@@ -22,27 +22,27 @@ class Currency(CodenerixModel):
     name = models.CharField(_('Name'), max_length=15, blank=False, null=False, unique=True)
     symbol = models.CharField(_('Symbol'), max_length=2, blank=False, null=False, unique=True)
     iso4217 = models.CharField(_('ISO 4217 Code'), max_length=3, blank=False, null=False, unique=True)
-    
+
     def __str__(self):
         return u"{0} ({1})".format(smart_text(self.name), smart_text(self.symbol))
-    
-    def __fields__(self,info):
-        fields=[]
-        fields.append(('name',_('Name'),100))
-        fields.append(('symbol',_('Symbol'),100))
+
+    def __fields__(self, info):
+        fields = []
+        fields.append(('name', _('Name'), 100))
+        fields.append(('symbol', _('Symbol'), 100))
         return fields
-    
+
     def rate(self, buy):
         # Prepare the call
         url = "http://api.fixer.io/latest"
-        payload = {'base':self.iso4217, 'symbols':buy.iso4217}
+        payload = {'base': self.iso4217, 'symbols': buy.iso4217}
         r = requests.get(url, params=payload)
         r.raise_for_status()
         # Read the answer
         data = r.json()
         rate = data['rates'][buy.iso4217]
         return rate
-        
+
     class Meta:
         verbose_name = _('currency')
         verbose_name_plural = _('currencies')
@@ -50,12 +50,12 @@ class Currency(CodenerixModel):
 
 class Exchange(CodenerixModel):
     cid = models.CharField(verbose_name=_('ID'), max_length=9, unique=True, editable=False)
-    sell_currency = models.ForeignKey(Currency, verbose_name=_('Sell Currency'), related_name='exchanges_sell')
+    sell_currency = models.ForeignKey(Currency, verbose_name=_('Sell Currency'), on_delete=models.CASCADE, related_name='exchanges_sell')
     sell_amount = models.FloatField(_('Sell Amount'), blank=False, null=False)
-    buy_currency = models.ForeignKey(Currency, verbose_name=_('Buy Currency'), related_name='exchanges_buy')
+    buy_currency = models.ForeignKey(Currency, verbose_name=_('Buy Currency'), on_delete=models.CASCADE, related_name='exchanges_buy')
     buy_amount = models.FloatField(_('Buy Amount'), blank=False, null=False)
     rate = models.FloatField(_('Rate'), blank=False, null=False)
-    owner = models.ForeignKey(User, verbose_name=_('Titular'), related_name='contacts', editable=False)
+    owner = models.ForeignKey(User, verbose_name=_('Titular'), related_name='contacts', on_delete=models.CASCADE, editable=False)
 
     def __fields__(self, info):
         return (
@@ -71,43 +71,43 @@ class Exchange(CodenerixModel):
     def __searchQ__(self, info, text):
         return {
             'cid': models.Q(cid__icontains=text),
-            'sell_currency': models.Q(sell_currency__name__icontains=text),
-            'sell_currency': models.Q(sell_currency__symbol__icontains=text),
-            'sell_currency': models.Q(sell_currency__iso4217__icontains=text),
+            'sell_currency1': models.Q(sell_currency__name__icontains=text),
+            'sell_currency2': models.Q(sell_currency__symbol__icontains=text),
+            'sell_currency3': models.Q(sell_currency__iso4217__icontains=text),
             'sell_amount': models.Q(sell_amount__icontains=text),
-            'buy_currency': models.Q(buy_currency__name__icontains=text),
-            'buy_currency': models.Q(buy_currency__symbol__icontains=text),
-            'buy_currency': models.Q(buy_currency__iso4217__icontains=text),
+            'buy_currency1': models.Q(buy_currency__name__icontains=text),
+            'buy_currency2': models.Q(buy_currency__symbol__icontains=text),
+            'buy_currency3': models.Q(buy_currency__iso4217__icontains=text),
             'buy_amount': models.Q(buy_amount__icontains=text),
             'rate': models.Q(rate__icontains=text),
-            'owner': models.Q(owner__username__icontains=text),
-            'owner': models.Q(owner__first_name__icontains=text),
-            'owner': models.Q(owner__last_name__icontains=text),
+            'owner1': models.Q(owner__username__icontains=text),
+            'owner2': models.Q(owner__first_name__icontains=text),
+            'owner3': models.Q(owner__last_name__icontains=text),
             'created': 'datetime',
         }
-    
+
     def __str__(self):
         return self.cid
-    
+
     def save(self, *args, **kwards):
         # If we are creating
         if not self.pk:
             # Set a new CID dynamically
-            self.cid = str(random.randint(0,999999999))
+            self.cid = str(random.randint(0, 999999999))
             # Try to get the user
             user = get_current_user()
             # Set the owner to the current user
             if user:
                 self.owner = user
-        
+
         # Get rate on realtime (to avoid user decision delay)
         self.rate = self.sell_currency.rate(self.buy_currency)
         # Recalculate amount
         self.buy_amount = self.rate * self.sell_amount
-        
+
         # Keep going like usually
         return super(Exchange, self).save(*args, **kwards)
-    
+
     class Meta:
         verbose_name = _('exchange')
         verbose_name_plural = _('exchanges')
@@ -117,12 +117,10 @@ class Exchange(CodenerixModel):
 @receiver(post_save, sender=Exchange, dispatch_uid="update_exchange_cid")
 def update_exchange(sender, instance, **kwargs):
     # If this instance doesn't have CID yet
-    if instance.cid[0]!='T':
+    if instance.cid[0] != 'T':
         # Create a new CID with CodenerixEncoder
         enc = CodenerixEncoder()
-        cid = enc.numeric_encode(instance.pk,dic='alphanum',length=7)
+        cid = enc.numeric_encode(instance.pk, dic='alphanum', length=7)
         # Set the new CID and save
         instance.cid = "TR{:>07s}".format(cid)
         instance.save()
-
-
