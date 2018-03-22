@@ -129,17 +129,6 @@ def not_authorized(request):
 
 
 @login_required
-def status(request, status, answer):
-    answerjson = urlsafe_base64_decode(answer)
-    status = status.lower()
-    if status == 'accept':
-        out = 202     # Accepted
-    else:
-        out = 501     # Not Implemented
-    return HttpResponse(answerjson, status=out)
-
-
-@login_required
 def alarms(request):
     return JsonResponse({
         'body': {},

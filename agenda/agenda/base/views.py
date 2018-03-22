@@ -44,17 +44,6 @@ def not_authorized(request):
 
 
 @login_required
-def status(request, status, answer):
-    answerjson = urlsafe_base64_decode(answer)
-    status = status.lower()
-    if status == 'accept':
-        out = 202     # Accepted
-    else:
-        out = 501     # Not Implemented
-    return HttpResponse(answerjson, status=out)
-
-
-@login_required
 def alarms(request):
     return JsonResponse({
         'body': {},
@@ -220,7 +209,7 @@ class ContactGroupCreate(GenCreate):
             errors = form._errors.setdefault("name", ErrorList())
             errors.append(e)
             return super(ContactGroupCreate, self).form_invalid(form)
-            
+
         contact.created_by = self.request.user
         contact.save()
         return super(ContactGroupCreate, self).form_valid(form)
