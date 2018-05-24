@@ -2,11 +2,11 @@
 django-codenerix-examples
 =========================
 
-Here you can find examples using `CODENERIX <https://github.com/centrologic/django-codenerix>`_.
+Here you can find examples using `CODENERIX <https://github.com/codenerix/django-codenerix>`_.
 
-.. image:: http://www.centrologic.com/wp-content/uploads/2017/01/logo-codenerix.png
+.. image:: http://www.codenerix.com/wp-content/uploads/2018/05/codenerix.png
     :target: http://www.codenerix.com
-    :alt: Try our demo with Centrologic Cloud
+    :alt: Try our demo with Codenerix Cloud
 
 
 ****
@@ -26,9 +26,9 @@ Quickstart
 
     apt-get install git python-pip python3-pip zlib1g-dev libjpeg-dev python-dev python3-dev
 
-3. Clone the `CODENERIX Examples <https://github.com/centrologic/django-codenerix-examples>`_ project::
+3. Clone the `CODENERIX Examples <https://github.com/codenerix/django-codenerix-examples>`_ project::
 
-    git clone https://github.com/centrologic/django-codenerix-examples
+    git clone https://github.com/codenerix/django-codenerix-examples
 
 4. Go to the desired folder (we will go to **agenda**)::
 
@@ -44,16 +44,8 @@ Quickstart
     In python 2: python2 manage.py runserver
     In python 3: python3 manage.py runserver
 
+*******
+Credits
+*******
 
-******************
-Commercial support
-******************
-
-This project is backed by `Centrologic <http://www.centrologic.com/>`_. You can discover more in `CODENERIX.com <http://www.codenerix.com/>`_.
-If you need help implementing or hosting django-codenerix, please contact us:
-http://www.centrologic.com/contacto/
-
-.. image:: http://www.centrologic.com/wp-content/uploads/2015/09/logo-centrologic.png
-    :target: http://www.centrologic.com
-    :alt: Centrologic is supported mainly by Centrologic Computational Logistic Center
-
+This project has been possible thanks to `Centrologic <http://www.centrologic.com/>`_.
