@@ -15,6 +15,8 @@ Demo
 
 You can have a look to our `demo online <http://demo.codenerix.com>`_.
 
+You can chat with us `here <https://goo.gl/NgpzBh>`_.
+
 
 **********
 Quickstart
