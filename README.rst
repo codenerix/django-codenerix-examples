@@ -4,8 +4,8 @@ django-codenerix-examples
 
 Here you can find examples using `CODENERIX <https://github.com/codenerix/django-codenerix>`_.
 
-.. image:: http://www.codenerix.com/wp-content/uploads/2018/05/codenerix.png
-    :target: http://www.codenerix.com
+.. image:: https://github.com/codenerix/django-codenerix/raw/master/codenerix/static/codenerix/img/codenerix.png
+    :target: https://www.codenerix.com
     :alt: Try our demo with Codenerix Cloud
 
 
