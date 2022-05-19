@@ -1,6 +1,5 @@
 from django.conf.urls import include
 from django.urls import re_path
-from django.contrib import admin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
 from django.views.generic import RedirectView
@@ -11,7 +10,6 @@ from exchange.settings import autourl
 
 
 urlpatterns = [
-    re_path(r'^admin/', admin.site.urls),
     re_path(r'^codenerix/', include('codenerix.urls')),
 
     re_path(r'^$', RedirectView.as_view(url=reverse_lazy('exchange_list'), permanent=True), name='home'),
