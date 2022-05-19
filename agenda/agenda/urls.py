@@ -1,6 +1,8 @@
-from django.conf.urls import include, url
+from django.conf.urls import include
+from django.urls import re_path
 from django.contrib import admin
-from django.contrib.auth import views as auth_views
+from django.contrib.auth.views import LoginView, LogoutView
+
 
 from agenda.base import urls as base_urls
 from agenda.base.views import home, alarms
@@ -8,15 +10,15 @@ from agenda.settings import autourl
 
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^codenerix/', include('codenerix.urls')),
+    re_path(r'^admin/', admin.site.urls),
+    re_path(r'^codenerix/', include('codenerix.urls')),
 
-    url('^$', home, name='home'),
-    url('^alarmspopups$', alarms, name='alarms'),
-    url(r'^login/$', auth_views.login, name='login'),
-    url(r'^logout/$', auth_views.logout, name='logout'),
+    re_path('^$', home, name='home'),
+    re_path('^alarmspopups$', alarms, name='alarms'),
+    re_path(r'^login/$', LoginView.as_view(), name='login'),
+    re_path(r'^logout/$', LogoutView.as_view(), name='logout'),
 
-    url(r'^base/', include(base_urls)),
+    re_path(r'^base/', include(base_urls)),
 ]
 
 urlpatterns = autourl(urlpatterns)

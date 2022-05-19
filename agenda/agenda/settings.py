@@ -71,10 +71,10 @@ TIME_ZONE = 'UTC'
 # LANGUAGE_CODE = 'es-es'
 LANGUAGE_CODE = 'en-us'
 
-ugettext = lambda s: s
+gettext = lambda s: s
 LANGUAGES = (
-    ('es', ugettext('Spanish')),
-    ('en', ugettext('English')),
+    ('es', gettext('Spanish')),
+    ('en', gettext('English')),
 )
 
 SITE_ID = 1
@@ -205,7 +205,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'multi_email_field',
     # Internal
     'codenerix',
     # Project

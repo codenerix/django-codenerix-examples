@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models, IntegrityError
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django.urls import reverse_lazy
 from django.contrib.auth.models import User
 from django.conf import settings

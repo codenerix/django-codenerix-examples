@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.forms import ModelMultipleChoiceField
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 from codenerix.forms import GenForm, GenModelForm
 from codenerix.fields import GenReCaptchaField
@@ -11,6 +11,7 @@ from agenda.base.models import Contact, ContactGroup, Phone
 
 class LoginForm(GenForm):
     recaptcha = GenReCaptchaField()
+
 
 class ContactForm(GenModelForm):
 

@@ -6,10 +6,9 @@ from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
 from django.db.models import Q
 from django.forms.utils import ErrorList
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
-from django.utils.http import urlsafe_base64_decode
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 # Codenerix
 from codenerix.helpers import get_template
