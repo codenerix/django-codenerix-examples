@@ -3,11 +3,11 @@
 import random
 import requests
 
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from django.utils.encoding import smart_text
+from django.utils.encoding import smart_str
 from django.db import models
 
 from codenerix.helpers import CodenerixEncoder
@@ -24,7 +24,7 @@ class Currency(CodenerixModel):
     iso4217 = models.CharField(_('ISO 4217 Code'), max_length=3, blank=False, null=False, unique=True)
 
     def __str__(self):
-        return u"{0} ({1})".format(smart_text(self.name), smart_text(self.symbol))
+        return u"{0} ({1})".format(smart_str(self.name), smart_str(self.symbol))
 
     def __fields__(self, info):
         fields = []

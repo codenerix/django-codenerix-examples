@@ -71,10 +71,10 @@ TIME_ZONE = 'UTC'
 # LANGUAGE_CODE = 'es-es'
 LANGUAGE_CODE = 'en-us'
 
-ugettext = lambda s: s
+gettext = lambda s: s
 LANGUAGES = (
-    ('es', ugettext('Spanish')),
-    ('en', ugettext('English')),
+    ('es', gettext('Spanish')),
+    ('en', gettext('English')),
 )
 
 SITE_ID = 1
@@ -94,8 +94,8 @@ SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 DATETIME_FORMAT = "Y-m-d H:i"
 DATETIME_INPUT_FORMATS = ("%Y-%m-%d %H:%M",)
 TIME_FORMAT = "H:i"
-TIME_INPUT_FORMATS = ("%H:%M","%H%M")
-DATETIME_RANGE_FORMAT = ("%Y-%m-%d","YYYY-MM-DD") # ATENCION: el formato que llega a la funcion es mayor
+TIME_INPUT_FORMATS = ("%H:%M", "%H%M")
+DATETIME_RANGE_FORMAT = ("%Y-%m-%d", "YYYY-MM-DD")  # ATENCION: el formato que llega a la funcion es mayor
 DATERANGEPICKER_OPTIONS = "{{"
 DATERANGEPICKER_OPTIONS += "    format: '{Format}',"
 DATERANGEPICKER_OPTIONS += "    timePicker:true,"
@@ -205,7 +205,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'multi_email_field',
     # Internal
     'codenerix',
     # Project
@@ -280,3 +279,5 @@ TEMPLATES = [
 autourl = lambda URLPATTERNS: autourl_debug(URLPATTERNS, DEBUG, ROSETTA, ADMINSITE, SPAGHETTI)
 
 (INSTALLED_APPS, MIDDLEWARE) = autoload_debug(INSTALLED_APPS, MIDDLEWARE, DEBUG, SPAGHETTI, ROSETTA, ADMINSITE, DEBUG_TOOLBAR, DEBUG_PANEL, SNIPPET_SCREAM, GRAPH_MODELS)
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'

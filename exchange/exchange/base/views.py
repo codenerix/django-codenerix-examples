@@ -2,10 +2,9 @@
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
-from django.utils.http import urlsafe_base64_decode
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 from django.views.generic import View
 from django.utils.decorators import method_decorator
 from django.urls import reverse
@@ -13,7 +12,7 @@ from django.urls import reverse
 
 # Codenerix
 from codenerix.helpers import get_template
-from codenerix.views import GenList, GenCreate, GenCreateModal, GenDetail, GenUpdate, GenUpdateModal, GenDelete, GenForeignKey
+from codenerix.views import GenList, GenCreate, GenCreateModal, GenDetail, GenUpdate, GenDelete, GenForeignKey
 
 # Models
 from exchange.base.models import Currency, Exchange
@@ -21,9 +20,11 @@ from exchange.base.models import Currency, Exchange
 # Forms
 from exchange.base.forms import CurrencyForm, ExchangeForm
 
+
 class CurrencyList(GenList):
     model = Currency
-    extra_context={'menu':['menu','currency'],'bread':[_('Menu'),_('Currency')]}
+    extra_context = {'menu': ['menu', 'currency'], 'bread': [_('Menu'), _('Currency')]}
+
 
 class CurrencyCreate(GenCreate):
     model = Currency
@@ -32,6 +33,7 @@ class CurrencyCreate(GenCreate):
 
 class CurrencyCreateModal(GenCreateModal, CurrencyCreate):
     pass
+
 
 class CurrencyUpdate(GenUpdate):
     model = Currency
@@ -62,7 +64,7 @@ class CurrencyForeign(GenForeignKey):
             sell = None
 
         if buy and sell:
-            info['rate:__SERVICE_CALL__']=reverse('currency_online',kwargs={'sell':sell, 'buy':buy})
+            info['rate:__SERVICE_CALL__'] = reverse('currency_online', kwargs={'sell': sell, 'buy': buy})
 
         return info
 
@@ -83,21 +85,21 @@ class CurrencyOnline(View):
         buy = get_object_or_404(Currency, pk=kwargs.get('buy', None))
         # Look up in the remote service
         if buy and sell:
-            if buy==sell:
+            if buy == sell:
                 rate = 1
             else:
                 rate = sell.rate(buy)
         else:
-            rate=None
+            rate = None
         # Set the answer
-        return JsonResponse({'value':rate})
+        return JsonResponse({'value': rate})
 
 
 class ExchangeList(GenList):
     model = Exchange
     show_details = True
     default_ordering = "-created"
-    extra_context={'menu':['menu','exchange'],'bread':[_('Menu'),_('Exchange')]}
+    extra_context = {'menu': ['menu', 'exchange'], 'bread': [_('Menu'), _('Exchange')]}
 
 
 class ExchangeCreate(GenCreate):
@@ -141,6 +143,3 @@ def alarms(request):
             'permitsuser': 'DC',
         }
     })
-
-
-
