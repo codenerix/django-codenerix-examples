@@ -48,3 +48,8 @@ Quickstart
 6. That's all...check it out::
 
     In python 3: python3 manage.py runserver
+
+7. The default user and password are::
+
+    user: demo
+    password: demo
