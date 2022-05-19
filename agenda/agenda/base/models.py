@@ -50,8 +50,11 @@ class Contact(CodenerixModel):
             'contains_organization': models.Q(organization__icontains=text),
         }
 
-    def __unicode__(self):
+    def __str__(self):
         return self.full_name
+
+    def __unicode__(self):
+        return self.__str__()
 
     def save(self, *args, **kwards):
         if not self.pk and Contact.objects.all().count() > settings.MAX_REGISTERS:
@@ -85,12 +88,15 @@ class Phone(CodenerixModel):
             ('contact', _(u'Contacto')),
         )
 
-    def __unicode__(self):
+    def __str__(self):
         return u'[%s] +%d %d' % (
             self.get_location_display(),
             self.country_prefix,
             self.number
         )
+
+    def __unicode__(self):
+        return self.__str__()
 
     def save(self, *args, **kwards):
         if not self.pk and Phone.objects.all().count() > settings.MAX_REGISTERS:
