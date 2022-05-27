@@ -1,1 +1,1 @@
-django-codenerix
+django-codenerix>=4.0.2
