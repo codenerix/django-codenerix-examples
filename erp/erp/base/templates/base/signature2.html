@@ -1,0 +1,322 @@
+{% load static %}{% load i18n %}
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <title>{{ info_project.title }}, {% trans info_project.subtitle %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% trans info_project.description %}">
+    <meta name="author" content="Codenerix">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    {# <link rel="stylesheet" href="http://szimek.github.io/signature_pad/css/signature-pad.css"> #} 
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="{% static "css/vending.css" %}">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <style>
+    body {
+        background: #f1f1f1;
+    }   
+    #fullpage { cursor:zoom-in; }
+    #fullpage:-webkit-full-screen { cursor:zoom-out; }
+    #fullpage:-moz-full-screen { cursor:zoom-out; }
+    #fullpage:-ms-fullscreen { cursor:zoom-out; }
+    #fullpage:fullscreen { cursor:zoom-out; }
+    .canvas_signature{
+        background: #ffffff;
+        border: 1px solid #070709;
+        border-radius: 4px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.02) inset;
+    }
+    .sign{
+        display: none;
+    }
+    </style>
+    
+</head>
+<div id="fullpage"></div>
+<body onselectstart="return false">
+    <div class="w3-row w3-container wait">
+        <div class="container vending-center-signature" style="text-align: center">
+            <br />
+            <br />
+            <br />
+            <br />
+            <img src="{% static "img/logo.png" %}" class=""><br />
+
+                  {% trans "No hay nada que firmar" %}
+            <br />
+            <br />
+            <br />
+            <br />
+            {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endif %}
+                  
+        </div>
+    </div>
+    <div class="w3-row w3-container sign">
+        <div class="w3-col w3-dark-grey w3-container cabecera">
+            <h2>Terminos y condiciones</h2>
+        </div>
+        <div class="w3-padding-large">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet tempor dui. Nullam volutpat augue et libero convallis volutpat. Phasellus mollis turpis tortor, a ultrices quam dictum eu. Donec eget neque pretium, molestie dui non, tincidunt eros. Nullam elementum ligula ac ipsum aliquet porta egestas vel purus. Phasellus varius mattis vestibulum. Nunc semper porttitor tellus a consequat. Quisque at eros eget erat rutrum lobortis ut ac magna. Quisque vehicula laoreet velit a convallis. Aenean rhoncus lacinia neque non sodales. Curabitur a dui nulla. Donec quam magna, blandit vitae massa vitae, dapibus varius enim. In pretium augue vitae posuere tristique. Vivamus tincidunt orci in lacus dignissim eleifend. Donec ac ex augue. Sed lacus nulla, gravida id felis at, blandit lacinia enim.</p>
+
+        <p>Donec tempus convallis sagittis. In ultrices facilisis est eget tempus. Vivamus commodo velit dignissim ligula convallis feugiat sodales id turpis. Cras fermentum malesuada ex at ornare. Maecenas tempus nibh et quam ullamcorper tempus. Aliquam erat volutpat. Quisque eget urna ultricies, sodales urna eu, convallis risus. Donec vehicula, arcu feugiat pellentesque lacinia, quam metus luctus ex, id cursus nunc dui eget mauris. In placerat luctus nulla nec ultrices. Nulla dapibus pulvinar nisl. Mauris vel metus vel lorem elementum bibendum vitae in leo. Suspendisse nunc felis, tempus nec lectus ac, facilisis iaculis tortor. Suspendisse nec orci nec augue fringilla porttitor vitae et neque.</p>
+
+        <p>In pulvinar nisi quis ante sollicitudin accumsan. Sed rhoncus hendrerit felis. Proin in velit sit amet arcu lobortis commodo. Ut et elit purus. Curabitur leo tellus, tempus in nibh quis, vulputate mollis diam. Nullam non justo a lorem congue viverra. Etiam et laoreet augue. Curabitur ipsum enim, consectetur at nulla a, vestibulum posuere mi. Nam nulla massa, facilisis ut ipsum quis, sagittis sollicitudin nisi.</p>
+
+        <p>Suspendisse sed tempus nisi, sit amet gravida tellus. Suspendisse efficitur libero ut lorem viverra, eget tempor arcu cursus. Duis sit amet placerat nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus aliquam mi magna, vel sagittis mi eleifend sed. In sit amet enim vestibulum, elementum diam eget, semper nibh. Cras at metus sed elit sollicitudin feugiat vitae eget lectus. Cras et enim non sapien bibendum ultrices non ut leo. Morbi enim quam, egestas eget dignissim at, tempus ut sapien. Donec porttitor turpis nisi, at finibus orci condimentum id.</p>
+
+        <p>Duis et viverra justo. Etiam sagittis consequat ligula. Mauris id erat eu ante malesuada pharetra sit amet pellentesque augue. Suspendisse ac ipsum justo. Vestibulum ut magna eu leo porta molestie ut ac justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin metus ipsum, posuere a pellentesque posuere, facilisis sit amet justo. Duis efficitur mi posuere tortor laoreet fringilla non in augue. Ut elit nunc, eleifend ac eros ut, vehicula congue erat. Quisque condimentum elementum quam, ut suscipit mi dictum ut. Maecenas sed tellus ex. Aenean tempor ornare laoreet. Proin in augue dictum, imperdiet leo pharetra, iaculis lacus. Integer congue egestas ex, ac pharetra urna lacinia at. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam non lectus eget urna finibus laoreet.</p>
+
+        <p>Sed non dolor venenatis, volutpat odio nec, venenatis mauris. Donec auctor nulla et neque dignissim tempus. Phasellus commodo eros odio, sed vehicula justo aliquet nec. Proin lobortis lorem nisl. Mauris enim nunc, hendrerit eu iaculis a, feugiat non libero. Proin vulputate, turpis quis mattis pharetra, felis urna laoreet nulla, nec fringilla purus diam sed orci. Cras in magna et sapien consectetur suscipit eget et nisi. Praesent dignissim mauris ut scelerisque condimentum. Aliquam ac velit tellus. Sed dictum erat ut sapien varius, eget blandit purus molestie. Nunc sed mauris risus. Proin tempor neque vitae velit maximus varius at sit amet sem.</p>
+        </div>
+    </div>
+    <div class="w3-row w3-container sign">    
+        <div class="w3-col w3-dark-grey w3-container cabecera">
+            <h2>Personas a cargo</h2>
+        </div>
+        <div class="w3-padding-large">
+            <table class="table table-responsive" id="tbl_people">
+                <thead>
+                    <tr>
+                        <th>Persona</th>
+                        <th>Servicio</th>
+                        <th>Horario</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Niño 1</td>
+                        <td>Jump</td>
+                        <td class="w3-red">17:00 - 18:00</td>
+                    </tr>
+                    <tr>
+                        <td>Niño 2</td>
+                        <td>Jump</td>
+                        <td class="w3-red">17:00 - 18:00</td>
+                    </tr>
+                    <tr>
+                        <td>Niño 3</td>
+                        <td>Bolas</td>
+                        <td class="w3-light-grey">17:00 - 18:00</td>
+                    </tr>
+                    <tr>
+                        <td>Niño 4</td>
+                        <td>Jump</td>
+                        <td class="w3-red">18:00 - 19:00</td>
+                    </tr>
+                    <tr>
+                        <td>Niño 5</td>
+                        <td>Jump</td>
+                        <td class="w3-green">18:00 - 19:00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div class="w3-row w3-container sign">    
+        <div class="w3-col w3-dark-grey w3-container cabecera">
+            <h2>Firma</h2>
+        </div>       
+        <div id="tabs-X" class="vending-signature-pad">
+            <form method="post" action="{% url "signature" %}" id="form-signature">
+            {% csrf_token %}
+            <input type="hidden" name="signature" id="signature">
+            <input type="hidden" name="object" id="object">
+            <div id="signature-pad" class="m-signature-pad">
+                <div class="m-signature-pad--body">
+                    <canvas class="canvas_signature"></canvas>
+                </div>
+                <div class="m-signature-pad--footer">
+                    <div class="description"></div>
+                    <button type="button" class="w3-button w3-grey clear" data-action="clear">{% trans "Clear" %}</button>
+                    <button type="button" class="w3-button w3-green save" data-action="save">{% trans "Save" %}</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="{% static "js/signature_pad.js" %}"></script>
+    <script type="text/javascript">
+        var wrapper = document.getElementById("signature-pad"),
+            clearButton = wrapper.querySelector("[data-action=clear]"),
+            saveButton = wrapper.querySelector("[data-action=save]"),
+            canvas = wrapper.querySelector("canvas"),
+            signaturePad;
+
+        // Adjust canvas coordinate space taking into account pixel ratio,
+        // to make it look crisp on mobile devices.
+        // This also causes canvas to be cleared.
+        function resizeCanvas() {
+            // When zoomed out to less than 100%, for some very strange reason,
+            // some browsers report devicePixelRatio as less than 1
+            // and only part of the canvas is cleared then.
+            var ratio =  Math.max(window.devicePixelRatio || 1, 1);
+            canvas.width = canvas.offsetWidth * ratio;
+            canvas.height = canvas.offsetHeight * ratio;
+            canvas.getContext("2d").scale(ratio, ratio);
+        }
+
+        //window.onresize = resizeCanvas;
+        // resizeCanvas();
+
+        canvas.width = 500;
+        canvas.height = 200;
+        signaturePad = new SignaturePad(canvas);
+
+        clearButton.addEventListener("click", function (event) {
+            signaturePad.clear();
+        });
+
+        saveButton.addEventListener("click", function (event) {
+            if (signaturePad.isEmpty()) {
+                alert("Please provide signature first.");
+            } else {
+                var form = document.getElementById("form-signature");
+                var signature = document.getElementById("signature");
+                signature.value = signaturePad.toDataURL();
+                console.log(signaturePad.toData());
+                console.log(signaturePad.toDataURL());
+                form.submit();
+                $("#object").val('');
+                $("#signature").val('');
+                $(".wait").css('display', 'block');
+                $(".sign").css('display', 'none');
+            }
+        });
+    </script>
+    {% block extra_js %}
+    {% endblock %}
+
+    <script type="text/javascript">
+        if (!String.format) {
+          String.format = function(format) {
+            var args = Array.prototype.slice.call(arguments, 1);
+            return format.replace(/{(\d+)}/g, function(match, number) {
+              return typeof args[number] != 'undefined'
+                ? args[number]
+                : match
+              ;
+            });
+          };
+        }
+    </script>
+
+    
+    <script type="text/javascript" src="{% static "codenerix_extensions/lib/crypto-js/core.js" %}"></script>  
+    <script type="text/javascript" src="{% static "codenerix_extensions/lib/crypto-js/sha256.js" %}"></script>  
+    <script type="text/javascript" src="{% static "codenerix_extensions/lib/crypto-js/enc-base64.js" %}"></script>  
+    <script type="text/javascript" src="{% static "codenerix_extensions/lib/crypto-js/cipher-core.js" %}"></script>  
+    <script type="text/javascript" src="{% static "codenerix_extensions/lib/crypto-js/aes.js" %}"></script>  
+    <script type="text/javascript" src="{% static "codenerix_extensions/js/cryptography.js" %}"></script>  
+
+    <script type="text/javascript" src="{% static "codenerix_extensions/lib/reconnecting-websocket/reconnecting-websocket.js" %}"></script>  
+    <script type="text/javascript" src="{% static "codenerix_extensions/js/websocket.js" %}"></script>  
+
+    <script type="text/javascript">
+    var tr_people = '';
+    tr_people+='<tr>';
+    tr_people+='    <td>{0}</td>';  // name
+    tr_people+='    <td>{1}</td>';  // service
+    tr_people+='    <td class="w3-{2}">{3}</td>'; // color, hour
+    tr_people+='</tr>';
+
+    $(function() {
+       
+
+        var uuid = "{{uuid}}";
+
+        // "127.0.0.1:8000", // LOCAL
+        var ws = new CodenerixWebsocket(
+                "{{websocket_url}}",
+                "codenerix_pos/",
+                "{{pos_uuid}}",
+                "{{pos_key}}"
+                );
+
+        // Prepare debugger
+        ws.set_name("POSWebSocket Signature")
+        ws.set_debug();
+
+        // Define opener
+        ws.opened = function () {
+            ws.debug("Requesting config");
+            ws.send({'action': 'get_config', 'uuid': uuid}, null);
+            ws.debug("Connected");
+        };
+
+        // Define receiver
+        ws.recv = function(message, ref) {
+
+            ws.debug("Got message: " + JSON.stringify(message) + " (REF: "+ref+")");
+            var action = message.action;
+
+            if (action == 'ping') {
+                ws.debug("Sending PONG "+message.ref+" (ref:"+ref+")");
+                ws.send({'action': 'pong'}, ref);
+            } else if (action == 'config') {
+                ws.warning("Got config: "+JSON.stringify(message)+" (ref:"+ref+")");
+            } else if (action == 'error') {
+                if ((typeof(message.error) == 'undefined') || (message.error == null)) {
+                    var error = "No error";
+                } else {
+                    var error = message.error;
+                }
+                ws.error("Got an error from server: "+error);
+            } else if (action == 'msg'){
+                var subaction = message.message.data.action;
+                if (subaction == 'cancel'){
+                    $(".sign").css('display', 'none');
+                    $(".wait").css('display', 'block');
+                    clearButton.click();
+                }else{
+                    var info = JSON.parse(message.message.data.info);
+                    var obj = message.message.data.object;
+
+                    $("#object").val(obj);
+                    $("#tbl_people tbody tr").remove();
+                    $.each(info, function(key, person){
+                        $("#tbl_people tbody").append(String.format(tr_people, 
+                            person.person,
+                            person.service,
+                            person.color,
+                            person.hour
+                        ));
+                    });
+                    $(".sign").css('display', 'block');
+                    $(".wait").css('display', 'none');
+                }
+            } else {
+                console.log(message);
+                ws.send_error("Unknown action '"+action+"'", ref);
+            }
+            // ws.stop();
+        };
+
+        ws.closed = function() {
+            ws.warning("We are not online! "+uuid);
+        }
+
+        // Start websocket
+        ws.start();
+    });
+    </script>
+    
+</body>
+</html>

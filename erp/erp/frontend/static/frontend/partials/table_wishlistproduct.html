@@ -1,0 +1,9 @@
+<div ng-include="'/static/codenerix/partials/table.html'"></div>
+<div>
+    <label  class="sr-only"  for="submit_buy_wishlist_products">
+        {{ data.meta.gentranslate.Buy }}
+    </label>
+    <button ng-controller="frontendWishlistCtrl" id="submit_buy_wishlist_products" ng-click="buy_wishlist_products('/backend/wishlistproducts/buy')" class="btn btn-sm btn-info">
+        {{ data.meta.gentranslate.Buy }}
+    </button>
+</div>

@@ -1,0 +1,27 @@
+<div class="c-content-box c-reset c-pos-relative c-overflow-hide">
+<div class="c-bg-splash c-splash-left"></div>
+<div class="c-bg-splash c-splash-right"></div>
+	<div class="container container-100">
+		<div class="c-shop-banner-1 c-shop-banner-height">
+			<div class="row">
+				{% for element in staticheader_list %}
+                <div class="col-md-{{element.column_size}} col-sm-12 c-shop-banner-height c-shop-banner-m-bg">
+                    <div class="c-shop-banner-content c-shop-banner-{{element.column_position}}">
+                        <img src="/media/{{element.image}}" class="c-shop-banner-img">
+                        <div class="c-shop-banner-title onclick" onclick="location.href='{{element.url}}';">
+                            {% if element.show_title %}<h1 class="c-font-thin">{{element.title}}</h1>{% endif %}
+                                <div class="description">
+									<h2 class="c-font-thin">{{element.description}}</h2></div>
+							{% if element.button and element.url %}
+                            <a class="btn btn-md c-btn c-btn-square c-btn-white c-btn-border-1x c-font-uppercase" href="{{element.url}}">Comprar</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+				{% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+

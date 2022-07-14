@@ -1,0 +1,890 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-19 07:58+0200\n"
+"PO-Revision-Date: 2022-06-19 08:09+0200\n"
+"Last-Translator:   <juanmi@juanmitaboada.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.9.8\n"
+
+#: erp/base/admin.py:13
+msgid "Change"
+msgstr "Cambiar"
+
+#: erp/base/templates/base/base-original.html:52
+#: erp/base/templates/base/base-original.html:415
+#: erp/base/templates/base/base.html:70 erp/base/templates/base/base.html:655
+msgid "Connection lost"
+msgstr "Conexión perdida"
+
+#: erp/base/templates/base/base-original.html:52
+#: erp/base/templates/base/base-original.html:415
+#: erp/base/templates/base/base.html:70 erp/base/templates/base/base.html:655
+msgid "seconds ago"
+msgstr "hace segundos"
+
+#: erp/base/templates/base/base-original.html:64
+#: erp/base/templates/base/base-original.html:454 erp/base/views.py:39
+msgid "Home"
+msgstr "Inicio"
+
+#: erp/base/templates/base/base-original.html:105
+msgid "Start"
+msgstr "Comenzar"
+
+#: erp/base/templates/base/base-original.html:114
+msgid "Billing"
+msgstr "Facturación"
+
+#: erp/base/templates/base/base-original.html:119
+#: erp/base/templates/base/base.html:156
+msgid "Series"
+msgstr "Series"
+
+#: erp/base/templates/base/base-original.html:122
+#: erp/base/templates/base/base.html:161
+msgid "Legal notes"
+msgstr "Notas legales"
+
+#: erp/base/templates/base/base-original.html:125
+#: erp/base/templates/base/base.html:166
+msgid "Type documents"
+msgstr "Tipo de documentos"
+
+#: erp/base/templates/base/base-original.html:128
+#: erp/base/templates/base/base.html:171
+msgid "Customer"
+msgstr "Cliente"
+
+#: erp/base/templates/base/base-original.html:131
+#: erp/base/templates/base/base.html:220
+msgid "Provider"
+msgstr "Proveedor"
+
+#: erp/base/templates/base/base-original.html:134
+#: erp/base/templates/base/base.html:176
+msgid "Company"
+msgstr "Compañía"
+
+#: erp/base/templates/base/base-original.html:137
+#: erp/base/templates/base/base-original.html:355
+#: erp/base/templates/base/base-original.html:360
+#: erp/base/templates/base/base.html:425
+msgid "POS"
+msgstr "Punto de Venta"
+
+#: erp/base/templates/base/base-original.html:140
+#: erp/base/templates/base/base.html:623
+msgid "Haulier"
+msgstr "Transportista"
+
+#: erp/base/templates/base/base-original.html:147
+#: erp/base/templates/base/base.html:92
+msgid "Sales"
+msgstr "Ventas"
+
+#: erp/base/templates/base/base-original.html:152
+msgid "Reserved products"
+msgstr "Productos reservados"
+
+#: erp/base/templates/base/base-original.html:155
+#: erp/base/templates/base/base.html:113
+msgid "Shopping carts"
+msgstr "Carritos de compra"
+
+#: erp/base/templates/base/base-original.html:159
+msgid "new shopping carts"
+msgstr "Nuevos carros de la compra"
+
+#: erp/base/templates/base/base-original.html:162
+msgid "new budgets"
+msgstr "Nuevos presupuestos"
+
+#: erp/base/templates/base/base-original.html:165
+msgid "new wishlist"
+msgstr "Nueva lista"
+
+#: erp/base/templates/base/base-original.html:175
+#: erp/base/templates/base/base-original.html:300
+msgid "Order"
+msgstr "Orden"
+
+#: erp/base/templates/base/base-original.html:178
+#: erp/base/templates/base/base-original.html:303
+#: erp/base/templates/base/base.html:130 erp/base/templates/base/base.html:235
+msgid "Albaran"
+msgstr "Albarán"
+
+#: erp/base/templates/base/base-original.html:181
+#: erp/base/templates/base/base-original.html:306
+#: erp/base/templates/base/base.html:135 erp/base/templates/base/base.html:240
+msgid "Invoice"
+msgstr "Factura"
+
+#: erp/base/templates/base/base-original.html:184
+#: erp/base/templates/base/base-original.html:309
+#: erp/base/templates/base/base.html:140 erp/base/templates/base/base.html:245
+msgid "Invoice Rectification"
+msgstr "Rectificación de facturas"
+
+#: erp/base/templates/base/base-original.html:187
+#: erp/base/templates/base/base-original.html:312
+#: erp/base/templates/base/base.html:145 erp/base/templates/base/base.html:250
+msgid "Ticket"
+msgstr "Ticket"
+
+#: erp/base/templates/base/base-original.html:190
+#: erp/base/templates/base/base-original.html:315
+#: erp/base/templates/base/base.html:150 erp/base/templates/base/base.html:255
+msgid "Ticket Rectification"
+msgstr "Rectificación de tickets"
+
+#: erp/base/templates/base/base-original.html:204
+#: erp/base/templates/base/base-original.html:257
+#: erp/base/templates/base/base.html:266 erp/base/templates/base/base.html:332
+#: erp/base/templates/base/base.html:467
+msgid "Product"
+msgstr "Producto"
+
+#: erp/base/templates/base/base-original.html:209
+#: erp/base/templates/base/base.html:272
+msgid "Type tax"
+msgstr "Tipo de impuesto"
+
+#: erp/base/templates/base/base-original.html:212
+msgid "Type recargo equivalencias"
+msgstr "Tipo recargo equivalencia"
+
+#: erp/base/templates/base/base-original.html:216
+#: erp/base/templates/base/base.html:278
+msgid "Family"
+msgstr "Familia"
+
+#: erp/base/templates/base/base-original.html:219
+#: erp/base/templates/base/base.html:283
+msgid "Category"
+msgstr "Categoría"
+
+#: erp/base/templates/base/base-original.html:222
+#: erp/base/templates/base/base.html:288
+msgid "Subcategory"
+msgstr "Subcategoría"
+
+#: erp/base/templates/base/base-original.html:227
+#: erp/base/templates/base/base.html:294
+msgid "GroupValue Feature"
+msgstr "Grupo de valores de características"
+
+#: erp/base/templates/base/base-original.html:230
+#: erp/base/templates/base/base.html:299
+msgid "GroupValue Attribute"
+msgstr "Grupo de valores de atributo"
+
+#: erp/base/templates/base/base-original.html:233
+#: erp/base/templates/base/base.html:304
+msgid "GroupValue Feature Special"
+msgstr "Grupo de características especiales"
+
+#: erp/base/templates/base/base-original.html:243
+#: erp/base/templates/base/base.html:310
+msgid "Feature"
+msgstr "Característica"
+
+#: erp/base/templates/base/base-original.html:246
+#: erp/base/templates/base/base.html:315
+msgid "Attribute"
+msgstr "Atributo"
+
+#: erp/base/templates/base/base-original.html:249
+#: erp/base/templates/base/base.html:320
+msgid "FeatureSpecial"
+msgstr "Característica Especial"
+
+#: erp/base/templates/base/base-original.html:253
+#: erp/base/templates/base/base.html:326
+msgid "Brand"
+msgstr "Marca"
+
+#: erp/base/templates/base/base-original.html:272
+#: erp/base/templates/base/base.html:337
+msgid "ProductFinal"
+msgstr "Producto Final"
+
+#: erp/base/templates/base/base-original.html:292
+#: erp/base/templates/base/base.html:214
+msgid "Purchases"
+msgstr "Compras"
+
+#: erp/base/templates/base/base-original.html:297
+#: erp/base/templates/base/base.html:225
+msgid "Budget"
+msgstr "Presupuesto"
+
+#: erp/base/templates/base/base-original.html:328
+#: erp/base/templates/base/base-original.html:333
+#: erp/base/templates/base/base.html:356 erp/base/templates/base/base.html:389
+msgid "Storage"
+msgstr "Almacenamiento"
+
+#: erp/base/templates/base/base-original.html:336
+#: erp/base/templates/base/base.html:395
+msgid "StorageZone"
+msgstr "Almacén"
+
+#: erp/base/templates/base/base-original.html:339
+msgid "StorageBatch"
+msgstr "Lote de almacenamiento"
+
+#: erp/base/templates/base/base-original.html:343
+msgid "ProductStock"
+msgstr "Producto Stock"
+
+#: erp/base/templates/base/base-original.html:347
+msgid "StockMovement"
+msgstr "Movimiento Stock"
+
+#: erp/base/templates/base/base-original.html:363
+msgid "POSSlot"
+msgstr "Mesa"
+
+#: erp/base/templates/base/base-original.html:371
+msgid "Public Config"
+msgstr "Configuración diseño"
+
+#: erp/base/templates/base/base-original.html:376
+msgid "Email templates"
+msgstr "Plantillas email"
+
+#: erp/base/templates/base/base-original.html:379
+#: erp/base/templates/base/base.html:484 erp/base/templates/base/base.html:508
+msgid "Design"
+msgstr "Diseño"
+
+#: erp/base/templates/base/base-original.html:381
+#: erp/base/templates/base/base.html:511
+msgid "Flagship product"
+msgstr "Producto estrella"
+
+#: erp/base/templates/base/base-original.html:384
+#: erp/base/templates/base/base.html:536
+msgid "Corporate image"
+msgstr "Imagen corporativa"
+
+#: erp/base/templates/base/base-original.html:389
+#: erp/base/templates/base/base.html:544
+msgid "Continent"
+msgstr "Continente"
+
+#: erp/base/templates/base/base-original.html:392
+#: erp/base/templates/base/base.html:547
+msgid "Country"
+msgstr "País"
+
+#: erp/base/templates/base/base-original.html:395
+#: erp/base/templates/base/base.html:550
+msgid "Regions"
+msgstr "Regiones"
+
+#: erp/base/templates/base/base-original.html:398
+#: erp/base/templates/base/base.html:553
+msgid "Provinces"
+msgstr "Provincias"
+
+#: erp/base/templates/base/base-original.html:401
+#: erp/base/templates/base/base.html:556
+msgid "TimeZone"
+msgstr "Zona horaria"
+
+#: erp/base/templates/base/base-original.html:404
+#: erp/base/templates/base/base.html:559
+msgid "City"
+msgstr "Ciudad"
+
+#: erp/base/templates/base/base-original.html:510
+#: erp/base/templates/base/base.html:770
+msgid "An error has occurred, it is reported to the administrator"
+msgstr "Se ha producido un error, se informa al administrador"
+
+#: erp/base/templates/base/base.html:73
+msgid "Anonymous"
+msgstr "Anónimo"
+
+#: erp/base/templates/base/base.html:98
+msgid "Reason modification"
+msgstr "Razón de modificación"
+
+#: erp/base/templates/base/base.html:116
+msgid "Budgets"
+msgstr "Presupuestos"
+
+#: erp/base/templates/base/base.html:119
+#, fuzzy
+#| msgid "wishlist"
+msgid "Wishlist"
+msgstr "lista de deseos"
+
+#: erp/base/templates/base/base.html:125
+#, fuzzy
+#| msgid "Sales"
+msgid "Sales Order"
+msgstr "Ventas"
+
+#: erp/base/templates/base/base.html:184
+msgid "Cash diary"
+msgstr "Diario de caja"
+
+#: erp/base/templates/base/base.html:189
+msgid "Cash Movement"
+msgstr "Movimientos de Caja"
+
+#: erp/base/templates/base/base.html:194
+msgid "Cash diary report"
+msgstr "Informe de Diario de caja"
+
+#: erp/base/templates/base/base.html:199
+msgid "Apertura de caja"
+msgstr "Apertura de caja"
+
+#: erp/base/templates/base/base.html:202
+msgid "Cierre de caja"
+msgstr "Cierre de caja"
+
+#: erp/base/templates/base/base.html:230
+#, fuzzy
+#| msgid "Purchases"
+msgid "Purchases Order"
+msgstr "Compras"
+
+#: erp/base/templates/base/base.html:343
+msgid "FlagshipProduct"
+msgstr "Producto destacado"
+
+#: erp/base/templates/base/base.html:363
+msgid "Incoming stock"
+msgstr ""
+
+#: erp/base/templates/base/base.html:369
+msgid "Outgoing stock (Orders)"
+msgstr ""
+
+#: erp/base/templates/base/base.html:376
+msgid "Inventory"
+msgstr ""
+
+#: erp/base/templates/base/base.html:381
+#, fuzzy
+#| msgid "Albaran"
+msgid "Albaran Outgoing"
+msgstr "Albarán"
+
+#: erp/base/templates/base/base.html:401
+#, fuzzy
+#| msgid "StorageBatch"
+msgid "StorageBoxStructure"
+msgstr "Lote de almacenamiento"
+
+#: erp/base/templates/base/base.html:407
+#, fuzzy
+#| msgid "StorageZone"
+msgid "StorageBoxKind"
+msgstr "Almacén"
+
+#: erp/base/templates/base/base.html:413
+#, fuzzy
+#| msgid "Storage"
+msgid "StorageBox"
+msgstr "Almacenamiento"
+
+#: erp/base/templates/base/base.html:431
+msgid "Vending"
+msgstr "Vending"
+
+#: erp/base/templates/base/base.html:437
+msgid "Point of Service"
+msgstr "Punto de venta"
+
+#: erp/base/templates/base/base.html:442
+msgid "Plant"
+msgstr "Planta"
+
+#: erp/base/templates/base/base.html:447
+msgid "Zones"
+msgstr "Zonas"
+
+#: erp/base/templates/base/base.html:452
+msgid "Hardware"
+msgstr "Hardware"
+
+#: erp/base/templates/base/base.html:457
+msgid "Slots"
+msgstr "Mesas"
+
+#: erp/base/templates/base/base.html:462
+#, fuzzy
+#| msgid "Product"
+msgid "Group Product"
+msgstr "Producto"
+
+#: erp/base/templates/base/base.html:472
+msgid "Logs"
+msgstr "Logs"
+
+#: erp/base/templates/base/base.html:490
+msgid "Emails public"
+msgstr ""
+
+#: erp/base/templates/base/base.html:496
+#, fuzzy
+#| msgid "Email templates"
+msgid "Email Templates"
+msgstr "Plantillas email"
+
+#: erp/base/templates/base/base.html:502
+msgid "Reviews"
+msgstr "Comentarios"
+
+#: erp/base/templates/base/base.html:516
+msgid "Static Header"
+msgstr "Diseño cabeceras"
+
+#: erp/base/templates/base/base.html:521
+msgid "Slider"
+msgstr "Slider"
+
+#: erp/base/templates/base/base.html:526
+msgid "Static page"
+msgstr "Página estática"
+
+#: erp/base/templates/base/base.html:531
+msgid "Theme Static page"
+msgstr "Tema página estática"
+
+#: erp/base/templates/base/base.html:571
+msgid "Manager"
+msgstr ""
+
+#: erp/base/templates/base/base.html:575
+msgid "Payments"
+msgstr "Pagos"
+
+#: erp/base/templates/base/base.html:580
+msgid "Payments Request"
+msgstr "Solicitud de pago"
+
+#: erp/base/templates/base/base.html:587
+msgid "Payments Answer (Remote)"
+msgstr "Respuesta de pagos (remota)"
+
+#: erp/base/templates/base/base.html:594
+msgid "Payments Confirmation (Users)"
+msgstr "Confirmación de pagos (Usuarios)"
+
+#: erp/base/templates/base/base.html:597
+msgid "Transports"
+msgstr ""
+
+#: erp/base/templates/base/base.html:604
+msgid "TransportZone"
+msgstr ""
+
+#: erp/base/templates/base/base.html:613
+msgid "TransportRate"
+msgstr ""
+
+#: erp/base/templates/base/base.html:628
+msgid "Control"
+msgstr ""
+
+#: erp/base/templates/base/base.html:633
+#, fuzzy
+#| msgid "Email templates"
+msgid "Email Queue"
+msgstr "Plantillas email"
+
+#: erp/base/templates/base/base.html:641
+msgid "Remote Logs"
+msgstr ""
+
+#: erp/base/templates/base/base.html:669
+#, fuzzy
+#| msgid "Operators"
+msgid "POS Operators"
+msgstr "Operadores"
+
+#: erp/base/templates/base/base.html:672
+#, fuzzy
+#| msgid "Operators"
+msgid "Storage Operators"
+msgstr "Operadores"
+
+#: erp/base/templates/base/base.html:675
+msgid "Authorships"
+msgstr ""
+
+#: erp/base/templates/base/base.html:678
+#, fuzzy
+#| msgid "Public Config"
+msgid "Publicists"
+msgstr "Configuración diseño"
+
+#: erp/base/templates/base/not_authorized.html:6
+msgid "You are not authorized to access to this part of the page"
+msgstr "No está autorizado para acceder a esta parte de la página"
+
+#: erp/base/templates/base/not_authorized.html:6
+#: erp/base/templates/error.html:14
+msgid "Click here to go back"
+msgstr "Haz clic aquí para regresar"
+
+#: erp/base/templates/base/signature.old.html:49
+msgid "Signature"
+msgstr "Firma"
+
+#: erp/base/templates/base/signature.old.html:68
+#: erp/base/templates/base/signature2.html:146
+#: erp/base/templates/base/signature3.html:61
+msgid "Clear"
+msgstr "Limpiar"
+
+#: erp/base/templates/base/signature.old.html:69
+#: erp/base/templates/base/signature2.html:147
+#: erp/base/templates/base/signature3.html:62
+msgid "Save"
+msgstr "Guardar"
+
+#: erp/base/templates/base/signature.old.html:80
+#: erp/base/templates/base/signature2.html:56
+msgid "No hay nada que firmar"
+msgstr "No hay nada que firmar"
+
+#: erp/base/templates/base/signature3.html:7
+msgid "A happy trip!"
+msgstr "¡Tenga un feliz salto!"
+
+#: erp/base/templates/base/signature3.html:9
+#, fuzzy
+#| msgid "ERP for Codenerix company"
+msgid "ERP for Boing Jump company"
+msgstr "ERP para compañía Codenerix"
+
+#: erp/base/templates/error.html:7
+msgid "ERROR detected in your request"
+msgstr "ERROR detectado en su solicitud"
+
+#: erp/base/templates/home/main.html:18
+msgid "Parque"
+msgstr "Parque"
+
+#: erp/base/templates/home/main.html:30
+msgid "Birthday"
+msgstr "Cumpleaños"
+
+#: erp/base/templates/home/main.html:44
+msgid "Chuches"
+msgstr "Chuches"
+
+#: erp/base/templates/home/main.html:56
+msgid "Cafeteria"
+msgstr "Cafetería"
+
+#: erp/base/templates/nopage.html:4
+msgid "News"
+msgstr "Noticias"
+
+#: erp/base/templates/nopage.html:7
+msgid "Page not found in the selected language"
+msgstr "Página no encontrada en el idioma seleccionado"
+
+#: erp/base/templates/registration/logged_out.html:4
+msgid "Loggued out!"
+msgstr "¡Desconectado!"
+
+#: erp/base/templates/registration/logged_out.html:6
+msgid "Thanks for spending some quality time with the Web site today."
+msgstr "Gracias por disfrutar del sitio Web de hoy."
+
+#: erp/base/templates/registration/logged_out.html:8
+msgid "Log in again"
+msgstr "Entrar de nuevo"
+
+#: erp/base/templates/registration/login.html:11
+msgid "Gestor corporativo"
+msgstr "Gestor corporativo"
+
+#: erp/base/templates/registration/login.html:19
+msgid ""
+"Datos introducidos no válidos, si persiste el error contacte con soporte"
+msgstr ""
+"Datos introducidos no válidos, si persiste el error contacte con soporte"
+
+#: erp/base/templates/registration/login.html:39
+msgid "Username:"
+msgstr "Usuario:"
+
+#: erp/base/templates/registration/login.html:52
+msgid "Password:"
+msgstr "Contraseña:"
+
+#: erp/base/templates/registration/login.html:67
+#: erp/base/templates/registration/login_frontend.html:76
+#: erp/base/templates/registration/password_reset_complete.html:13
+msgid "Log in"
+msgstr "Entrar"
+
+#: erp/base/templates/registration/login.html:70
+msgid "OR"
+msgstr ""
+
+#: erp/base/templates/registration/login.html:82
+msgid "Login with"
+msgstr ""
+
+#: erp/base/templates/registration/login_frontend.html:33
+#: erp/base/templates/registration/password_change_form.html:12
+msgid "Please correct the error below."
+msgstr "Por favor corrija el error de abajo."
+
+#: erp/base/templates/registration/login_frontend.html:33
+#: erp/base/templates/registration/password_change_form.html:12
+msgid "Please correct the errors below."
+msgstr "Por favor corrija los errores de abajo."
+
+#: erp/base/templates/registration/login_frontend.html:61
+msgid "Forgotten your password or username?"
+msgstr "¿Olvidó su contraseña o nombre de usuario?"
+
+#: erp/base/templates/registration/login_frontend.html:90
+msgid "Si no estás registrado"
+msgstr "Si no estás registrado"
+
+#: erp/base/templates/registration/password_change_done.html:4
+#: erp/base/templates/registration/password_change_done.html:8
+msgid "Password change successful"
+msgstr "Cambio de contraseña realizado con éxito"
+
+#: erp/base/templates/registration/password_change_done.html:10
+msgid "Your password was changed."
+msgstr "Se ha cambiado su contraseña."
+
+#: erp/base/templates/registration/password_change_form.html:4
+#: erp/base/templates/registration/password_change_form.html:16
+msgid "Password change"
+msgstr "Cambio de contraseña"
+
+#: erp/base/templates/registration/password_change_form.html:18
+msgid ""
+"Please enter your old password, for security's sake, and then enter your new"
+" password twice so we can verify you typed it in correctly."
+msgstr ""
+"Introduzca su contraseña antigua, por razones de seguridad, y luego ingrese "
+"su nueva contraseña dos veces para poder verificar que la escribió "
+"correctamente."
+
+#: erp/base/templates/registration/password_change_form.html:24
+msgid "Old password"
+msgstr "Contraseña antigua"
+
+#: erp/base/templates/registration/password_change_form.html:29
+msgid "New password"
+msgstr "Nueva Contraseña"
+
+#: erp/base/templates/registration/password_change_form.html:34
+msgid "Password (again)"
+msgstr "Repita Contraseña"
+
+#: erp/base/templates/registration/password_change_form.html:40
+#: erp/base/templates/registration/password_reset_confirm.html:25
+msgid "Change my password"
+msgstr "Cambiar mi contraseña"
+
+#: erp/base/templates/registration/password_reset_complete.html:4
+#: erp/base/templates/registration/password_reset_complete.html:9
+msgid "Password reset complete"
+msgstr "Restablecer contraseña completa"
+
+#: erp/base/templates/registration/password_reset_complete.html:11
+msgid "Your password has been set.  You may go ahead and log in now."
+msgstr "Se ha establecido la contraseña. Puede acceder ahora."
+
+#: erp/base/templates/registration/password_reset_confirm.html:4
+#: erp/base/templates/registration/password_reset_form.html:4
+#: erp/base/templates/registration/password_reset_form.html:8
+msgid "Password reset"
+msgstr "Restablecimiento de contraseña"
+
+#: erp/base/templates/registration/password_reset_confirm.html:8
+msgid "Enter new password"
+msgstr "Introduzca nueva contraseña"
+
+#: erp/base/templates/registration/password_reset_confirm.html:10
+msgid ""
+"Please enter your new password twice so we can verify you typed it in "
+"correctly."
+msgstr ""
+"Ingrese su nueva contraseña dos veces para poder verificar que la escribió "
+"correctamente."
+
+#: erp/base/templates/registration/password_reset_confirm.html:17
+msgid "New password:"
+msgstr "Nueva contraseña:"
+
+#: erp/base/templates/registration/password_reset_confirm.html:22
+msgid "Confirm password:"
+msgstr "Confirmar contraseña:"
+
+#: erp/base/templates/registration/password_reset_confirm.html:31
+msgid "Password reset unsuccessful"
+msgstr "Restablecimiento de la contraseña sin éxito"
+
+#: erp/base/templates/registration/password_reset_confirm.html:33
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a new password reset."
+msgstr ""
+"El enlace de restablecimiento de contraseña no es válido, posiblemente "
+"porque ya se ha utilizado. Solicite de nuevo restablecer la contraseña."
+
+#: erp/base/templates/registration/password_reset_done.html:4
+#: erp/base/templates/registration/password_reset_done.html:8
+msgid "Password reset successful"
+msgstr "Se restableció la contraseña correctamente."
+
+#: erp/base/templates/registration/password_reset_done.html:10
+msgid ""
+"We've e-mailed you instructions for setting your password to the e-mail "
+"address you submitted. You should be receiving it shortly."
+msgstr ""
+"Le hemos enviado instrucciones por correo electrónico para configurar su "
+"contraseña a la dirección de correo electrónico que envió. Debería recibirlo"
+" en breve."
+
+#: erp/base/templates/registration/password_reset_email.html:2
+#, python-format
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr ""
+"Recibió este correo electrónico porque solicitó una restablecimiento de "
+"contraseña para su cuenta de usuario en %(site_name)s."
+
+#: erp/base/templates/registration/password_reset_email.html:4
+msgid "Please go to the following page and choose a new password:"
+msgstr "Por favor, vaya a la siguiente página y elija una nueva contraseña:"
+
+#: erp/base/templates/registration/password_reset_email.html:8
+msgid "Your username, in case you've forgotten:"
+msgstr "Tu nombre de usuario, en caso de que hayas olvidado:"
+
+#: erp/base/templates/registration/password_reset_email.html:10
+msgid "Thanks for using our site!"
+msgstr "¡Gracias por visitar nuestro sitio!"
+
+#: erp/base/templates/registration/password_reset_email.html:12
+#, python-format
+msgid "The %(site_name)s team"
+msgstr "El equipo de %(site_name)s "
+
+#: erp/base/templates/registration/password_reset_form.html:10
+msgid ""
+"Forgotten your password? Enter your e-mail address below, and we'll e-mail "
+"instructions for setting a new one."
+msgstr ""
+"¿Olvidaste tu contraseña? Ingrese su dirección de correo electrónico a "
+"continuación, y le enviaremos instrucciones por correo electrónico para "
+"establecer una nueva."
+
+#: erp/base/templates/registration/password_reset_form.html:14
+msgid "E-mail address:"
+msgstr "Dirección de correo electrónico:"
+
+#: erp/base/templates/registration/password_reset_form.html:14
+msgid "Reset my password"
+msgstr "Restablecer mi contraseña"
+
+#~ msgid "Uppppss! There are no so many Signature Hardware here!"
+#~ msgstr "Uppppss, ¡hay demasiados dispositivos de firma aquí!"
+
+#~ msgid "Form invalid"
+#~ msgstr "Formulario inválido"
+
+#~ msgid "Service person invalid"
+#~ msgstr "Servicio por persona inválido"
+
+#~ msgid "Barcode \"%(barcode)s\" access granted"
+#~ msgstr "Código de barras \"%(barcode)s\" acceso autorizado"
+
+#~ msgid "Barcode \"%(barcode)s\" already used"
+#~ msgstr "Código de barras \"%(barcode)s\" ya ha sido usado"
+
+#~ msgid "(%(minutes)s minutes %(seconds)s seconds left)"
+#~ msgstr "(quedan %(minutes)s minutos %(seconds)s segundos)"
+
+#~ msgid "Barcode \"%(barcode)s\" access denied"
+#~ msgstr "Código de barras \"%(barcode)s\" acceso denegado"
+
+#~ msgid "Access denied"
+#~ msgstr "Acceso denegado"
+
+#, fuzzy
+#~ msgid "Cash diary resumen"
+#~ msgstr "Informe de Diario de caja"
+
+#~ msgid "shopping carts"
+#~ msgstr "Carritos de la compra"
+
+#~ msgid "budgets"
+#~ msgstr "presupuestos"
+
+#~ msgid "Config service"
+#~ msgstr "Configuración de servicios"
+
+#~ msgid "Service"
+#~ msgstr "Servicio"
+
+#~ msgid "ServiceHour"
+#~ msgstr "Hora del servicio"
+
+#~ msgid "ServiceDay"
+#~ msgstr "Día del servicio"
+
+#~ msgid "Clients"
+#~ msgstr "Clientes"
+
+#~ msgid "ServicePerson"
+#~ msgstr "Servicios por persona"
+
+#~ msgid "Receptions"
+#~ msgstr "Recepciones"
+
+#~ msgid "A happy day!!"
+#~ msgstr "¡Tenga un feliz dia!"
+
+#~ msgid "A happy day!"
+#~ msgstr "¡Tenga un feliz dia!"
+
+#~ msgid "Ir al login de Vending"
+#~ msgstr "Ir al login de Vending"
+
+#~ msgid "Games"
+#~ msgstr "Juegos"
+
+#~ msgid "Fitness"
+#~ msgstr "Fitness"
+
+#~ msgid "analisys under control!"
+#~ msgstr "¡Análisis bajo control!"
+
+#~ msgid "ERP for clinical and genetic analisys company"
+#~ msgstr "ERP para la empresa de análisis clínico y genético"

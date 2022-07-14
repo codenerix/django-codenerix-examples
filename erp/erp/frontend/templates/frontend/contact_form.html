@@ -1,0 +1,59 @@
+{% extends "frontend/base_cart.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block extra_css %}
+{# <link href="{% static "css/frontend.css" %}" id="style_components" rel="stylesheet" type="text/css" /> #}
+{% endblock %}
+
+{% block slider %}
+
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+            <div class="item active" style="background: url({% static "imagenes/padre-hijo.jpg" %}) no-repeat center center; background-size: cover; ">
+                <div class="container">
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div><!-- /.carousel -->
+{% endblock %}
+
+{% block buscador %}
+
+    
+{% endblock %}
+
+{% block contenido %}
+
+<section class="rejilla-productos-project">
+
+    <!-- BEGIN: LAYOUT/BREADCRUMBS/BREADCRUMBS-2 -->
+    {% block breadcrumbs %}
+    {% endblock %}  
+    <!-- END: LAYOUT/BREADCRUMBS/BREADCRUMBS-2 -->  
+
+    {% block body_backenduser_js %}{% endblock %}
+    
+<div class="container c-margin-t-20 c-margin-b-100" ng-controller="codenerixPublicContactCtrl">
+    <div ng-show="msg" class="alert alert-success">
+        <strong>{% trans "Email enviado" %}</strong>
+    </div>
+    <div ng-hide="msg">
+        <div ui-view class="formulario-contacto"></div>
+    </div>
+</div>
+
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script type="text/javascript" src="{% static "codenerix/js/codenerix.js" %}"></script>
+<script type="text/javascript" src="{% static "common/js/app.js" %}"></script>
+<script type="text/javascript" src="{% static "common/js/controllers.js" %}"></script>
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block extra_css %}<link href="{% static "people/css/settings.css" %}" rel="stylesheet">{% endblock %}
+{% block angular_app_libraries %}<script type="text/javascript" src="{% static "people/js/settings.js" %}"></script>{% endblock %}
+
+{% block body %}
+<div class="row clearfix" ng-controller="SettingsCtrl">
+    <div class="col-md-6 column">
+        <div class="panel panel-default">
+            <div class="panel-heading"><strong>{% trans "Configure your settings" %}</strong></div>
+            <div class="panel-body">
+                {% comment %}
+                {% if success_flag == "settings" %}
+                    <alert type="success" ng-show='settings_success' close="settings_success=false">
+                        <strong>{% trans "Information" %}:</strong> {% trans "Settings saved!" %}
+                    </alert>
+                {% endif %}
+                {% endcomment %}
+                {% if msg_setting_ok %}
+                    <alert type="success" ng-show='settings_success' close="settings_success=false">
+                        <strong>{% trans "Information" %}:</strong> {{ msg_setting_ok }}
+                    </alert>
+                {% endif %}
+                <form name="{{form.form_name}}" action="{% url "settings" %}" method="POST" class="form-horizontal" role="form" autocomplete="off">{%csrf_token%}
+                    {% for field in form %}
+                        <div class="form-group">
+                            <label for="{{field.id_for_label}}" class="col-sm-4 control-label">{{field.label}}</label>
+                            <div class="col-sm-8">
+                                {{field.errors|safe}}
+                                {{field|safe}}
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="form-group">
+                        <center>
+                            <label class="sr-only" for="submit_settings">{% trans "Save settings" %}</label>
+                            <input id='submit_settings' type="submit" value="{% trans "Save settings" %}" class="btn btn-primary" ng-disabled="{{form.form_name}}.$invalid" />
+                        </center>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 column">
+        <div class="panel panel-default">
+            <div class="panel-heading"><strong>{% trans "Change your password" %}</strong></div>
+            <div class="panel-body">
+                {% comment %}
+                {% if success_flag == "password" %}
+                    <alert type="success" ng-show='password_success' close="password_success=false">
+                        <strong>{% trans "Information" %}:</strong> {% trans "New password saved!" %}
+                    </alert>
+                {% endif %}
+                {% endcomment %}
+                {% if msg_password_ok %}
+                    <alert type="success" ng-show='password_success' close="password_success=false">
+                        <strong>{% trans "Information" %}:</strong> {{ msg_password_ok }}
+                    </alert>
+                {% endif %}
+                <form name="{{form_password.form_name}}" action="{% url "settings" %}" method="POST" class="form-horizontal" role="form" autocomplete="off">{%csrf_token%}
+                    {% for field in form_password %}
+                        <div class="form-group">
+                            <label for="{{field.id_for_label}}" class="col-sm-4 control-label">{{field.label}}</label>
+                            <div class="col-sm-8">
+                                {{field.errors|safe}}
+                                {{field|safe}}
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-8">
+                            <label class="sr-only" for="submit_password">{% trans "Set new password" %}</label>
+                            <div class="col-sm-6">
+                                <input id='submit_password' type="submit" value="{% trans "Set new password" %}" class="btn btn-primary" ng-disabled="{{form_password.form_name}}.$invalid  || password!=confirm" />
+                            </div>
+                            <div class="col-sm-6">
+                                <button type="button" class="btn btn-danger" ng-if="{{form_password.form_name}}.$valid && password!=confirm" ng-cloak>{% trans "Passwords do not match" %}</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

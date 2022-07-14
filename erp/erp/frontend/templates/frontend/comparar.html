@@ -1,0 +1,242 @@
+{% extends "frontend/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block body %}
+
+<!-- BEGIN: PAGE CONTENT -->
+<div class="container">
+    <div class="c-layout-sidebar-menu c-theme">
+        <!-- BEGIN: LAYOUT/SIDEBARS/SHOP-SIDEBAR-MENU -->
+        <div class="c-sidebar-menu-toggler">
+            <h3 class="c-title c-font-uppercase c-font-bold">Navigation</h3>
+            <a href="javascript:;" class="c-content-toggler" data-toggle="collapse" data-target="#sidebar-menu-1">
+                <span class="c-line"></span>
+                <span class="c-line"></span>
+                <span class="c-line"></span>
+            </a>
+        </div>
+        <ul class="c-sidebar-menu collapse " id="sidebar-menu-1">
+	        <li class="c-dropdown c-open">
+                <a href="javascript:;" class="c-toggler">Smartphones
+                    <span class="c-arrow"></span>
+                </a>
+                <ul class="c-dropdown-menu">
+                    <li>
+                        <a href="busqueda.html">Alcatel</a>
+                    </li>
+                    <li>
+                        <a href="busqueda.html">Apple</a>
+                    </li>
+                    <li>
+                        <a href="busqueda.html">Blackberry</a>
+                    </li>
+                    <li>
+                        <a href="busqueda.html">BQ</a>
+                    </li>
+                    <li>
+                        <a href="busqueda.html">Huawei</a>
+                    </li>
+                    <li>
+                        <a href="busqueda.html">LG</a>
+                    </li>
+                    <li>
+                        <a href="busqueda.html">Nokia</a>
+                    </li>
+                    <li>
+                        <a href="busqueda.html">Motorola</a>
+                    </li>
+                    <li>
+                        <a href="busqueda.html">Sony</a>
+                    </li>
+                    <li>
+                        <a href="busqueda.html">Samsung</a>
+                    </li>
+				</ul>
+            </li>
+            <li class="c-dropdown c-active c-open">
+                <a href="javascript:;" class="c-toggler">Smartwatch
+                    <span class="c-arrow"></span>
+                </a>
+                <ul class="c-dropdown-menu">
+                    <li class="c-active">
+                        <a href="busqueda.html">Pulseras smartwatch</a>
+                    </li>
+                    <li>
+                        <a href="busqueda.html">Relojes running</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="c-dropdown c-open">
+                <a href="javascript:;" class="c-toggler">Informática
+                    <span class="c-arrow"></span>
+                </a>
+                <ul class="c-dropdown-menu">
+                    <li>
+                        <a href="busqueda.html">Portátiles</a>
+                    </li>
+                    <li>
+                        <a href="busqueda.html">Sobremesa</a>
+                    </li>
+                    <li>
+                        <a href="busqueda.html">Impresoras</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="c-dropdown c-open">
+                <a href="javascript:;">Tablets / Ebooks
+                    <span class="c-arrow c-toggler"></span>
+                </a>
+                <ul class="c-dropdown-menu">
+                    <li>
+                        <a href="busqueda.html">Ipad</a>
+                    </li>
+                    <li>
+                        <a href="busqueda.html">Ebooks</a>
+                    </li>
+                    <li>
+                        <a href="busqueda.html">Ultrabooks</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="c-dropdown c-open">
+                <a href="javascript:;" class="c-toggler">TV
+                    <span class="c-arrow"></span>
+                </a>
+                <ul class="c-dropdown-menu">
+                    <li>
+                        <a href="busqueda.html">Televisión</a>
+                    </li>
+                    <li>
+                        <a href="busqueda.html">Home Cinema</a>
+                    </li>
+                    <li>
+                        <a href="busqueda.html">Monitores</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="c-dropdown c-open">
+                <a href="javascript:;" class="c-toggler">Audio
+                    <span class="c-arrow"></span>
+                </a>
+                <ul class="c-dropdown-menu">
+                    <li>
+                        <a href="busqueda.html">Altavoces</a>
+                    </li>
+                    <li>
+                        <a href="busqueda.html">Mundo DJ</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="c-dropdown c-open">
+                <a href="javascript:;" class="c-toggler">Fotografía
+                    <span class="c-arrow"></span>
+                </a>
+                <ul class="c-dropdown-menu">
+                    <li>
+                        <a href="busqueda.html">Cámaras Digitales</a>
+                    </li>
+                    <li>
+                        <a href="busqueda.html">Cámaras Réflex</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    <!-- END: LAYOUT/SIDEBARS/SHOP-SIDEBAR-MENU -->
+	</div>
+    <div class="c-layout-sidebar-content ">
+        <!-- BEGIN: PAGE CONTENT -->
+        <div class="c-shop-product-compare">
+            <div class="c-content-title-1">
+                <h3 class="c-font-uppercase c-font-bold">Comparar Productos</h3>
+            </div>
+            <div class="c-product-compare-content">
+                <div class="c-product-data c-compare-products clearfix">
+                    <div class="table-wrapper-responsive">
+                        <table class="c-product-compare-table" summary="Detalles del Producto">
+                            <tr>
+                                <td class="c-compare-info c-bg-white">
+                                    <p>Tienes 2 artículos en la lista.</p>
+                                </td>
+                                <td class="c-compare-item">
+                                    <a href="javascript:;">
+                                        <img src="assets/base/img/content/shop5/21.png" alt="Smartphone">
+                                    </a>
+                                    <h3>
+                                        <a href="javascript:;">Smartphone 1</a>
+                                    </h3>
+                                    <strong class="c-compare-price">
+                                        247.00<span>€</span></strong>
+                                </td>
+                                <td class="c-compare-item">
+                                    <a href="#">
+                                        <img src="assets/base/img/content/shop5/21.png" alt="Smartphone">
+                                    </a>
+                                    <h3>
+                                        <a href="javascript:;">Smartphone 2</a>
+                                    </h3>
+                                    <strong class="c-compare-price">
+                                        307.00<span>€</span></strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th colspan="3">
+                                    <h2>Detalles del Producto</h2>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td class="c-compare-info"> Modelo </td>
+                                <td class="c-compare-item"> Capacidad </td>
+                                <td class="c-compare-item"> Colores </td>
+                            </tr>
+                            <tr>
+                                <td class="c-compare-info"> Dimension </td>
+                                <td class="c-compare-item"> 13.00cm x 0.00cm x 0.00cm </td>
+                                <td class="c-compare-item"> 13.00cm x 0.00cm x 0.00cm </td>
+                            </tr>
+                            <tr>
+                                <td class="c-compare-info"> Weight </td>
+                                <td class="c-compare-item"> 110.00g </td>
+                                <td class="c-compare-item"> 110.00g </td>
+                            </tr>
+                            <tr>
+                                <th colspan="3">
+                                    <h2>Destacado</h2>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td class="c-compare-info"> Sleeve Length </td>
+                                <td class="c-compare-item"> 13 cm </td>
+                                <td class="c-compare-item"> 15cm </td>
+                            </tr>
+                            <tr>
+                                <td class="c-compare-info"> Stock Availability </td>
+                                <td class="c-compare-item"> In Stock </td>
+                                <td class="c-compare-item"> In Stock </td>
+                            </tr>
+                            <tr>
+                                <td class="c-compare-info">&nbsp;</td>
+                                <td class="c-compare-item">
+                                    <a class="btn btn-primary c-btn c-btn-square c-theme-btn c-btn-md c-margin-b-10" href="javascript:;">Añadir al carro</a>
+                                    <br>
+                                    <a class="btn btn-default c-btn c-btn-square c-theme-btn c-btn-border-1x c-btn-md" href="javascript:;">Descartar</a>
+                                </td>
+                                <td class="c-compare-item">
+                                    <a class="btn btn-primary c-btn c-btn-square c-theme-btn c-btn-md c-margin-b-10" href="javascript:;">Añadir al carro</a>
+                                    <br>
+                                    <a class="btn btn-default c-btn c-btn-square c-theme-btn c-btn-border-1x c-btn-md" href="javascript:;">Descartar</a>
+                                </td>
+                            </tr>
+                        </table>
+                        <p class="c-margin-t-20">
+                            <strong>Nota:</strong> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam sit nonummy nibh euismod tincidunt ut laoreet dolore magna aliquarm erat sit volutpat. Nostrud exerci tation ullamcorper suscipit
+                            lobortis nisl aliquip commodo consequat. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END: PAGE CONTENT -->
+    </div>
+</div>
+    
+{% endblock %}

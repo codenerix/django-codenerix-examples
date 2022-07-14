@@ -1,0 +1,225 @@
+body{
+    font-size: 13px;
+    font-weight:500;
+    height: auto;
+	margin-bottom: 50px;
+}
+.cursor_default{
+	cursor: default !important;
+}
+header {
+	min-height: 50px;
+}
+.logo .img-responsive {
+    margin-left: 5px;
+	max-height: 50px;
+}
+.breadcrumb {
+    background-color: #fff;
+    padding: 10px 5px;
+}
+.breadcrumb>.end:after {
+	content: none;
+}
+.navbar-right {
+    margin-right: 0px;
+}
+li.li_cdnx_title {
+	padding-left: 10px;
+}
+.user-logged {
+	padding: 3px 20px;
+	color: #888;
+}
+.listfilters .checkbox input[type="checkbox"] {
+	position: relative;
+	margin-top: 5px;
+	margin-left: 20px;
+}
+#footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+	background-color: #f2f2f2;
+	z-index: 99;
+	padding: 10px 0;
+}
+#footer .v-footer {
+padding-top: 5px;
+}
+/* 	FORMULARIOS  */
+.md-chips ._md-chip-input-container {
+    width: 100%;
+}
+.multiform_top {
+	margin-bottom: 0;
+}
+input.ui-select-search[placeholder] {
+	padding:0 10px!important;
+}
+input.ui-select-search {
+	-webkit-box-sizing: border-box;
+}
+/* 	FORMULARIO LOGIN  */
+.login-form h2 {
+	text-align: center;
+	color: #ff7f32;
+}
+.sign-up {
+  position: relative;
+  margin: 30px auto;
+  max-width: 600px;
+  padding: 33px 25px 29px;
+  background: #eee;
+  border-bottom: 2px solid #c4c4c4;
+  border-radius: 5px;
+  @include box-shadow(0 1px 5px rgba(black, .25));
+
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    bottom: 1px;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: inherit;
+    border-bottom: 1px solid #d2d2d2;
+    border-radius: 4px;
+  }
+
+  &:after {
+    bottom: 3px;
+    border-color: #dcdcdc;
+  }
+}
+
+input {
+  font-family: inherit;
+  color: inherit;
+  @include box-sizing(border-box);
+}
+.sign-up label {
+	text-align:center;
+	text-transform: uppercase;
+	font-size: 14px;
+} 
+
+.sign-up-input {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 25px;
+  padding: 0 15px 2px;
+  font-size: 17px;
+  text-align: center;
+  background: white;
+  border: 2px solid #ebebeb;
+  border-radius: 4px;
+  @include box-shadow(inset 0 -2px #ebebeb);
+
+  &:focus {
+    border-color: #62c2e4;
+    outline: none;
+    @include box-shadow(inset 0 -2px #62c2e4);
+  }
+
+  .lt-ie9 & { line-height: 48px; }
+}
+
+.sign-up-button {
+  position: relative;
+  vertical-align: top;
+  width: 100%;
+  height: 54px;
+  padding: 0;
+  font-size: 18px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(black, .25);
+  background: #365abd;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  @include box-shadow(inset 0 -2px #d76b60);
+
+  &:active {
+    top: 1px;
+    outline: none;
+    @include box-shadow(none);
+  }
+}
+
+:-moz-placeholder { color: #ccc; font-weight: 300; }
+::-moz-placeholder { color: #ccc; opacity: 1; font-weight: 300; }
+::-webkit-input-placeholder { color: #ccc; font-weight: 300; }
+:-ms-input-placeholder { color: #ccc; font-weight: 300; }
+
+::-moz-focus-inner { border: 0; padding: 0; }
+
+#login-form .alert-danger ul {
+	list-style: none;
+	padding: 0;
+}
+/* 	WYSIWYG */
+/* 	Opción para que el editor wysiwyg NG QUILL sólo muestre imágenes */
+ng-quill-editor > div.ql-toolbar.ql-snow > span {
+	display: none;
+}
+ng-quill-editor > div.ql-toolbar.ql-snow > span:last-child {
+	display: block;
+}
+.ng-pristine .checkbox input[type="checkbox"] {
+	position: relative;
+	margin-left: 5px;
+}
+/* RESPONSIVE */
+@media (max-width: 1280px){
+	.navbar-brand-r {
+		display: none;
+	}
+}
+@media only screen and (max-width: 1200px) and (min-width: 768px) {
+	.navbar-brand {
+	    font-size: 14px;
+	}
+}
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+	.body-web {
+		margin-top: 10px;
+	}
+}
+@media (max-width: 992px) {
+	.nav-breadcrumb {
+		width: 100%;
+	    padding: 0px 15px;
+	}
+	.internal-buttons-top {
+	    margin-top: 0px;
+	}
+}
+@media (max-width: 767px) {
+	.navbar-nav {
+	    margin: 10px 0;
+	}
+	.navbar-default .navbar-nav > .open {
+		width: 100%;
+	}
+	.form-group label {
+		padding-top: 15px;
+	}
+	#footer .logo-footer {
+		max-width: 30%;	
+	}
+}
+@media (max-width: 360px) {
+	#footer {
+		text-align: center;
+	}
+	#footer .v-footer {
+		font-size: x-small;	
+		padding-top: 2px;
+	}
+	#footer .pull-right {
+		float: none!important;
+	}
+}

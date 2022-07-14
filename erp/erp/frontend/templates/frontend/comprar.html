@@ -1,0 +1,251 @@
+{% extends "frontend/base_cart.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% block contenido %}
+
+<section class="rejilla-productos-project">
+
+
+<!-- BEGIN: PAGE CONTAINER -->
+<div class="c-layout-page">
+    <!-- BEGIN: CONTENT/SHOPS/SHOP-CART-1 -->
+    <div class="c-content-box">
+        <div class="container shopping-cart">
+            <h2>{% trans "Carrito" %}</h2>
+            <div class="c-shop-cart-page-1" id="spinner">
+                <center><img src="{% static "img/loaderfront.gif" %}"></center>
+            </div>
+            <div class="c-shop-cart-page-1" id="tbl_products" style="display:none">
+                
+                {% comment %}
+                <div class="row c-cart-table-title">
+                    <div class="col-md-2 c-cart-image">
+                        <h3 class="c-font-uppercase c-font-bold c-font-16 c-font-grey-2">
+                        {% trans "Product" %}</h3>
+                    </div>
+                    <div class="col-md-4 c-cart-desc">
+                        <h3 class="c-font-uppercase c-font-bold c-font-16 c-font-grey-2">
+                        {% trans "Description" %}</h3>
+                    </div>
+                    <div class="col-md-1 c-cart-ref">
+                        <h3 class="c-font-uppercase c-font-bold c-font-16 c-font-grey-2">
+                        {% trans "REF" %}</h3>
+                    </div>
+                    <div class="col-md-2 c-cart-qty">
+                        <h3 class="c-font-uppercase c-font-bold c-font-16 c-font-grey-2">
+                        {% trans "Qty" %}</h3>
+                    </div>
+                    <div class="col-md-1 c-cart-price">
+                        <h3 class="c-font-uppercase c-font-bold c-font-16 c-font-grey-2">
+                        {% trans "Unit Price" %}</h3>
+                    </div>
+                    <div class="col-md-1 c-cart-total">
+                        <h3 class="c-font-uppercase c-font-bold c-font-16 c-font-grey-2">
+                        {% trans "Total" %}</h3>
+                    </div>
+                    <div class="col-md-1 c-cart-remove"></div>
+                </div>
+                {% endcomment %}
+
+                <div class="row c-cart-table-row cdnx_template_product" id="row_product">
+                    <h2 class="c-font-uppercase c-font-bold c-theme-bg c-font-black c-cart-item-title c-cart-item-first cdnx_product_title_h2">
+                    </h2>
+                    <div class="col-md-2 col-sm-3 col-xs-5 c-cart-image">
+                        <img src="" alt="" class="cdnx_product_image">
+                    </div>
+                    <div class="col-md-4 col-sm-9 col-xs-7 c-cart-desc">
+                        <h3>
+                            <a href="" class="c-font-bold c-theme-link c-font-22 c-font-dark cdnx_product_title"></a>
+                        </h3>
+                        <p class="cdnx_product_description" ></p>
+                    </div>
+                    <div class="col-md-1 col-sm-3 col-xs-6 c-cart-ref">
+                        <p class="c-cart-sub-title c-theme-font c-font-uppercase c-font-bold">{% trans "SKU" %}</p>
+                        <p class="cdnx_product_code"></p>
+                    </div>
+                    <div class="col-md-2 col-sm-3 col-xs-6 c-cart-qty">
+                        <p class="c-cart-sub-title c-theme-font c-font-uppercase c-font-bold">{% trans "QTY" %}</p>
+                        <div class="input-group cdnx-spinner">
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-xs cdnx_product_less_quantity">
+                                    <span class="glyphicon glyphicon-minus"></span>
+                                </button>
+                            </span>
+                            <input type="number" class="form-control input-number cdnx_product_quantity">
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-xs cdnx_product_more_quantity">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-1 col-sm-3 col-xs-6 c-cart-price">
+                        <p class="c-cart-sub-title c-theme-font c-font-uppercase c-font-bold">{% trans "Unit Price" %}</p>
+                        <p class="c-cart-price c-font-bold"><span class="cdnx_product_unit_price"></span>&euro;</p>
+                    </div>
+                    <div class="col-md-1 col-sm-3 col-xs-6 c-cart-total">
+                        <p class="c-cart-sub-title c-theme-font c-font-uppercase c-font-bold">{% trans "Total" %}</p>
+                        <p class="c-cart-price c-font-bold"><span class="cdnx_product_total_price"></span>&euro;</p>
+                    </div>
+                    <div class="col-md-1 col-sm-12 c-cart-remove">
+                        <a href="#" class="c-theme-link c-cart-remove-desktop cdnx_product_delete">×</a>
+                        <a href="#" class="c-cart-remove-mobile btn c-btn c-btn-md c-btn-square c-btn-red c-btn-border-1x c-font-uppercase cdnx_product_delete">{% trans "Remove item from Cart" %}</a>
+                    </div>
+                </div>
+               <!-- END: SHOPPING CART ITEM ROW -->
+            </div>
+               <!-- BEGIN: SUBTOTAL ITEM ROW -->
+            <div class="c-shop-cart-page-1">
+                <div class="row">
+                    <div class="c-cart-subtotal-row c-margin-t-20">
+                        <div class="col-md-2 col-md-offset-9 col-sm-6 col-xs-6 c-cart-subtotal-border">
+                            <h3 class="c-font-uppercase c-font-bold c-right c-font-16 c-font-grey-2">{% trans "Subtotal" %}</h3>
+                        </div>
+                        <div class="col-md-1 col-sm-6 col-xs-6 c-cart-subtotal-border">
+                            <h3 class="c-font-bold c-font-16"><span id="cdnx_product_subtotal">0.00</span>&euro;</h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- END: SUBTOTAL ITEM ROW -->
+                <!-- BEGIN: SUBTOTAL ITEM ROW -->
+                <div class="row">
+                    <div class="c-cart-subtotal-row">
+                        <div class="col-md-2 col-md-offset-9 col-sm-6 col-xs-6 c-cart-subtotal-border">
+                            <h3 class="c-font-uppercase c-font-bold c-right c-font-16 c-font-grey-2">IVA</h3>
+                        </div>
+                        <div class="col-md-1 col-sm-6 col-xs-6 c-cart-subtotal-border">
+                            <h3 class="c-font-bold c-font-16"><span id="cdnx_product_tax">0.00</span>&euro;</h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- END: SUBTOTAL ITEM ROW -->
+                <!-- BEGIN: SUBTOTAL ITEM ROW -->
+                <div class="row">
+                    <div class="c-cart-subtotal-row">
+                        <div class="col-md-2 col-md-offset-9 col-sm-6 col-xs-6 c-cart-subtotal-border">
+                            <h3 class="c-font-uppercase c-font-bold c-right c-font-16 c-font-grey-2">{% trans "Total" %}</h3>
+                        </div>
+                        <div class="col-md-1 col-sm-6 col-xs-6 c-cart-subtotal-border">
+                            <h3 class="c-font-bold c-font-16"><span id="cdnx_product_total">0.00</span>&euro;</h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- END: SUBTOTAL ITEM ROW -->
+                <div class="c-cart-buttons">
+                    <a href="/" class="btn c-btn btn-lg c-btn-red c-btn-square c-font-black c-font-bold c-font-uppercase c-cart-float-l">{% trans "Continue Shopping" %}</a>
+                    <a href="{% url "checkout" %}" class="btn c-btn btn-lg c-theme-btn c-btn-square c-font-bold c-font-uppercase c-cart-float-r" id="cdnx_product_checkout">{% trans "Pagar" %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END: CONTENT/SHOPS/SHOP-CART-1 -->
+    <!-- BEGIN: CONTENT/SHOPS/SHOP-2-2 -->
+    {% comment %}
+    <div class="c-content-box c-size-md c-overflow-hide c-bs-grid-small-space">
+        <div class="container">
+            <div class="c-content-title-4">
+                <h3 class="c-font-uppercase c-center c-font-bold c-line-strike">
+                    <span class="c-bg-black">{% trans "Productos recomendados" %}</span>
+                </h3>
+            </div>
+            <div class="row">
+                <div data-slider="owl" data-items="4" data-auto-play="8000">
+                    <div class="owl-carousel owl-theme c-theme owl-small-space">
+                        {% for product in outstanding %}
+                        <div class="item">
+                            <div class="c-content-product-2 c-bg-black c-border">
+                                <div class="onclick" onclick="location.href='/{{product.slug}}';">
+                                    {% if product.offer %}
+                                    <div class="c-label c-bg-red c-font-uppercase c-font-black c-font-13 c-font-bold">{% trans "Oferta" %}</div>
+                                    {% endif %}
+                                    {% if product.new %}
+                                    <div class="c-label c-label-right c-theme-bg c-font-uppercase c-font-black c-font-13 c-font-bold">{% trans "New" %}</div>
+                                    {% endif %}
+                                    <div class="c-overlay-wrapper" onclick="location.href='/{{product.slug}}';" >
+                                    </div>
+                                    <div class="c-bg-img-center-contain c-overlay-object" data-height="height" style="height: 270px; background-image: url(/media/{{product.image}});"></div>
+                                </div>
+                                <div class="c-info">
+                                    <p class="c-title c-font-18 c-font-slim">
+                                    <a href="/{{product.slug}}">{{product.name}}</a>
+                                    </p>
+                                    <p class="c-price c-font-16 c-font-slim">548&euro; &nbsp;
+                                        <span class="c-font-16 c-font-line-through c-font-yellow">
+                                            600&euro;
+                                        </span>
+                                    </p>
+                                </div>
+                                <div class="btn-group btn-group-justified" role="group">
+                                    <div class="btn-group c-border-top" role="group">
+                                        <a href="shop-product-wishlist.html" class="btn btn-lg c-btn-black c-btn-uppercase c-btn-square c-font-grey-3 c-font-black-hover c-bg-yellow-hover c-btn-product">
+                                            {% trans "Lista de deseos" %}
+                                        </a>
+                                    </div>
+                                    <div class="btn-group c-border-left c-border-top" role="group">
+                                        <a href="shop-cart.html" class="btn btn-lg c-btn-black c-btn-uppercase c-btn-square c-font-grey-3 c-font-black-hover c-bg-yellow-hover c-btn-product">
+                                            {% trans "Comprar" %}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endcomment %}
+    <!-- END: CONTENT/SHOPS/SHOP-2-2 -->
+    <!-- BEGIN: CONTENT/STEPS/STEPS-3 -->
+    <div class="c-content-box c-size-md c-theme-bg">
+        <div class="container">
+            <div class="c-content-step-3 c-font-black">
+                <div class="row">
+                    <div class="col-md-4 c-steps-3-block">
+                        <i class="fa fa-truck"></i>
+                        <div class="c-steps-3-title">
+                            <h2 class="c-font-black c-font-uppercase c-font-30 c-font-thin">{% trans "Envío Express" %}</h2>
+                            <em>{% trans "Tendrás tu producto en 3 días" %}</em>
+                        </div>
+                        <span>&nbsp;</span>
+                    </div>
+                    <div class="col-md-4 c-steps-3-block">
+                        <i class="fa fa-user"></i>
+                        <div class="c-steps-3-title">
+                            <h2 class="c-font-black c-font-uppercase c-font-30 c-font-thin">{% trans "Estado del pedido" %}</h2>
+                            <em>{% trans "Lo podrás ver desde tu panel de usuario" %}</em>
+                        </div>
+                        <span>&nbsp;</span>
+                    </div>
+                    <div class="col-md-4 c-steps-3-block">
+                        <i class="fa fa-check"></i>
+                        <div class="c-steps-3-title">
+                            <h2 class="c-font-black c-font-uppercase c-font-30 c-font-thin">{% trans "Disfrútalo" %}</h2>
+                            <em>{% trans "Puedes valorar el producto en nuestra tienda" %}</em>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END: CONTENT/STEPS/STEPS-3 -->
+</div>
+<!-- END: PAGE CONTAINER -->
+</section>
+
+{% endblock %}
+
+
+{% block extra_more_js %}
+<script type="text/javascript">
+    $(document).ready(function() {
+        shopping_cart.get_list_products(function () {
+            $('#tbl_products').show();
+            $('#spinner').hide();
+        });
+    });
+</script>
+{% endblock %}

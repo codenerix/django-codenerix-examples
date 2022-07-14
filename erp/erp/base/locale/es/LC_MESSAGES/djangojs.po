@@ -1,0 +1,139 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-19 07:58+0200\n"
+"PO-Revision-Date: 2022-06-19 08:10+0200\n"
+"Last-Translator:   <juanmi@juanmitaboada.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.9.8\n"
+
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js:99
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:216
+msgid "Select files"
+msgstr "Seleccione los ficheros"
+
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js:100
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:217
+msgid "Add files to the upload queue and click the start button."
+msgstr "Añada ficheros a la cola y haga click en el botón para comenzar"
+
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js:106
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:227
+msgid "Filename"
+msgstr "Fichero"
+
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js:108
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:228
+msgid "Status"
+msgstr "Estados"
+
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js:109
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:229
+msgid "Size"
+msgstr "Tamaño"
+
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js:118
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js:248
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:244
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:886
+msgid "Add Files"
+msgstr "Añadir ficheros"
+
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js:119
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:245
+msgid "Start Upload"
+msgstr "Iniciar subida"
+
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js:201
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:857
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:971
+#, javascript-format
+msgid "Uploaded %d/%d files"
+msgstr "%d/%d ficheros subidos"
+
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js:250
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:888
+#, javascript-format
+msgid "%d files queued"
+msgstr "%d ficheros encolados"
+
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js:262
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js:361
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:235
+msgid "Drag files here."
+msgstr "Arrastrar fichero aquí."
+
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js:340
+msgid "Error: File too large:"
+msgstr "Error. Fichero demasiado largo:"
+
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js:344
+msgid "Error: Invalid file extension:"
+msgstr "Error: Extensión del fichero incorrecta:"
+
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:219
+msgid "List"
+msgstr "Listado"
+
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:220
+msgid "Thumbnails"
+msgstr "Miniaturas"
+
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:246
+msgid "Stop Upload"
+msgstr "Parar subida"
+
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:437
+msgid "File count error."
+msgstr "Contador de ficheros erróneos"
+
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:454
+#, javascript-format
+msgid "File: %s"
+msgstr "Fichero: %s"
+
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:458
+#, javascript-format
+msgid "File: %s, size: %d, max file size: %d"
+msgstr "Fichero: %s, tamaño: %d, tamaño máximo de fichero: %d"
+
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:462
+#, javascript-format
+msgid "%s already present in the queue."
+msgstr "%s ya está en la cola."
+
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:466
+#, javascript-format
+msgid ""
+"Upload element accepts only %d file(s) at a time. Extra files were stripped."
+msgstr ""
+"La subida de elementos sólo acpeta %d fichero(s) cada vez. El resto de "
+"ficheros no serán subidos."
+
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:470
+msgid "Image format either wrong or not supported."
+msgstr "El formato de la imagen es incorrecto o no soportado"
+
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:474
+msgid "Runtime ran out of available memory."
+msgstr "El programa se ha quedado sin memoria"
+
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:483
+msgid "Upload URL might be wrong or doesn't exist."
+msgstr "La URL de subida puede ser errónea o no existe"
+
+#: erp/base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:780
+msgid "Close"
+msgstr "Cerrar"

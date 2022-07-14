@@ -1,0 +1,20 @@
+<td>{{ row.code }}</td>
+<td>{{ row.date }}</td>
+<td>{{ row.get_status_order_display }}</td>
+<td ng-click=" $event.stopPropagation();">
+    <span ng-if="row.documents.length!=0">
+        <ul>
+            <li ng-repeat="document in row.documents">
+                <a target="_blank" href="/media/{{ document.doc_path }}">{{ document.name_file }}</a>
+            </li>
+        </ul>
+    </span>
+    <span ng-if="row.status_order=='PE'">
+        <i class="glyphicon glyphicon-time" aria-hidden="true"></i>
+    </span>
+    <span ng-if="row.status_order!='PE' && row.documents.length==0">
+        <button ng-controller="frontendOrderlistCtrl" id="submit_request_invoice" ng-click="request_invoice(row.pk)" class="btn btn-sm btn-info">
+            {{ data.meta.gentranslate.Requestinvoice }}
+        </button>
+    </span>
+</td>

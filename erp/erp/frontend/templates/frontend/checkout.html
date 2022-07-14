@@ -1,0 +1,991 @@
+{% extends "frontend/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block contenido %}
+
+<!-- BEGIN: PAGE CONTENT -->
+<div class="c-content-box">
+    <div class="container">
+        <form class="c-shop-form-1">
+            <div class="row c-padding-b-40">
+            {% comment %}
+                {% if not user.is_authenticated %}
+  	            <div class="help-block c-font-15 c-margin-20 c-padding-t-20">
+                  <h4>{% trans '¿Ya tienes una cuenta?' %}<h4>
+                  <a href="/login/" class="btn c-theme-btn">{% trans ' Entra aquí' %}</a>
+                </div>
+                {% endif %}
+            {% endcomment %}
+                <!-- BEGIN: ADDRESS FORM -->
+                <p class="has-error" id="E01"></p>
+                <div class="col-md-7 c-padding-20">
+	                <!-- BEGIN: BILLING ADDRESS -->
+                    <h3 class="c-font-bold c-font-uppercase c-font-24">
+                        {% trans "Datos del comprador" %}
+                    </h3>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="form-group col-md-6 billing-first-name">
+                                    <label class="control-label">{% trans 'Nombre' %}</label>
+                                    {% if user.is_authenticated %}
+                                        <p>{{ user.person.name }}</p>
+            {% comment %}
+                                    {% else %}
+                                        <input type="text" class="form-control c-square c-theme" placeholder="{% trans 'Nombre' %}" id="first-name">
+            {% endcomment %}
+                                    {% endif %}
+                                </div>
+                                <div class="form-group col-md-6 billing-last-name">
+                                    <label class="control-label">{% trans 'Apellidos' %}</label>
+                                    {% if user.is_authenticated %}
+                                        <p>{{ user.person.surname }}</p>
+            {% comment %}
+                                    {% else %}
+                                        <input type="text" class="form-control c-square c-theme" placeholder="{% trans 'Apellidos' %}" id="last-name">
+            {% endcomment %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            {% comment %}
+                    {% if not user.is_authenticated %}
+                    <div class="row">
+                        <div class="form-group col-md-12 billing-email">
+                            <label class="control-label">{% trans "Email" %}</label>
+                            <input type="email" class="form-control c-square c-theme" placeholder="{% trans 'Dirección Email' %}" value="{% if user.is_authenticated %}{{person.email}}{% endif%}" id="email">
+                            <div class="alert alert-danger" role="alert" id="E02"></div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if not user.is_authenticated %}
+                    <div class="row c-margin-t-15">
+                        <div class="form-group col-md-12">
+                            <div class="c-checkbox c-toggle-hide">
+                                <input type="checkbox" id="add-password" class="c-check">
+                                <label for="add-password">
+                                    <span class="inc"></span>
+                                    <span class="check"></span>
+                                    <span class="box"></span>
+                                    <p class="c-font-15">{% trans 'Selecciona para crear una cuenta' %}</p>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    <div class="row c-account">
+                        <div class="form-group col-md-12 account-password">
+                            <label class="control-label">{% trans 'Contraseña' %}</label>
+                            <input type="password" class="form-control c-square c-theme" placeholder="Password">
+                        </div>
+                    </div>
+            {% endcomment %}
+                    <div class="row">
+                        <div class="form-group col-md-12 billing-address">
+                            <label class="control-label">{% trans 'Dirección' %}</label>
+                            <input type="text" class="form-control c-square c-theme" placeholder="{% trans 'Calle, Número, Apartamento, piso, etc.' %}" value="{% if billing_address %}{{billing_address.address}}{% endif %}" id="address">
+                        </div>
+                    </div>
+                    <div class="row c-billing-address geodata">
+                        <div class="col-md-12">
+                            <div class="row">
+                              <div class="form-group col-md-6 billing-country">
+                                  <label class="control-label">{% trans 'País' %}</label>
+                                  <select class="form-control c-square c-theme" id="country">
+                                      <option value="0" class="header">{% trans 'Selecciona opción...' %}</option>
+                                      {% for id, name in countries %}
+                                        <option value="{{ id }}" {% if billing_address.country_pk == id %}selected="selected"{% endif %}>{{ name }}</option>
+                                      {% endfor %}
+                                  </select>
+                              </div>
+
+            {% comment %}
+                              <div class="form-group col-md-6">
+                                  <label class="control-label">{% trans 'Región' %}</label>
+                                  <select class="form-control c-square c-theme" id="region">
+                                      <option value="0" class="header">{% trans 'Selecciona opción...' %}</option>
+                                  </select>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row c-billing-address geodata">
+                        <div class="col-md-12">
+                            <div class="row">
+            {% endcomment %}
+
+                                <div class="form-group col-md-6 billing-zipcode">
+                                    <label class="control-label">{% trans 'Código Postal' %}</label>
+                                    <input type="text" class="form-control c-square c-theme" placeholder="{% trans 'Código Postal' %}" value="{% if billing_address %}{{billing_address.zipcode}}{% endif%}" id="zipcode" onchange="update_province('zipcode', 'id_province_cp', 'province')">
+                                </div>
+            {% comment %}
+                              <div class="form-group col-md-6 billing-city">
+                                  <label class="control-label">{% trans 'Ciudad' %}</label>
+                                  <select class="form-control c-square c-theme" id="city">
+                                      <option value="0" class="header">{% trans 'Selecciona opción...' %}</option>
+                                  </select>
+                              </div>
+            {% endcomment %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12 billing-town">
+                            <label class="control-label">{% trans "Localidad" %}</label>
+                            <input type="text" class="form-control c-square c-theme" placeholder="{% trans 'Localidad' %}" value="{% if billing_address %}{{billing_address.town}}{% endif%}" id="town">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label class="control-label">{% trans 'Provincia' %}</label>
+                                    <input type="hidden" id="province" />
+                                    <select class="form-control c-square c-theme" id="id_province_cp" disabled="disabled" readonly="readonly">
+                                        <option value="0" class="header">{% trans 'Selecciona un código postal...' %}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6 billing-phone">
+                                    <label class="control-label">{% trans 'Teléfono' %}</label>
+                                    <input type="tel" class="form-control c-square c-theme" placeholder="{% trans 'Teléfono' %}" value="{% if billing_address %}{{billing_address.phone}}{% endif%}" id="phone">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- BILLING ADDRESS -->
+                    <!-- SHIPPING ADDRESS -->
+                    <h3 class="c-font-bold c-font-uppercase c-font-16 c-padding-t-20">¿Quieres enviar a otra dirección?</h3>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <div class="c-checkbox-inline">
+                                <div class="c-checkbox c-toggle-hide">
+                                    <input type="checkbox" id="specific-shipping-address" class="c-check">
+                                    <label for="specific-shipping-address">
+                                        <span class="inc"></span>
+                                        <span class="check"></span>
+                                        <span class="box"></span> 
+                                        <p class="c-font-15">{% trans "Selecciona para enviar a otra dirección" %}</p>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="c-shipping-address">
+                        {% if user.is_authenticated %}
+                        {% comment %}
+                        {% endcomment %}
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <label class="control-label">{% trans "Direcciones de envio" %}</label>
+                                <select class="form-control c-square c-theme" id="shipping-addresses">
+                                    <option value="0" class="header">{% trans 'Dirección nueva ...' %}</option>
+                                    {% for address in shipping_addresses %}
+                                    <option value="{{address.pk}}">{{address.address}}, {{address.zipcode}}, {{address.city}}, {{address.country}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        {% endif %}
+                        <div class="custom-shipping-address">
+                            <div class="row">
+                                <div class="form-group col-md-12 shipping-address">
+                                    <label class="control-label">{% trans 'Dirección' %}</label>
+                                    <input type="text" class="form-control c-square c-theme" placeholder="{% trans 'Calle, Número, Apartamento, piso, etc.' %}">
+                                </div>
+                            </div>
+                            <div class="row geodata">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                      <div class="form-group col-md-6 shipping-country">
+                                          <label class="control-label">{% trans 'País' %}</label>
+                                          <select class="form-control c-square c-theme" id="country_other">
+                                              <option value="0" class="header">{% trans 'Selecciona opción...' %}</option>
+                                              {% for id, name in countries %}
+                                                <option value="{{ id }}" {% if shipping_addresses.country_pk == id %}selected="selected"{% endif %}>{{ name }}</option>
+                                              {% endfor %}
+                                          </select>
+                                      </div>
+
+            {% comment %}
+                                      <div class="form-group col-md-6">
+                                          <label class="control-label">{% trans 'Región' %}</label>
+                                          <select class="form-control c-square c-theme" id="region_other">
+                                              <option value="0" class="header">{% trans 'Selecciona opción...' %}</option>
+                                          </select>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row geodata">
+                                <div class="col-md-12">
+                                    <div class="row">
+            {% endcomment %}
+                                      
+                                        <div class="form-group col-md-6 shipping-zipcode">
+                                            <label class="control-label">{% trans 'Código Postal' %}</label>
+                                            <input type="text" class="form-control c-square c-theme" placeholder="{% trans 'Código Postal' %}" id="zipcode_other">
+                                        </div>
+
+            {% comment %}
+                                      <div class="form-group col-md-6 shipping-city">
+                                          <label class="control-label">{% trans 'Ciudad' %}</label>
+                                          <select class="form-control c-square c-theme" id="city_other">
+                                              <option value="0" class="header">{% trans 'Selecciona opción...' %}</option>
+                                          </select>
+                                      </div>
+            {% endcomment %}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-12 shipping-town">
+                                    <label class="control-label">{% trans "Localidad" %}</label>
+                                    <input type="text" class="form-control c-square c-theme" placeholder="{% trans 'Localidad' %}" value="" id="town_other">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label">{% trans 'Provincia' %}</label>
+                                            <input type="text" id="province_other" />
+                                            <select class="form-control c-square c-theme" id="id_province_cp_other" >
+                                                <option value="0" class="header">{% trans 'Selecciona un código postal...' %}</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-md-6 shipping-phone">
+                                            <label class="control-label">{% trans 'Teléfono' %}</label>
+                                            <input type="tel" class="form-control c-square c-theme" placeholder="{% trans 'Teléfono' %}" id="phone_other">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- SHIPPING ADDRESS -->
+                    <div class="row">
+                        <div class="form-group col-md-12 notes">
+                            <label class="control-label">{% trans 'Notas' %}</label>
+                            <textarea class="form-control c-square c-theme" rows="3" placeholder="{% trans 'Escriba aquí su preferencia de horario (mañana o tarde). La empresa de transportes tratará de cumplirlo dentro de sus posibilidades de horario y ruta.' %}"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <!-- END: ADDRESS FORM -->
+                <!-- BEGIN: ORDER FORM -->
+                <div class="col-md-5">
+                    <div class="c-content-bar-1 c-align-left c-bordered c-theme-border c-shadow">
+                        <h1 class="c-font-bold c-font-uppercase c-font-24">
+                            {% trans "Su pedido" %}
+                        </h1>
+                        <ul class="c-order list-unstyled shopping-cart">
+                            <li class="row c-margin-b-15">
+                                <div class="col-md-6 c-font-20">
+                                    <h2>{% trans "Producto" %}</h2>
+                                </div>
+                                <div class="col-md-6 c-font-20">
+                                    <h2>{% trans "Total" %}</h2>
+                                </div>
+                            </li>
+                            <li class="row c-border-bottom"></li>
+                            {% for product in products_with_stock %}
+                            <li class="row c-margin-b-15 c-margin-t-15">
+                                <div class="col-md-6 c-font-20">
+                                    <a href="shop-product-details.html" class="c-theme-link">
+                                        {{product.description|safe}} x {{product.quantity}}
+                                    </a>
+                                </div>
+                                <div class="col-md-6 c-font-20">
+                                    <p class="">
+                                        {{product.price|floatformat:2}}&euro;
+                                    </p>
+                                </div>
+                            </li>
+                            {% endfor %}
+                            <li class="row c-margin-b-15 c-margin-t-15">
+                                <div class="col-md-6 c-font-20">{% trans "Subtotal base" %}</div>
+                                <div class="col-md-6 c-font-20">
+                                    <p class="">
+                                        <span class="c-subtotalb">{{price_base|floatformat:2}}</span>&euro;
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="row c-margin-b-15 c-margin-t-15">
+                                <div class="col-md-6 c-font-20">{% trans "Impuestos" %}</div>
+                                <div class="col-md-6 c-font-20">
+                                    <p class="">
+                                        <span class="c-subtotalt">{{price_tax|floatformat:2}}</span>&euro;
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="row c-margin-b-15 c-margin-t-15">
+                                <div class="col-md-6 c-font-20">{% trans "Subtotal" %}</div>
+                                <div class="col-md-6 c-font-20">
+                                    <p class="">
+                                        <span class="c-subtotal" id="subtotal">{{price_total|floatformat:2}}</span>&euro;
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="row c-border-top c-margin-b-15"></li>
+                            <li class="row">
+                                <div class="col-md-6 c-font-20">{% trans "Envío" %}</div>
+                                <div class="col-md-6">
+                                    <div class="c-radio-list c-shipping-calculator">
+                                        {% for transport in transports %}
+                                        <div class="c-radio" id="{{transport.transport_method}}">
+                                            <input type="radio" value="{{transport.transport_method}}" logic="{{transport.logicx}}" id="radio{{forloop.counter0}}" class="c-radio" name="shipping_price" {% if forloop.counter0 == 0 %}checked=""{% endif %}>
+                                            <label for="radio{{forloop.counter0}}">
+                                                <span class="inc"></span>
+                                                <span class="check"></span>
+                                                <span class="box"></span> {{transport.name}}  </label>
+                                            <p class="c-shipping-price c-font-bold c-font-20 price_base">{{transport.price_base|floatformat:2}}&euro;</p>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="row c-margin-b-15 c-margin-t-15">
+                                <div class="col-md-12 c-font-20">
+                                {% for transport in transports %}
+                                  <p id="transport_description{{forloop.counter0}}" class="c-shipping-price c-font-15">{{transport.description|safe}}</p>
+                                {% endfor %}
+                                </div>
+                            </li>
+                            <li class="row c-margin-b-15 c-margin-t-15">
+                                <div class="col-md-6 c-font-20">
+                                    <p class="c-font-30">{% trans "Total" %}</p>
+                                </div>
+                                <div class="col-md-6 c-font-20">
+                                    <p class="c-font-bold c-font-30">
+                                        <span class="c-shipping-total" id="total">{{price_total|floatformat:2}}</span>&euro;
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="row">
+                                <div class="col-md-12">
+                                    <div class="c-radio-list">
+                                        {% for pay in payments %}
+                                        <div class="c-radio">
+                                            <input type="radio" id="paymethod{{forloop.counter0}}" class="c-radio" name="payment" {% if forloop.counter0 == 0 %}checked=""{% endif %} value="{{pay.payment_method}}">
+                                            <label for="paymethod{{forloop.counter0}}" class="c-font-bold c-font-20">
+                                                <span class="inc"></span>
+                                                <span class="check"></span>
+                                                <span class="box"></span> {{pay.name}}  </label>
+                                            {% if pay.image %}
+                                                <img class="img-responsive" width="250" src="{{pay.image}}" /> </div>
+                                            {% endif %}
+                                            {% if pay.description %}
+                                                <p class="help-block">{{pay.description|safe}}</p>
+                                            {% endif %}
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </li>
+                            <div class="row c-margin-b-15 c-margin-t-15">
+                                <div class="form-group col-md-12">
+                                    <div class="c-checkbox">
+                                        <input type="checkbox" id="accept-terms" class="c-check">
+                                        <label for="accept-terms">
+                                            <span class="inc"></span>
+                                            <span class="check"></span>
+                                            <span class="box"></span> {% trans 'He leído y acepto los Términos y Condiciones' %}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+	                            <div id="msg_error" class="alert alert-danger alert-dismissible" role="alert" style="display:none">{% trans 'Por favor, corrija los errores del formulario.' %}
+	                                <button type="button" class="close" aria-label="Close">
+	                                    <span aria-hidden="true">×</span>
+	                                </button>
+	                            </div>
+
+                                <div class="form-group col-md-12" role="group">
+                                    {% if products_without_stock %}
+                                        <div class="c-bg-yellow c-bg-yellow-font">
+                                            <p class="c-message c-center c-font-white c-font-20 c-font-sbold">
+                                                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                                                {% trans 'Algunos de los productos seleccionados no se podrán entregar en el pedido por falta de stock' %}
+                                            </p>
+                                        </div>
+                                    {% else %}
+                                    {% if products_with_stock %}
+                                        <button type="submit" class="btn btn-lg c-theme-btn c-btn-square c-btn-uppercase c-btn-bold" id="send" disabled="disabled">{% trans "Pagar" %}</button>
+                                    {% else %}
+                                      <div class="c-bg-red c-bg-red-font">
+                                        <p class="c-message c-center c-font-white c-font-20 c-font-sbold">
+                                          <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                          {% trans 'Actualmente no disponemos de stock para los productos seleccionados' %}
+                                        </p>
+                                      </div>
+                                    {% endif %}
+                                  {% endif %}
+                                    <a href="{% url "shopping_cart" %}" type="submit" class="btn btn-lg c-theme-btn c-btn-square c-btn-uppercase c-btn-bold">{% trans "Cancelar" %}</a>
+
+                                </div>
+
+
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+                <!-- END: ORDER FORM -->
+            </div>
+        </form>
+    </div>
+</div>
+<!-- END: PAGE CONTENT -->
+{% endblock %}
+
+{% block extra_more_js %}
+{# <script src="{% static "js/codenerix-geodata.js" %}" type="text/javascript"></script> #}
+
+            {% comment %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+            {% endcomment %}
+
+<script type="text/javascript">
+    $('#E02').hide();
+
+    lang = "{{lang}}";
+    CountriesApiURL = "{% url 'CDNX_geodata_countries_list' %}";
+    RegionsApiURL = "{% url 'CDNX_geodata_regions_list' %}";
+    ProvincesApiURL = "{% url 'CDNX_geodata_provinces_list' %}";
+    CitiesApiURL = "{% url 'CDNX_geodata_cities_list' %}";
+
+    $('#accept-terms').on('change', function() {
+        $('#send').removeAttr('disabled');
+        if ($(this)[0].checked == false)
+            $('#send').attr('disabled', 'disabled');
+    });
+
+    function validateEmpty(group, control, id) {
+      // console.log(group);
+      // console.log(control);
+      // console.log(id);
+      // console.log('-----------------------------------');
+        // var value = $('.' + group + ' ' + control)[0].value;
+        var value = $('#' + id).val();
+
+      // console.log(value);
+      // console.log('-----------------------------------');
+        if (control == 'select') {
+            value = parseInt(value);
+
+      // console.log(value);
+      // console.log('--........-----');
+            if (value == 0 || isNaN(value)) {
+                // $('.' + group).addClass('has-error');
+                $('.' + group + ' span').addClass('has-error');
+                return null;
+            }
+            $('.' + group).removeClass('has-error');
+            return value;
+        }
+
+        if (value == undefined || value.trim() == '') {
+            $('.' + group).addClass('has-error');
+            return null;
+        }
+        $('.' + group).removeClass('has-error');
+        return value;
+    }
+
+    function validateEmail(group, control, id) {
+        var email = validateEmpty(group, control, id);
+        if (email != null) {
+            const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            if (!re.test(email)) {
+                $('.' + group).addClass('has-error');
+                return null;
+            }
+            $('.' + group).removeClass('has-error');
+        }
+        return email;
+    }
+
+    function validateForm() {
+        var errors = 0;
+        var billing = {}
+
+        if ($('.billing-first-name input').length > 0) {
+            billing.first_name = validateEmpty('billing-first-name', 'input', 'first-name');
+            errors += billing.first_name == null ? 1: 0;
+
+            billing.last_name = validateEmpty('billing-last-name', 'input', 'last-name');
+            errors += billing.last_name == null ? 1: 0;
+        }
+
+        billing.address = validateEmpty('billing-address', 'input', 'address');
+        errors += billing.address == null ? 1: 0;
+
+        billing.country = validateEmpty('billing-country', 'select', 'country');
+        errors += billing.country == null ? 1: 0;
+
+        // billing.city = validateEmpty('billing-city', 'select');
+        // errors += billing.city == null ? 1: 0;
+
+        billing.zipcode = validateEmpty('billing-zipcode', 'input', 'zipcode');
+        errors += billing.zipcode == null ? 1: 0;
+        billing.province = validateEmpty('billing-zipcode', 'input', 'province');
+
+        billing.phone = validateEmpty('billing-phone', 'input', 'phone');
+        errors += billing.phone == null ? 1: 0;
+
+        billing.town = validateEmpty('billing-town', 'input', 'town');
+        errors += billing.town == null ? 1: 0;
+
+        {% if not user.is_authenticated %}
+        billing.email = validateEmail('billing-email', 'input', 'email');
+        errors += billing.email == null ? 1: 0;
+        {% endif %}
+
+        var data = {
+            billing: billing,
+            payment: $(".c-radio [name=payment]:checked").val(),
+            transport: $(".c-radio [name=shipping_price]:checked").val()
+        }
+
+        if ($('#add-password').length > 0 && $('#add-password')[0].checked) {
+            data.password = validateEmpty('account-password', 'input', 'password');
+            errors += data.password == null ? 1: 0;
+        }
+
+        if ($('#specific-shipping-address')[0].checked) {
+            {% if user.is_authenticated %}
+            var option = parseInt($('#shipping-addresses')[0].value);
+            {% else %}
+            var option = 0;
+            {% endif %}
+            if (option == 0) {
+                var shipping = {}
+                /*
+                shipping.first_name = validateEmpty('shipping-first-name', 'input');
+                errors += shipping.first_name == null ? 1: 0;
+
+                shipping.last_name = validateEmpty('shipping-last-name', 'input');
+                errors += shipping.last_name == null ? 1: 0;
+                */
+                shipping.address = validateEmpty('shipping-address', 'input', 'shipping-addresses');
+                errors += shipping.address == null ? 1: 0;
+
+                shipping.country = validateEmpty('shipping-country', 'select', 'country_other');
+                errors += shipping.country == null ? 1: 0;
+
+                // shipping.city = validateEmpty('shipping-city', 'select');
+                // errors += shipping.city == null ? 1: 0;
+
+                shipping.zipcode = validateEmpty('shipping-zipcode', 'input', 'zipcode_other');
+                errors += shipping.zipcode == null ? 1: 0;
+                shipping.province = validateEmpty('shipping-zipcode', 'input', 'province_other');
+
+                shipping.phone = validateEmpty('shipping-phone', 'input', 'phone_other');
+                errors += shipping.phone == null ? 1: 0;
+
+                shipping.town = validateEmpty('shipping-town', 'input', 'town_other');
+                errors += shipping.town == null ? 1: 0;
+
+                data.shipping = shipping;
+            } else {
+                data.shipping_pk = option;
+            }
+        }
+
+        if (errors > 0)
+            return null;
+
+        data.notes = $('.notes textarea')[0].value;
+        return data;
+    }
+
+    $('#send').on('click', function() {
+        $("#msg_error").hide();
+        var data = validateForm();
+        if (data != null) {
+            var client = new ApiClient('{{ csrf_token }}');
+            var url = "{% url 'checkout' %}";
+            client.post(url, data, function(datas) {
+                if (datas.error != null) {
+                    var code = datas.error_code;
+                    $('#' + datas.error_code).text(datas.error);
+                    if (code == 'E02') {
+                        $('.billing-email').addClass('has-error');
+                        $('#E02').show();
+                    }
+                } else if (datas.url != null) {
+                    location.assign(datas.url);
+                }
+            });
+        }else{
+          $("#msg_error").show();
+        }
+    });
+    {% if user.is_authenticated %}
+    $('#shipping-addresses').on('change', function() {
+        if (parseInt($(this)[0].value) == 0) {
+            $('.custom-shipping-address').show();
+        } else {
+            $('.custom-shipping-address').hide();
+        }
+        // ---> ES NECESARIO: calculate_price_transport();
+    });
+    {% endif %}
+
+    $(document).ready(function() {
+        $("#transport_description{{forloop.counter0}}").hide();
+        if ($("#radio{{forloop.counter0}}").is(":checked")){
+            $("#transport_description{{forloop.counter0}}").show();
+        }else{
+            $("#transport_description{{forloop.counter0}}").hide();
+        }
+
+        $(".c-shipping-address").hide();
+        $("#specific-shipping-address").change(function(){
+            if ($(this).is(':checked')){
+                $(".c-shipping-address").show();
+            }else{
+                $(".c-shipping-address").hide();
+            }
+            calculate_price_transport();
+        });
+        
+        $(".c-account").hide();
+        $("#add-password").change(function(){
+            if ($(this).is(':checked')){
+                $(".c-account").show();
+            }else{
+                $(".c-account").hide();
+            }
+        });
+
+        // calculador de precios de transportes
+        var listen_to = Array();
+        listen_to.push(".c-shipping-calculator");
+        listen_to.push(".c-radio input");
+        listen_to.push("#country");
+        listen_to.push("#country_other");
+        listen_to.push("#region");
+        listen_to.push("#region_other");
+        listen_to.push("#province");
+        listen_to.push("#province_other");
+        listen_to.push("#city");
+        listen_to.push("#city_other");
+        listen_to.push("#zipcode");
+        listen_to.push("#zipcode_other");
+        $(listen_to).each(function(k, v){
+            $(v).on('change', function(){
+                calculate_price_transport();
+            });
+        });
+
+{% comment %}
+        function process_result(data){
+          var options = []
+          $.each(data.rows, function(key, value){
+            options.push({
+              "id": value['id'],
+              "text": value['label']
+            });
+          });
+          return options
+        }
+      
+        var list_id_country = ['country', 'country_other'];
+        var key_country = ['{{ billing_address.country_pk }}', '{{ shipping_addresses.country_pk }}'];
+        var value_country = ['{{ billing_address.country_name }}', '{{ shipping_addresses.country_name }}'];
+
+        var list_id_region = ['region', 'region_other'];
+        var key_region = ['{{ billing_address.region_pk }}', '{{ shipping_addresses.region_pk }}'];
+        var value_region = ['{{ billing_address.region_name }}', '{{ shipping_addresses.region_name }}'];
+
+        var list_id_province = ['province', 'province_other'];
+        var key_province = ['{{ billing_address.province_pk }}', '{{ shipping_addresses.province_pk }}'];
+        var value_province = ['{{ billing_address.province_name }}', '{{ shipping_addresses.province_name }}'];
+
+        var list_id_city = ['city', 'city_other'];
+        var key_city = ['{{ billing_address.city_pk }}', '{{ shipping_addresses.city_pk }}'];
+        var value_city = ['{{ billing_address.city_name }}', '{{ shipping_addresses.city_name }}'];
+
+        $.each(['country', 'country_other'], function(key, id){
+          $("#" + id).select2({
+            ajax: {
+              url: "{% url 'CDNX_ext_location_country_foreign' 'search' %}",
+              data: function(params){
+                return {'search': params['term']};
+              },
+              dataType: 'json',
+              processResults: function(data){
+                return {"results": process_result(data)};
+              }
+            }
+          });
+          var $option = $('<option value="' + key_country[key]+ '" selected>' + value_country[key]+ '</option>').val(key_country[key]);
+          $("#" + id).append($option).trigger('change');
+        });
+
+        $.each(['region', 'region_other'], function(key, id){
+          $("#" + id).select2({
+            ajax: {
+              url: "{% url 'CDNX_ext_location_regions_foreign' 'search' %}",
+              data: function(params){
+                var search = {
+                  'search': params['term'],
+                  'filter': {}
+                };
+                if ($("#" + list_id_country[key]).val()  != '' && $("#" + list_id_country[key]).val() != "0" && $("#" + list_id_country[key]) != 'None'){
+                  search['filter']['country'] = $("#" + list_id_country[key]).val();
+                }
+                search['filter'] = JSON.stringify(search['filter']);
+                return search;
+              },
+              dataType: 'json',
+              processResults: function(data){
+                return {"results": process_result(data)};
+              }
+            }
+          });
+          var $option = $('<option value="' + key_region[key]+ '" selected>' + value_region[key]+ '</option>').val(key_region[key]);
+          $("#" + id).append($option).trigger('change');
+        });
+
+        $.each(['province', 'province_other'], function(key, id){
+          $("#" + id).select2({
+            ajax: {
+              url: "{% url 'CDNX_ext_location_provinces_foreign' 'search' %}",
+              data: function(params){
+                var search = {
+                  'search': params['term'],
+                  'filter': {}
+                };
+                if ($("#" + list_id_country[key]).val()  != '' && $("#" + list_id_country[key]).val() != "0" && $("#" + list_id_country[key]) != 'None'){
+                  search['filter']['country'] = $("#" + list_id_country[key]).val();
+                }
+                if ($("#" + list_id_region[key]).val()  != '' && $("#" + list_id_region[key]).val() != "0" && $("#" + list_id_region[key]) != 'None'){
+                  search['filter']['region'] = $("#" + list_id_region[key]).val();
+                }
+                search['filter'] = JSON.stringify(search['filter']);
+                return search;
+              },
+              dataType: 'json',
+              processResults: function(data){
+                return {"results": process_result(data)};
+              }
+            }
+          });
+          var $option = $('<option value="' + key_province[key]+ '" selected>' + value_province[key]+ '</option>').val(key_province[key]);
+          $("#" + id).append($option).trigger('change');
+        });
+
+        $.each(['city', 'city_other'], function(key, id){
+          $("#" + id).select2({
+            ajax: {
+              url: "{% url 'CDNX_ext_location_citys_foreign' 'search' %}",
+              data: function(params){
+                var search = {
+                  'search': params['term'],
+                  'filter': {}
+                };
+                if ($("#" + list_id_country[key]).val()  != '' && $("#" + list_id_country[key]).val() != "0" && $("#" + list_id_country[key]) != 'None'){
+                  search['filter']['country'] = $("#" + list_id_country[key]).val();
+                }
+                if ($("#" + list_id_region[key]).val()  != '' && $("#" + list_id_region[key]).val() != "0" && $("#" + list_id_region[key]) != 'None'){
+                  search['filter']['region'] = $("#" + list_id_region[key]).val();
+                }
+                if ($("#" + list_id_province[key]).val()  != '' && $("#" + list_id_province[key]).val() != "0" && $("#" + list_id_province[key]) != 'None'){
+                  search['filter']['province'] = $("#" + list_id_province[key]).val();
+                }
+                search['filter'] = JSON.stringify(search['filter']);
+                return search;
+              },
+              dataType: 'json',
+              processResults: function(data){
+                return {"results": process_result(data)};
+              }
+            }
+          });
+          var $option = $('<option value="' + key_city[key]+ '" selected>' + value_city[key]+ '</option>').val(key_city[key]);
+          $("#" + id).append($option).trigger('change');
+        });
+{% endcomment %}
+
+        calculate_price_transport();
+    });
+    function calculate_price_transport(){
+        if ($("#specific-shipping-address").prop('checked')){
+          var country = $("#country_other").val();
+          var region = $("#region_other").val();
+          var province = $("#province_other").val();
+          var city = $("#city_other").val();
+          var zipcode = $("#zipcode_other").val();
+        }else{
+          var country = $("#country").val();
+          var region = $("#region").val();
+          var province = $("#province").val();
+          var city = $("#city").val();
+          var zipcode = $("#zipcode").val();
+        }
+        var subtotal = $("#subtotal").text().replace(',', '.');
+        
+        var data = {
+            country: country,
+            region: region,
+            province: province,
+            city: city,
+            zipcode: zipcode,
+            weight: '{{ weight }}'
+        };
+
+        $("#total").text(parseFloat(subtotal).toFixed(2));
+        $.each($(".price_base"), function(k, v){
+            $(this).html(' -- ');
+            $(this).attr('disabled', 'disabled');
+        });
+        
+        var client = new ApiClient('{{ csrf_token }}');
+        var url = "{% url 'transport_calculate' %}";
+        
+        client.get(url, data, function(datas) {
+            if (datas.error != null || datas.rates == null) {
+                $("#send").hide();
+            }else{
+                $("#send").show();
+                $.each($(".c-shipping-calculator div"), function(key, value){
+                    var protocol = $(this).attr('id');
+                    if (datas.rates[protocol] != undefined){
+                        $("#" + protocol + " p.price_base").html(parseFloat(datas.rates[protocol]['price']).toFixed(2));
+                        if ($("#" + protocol + " input[name=shipping_price]").prop('checked') == true){
+                            var total = parseFloat(subtotal) + parseFloat(datas.rates[protocol]['price']);
+                            $("#total").text(parseFloat(total).toFixed(2));
+                        }
+                        $("#" + protocol + " input[name=shipping_price]").attr('disabled', false);
+                    }else{
+                        // desactivar checkbox
+                        $("#" + protocol + " input[name=shipping_price]").attr('disabled', 'disabled');
+                        $("#" + protocol + " input[name=shipping_price]").prop('checked', false);
+                    }
+                });
+            }
+        });
+    }
+</script>
+
+
+
+
+<script type="text/javascript">
+    function update_province(id_zipcode, id_province_cp, id_province) {
+        var zipcode = $("#" + id_zipcode).val();
+        load_province(id_province_cp);
+        $("#" + id_province).val('');
+        if (zipcode != ''){
+            zipcode = zipcode.substring(0, 2);
+            if (info_cp[zipcode] != undefined && info_cp[zipcode]['code'] != undefined){
+                $('#' + id_province_cp + ' option[value="'+zipcode+'"]').attr('selected',true);
+                $("#" + id_province).val(info_cp[zipcode]['code']);
+            }
+        }
+    }
+
+    function load_province(id_province_cp){
+        $('#' + id_province_cp +' option.option').remove();
+        $.each(info_cp, function(key, info){
+            $('#' + id_province_cp).append('<option value="' + key +'" class="option">' + info['label'] + '</option>')
+        });
+    }
+
+    $(document).ready(function(){
+        var timeoutID = window.setTimeout(
+            function () {
+                $('#id_username').focus();
+            }
+        , 1);
+
+        $("#btn_new_user").click(function(){
+            show_form_register();
+        });
+        $("#btn_register").click(function(){
+            $("#form_login").show();
+            $("#form_new").hide();
+        });
+
+        function show_form_register(){
+            $("#form_login").hide();
+            $("#form_new").show();
+        }
+        var way = "{{ way }}";
+        if (way == "2"){
+            show_form_register();
+        }
+        load_province('id_province_cp');
+        update_province('zipcode', 'id_province_cp', 'province')
+
+        load_province('id_province_cp_other');
+        update_province('zipcode_other', 'id_province_cp_other', 'province_other')
+    });
+    var info_cp = {
+            "1": {'label': 'Álava', 'code': 'VI'},
+            "2": {'label': 'Albacete', 'code': 'AB'},
+            "3": {'label': 'Alicante', 'code': 'A'},
+            "4": {'label': 'Almería', 'code': 'AL'},
+            "5": {'label': 'Ávila', 'code': 'AV'},
+            "6": {'label': 'Badajoz', 'code': 'BA'},
+            "7": {'label': 'Baleares', 'code': 'PM'},
+            "8": {'label': 'Barcelona', 'code': 'B'},
+            "9": {'label': 'Burgos', 'code': 'BU'},
+            "10": {'label': 'Cáceres', 'code': 'CC'},
+            "11": {'label': 'Cádiz', 'code': 'CA'},
+            "12": {'label': 'Castellón', 'code': 'CS'},
+            "13": {'label': 'Ciudad Real', 'code': 'CR'},
+            "14": {'label': 'Córdoba', 'code': 'CO'},
+            "15": {'label': 'Coruña', 'code': 'C'},
+            "16": {'label': 'Cuenca', 'code': 'CU'},
+            "17": {'label': 'Gerona', 'code': 'GI'},
+            "18": {'label': 'Granada', 'code': 'GR'},
+            "19": {'label': 'Guadalajara', 'code': 'GU'},
+            "20": {'label': 'Guipúzcoa', 'code': 'SS'},
+            "21": {'label': 'Huelva', 'code': 'H'},
+            "22": {'label': 'Huesca', 'code': 'HU'},
+            "23": {'label': 'Jaén', 'code': 'J'},
+            "24": {'label': 'León', 'code': 'LE'},
+            "25": {'label': 'Lérida', 'code': 'L'},
+            "26": {'label': 'La Rioja', 'code': 'LO'},
+            "27": {'label': 'Lugo', 'code': 'LU'},
+            "28": {'label': 'Madrid', 'code': 'M'},
+            "29": {'label': 'Málaga', 'code': 'MA'},
+            "30": {'label': 'Murcia', 'code': 'MU'},
+            "31": {'label': 'Navarra', 'code': 'NA'},
+            "32": {'label': 'Orense', 'code': 'OR'},
+            "33": {'label': 'Asturias', 'code': 'O'},
+            "34": {'label': 'Palencia', 'code': 'P'},
+            "35": {'label': 'Las Palmas', 'code': 'GC'},
+            "36": {'label': 'Pontevedra', 'code': 'PO'},
+            "37": {'label': 'Salamanca', 'code': 'SA'},
+            "38": {'label': 'Santa Cruz de Tenerife', 'code': 'TF'},
+            "39": {'label': 'Cantabria', 'code': 'S'},
+            "40": {'label': 'Segovia', 'code': 'SG'},
+            "41": {'label': 'Sevilla', 'code': 'SE'},
+            "42": {'label': 'Soria', 'code': 'SO'},
+            "43": {'label': 'Tarragona', 'code': 'T'},
+            "44": {'label': 'Teruel', 'code': 'TE'},
+            "45": {'label': 'Toledo', 'code': 'TO'},
+            "46": {'label': 'Valencia', 'code': 'V'},
+            "47": {'label': 'Valladolid', 'code': 'VA'},
+            "48": {'label': 'Vizcaya', 'code': 'BI'},
+            "49": {'label': 'Zamora', 'code': 'ZA'},
+            "50": {'label': 'Zaragoza', 'code': 'Z'},
+            "51": {'label': 'Ceuta', 'code': ''},
+            "52": {'label': 'Melilla', 'code': ''},
+    }
+</script>
+{% endblock %}

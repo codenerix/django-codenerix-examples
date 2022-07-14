@@ -1,0 +1,50 @@
+{% extends "frontend/base_shop.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block slider %}
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+            <div class="item active" style="background: url({% static "imagenes/cabecera-home.jpg" %}) no-repeat center bottom; background-size: cover; ">
+                <div class="container">
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.carousel -->
+{% endblock %}
+
+{% block logo_familia %}{% endblock %}
+
+{% block contenido %}
+<div class="container">
+<ul>
+{% for k, family in datas.items %}
+    <li>
+        <a href="{{ family.slug }}">{{ family.label }}</a>
+        <ul>
+        {% for k, category in family.categories.items %}
+        <li>
+            <a href="{{ category.slug }}">{{ category.label }}</a>
+            <ul>
+                {% for k, subcategory in category.subcategories.items %}
+                <li>
+                    <a href="{{ category.slug }}/{{ subcategory.slug }}">{{ subcategory.label }}</a>
+                    <ul>
+                    </ul>
+                </li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endfor %}
+        </ul>
+    </li>
+
+{% endfor %}
+</ul>
+</div>
+{% endblock %}

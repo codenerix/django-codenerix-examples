@@ -1,0 +1,34 @@
+{% extends "codenerix/formmodal.html" %}
+{% load i18n %}
+
+
+{% block form_head %}
+    <div class="modal-header">
+        <h3 class="modal-title text-center">{{form.get_name}}</h3>
+    </div>
+    <div class="row clearfix">
+    <div class="modal-body">
+        <div class="col-md-12">
+            {% if form.errors %}
+                <div class="non-field-errors text-center">
+                    <alert type="danger">
+                        {% for err in form.errors.delay %}
+                            <p>{{ err|safe }}</p>
+                        {% endfor %}
+                    </alert>
+                </div>
+            {% endif %}
+        </div>
+{% endblock %}
+
+
+{% block form_bottom %}
+    </div>
+    </div>
+    <div class="modal-footer">
+        <label  class="sr-only"  for="submit_save">{% trans "Request invoice" %}</label>
+        <button type="button" id="submit_save" ng-click="submit({{form.form_name}}, undefined, '{{angular_submit|default:"submit"}}')" class="btn btn-sm btn-info" ng-disabled="{{ form.form_name }}.$invalid">{% trans "Request invoice" %}</button>
+        <label  class="sr-only"  for="cancel">{% trans "Cancel" %}</label>
+        <button type="button" class="btn btn-sm btn-danger" ng-click="cancel()">Cancel</button>
+    </div>
+{% endblock %}

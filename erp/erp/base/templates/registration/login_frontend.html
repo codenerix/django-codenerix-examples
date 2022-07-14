@@ -1,0 +1,188 @@
+{% extends "frontend/base_cart.html" %}
+{% load i18n %}
+
+
+{% block buscador %}
+{% endblock %}
+
+{% block contenido %}
+
+
+
+    {% block breadcrumbs %}
+
+    {% endblock %}
+
+    <!-- BEGIN: CONTENT/SHOPS/SHOP-LOGIN-REGISTER-1 -->
+    <div id="content-main" class="c-content-box c-size-md c-bg-grey-1">
+        <div class="container">
+            <div class="login-register">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="panel panel-default c-panel">
+                            <div class="panel-body c-padding-40">
+
+                                <div class="c-content-title-1">
+                                    <h3 class="c-left">
+                                        <i class="icon-user"></i> Acceso Usuario</h3>
+                                    <div class="c-line-left c-theme-bg"></div>
+                                </div>
+                                <div class="errornote" role="alert">
+                                    {% if form.errors and not form.non_field_errors %}
+                                    <p class="alert alert-danger">
+                                    {% if form.errors.items|length == 1 %}{% trans "Please correct the error below." %}{% else %}{% trans "Please correct the errors below." %}{% endif %}
+                                    </p>
+                                    {% endif %}
+                                </div>
+                                <div class="errornote" role="alert">
+                                    {% if form.non_field_errors %}
+                                    {% for error in form.non_field_errors %}
+                                    <p class="alert alert-warning">
+                                    {{ error }}
+                                    </p>
+                                    {% endfor %}
+                                    {% endif %}
+                                </div>
+
+                                <form class="form-login" action="{{ app_path }}" method="post" id="login_form">{% csrf_token %}
+                                  <div class="form-group">
+                                    {{ form.username.errors }}
+                                    {{ form.username.label_tag }} {{ form.username }}
+                                  </div>
+                                  <div class="form-group">
+                                    {{ form.password.errors }}
+                                    {{ form.password.label_tag }} {{ form.password }}
+                                    <input type="hidden" name="next" value="{{ next }}"/>
+                                  </div>
+
+                                  {% url 'admin_password_reset' as password_reset_url %}
+                                  {% if password_reset_url %}
+                                  <div class="password-reset-link">
+                                    <a href="{{ password_reset_url }}">{% trans 'Forgotten your password or username?' %}</a>
+                                  </div>
+                                  {% endif %}
+
+                                  <div class="row c-margin-t-40">
+                                        <div class="col-xs-8">
+                                            <div class="c-checkbox">
+                                                <input type="checkbox" id="checkbox1-77" class="c-check">
+                                                <label for="checkbox1-77">
+                                                    <span class="inc"></span>
+                                                    <span class="check"></span>
+                                                    <span class="box"></span> Remember me </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <input type="submit" class="pull-right btn btn-lg c-theme-btn c-btn-square c-btn-uppercase c-btn-bold" value="{% trans 'Log in' %}" />
+                                            <input type="hidden" name="next" value="{{ next }}" />
+                                            <input type="hidden" name="login_form" value="11235813213455" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 register">
+                        <div class="panel panel-default c-panel">
+                            <div class="panel-body c-padding-40">
+                                <div class="c-content-title-1">
+                                    <h3 class="c-left">
+                                        <i class="icon-user"></i> {% trans 'Si no estás registrado' %}</h3>
+                                    <div class="c-line-left c-theme-bg"></div>
+                                </div>
+                                <form class="c-form-register c-margin-t-20" action="" method="post" id="register_form">{% csrf_token %}
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label class="control-label">{{ form2.name.label }}*</label>
+                                                <input id="id_{{form2.name.name}}" name="{{form2.name.name}}" type="text" class="form-control c-square c-theme" placeholder="{{ form2.name.label }}" value="{{ form2.name.value |default_if_none:""}}" required>
+                                                {% for error in form2.name.errors %}
+                                                <div class="alert alert-danger">
+                                                  {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="control-label">{{ form2.surname.label }}*</label>
+                                                <input id="id_{{form2.surname.name}}" name="{{form2.surname.name}}" type="text" class="form-control c-square c-theme" placeholder="{{ form2.surname.label }}" value="{{ form2.surname.value |default_if_none:""}}" required>
+                                                {% for error in form2.surname.errors %}
+                                                <div class="alert alert-danger">
+                                                  {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label class="control-label">{{ form2.email.label }}*</label>
+                                                <input id="id_{{form2.email.name}}" name="{{form2.email.name}}" type="text" class="form-control c-square c-theme" placeholder="{{ form2.email.label }}" value="{{ form2.email.value |default_if_none:""}}" required>
+                                                {% for error in form2.email.errors %}
+                                                <div class="alert alert-danger">
+                                                  {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label class="control-label">{{ form2.password1.label }}*</label>
+                                                <input id="id_{{form2.password1.name}}"  type="password" name="{{form2.password1.name}}" type="text" class="form-control c-square c-theme" placeholder="{{ form2.password1.label }}" value="{{ form2.password1.value |default_if_none:""}}" required>
+                                                {% for error in form2.password1.errors %}
+                                                <div class="alert alert-danger">
+                                                  {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="control-label">{{ form2.password2.label }}*</label>
+                                                <input id="id_{{form2.password2.name}}" type="password" name="{{form2.password2.name}}" type="text" class="form-control c-square c-theme" placeholder="{{ form2.password2.label }}" value="{{ form2.password2.value |default_if_none:""}}" required>
+                                                {% for error in form2.password2.errors %}
+                                                <div class="alert alert-danger">
+                                                  {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% for error in form2.non_field_errors %}
+                                    <div class="alert alert-danger">
+                                      {{ error|escape }}
+                                    </div>
+                                    {% endfor %}
+                                    <div class="form-group c-margin-t-40">
+                                        <button type="submit" class="btn btn-lg c-theme-btn c-btn-square c-btn-uppercase c-btn-bold">Register</button>
+                                        <input type="hidden" name="register_form" value="11235813213455" />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END: CONTENT/SHOPS/SHOP-LOGIN-REGISTER-1 -->
+{% endblock %}
+
+{% block extra_more_js %}
+    <script type="text/javascript">
+        console.log("0");
+        $(document).ready(function(){
+            console.log("1");
+            var timeoutID = window.setTimeout(
+                function () {
+                    console.log("2");
+                    console.log("3");
+                    $('#id_username').focus();
+                }
+            , 1);
+        });
+    </script>
+{% endblock %}

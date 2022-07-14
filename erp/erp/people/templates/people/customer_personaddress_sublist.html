@@ -1,0 +1,77 @@
+{% extends "codenerix/sublist.html" %}
+{% load codenerix_common %}
+{% load i18n %}
+{% block table_content %}
+<div class="col-md-12 column panel panel-default scrolling-container">
+    <table class="table table-condensed table-hover list">
+        <thead>
+            <tr>
+                <th >{% trans "Alias" %}</th>
+                <th >{% trans "Country" %}</th>
+                <th>{% trans "Province" %}</th>
+                <th>{% trans "City" %}</th>
+                <th>{% trans "Postal code" %}</th>
+                <th>{% trans "Address" %}</th>
+                <th>{% trans "Phone" %}</th>
+                <th>{% trans "Main" %}</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+        	
+            {% for obj in object_list %}
+            
+            <tr>
+                <td ng-click="details({{obj.pk}})">
+                    {{ obj.alias}}
+                </td>
+                <td ng-click="details({{obj.pk}})">
+                    {{ obj.country.name }}
+                </td>
+                <td ng-click="details({{obj.pk}})">
+                    {{ obj.province.name }}
+                </td>
+                <td ng-click="details({{obj.pk}})">
+                    {{ obj.city.name }}
+                </td>
+                <td ng-click="details({{obj.pk}})">
+                    {{ obj.postal_code }}
+                </td>
+                <td ng-click="details({{obj.pk}})">
+                    {{ obj.address }}
+                </td>
+                <td ng-click="details({{obj.pk}})">
+                    {{ obj.phone }}
+                </td>
+                <td ng-click="details({{obj.pk}})">
+                    {{ obj.main}}
+                </td>
+                <td class="text-center">
+                    {% if linkedit %}
+                    <i ng-click="removerecord({{obj.pk}}, '{% trans "Delete file?" %}')" class="glyphicon glyphicon-trash pointer"></i>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="7">&nbsp;</td>
+                <td class="text-right">
+                    <strong>
+                    {{ total|floatformat:2 }}
+                    </strong>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+{% if linkedit %}
+    <div class="row clearfix ng-scope">&nbsp;</div>
+    <button type="button" class="btn green btn-sm" popover-placement="top" uib-popover="{{gentranslate.Add}}" popover-trigger="mouseenter" ng-click="addrecord(currentTab)"><span class="glyphicon glyphicon-plus"></span>&nbsp;{{gentranslate.Add}}</button>
+    <div class="row clearfix ng-scope">&nbsp;</div>
+    <div class="row clearfix">&nbsp;</div>
+{% endif %}
+{% endblock %}

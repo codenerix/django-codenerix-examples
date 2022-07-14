@@ -1,0 +1,104 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-19 07:58+0200\n"
+"PO-Revision-Date: 2022-06-19 08:10+0200\n"
+"Last-Translator:   <juanmi@juanmitaboada.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.9.8\n"
+
+#: erp/news/models.py:15
+msgid "title"
+msgstr "Título"
+
+#: erp/news/models.py:16
+msgid "subtitle"
+msgstr "Subtítulo"
+
+#: erp/news/models.py:17
+msgid "content"
+msgstr "Contenido"
+
+#: erp/news/models.py:18
+msgid "show in web page from"
+msgstr "Mostrar en la página web de"
+
+#: erp/news/models.py:19
+msgid "show in web page until"
+msgstr "Mostrar en la página web hasta"
+
+#: erp/news/models.py:20
+msgid "show in main page from"
+msgstr "Mostrar en la página principal de"
+
+#: erp/news/models.py:21
+msgid "show in main page until"
+msgstr "Mostrar en la página principal hasta"
+
+#: erp/news/models.py:22
+msgid "public"
+msgstr "Público"
+
+#: erp/news/models.py:23
+msgid "language"
+msgstr "Lenguaje"
+
+#: erp/news/models.py:31 erp/news/models.py:41
+msgid "Title"
+msgstr "Título"
+
+#: erp/news/models.py:32 erp/news/models.py:42
+msgid "Subtitle"
+msgstr "Subtítulo"
+
+#: erp/news/models.py:33 erp/news/models.py:40
+msgid "Web from"
+msgstr "Web de"
+
+#: erp/news/models.py:34
+msgid "Web until"
+msgstr "Web hasta"
+
+#: erp/news/models.py:35
+msgid "Main from"
+msgstr "Principal de"
+
+#: erp/news/models.py:36
+msgid "Main until"
+msgstr "Principal hasta"
+
+#: erp/news/models.py:37
+msgid "Public?"
+msgstr "¿Público?"
+
+#: erp/news/models.py:38 erp/news/models.py:66
+msgid "Language"
+msgstr "Lenguaje"
+
+#: erp/news/models.py:43
+msgid "Content"
+msgstr "Contenido"
+
+#: erp/news/models.py:65
+msgid "Public"
+msgstr "Público"
+
+#: erp/news/models.py:65
+msgid "Yes"
+msgstr "Si"
+
+#: erp/news/models.py:65
+msgid "No"
+msgstr "No"

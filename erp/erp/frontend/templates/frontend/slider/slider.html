@@ -1,0 +1,19 @@
+<section class="c-layout-revo-slider c-layout-revo-slider-4">
+    <div class="tp-banner-container c-theme">
+        <div class="tp-banner rev_slider onclick" data-version="5.0">
+            <ul>
+                {% for element in slider_list %}
+					{% if element.html_format == 'a' %}
+					{% include 'frontend/slider/slider_a.html' %}
+					{% elif element.html_format == 'b' %}
+					{% include 'frontend/slider/slider_b.html' %}
+					{% elif element.html_format == 'c' %}
+					{% include 'frontend/slider/slider_c.html' %}
+					{% else %}
+					{% include 'frontend/slider/slider_a.html' %}
+					{% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>

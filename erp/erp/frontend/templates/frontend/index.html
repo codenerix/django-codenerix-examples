@@ -1,0 +1,106 @@
+{% extends "frontend/base.html" %}
+{% load static %}
+{% load i18n %}
+{% load cdnxcms_tags %}
+
+{% block slider_head %}
+
+
+<!-- BEGIN: PAGE CONTENT -->
+<!-- BEGIN: CONTENT/MISC/SHOP-BANNER-1 -->
+
+    {% cdnx_staticheader "INDEX" LANGUAGE_CODE|default:"en" 'frontend/staticheaders/staticheader.html' %}
+
+<!-- END: CONTENT/MISC/SHOP-BANNER-1 -->
+
+	{% cdnx_slider "INDEX" LANGUAGE_CODE|default:"en" "frontend/slider/slider.html" %}
+
+{% endblock %}
+
+
+	<!-- BEGIN: LAYOUT/BREADCRUMBS/BREADCRUMBS-2 -->
+	{% block breadcrumbs %}
+	{% endblock %}
+	<!-- END: LAYOUT/BREADCRUMBS/BREADCRUMBS-2 -->
+
+
+
+{% block body %}
+<!-- BEGIN: CONTENT/SHOPS/SHOP-1-5 -->
+<div class="c-content-box c-size-md">
+    <div class="c-content-tab-5 c-bs-grid-reset-space c-theme">
+        <!-- Nav tabs -->
+        <ul class="nav nav-pills c-nav-tab c-arrow" role="tablist">
+            {% for subcat in subcategorymenu %}
+            <li role="presentation"{%if forloop.counter0 == 0%} class="active"{%endif%}>
+                    <a class="c-font-uppercase" href="#tab{{subcat.id}}" aria-controls="{{subcat.id}}" role="tab" data-toggle="tab">{{subcat.label}}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            {% for subcat in subcategorymenu %}
+                <div role="tabpanel" class="tab-pane fade{%if forloop.counter0 == 0%} in active{%endif%}" id="tab{{subcat.id}}">
+                    <div class="row">
+                        {% for brand in subcat.brands %}
+                            <div class="col-md-2 col-sm-6">
+                                <div class="c-content c-center c-margin-b-15">
+	                               <a href="/{{brand.slug}}"><img src="{{ MEDIA_URL }}{{brand.image}}" alt="{{ name_project }}" class="carrousel-img" /></a>
+                               </div>
+                                {# <h3 class="c-font-uppercase c-center c-font-bold"><a href="/{{brand.slug}}"> {{brand.label}} </a></h3>#}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- END: CONTENT/SHOPS/SHOP-1-5 -->
+<!-- BEGIN: CONTENT/SHOPS/SHOP-2-2 -->
+<div class="c-content-box c-size-sm c-overflow-hide c-bs-grid-small-space">
+    <div class="container">
+        <div class="c-content-title-4">
+            <h3 class="c-font-uppercase c-center c-font-bold c-line-strike">
+                <span class="c-bg-white">{% trans "Productos recomendados" %}</span>
+            </h3>
+        </div>
+        <div class="row">
+            <div data-slider="owl" data-items="4" data-auto-play="8000">
+                <div class="owl-carousel owl-theme c-theme owl-small-space">
+                    {% for product in outstanding %}
+                    {% include 'frontend/partials/product_item.html' %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END: CONTENT/SHOPS/SHOP-2-2 -->
+<!-- BEGIN: CONTENT/SHOPS/SHOP-3-1 -->
+{% if flagship %}
+<div class="c-content-box c-overflow-hide c-bg-grey">
+    <div class="c-content-product-3 c-bs-grid-reset-space">
+        <div class="row">
+            <div class="col-md-8 col-sm-6">
+                <div class="c-bg-img-center onclick" data-height="height" style="height: 550px;{% if not flagship.view_video %} background-image: url(/media/{{flagship.image}});{% endif %}" onclick="location.href='/{{flagship.slug}}';">
+	                {% if flagship.view_video %}
+	                <iframe width="100%" height="550" src="{{ flagship.product_final__product__url_video }}" frameborder="0" allowfullscreen></iframe>{% endif %}
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="c-wrapper c-bg-red c-font-white" style="height: 550px;">
+                    <div class="c-content c-border c-border-padding c-border-padding-right">
+                        <a href="/{{flagship.slug}}"><h3 class="c-title c-font-25 c-font-white c-font-uppercase c-font-bold c-padding-t-20">{{flagship.title}}</h3></a>
+                        <p class="c-description c-font-17">{{flagship.description|safe}}</p>
+                        	
+                        <a href="/{{flagship.slug}}" class="btn btn-lg c-btn-white c-font-uppercase c-btn-square c-btn-border-1x" >{% trans "Ver más" %}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+<!-- END: CONTENT/SHOPS/SHOP-3-1 -->
+{% endblock %}

@@ -1,0 +1,382 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% load i18n %}
+
+    {% block extra_css %}
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+	<link rel="stylesheet" href="{% static "css/vending.css" %}">
+	
+	<style>
+	#fullpage { cursor:zoom-in; }
+	#fullpage:-webkit-full-screen { cursor:zoom-out; }
+	#fullpage:-moz-full-screen { cursor:zoom-out; }
+	#fullpage:-ms-fullscreen { cursor:zoom-out; }
+	#fullpage:fullscreen { cursor:zoom-out; }
+	</style>
+	
+	
+    {% endblock %}
+
+{% block base_menu %}{% endblock %}
+
+{% block body %}
+<div id="fullpage"></div>
+	<nav class="navbar navbar-top">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a  type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>                        
+	      </a>
+	      <a class="navbar-brand" href="vending-start"><img src="/img/logo.png" /></a>
+	    </div>
+	    <div class="collapse navbar-collapse" id="myNavbar">
+	      <ul class="nav navbar-nav">
+	        <li class="active"><a href="#" class="w3-button w3-block w3-white w3-section">CATEGORÍA 1</a></li>
+	        <li><a href="#" class="w3-button w3-block w3-white w3-section">CATEGORÍA 2</a></li>
+	        <li><a href="#" class="w3-button w3-block w3-white w3-section">CATEGORÍA 3</a></li>
+	        <li><a href="#" class="w3-button w3-block w3-white w3-section">CATEGORÍA 4</a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a href="vending-funciones" class="w3-block w3-section btn-pressed"><span class="glyphicon glyphicon-euro"></span> COBRAR</a></li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>	
+	<div class="container-fluid text-center vending-center" style="padding-top: 100px;position: absolute; width: 100%;"> 
+	{% block vending_start %}{% block vending_login %}	     
+		<div class="row fixed-resize">
+			<div class="col-md-4">
+				<div class="well">
+					<h3>TICKET</h3>
+				</div>
+				<div class="overflow-table">
+					<table class="table table-hover table-responsive table-bordered">
+						<tbody >
+						<tr>
+							<td>10</td>
+							<td>Cocacola</td>
+							<td>2,00€</td>
+							<td>
+								<button onclick="document.getElementById('id01').style.display='block'" class="w3-theme"> 
+								<i class="fa fa-cog fa-lg"></i></button>
+							</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Rosquillas</td>
+							<td>6,00€</td>
+							<td>
+								<button onclick="document.getElementById('id01').style.display='block'" class="w3-theme"> 
+								<i class="fa fa-cog fa-lg"></i></button>
+							</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>Pantumaca</td>
+							<td>3,00€</td>
+							<td>
+								<button onclick="document.getElementById('id01').style.display='block'" class="w3-theme"> 
+								<i class="fa fa-cog fa-lg"></i></button>
+							</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Zumico sano</td>
+							<td>2,00€</td>
+							<td>
+								<button onclick="document.getElementById('id01').style.display='block'" class="w3-theme"> 
+								<i class="fa fa-cog fa-lg"></i></button>
+							</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>Cocacola</td>
+							<td>2,00€</td>
+							<td>
+								<button onclick="document.getElementById('id01').style.display='block'" class="w3-theme"> 
+								<i class="fa fa-cog fa-lg"></i></button>
+							</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Rosquillas</td>
+							<td>6,00€</td>
+							<td>
+								<button onclick="document.getElementById('id01').style.display='block'" class="w3-theme"> 
+								<i class="fa fa-cog fa-lg"></i></button>
+							</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>Pantumaca</td>
+							<td>3,00€</td>
+							<td>
+								<button onclick="document.getElementById('id01').style.display='block'" class="w3-theme"> 
+								<i class="fa fa-cog fa-lg"></i></button>
+							</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Zumico sano</td>
+							<td>2,00€</td>
+							<td>
+								<button onclick="document.getElementById('id01').style.display='block'" class="w3-theme"> 
+								<i class="fa fa-cog fa-lg"></i></button>
+							</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>Cocacola</td>
+							<td>2,00€</td>
+							<td>
+								<button onclick="document.getElementById('id01').style.display='block'" class="w3-theme"> 
+								<i class="fa fa-cog fa-lg"></i></button>
+							</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Rosquillas</td>
+							<td>6,00€</td>
+							<td>
+								<button onclick="document.getElementById('id01').style.display='block'" class="w3-theme"> 
+								<i class="fa fa-cog fa-lg"></i></button>
+							</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>Pantumaca</td>
+							<td>3,00€</td>
+							<td>
+								<button onclick="document.getElementById('id01').style.display='block'" class="w3-theme"> 
+								<i class="fa fa-cog fa-lg"></i></button>
+							</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Zumico sano</td>
+							<td>2,00€</td>
+							<td>
+								<button onclick="document.getElementById('id01').style.display='block'" class="w3-theme"> 
+								<i class="fa fa-cog fa-lg"></i></button>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>	
+				<div class="w3-row scroll-controles">
+				    <div class="w3-half">
+						<button class="w3-button w3-block w3-grey" title=""><i class="fa fa-angle-double-up"></i></button>         	
+					</div>
+			        <div class="w3-half">
+						<button class="w3-button w3-block w3-blue-grey" title=""><i class="fa fa-angle-double-down"></i></button>         
+					</div>
+			    </div>	
+				<table class="table table-hover table-responsive table-bordered table-total">
+					<tr>
+					    <th>Subtotal</th>
+					    <td>XXX €</td>
+					</tr>
+					<tr>
+					    <th>TAX</th>
+					    <td>21%</td>
+					</tr>
+					<tr>
+					    <th><h3>TOTAL<h3></th>
+					    <td><h3>XXX €</h3></td>
+					</tr>
+				</table>
+			</div>
+		    
+		    {% block vending_funciones %}	
+		    <div class="col-md-2 well">
+		        <a class="w3-button w3-block w3-green w3-section" title=""><i class="fa fa-check"></i> ACEPTAR </a>
+		        <!--<a class="w3-button w3-block w3-grey w3-section" title=""><i class="fa fa-chevron-left"></i> PREVIO </a> -->     
+				<div class="calculator">
+				    <div class="screen"><input type="text" /></div>
+				    <div class="keypad">
+				        <div class="keys">
+				            <button type="button" class="btn btn-info btn-lg">1</button>
+				            <button type="button" class="btn btn-info btn-lg">2</button>
+				            <button type="button" class="btn btn-info btn-lg">3</button>
+				            <button type="button" class="btn btn-info btn-lg">4</button>
+				            <button type="button" class="btn btn-info btn-lg">5</button>
+				            <button type="button" class="btn btn-info btn-lg">6</button>
+				            <button type="button" class="btn btn-info btn-lg">7</button>
+				            <button type="button" class="btn btn-info btn-lg">8</button>
+				            <button type="button" class="btn btn-info btn-lg">9</button>
+				            <button type="button" class="btn btn-info btn-lg">0</button>
+				        </div>
+				    </div>
+				</div>
+		    </div>
+		    <div class="col-md-4">
+			    <div class="row overflow-section">
+			        <div class="col-md-6">
+						<a class="w3-button w3-block w3-blue w3-section" title="">PRODUCTO 1</a>
+						<a class="w3-button w3-block w3-blue w3-section" title="">PRODUCTO 2</a>
+						<a class="w3-button w3-block w3-blue w3-section" title="">PRODUCTO 3 </a>
+						<a class="w3-button w3-block w3-blue w3-section" title="">PRODUCTO 4 </a>
+						<a class="w3-button w3-block w3-blue w3-section" title="">PRODUCTO 5 </a>
+						<a class="w3-button w3-block w3-blue w3-section" title="">PRODUCTO 6 </a>
+						<a class="w3-button w3-block w3-blue w3-section" title="">PRODUCTO 7 </a>
+						<a class="w3-button w3-block w3-blue w3-section" title="">PRODUCTO 8 </a>
+						<a class="w3-button w3-block w3-blue w3-section" title="">PRODUCTO 4 </a>
+						<a class="w3-button w3-block w3-blue w3-section" title="">PRODUCTO 5 </a>
+						<a class="w3-button w3-block w3-blue w3-section" title="">PRODUCTO 6 </a>
+						<a class="w3-button w3-block w3-blue w3-section" title="">PRODUCTO 7 </a>
+						<a class="w3-button w3-block w3-blue w3-section" title="">PRODUCTO 8 </a>
+			        </div>
+			        <div class="col-md-6">
+						<a class="w3-button w3-block w3-blue w3-section" title="">PRODUCTO 9 </a>
+						<a class="w3-button w3-block w3-blue w3-section" title="">PRODUCTO 10 </a>
+						<a class="w3-button w3-block w3-blue w3-section" title="">PRODUCTO 11 </a>
+						<a class="w3-button w3-block w3-blue w3-section" title="">PRODUCTO 12 </a>
+						<a class="w3-button w3-block w3-blue w3-section" title="">PRODUCTO 13 </a>
+						<a class="w3-button w3-block w3-blue w3-section" title="">PRODUCTO 14 </a>
+						<a class="w3-button w3-block w3-blue w3-section" title="">PRODUCTO 15 </a>
+						<a class="w3-button w3-block w3-blue w3-section" title="">PRODUCTO 12 </a>
+						<a class="w3-button w3-block w3-blue w3-section" title="">PRODUCTO 13 </a>
+						<a class="w3-button w3-block w3-blue w3-section" title="">PRODUCTO 14 </a>
+						<a class="w3-button w3-block w3-blue w3-section" title="">PRODUCTO 15 </a>
+			        </div>
+			        <!--<div class="pagination">
+					  <a href="#">&laquo;</a>
+					  <a href="#">1</a>
+					  <a href="#" class="active">2</a>
+					  <a href="#">3</a>
+					  <a href="#">4</a>
+					  <a href="#">5</a>
+					  <a href="#">6</a>
+					  <a href="#">&raquo;</a>
+					</div>-->
+			    </div>   
+		    	<div class="w3-row scroll-controles">
+				    <div class="w3-half">
+						<button class="w3-button w3-block w3-grey" title=""><i class="fa fa-angle-double-up"></i></button>         	
+					</div>
+				    <div class="w3-half">
+						<button class="w3-button w3-block w3-blue-grey" title=""><i class="fa fa-angle-double-down"></i></button>         
+					</div>
+				</div> 
+		    </div>
+		    <div class="col-md-2 bg-grey">
+		    	<a class="w3-button w3-block w3-purple w3-section" title="">SUBCATEGORÍA 1 </a>
+				<a class="w3-button w3-block w3-purple w3-section" title="">SUBCATEGORÍA 2 </a>
+				<a class="w3-button w3-block w3-purple w3-section" title="">SUBCATEGORÍA 3 </a>
+				<a class="w3-button w3-block w3-purple w3-section" title="">SUBCATEGORÍA 4 </a>
+				<a class="w3-button w3-block w3-purple w3-section" title="">SUBCATEGORÍA 5 </a>
+				<a class="w3-button w3-block w3-purple w3-section" title="">SUBCATEGORÍA 6 </a>
+				<a class="w3-button w3-block w3-purple w3-section" title="">SUBCATEGORÍA 7 </a>
+				<a class="w3-button w3-block w3-purple w3-section" title="">SUBCATEGORÍA 8 </a>
+				<div class="w3-row scroll-controles">
+				    <div class="w3-half">
+						<button class="w3-button w3-block w3-grey" title=""><i class="fa fa-angle-double-left"></i></button>         	
+					</div>
+			        <div class="w3-half">
+						<button class="w3-button w3-block w3-blue-grey" title=""><i class="fa fa fa-angle-double-right"></i></button>         
+					</div>
+			    </div>
+		    </div>
+		</div>
+	{% endblock %}
+	{% endblock %}
+	{% endblock %}
+
+	</div>
+	
+	<nav class="navbar navbar-footer">
+	  <div class="container-fluid">
+	    <div class="">
+	      <a  type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar2">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>                        
+	      </a>
+	    </div>
+	    <div class="collapse navbar-collapse" id="myNavbar2">
+		  <ul class="nav navbar-nav">
+			<li><a href="#" id="btnFullscreen" class="w3-button w3-block w3-grey w3-section"><i class="fa fa-arrows-alt"></i></a></li>
+			<li><a href="vending-login" class="w3-button w3-block w3-white w3-section"><i class="fa fa-user"></i> EXIT</a></li>
+			<li><a href="#" class="w3-button w3-block w3-white w3-section"><i class="fa fa-home"></i> VER TODO</a></li>
+	        <li><a href="/vending" class="w3-button w3-block w3-white w3-section"><i class="fa fa-plus"></i> </span> NUEVA COMANDA</a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a href="#" class="w3-button w3-block w3-white w3-section">CANCEL COMANDA</a></li>
+	        <li><a href="#" class="w3-button w3-block w3-white w3-section">PRINT TICKET</a></li>
+	        <li><a href="#" class="w3-button w3-block w3-green w3-section">SEND >></a></li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+
+
+<!-- RSVP modal -->
+<div id="id01" class="w3-modal">
+  <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="padding:32px;max-width:600px">
+    <div class="w3-container w3-white w3-center">
+      <h1 class="w3-wide">COCACOLA</h1>
+      <form>
+        <input class="w3-input w3-border" type="text" placeholder="Name(s)" name="name">
+        <p>nueva cantidad</p>
+        <br />
+      </form>
+      <div class="w3-row">
+        <div class="w3-half">
+          <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-block w3-grey">Volver</button>
+        </div>
+        <div class="w3-half">
+          <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-block w3-red">Borrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
+
+{% block base_footer %}{% endblock %}
+
+
+{% block extra_js %}
+
+		<script>
+		function toggleFullscreen(elem) {
+		  elem = elem || document.documentElement;
+		  if (!document.fullscreenElement && !document.mozFullScreenElement &&
+		    !document.webkitFullscreenElement && !document.msFullscreenElement) {
+		    if (elem.requestFullscreen) {
+		      elem.requestFullscreen();
+		    } else if (elem.msRequestFullscreen) {
+		      elem.msRequestFullscreen();
+		    } else if (elem.mozRequestFullScreen) {
+		      elem.mozRequestFullScreen();
+		    } else if (elem.webkitRequestFullscreen) {
+		      elem.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+		    }
+		  } else {
+		    if (document.exitFullscreen) {
+		      document.exitFullscreen();
+		    } else if (document.msExitFullscreen) {
+		      document.msExitFullscreen();
+		    } else if (document.mozCancelFullScreen) {
+		      document.mozCancelFullScreen();
+		    } else if (document.webkitExitFullscreen) {
+		      document.webkitExitFullscreen();
+		    }
+		  }
+		}
+		
+		document.getElementById('btnFullscreen').addEventListener('click', function() {
+		  toggleFullscreen();
+		});
+		
+		document.getElementById('fullpage').addEventListener('click', function() {
+		  toggleFullscreen(this);
+		});
+		</script>
+
+{% endblock %}

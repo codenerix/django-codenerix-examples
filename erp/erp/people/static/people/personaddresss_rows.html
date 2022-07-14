@@ -1,0 +1,17 @@
+<!-- <td>{{row.person}}</td> -->
+<td>{{row.alias}}</td>
+<!-- <td>{{row.country}}</td> -->
+<td>{{row.region}}</td>
+<td>{{row.province}}</td>
+<td>{{row.city}}</td>
+<!-- <td>{{row.postal_code}}</td> -->
+<td>{{row.address}}</td>
+<!-- <td>{{row.phone}}</td> -->
+<td>
+	<div ng-show="row.main_invoice=='True'" class="text-success glyphicon glyphicon-ok"></div>
+	<div ng-hide="row.main_invoice=='True'" class="text-danger glyphicon glyphicon-remove"></div>
+</td>
+<td>
+	<div ng-show="row.main_delivery=='True'" class="text-success glyphicon glyphicon-ok"></div>
+	<div ng-hide="row.main_delivery=='True'" class="text-danger glyphicon glyphicon-remove"></div>
+</td>

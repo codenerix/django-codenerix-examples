@@ -1,0 +1,20 @@
+{% extends "frontend/base_shop.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% block contenido %}
+    <div class="container text-center">
+    <br />
+    <div class="alert alert-danger">
+        <strong>{{ error_code}}</strong> {{ error_message }}
+    </div>
+    <br />
+    <p>
+    {% trans 'Se producido un error. Si persiste, por favor, pongase en contacto con nosotros' %}
+    </p>
+    <br />
+    <br />
+    <br />
+    </div>
+{% endblock %}

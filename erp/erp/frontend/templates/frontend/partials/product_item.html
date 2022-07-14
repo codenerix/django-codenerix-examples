@@ -1,0 +1,37 @@
+{% load i18n %}
+
+<div class="col-md-6 item">
+    <div class="c-content-product-2 c-bg-white c-border">
+        <div class="onclick" onclick="location.href='/{{product.slug}}';">
+            {% if product.offer %}
+            <div class="c-label c-bg-green c-font-uppercase c-font-white c-font-13 c-font-bold">{% trans "Oferta" %}</div>
+            {% endif %}
+            <div class="c-overlay-wrapper" onclick="location.href='/{{product.slug}}';" >
+            </div>
+            <div class="c-bg-img-center-contain c-overlay-object" data-height="height" style="height: 270px; background-image: url(/media/{{product.image}});"></div>
+        </div>
+        <div class="c-info">
+            <p class="c-title c-font-18 c-font-slim">
+            <a href="/{{product.slug}}">{{product.name}}</a>
+            </p>
+
+            <p class="c-price c-font-16 c-font-slim">{{product.price|floatformat:2}}&euro; &nbsp;
+                <!--<span class="c-font-16 c-font-line-through c-font-yellow">
+                    600&euro;
+                </span>-->
+            </p>
+        </div>
+        <div class="btn-group btn-group-justified" role="group">
+            <div class="btn-group c-border-top" role="group">
+                <a onclick="wishlist.addOneProduct({{product.pk}})" href="#" class="btn btn-lg c-font-bold c-btn-white c-btn-uppercase c-btn-square c-font-grey-3 c-font-white-hover c-bg-yellow-hover c-btn-product">
+                    {% trans "Lista de deseos" %}
+                </a>
+            </div>
+            <div class="btn-group c-border-left c-border-top" role="group">
+                <a onclick="shoppingCart.addOneProduct({{product.pk}})" href="#" class="btn btn-lg c-font-bold c-btn-white c-btn-uppercase c-btn-square c-font-grey-3 c-font-white-hover c-bg-yellow-hover c-btn-product">
+                    {% trans "Comprar" %}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

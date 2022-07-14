@@ -1,0 +1,9 @@
+{% if staticheader.html_format == 'a' %}
+{% include 'frontend/staticheaders/staticheader_a.html' %}
+{% elif staticheader.html_format == 'b' %}
+{% include 'frontend/staticheaders/staticheader_b.html' %}
+{% elif staticheader.html_format == 'c' %}
+{% include 'frontend/staticheaders/staticheader_c.html' %}
+{% else %}
+{% include 'frontend/staticheaders/staticheader_a.html' %}
+{% endif %}

@@ -1,0 +1,51 @@
+{% extends "frontend/base_cart.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block contenido %}
+
+<!-- BEGIN: PAGE CONTENT -->
+<div class="c-content-box c-size-lg c-overflow-hide c-bg-white">
+	<div class="container">
+		<div class="c-shop-order-complete-1 c-content-bar-1 c-align-left c-bordered c-theme-border c-shadow">
+			<div class="c-content-title-1">
+				<h3 class="c-center c-font-uppercase c-font-bold">
+	        	{% if error %}
+					{% trans "Checkout Error" %}
+				{% else %}
+					{% trans "Checkout Completo" %}
+				{% endif %}
+				</h3>
+				<div class="c-line-center c-theme-bg"></div>
+			</div>
+
+	        {% if error %}
+				<div class="alert c-bg-red-2">
+					<p class="c-message c-center c-font-white c-font-20 c-font-sbold">
+						*********** {{ error }} -- {{ error_message }} **********
+	
+				        <br> ********{{locator}}---------
+				        <br> ********{{action}}---------
+				        <br> ********{{type_error}}---------
+				        <br> ********{{val_error}}---------
+					</p>
+				</div>
+
+			{% else %}
+				<div class="c-theme-bg">
+					<p class="c-message c-center c-font-white c-font-20 c-font-sbold">
+						<i class="fa fa-check"></i>{% trans "¡Gracias por comprar! Tu pago ha sido realizado." %}
+					</p>
+					<p class="c-message c-center c-font-16 c-font-sbold">
+						<a href="{% url "orders_list" %}" class="btn c-btn-white">
+						{% trans "Para ver el estado de su pedido puede acceder desde aquí" %}
+						</a>
+					</p>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+</div>
+<!-- END: PAGE CONTENT -->
+
+{% endblock %}

@@ -1,0 +1,264 @@
+{% load static %}{% load i18n %}
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <title>Boing Jump, {% trans "A happy trip!" %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% trans "ERP for Boing Jump company" %}">
+    <meta name="author" content="Codenerix">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    {# <link rel="stylesheet" href="http://szimek.github.io/signature_pad/css/signature-pad.css"> #} 
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="{% static "css/vending.css" %}">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="{% static "codenerix_pos/lib/reconnecting-websocket/reconnecting-websocket.js" %}"></script>
+
+    <style>
+    body {
+        background: #f1f1f1;
+    }   
+    #fullpage { cursor:zoom-in; }
+    #fullpage:-webkit-full-screen { cursor:zoom-out; }
+    #fullpage:-moz-full-screen { cursor:zoom-out; }
+    #fullpage:-ms-fullscreen { cursor:zoom-out; }
+    #fullpage:fullscreen { cursor:zoom-out; }
+    .canvas_signature{
+        background: #ffffff;
+        border: 1px solid #070709;
+        border-radius: 4px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.02) inset;
+    }
+    </style>
+    
+</head>
+<div id="fullpage"></div>
+<body onselectstart="return false">
+    <div class="w3-row w3-container">    
+        <div class="w3-col w3-dark-grey w3-container cabecera">
+            <h2>Firma</h2>
+        </div>       
+        <div id="tabs-X" class="vending-signature-pad">
+            <form method="post" action="{% url "signature" %}" id="form-signature">
+            {% csrf_token %}
+            <input type="hidden" name="signature" id="signature">
+            <div id="signature-pad" class="m-signature-pad">
+                <div class="m-signature-pad--body">
+                    <canvas class="canvas_signature"></canvas>
+                </div>
+                <div class="m-signature-pad--footer">
+                    <div class="description"></div>
+                    <button type="button" class="w3-button w3-grey clear" data-action="clear">{% trans "Clear" %}</button>
+                    <button type="button" class="w3-button w3-green save" data-action="save">{% trans "Save" %}</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="http://szimek.github.io/signature_pad/js/signature_pad.js"></script>
+    <script type="text/javascript">
+        var wrapper = document.getElementById("signature-pad"),
+            clearButton = wrapper.querySelector("[data-action=clear]"),
+            saveButton = wrapper.querySelector("[data-action=save]"),
+            canvas = wrapper.querySelector("canvas"),
+            signaturePad;
+
+        // Adjust canvas coordinate space taking into account pixel ratio,
+        // to make it look crisp on mobile devices.
+        // This also causes canvas to be cleared.
+        function resizeCanvas() {
+            // When zoomed out to less than 100%, for some very strange reason,
+            // some browsers report devicePixelRatio as less than 1
+            // and only part of the canvas is cleared then.
+            var ratio =  Math.max(window.devicePixelRatio || 1, 1);
+            canvas.width = canvas.offsetWidth * ratio;
+            canvas.height = canvas.offsetHeight * ratio;
+            canvas.getContext("2d").scale(ratio, ratio);
+        }
+
+        //window.onresize = resizeCanvas;
+        // resizeCanvas();
+
+        canvas.width = 500;
+        canvas.height = 200;
+        signaturePad = new SignaturePad(canvas);
+
+        clearButton.addEventListener("click", function (event) {
+            signaturePad.clear();
+        });
+
+        saveButton.addEventListener("click", function (event) {
+            /*
+            if (signaturePad.isEmpty()) {
+                alert("Please provide signature first.");
+            } else {
+                var form = document.getElementById("form-signature");
+                var signature = document.getElementById("signature");
+                signature.value = signaturePad.toDataURL();
+                console.log(signaturePad.toData());
+                console.log(signaturePad.toDataURL());
+                // form.submit();
+            }
+            */
+            var info = {
+                "txt": 123
+            };
+            console.log(info);
+            console.log(socket);
+
+            packet={
+                'action': 'msg',
+                'id': 'C3P1',
+                'token': token,
+                'uuid': '3f23a910-295d-4b60-8175-046f69267730',
+                'msg': 'testing...',
+                'message': 'test'
+            };
+            console.log(packet);
+            socket.send(JSON.stringify(packet));
+            /*
+            if (answer.action=='reply_channel') {
+                   socket.send(JSON.stringify({'action':"dddd",'job_id':'cccc'}));
+            }*/
+        });
+    </script>
+    {% block extra_js %}
+<script src="https://cdn.rawgit.com/CryptoStore/crypto-js/3.1.2/build/components/core.js"></script>
+<script src="https://cdn.rawgit.com/CryptoStore/crypto-js/3.1.2/build/components/sha256.js"></script>
+<script src="https://cdn.rawgit.com/CryptoStore/crypto-js/3.1.2/build/components/mode-cbc.js"></script>
+
+
+
+<script src="https://cdn.rawgit.com/CryptoStore/crypto-js/3.1.2/build/rollups/aes.js"></script>
+<script src="https://cdn.rawgit.com/CryptoStore/crypto-js/3.1.2/build/components/mode-cfb-min.js"></script>
+
+<script>
+    var base64ciphertextFromPython = "sLEm3NeUJwC80LjzL7SNZn/LQvgp+oOliYqdXOJO56q9oCRyLSllvD8ZHIwFawi/";
+    var base64ciphertextFromPython = "hola";
+    var ciphertext = CryptoJS.enc.Base64.parse(base64ciphertextFromPython);
+    console.log(ciphertext);
+
+    // split iv and ciphertext
+    var iv = ciphertext.clone();
+    console.log(iv);
+    iv.sigBytes = 32;
+    console.log(iv);
+    iv.clamp();
+    console.log(iv);
+    ciphertext.words.splice(0, 4); // delete 4 words = 16 bytes
+    ciphertext.sigBytes -= 32;
+
+    var key = CryptoJS.enc.Utf8.parse("12345678901234567890123456789012");
+    console.log(key);
+
+    // decryption
+    var decrypted = CryptoJS.AES.decrypt({ciphertext: ciphertext}, key, {
+      iv: iv,
+      mode: CryptoJS.mode.CBC,
+    padding: CryptoJS.pad.Pkcs7
+    });
+    console.log(decrypted);
+    console.log("__________");
+    console.log("CryptoJS.enc.Utf8");
+    console.log(CryptoJS.enc.Utf8);
+    console.log ( "decrypted.toString(CryptoJS.enc.Utf8)");
+    console.log ( decrypted.toString(CryptoJS.enc.Utf8));
+
+    var encrypted = CryptoJS.AES.encrypt(
+  base64ciphertextFromPython,
+  "12345678901234567890123456789012",
+  {
+    iv: iv,
+    mode: CryptoJS.mode.CBC,
+    padding: CryptoJS.pad.Pkcs7
+  }
+);
+console.log('            encrypted: '+encrypted.toString());
+</script>
+
+<script type="text/javascript">
+var socket = undefined;
+var token = undefined;
+$(function() {
+    // When we're using HTTPS, use WSS too.
+    var ws_scheme = window.location.protocol == "https:" ? "wss" : "ws";
+    var ws_path = ws_scheme + '://' + window.location.host + '/dashboard/';
+    var ws_path = ws_scheme + '://127.0.0.1:8000/codenerix_pos/?x=123';
+    console.log("Connecting to " + ws_path)
+    socket = new ReconnectingWebSocket(ws_path);
+    socket.onmessage = function(message) {
+        console.log("Got message: " + message.data);
+        
+        // Read message
+        var answer=JSON.parse(message.data);
+        
+        token='EURECzbRe8mh7JTAfA';
+        
+        console.log("Connected -> Start");
+        var packet={
+            'action': 'authenticate',
+            'id': 'C3PO',
+            'token': token,
+        };
+        //socket.send(JSON.stringify(packet));
+        /*
+        if (answer.action=='reply_channel') {
+               socket.send(JSON.stringify({'action':"start_sec3",'job_id':'xxx'}));
+        }*/
+        // var data = JSON.parse({'action':"start_sec3",'job_id':'xxx'});
+    };
+    /*
+    socket.addEventListener('open', () => {
+        socket.send("{1: 333}");
+    });*/
+});
+
+
+var cad = 'hola';
+
+var AESCipher = new function(){
+    this.bs = 32;
+
+    this.encrypt = function(raw, key){
+        raw = this.pad(raw); // ok
+        var hashed = CryptoJS.SHA256(key).toString(); // ok SOLO SI USAMOS .hexdigest() y no .digest()
+
+        var iv = ciphertext.clone();
+        console.log(iv);
+        iv.sigBytes = 16;
+        console.log(iv);
+        iv.clamp();
+        console.log(iv);
+
+
+    };
+
+    this.pad = function (cad){
+        var ord = this.bs - cad.length % this.bs;
+        var chr = String.fromCharCode(ord);
+        return cad + chr.repeat(ord);
+    };
+
+}
+
+
+
+
+</script>
+
+    {% endblock %}
+    
+</body>
+</html>

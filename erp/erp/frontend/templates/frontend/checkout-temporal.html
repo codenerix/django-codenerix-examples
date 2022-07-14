@@ -1,0 +1,46 @@
+{% extends "frontend/base_cart.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block contenido %}
+
+
+<!-- BEGIN: PAGE CONTENT -->
+<div class="c-content-box c-overflow-hide c-bg-white">
+	<div class="container">
+		<div class="c-shop-order-complete-1 c-content-bar-1 c-align-left c-bordered c-theme-border c-shadow">
+			<div class="c-content-title-1">
+				<h3 class="c-center c-font-uppercase c-font-bold">{% trans "Checkout" %}</h3>
+				<div class="c-line-center c-theme-bg"></div>
+			</div>
+			{% if btn %}
+			{# {{ order }}----- #}
+				<form action="{{ btn.url }}" method="post" id="form">
+					{% for field, value in btn.form.items %}
+						<input type="hidden" name="{{ field }}" value="{{ value }}"><br>
+						{# {{ field }} -------- {{ value }}<br> #}
+					{% endfor %}
+					<div class="c-theme-bg">
+						<p class="c-message c-center c-font-20 c-font-sbold">
+							{% trans "Le estamos redirigiendo hacia la pasarela de pago" %}
+						</p>
+						<p class="c-message c-center c-font-20 c-font-sbold">
+							{% trans "Este proceso es automático, si tarda demasiado pulse el siguiente botón." %}</p>
+					</div>
+					<button class="btn c-theme-btn c-theme-border c-btn-square c-btn-uppercase c-font-16 c-margin-t-40" type="submit">{% trans "Ir a la pasarela de pago" %}</button>
+				</form>
+			{% else %}
+				<div>
+					{{ error_code }}: {{ error_message }}
+				</div>
+			{% endif %}
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	document.getElementById("form").submit();
+</script>
+<!-- END: PAGE CONTENT -->
+
+{% endblock %}

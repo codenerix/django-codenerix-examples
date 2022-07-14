@@ -1,0 +1,90 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-19 07:58+0200\n"
+"PO-Revision-Date: 2022-06-19 08:11+0200\n"
+"Last-Translator:   <juanmi@juanmitaboada.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.9.8\n"
+
+#: erp/transports/forms.py:24 erp/transports/forms.py:37
+#: erp/transports/forms.py:55 erp/transports/forms.py:68
+msgid "Details"
+msgstr "Detalles"
+
+#: erp/transports/models.py:19
+msgid "Name"
+msgstr "Nombre"
+
+#: erp/transports/models.py:48
+msgid "Country"
+msgstr "Pais"
+
+#: erp/transports/models.py:49
+msgid "Region"
+msgstr "Región"
+
+#: erp/transports/models.py:50
+msgid "Province"
+msgstr "Provincia"
+
+#: erp/transports/models.py:51
+msgid "City"
+msgstr "Ciudad"
+
+#: erp/transports/models.py:57 erp/transports/models.py:76
+msgid "Protocol"
+msgstr "Protocolo"
+
+#: erp/transports/models.py:58 erp/transports/models.py:77
+msgid "Price of transport"
+msgstr "Precio de transporte"
+
+#: erp/transports/models.py:59
+msgid "Weight grams max"
+msgstr "Peso máximo (gramos)"
+
+#: erp/transports/models.py:75
+msgid "Zone"
+msgstr "Zona"
+
+#: erp/transports/models.py:78
+msgid "Weight max"
+msgstr "Peso máximo"
+
+#: erp/transports/views.py:35 erp/transports/views.py:64
+#: erp/transports/views.py:86 erp/transports/views.py:115
+msgid "Transport"
+msgstr "Transporte"
+
+#: erp/transports/views.py:35 erp/transports/views.py:64
+msgid "TransportZone"
+msgstr "Zona"
+
+#: erp/transports/views.py:86 erp/transports/views.py:115
+msgid "TransportRate"
+msgstr "Tarifa"
+
+#: erp/transports/views.py:153
+msgid "Zipcode invalid"
+msgstr "Código postal incorrecto"
+
+#: erp/transports/views.py:178
+msgid "Parameters invalid"
+msgstr "Parámetros inválidos"
+
+#: erp/transports/views.py:183
+msgid "Weight invalid!"
+msgstr "¡Peso incorrecto!"

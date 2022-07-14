@@ -1,0 +1,845 @@
+{% load static %}{% load i18n %}{% with user_settings=user.settings.all.0 %}{{settings}}<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:"en" }}" ng-app="codenerixApp">
+<head>
+    <meta charset="utf-8">
+    <title>{{ info_project.title }}, {% trans info_project.subtitle %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% trans info_project.description %}">
+    <meta name="author" content="">
+
+    {% block pre_extra_css %}{% endblock %}
+    {{cnf.codenerix_css|safe}}
+     <!-- NUEVO METRONIC -->
+     <!-- BEGIN GLOBAL MANDATORY STYLES -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+        <link href="{% static "metronic/global/plugins/font-awesome/css/font-awesome.css" %}" rel="stylesheet" type="text/css" />
+        <link href="{% static "metronic/global/plugins/simple-line-icons/simple-line-icons.css" %}" rel="stylesheet" type="text/css" />
+        <link href="{% static "metronic/global/plugins/bootstrap/css/bootstrap.css" %}" rel="stylesheet" type="text/css" />
+        <link href="{% static "metronic/global/plugins/bootstrap-switch/css/bootstrap-switch.css" %}" rel="stylesheet" type="text/css" />
+        <!-- END GLOBAL MANDATORY STYLES -->
+        <!-- BEGIN THEME GLOBAL STYLES -->
+        <link href="{% static "metronic/global/css/components.css" %}" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="{% static "metronic/global/css/plugins.css" %}" rel="stylesheet" type="text/css" />
+        <!-- END THEME GLOBAL STYLES -->
+        <!-- BEGIN THEME LAYOUT STYLES -->
+        <link href="{% static "metronic/layouts/layout2/css/layout.css" %}" rel="stylesheet" type="text/css" />
+        <link href="{% static "metronic/layouts/layout2/css/themes/blue.css" %}" rel="stylesheet" type="text/css" id="style_color" />
+        <link href="{% static "metronic/layouts/layout2/css/custom.css" %}" rel="stylesheet" type="text/css" />
+        <!-- END THEME LAYOUT STYL -->    
+    <link href="{% static "css/base.css" %}" rel="stylesheet">
+    <link href="{% static "codenerix_invoicing/css/codenerix_invoicing.css" %}" rel="stylesheet">
+    {% block extra_css %}{% endblock %}
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="{% static "codenerix/lib/bootstrap/js/html5shiv.js" %}"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static "img/apple-touch-icon-144-precomposed.png" %}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static "img/apple-touch-icon-114-precomposed.png" %}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static "img/apple-touch-icon-72-precomposed.png" %}">
+    <link rel="apple-touch-icon-precomposed" href="{% static "img/apple-touch-icon-57-precomposed.png" %}">
+    <link rel="shortcut icon" href="{% static "img/favicon.png" %}">
+    {% block javascript_constants %}
+        {% if ws_entry_point or static_partial_row or static_partial_header or static_partial_summary %}
+            <script type="text/javascript">
+                {% if ws_entry_point %}var ws_entry_point="{{ws_entry_point}}";{% endif %}
+                {% if static_partial_row %}var static_partial_row="{{static_partial_row}}";{% endif %}
+                {% if static_partial_header %}var static_partial_header="{{static_partial_header}}";{% endif %}
+                {% if static_partial_summary %}var static_partial_summary="{{static_partial_summary}}";{% endif %}
+            </script>
+        {% endif %}
+    {% endblock %}
+</head>
+
+<body ng-cloack ng-init="now=0;lastconnection=0" class="ng-cloak">
+	{% block base_menu %}
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <div class="pull-right">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainmenu" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="pull-right hidden-md hidden-lg connection-error-mini">
+                    <span class="fa fa-warning btn btn-danger bliking" popover-placement="bottom" popover="{% trans "Connection lost" %} {%verbatim%}{{(now-lastconnection)/1000|number:0}}{%endverbatim%} {% trans "seconds ago" %}" popover-trigger="mouseenter" ng-show="now-lastconnection>{{cnf.connection_error}}"></span>
+                </div>
+                <div class="pull-left logo">
+                    {% trans "Anonymous" as anon %}
+                    <a href="{% url 'home' %}"><img src="{% static "img/logo.png" %}" class="img-responsive" alt="{{user.username|default:anon}}@{{posname}} | {{commit}}" title="{{user.username|default:anon}}@{{posname}} | {{commit}}"></a>
+                </div>
+                <div class="pull-left navbar-brand-r">
+                    <a class="navbar-brand" href="{% url 'home' %}">{{ info_project.title }}</a>
+                </div>
+                <div class="pull-left">{% block navbar_mini %}{% endblock %}</div>
+            </div>
+
+            <div class="collapse navbar-collapse" id="mainmenu" ng-class="{'in':!navCollapsed}">
+                <ul class="nav navbar-nav">
+
+                {% if user.is_authenticated %}
+
+
+                    {% if perms.codenerix_invoicing.list_reasonmodification or perms.codenerix_invoicing.list_reservedproduct or perms.codenerix_invoicing.list_salesbasket or perms.codenerix_invoicing.list_salesorder or perms.codenerix_invoicing.list_salesalbaran or perms.codenerix_invoicing.list_salesinvoice or perms.codenerix_invoicing.list_salesinvoicerectification or perms.codenerix_invoicing.list_salesticket or perms.codenerix_invoicing.list_salesticketrectification %}
+                        <li class=" {%if menu.0 == "sales"%}active{%endif%}" uib-dropdown>
+                            <a href="#" class="" data-toggle="dropdown" uib-dropdown-toggle>
+                                <span class="glyphicon glyphicon-euro"></span>
+                                {% trans "Sales" %}
+                                <strong class="caret"></strong>
+                            </a>
+                            <ul class="" uib-dropdown-menu>
+                                {% if perms.codenerix_invoicing.list_reasonmodification %}
+                                <li {% if menu.1 == "SalesReservedProduct" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_reasonmodifications_list' %}">{% trans "Reason modification" %}</a>
+                                </li>
+                                <li class="divider"></li>
+                                {% endif %}
+                        {% comment %}
+                                {% if perms.codenerix_invoicing.list_reservedproduct %}
+                                <li {% if menu.1 == "SalesReservedProduct" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_reservedproducts_list' %}">{% trans "Reserved products" %}</a>
+                                </li>
+                                <li class="divider"></li>
+                                {% endif %}
+                        {% endcomment %}
+                                {% if perms.codenerix_invoicing.list_salesbasket %}
+                                <li {% if menu.1 == "basketsales" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_salesbaskets_shoppingcart_list' %}">{% trans "Shopping carts" %}</a>
+                                </li>
+                                <li {% if menu.1 == "basketsales" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_salesbaskets_budget_list' %}">{% trans "Budgets" %}</a>
+                                </li>
+                                <li {% if menu.1 == "basketsales" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_salesbaskets_wishlist_list' %}">{% trans "Wishlist" %}</a>
+                                </li>
+                                <li class="divider"></li>
+                                {% endif %}
+                                {% if perms.codenerix_invoicing.list_salesorder %}
+                                <li {% if menu.1 == "ordersales" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_ordersaless_list' %}">{% trans "Sales Order" %}</a>
+                                </li>
+                                {% endif %}
+                                {% if perms.codenerix_invoicing.list_salesalbaran %}
+                                <li {% if menu.1 == "albaransales" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_albaransaless_list' %}">{% trans "Albaran" %}</a>
+                                </li>
+                                {% endif %}
+                                {% if perms.codenerix_invoicing.list_salesinvoice %}
+                                <li {% if menu.1 == "invoicesales" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_invoicesaless_list' %}">{% trans "Invoice" %}</a>
+                                </li>
+                                {% endif %}
+                                {% if perms.codenerix_invoicing.list_salesinvoicerectification %}
+                                <li {% if menu.1 == "invoicerectificationsales" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_invoicerectificationsaless_list' %}">{% trans "Invoice Rectification" %}</a>
+                                </li>
+                                {% endif %}
+                                {% if perms.codenerix_invoicing.list_salesticket %}
+                                <li {% if menu.1 == "ticketsales" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_ticketsaless_list' %}">{% trans "Ticket" %}</a>
+                                </li>
+                                {% endif %}
+                                {% if perms.codenerix_invoicing.list_salesticketrectification %}
+                                <li {% if menu.1 == "ticketrectificationsales" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_ticketrectificationsaless_list' %}">{% trans "Ticket Rectification" %}</a>
+                                </li>
+                                {% endif %}
+
+                                {% if perms.codenerix_invoicing.list_billingseries %}
+                                <li {% if menu.1 == "billingseries" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_billingseriess_list' %}">{% trans "Series" %}</a>
+                                </li>
+                                {% endif %}
+                                {% if perms.codenerix_invoicing.list_legalnotes %}
+                                <li {% if menu.1 == "billingseries" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_legalnotes_list' %}">{% trans "Legal notes" %}</a>
+                                </li>
+                                {% endif %}
+                                {% if perms.codenerix_invoicing.list_typedocuments %}
+                                <li {% if menu.1 == "billingseries" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_typedocuments_list' %}">{% trans "Type documents" %}</a>
+                                </li>
+                                {% endif %}
+                                {% if perms.codenerix_invoicing.list_customer %}
+                                <li {% if menu.1 == "customer" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_customers_list' %}">{% trans "Customer" %}</a>
+                                </li>
+                                {% endif %}
+                                {% if perms.codenerix_invoicing.list_company %}
+                                <li {% if menu.1 == "company" %}class="active"{% endif %}>
+                                    <a href="{% url 'company_list' %}">{% trans "Company" %}</a>
+                                </li>
+                                {% endif %}
+                                <li class="divider"></li>
+
+                                {% if user.is_superuser %}
+                                <li class="divider"></li>
+                                <li {% if menu.1 == "cashdiary" %}class="active"{% endif %}>
+                                   <a href="{% url 'CDNX_invoicing_cashdiarys_list' %}">{% trans "Cash diary" %}</a>
+                                </li>
+                                {% endif %}
+                                {% if user.is_superuser %}
+                                <li {% if menu.1 == "cashdiaryreport" %}class="active"{% endif %}>
+                                   <a href="{% url 'CDNX_invoicing_cashmovements_list' %}">{% trans "Cash Movement" %}</a>
+                                </li>
+                                {% endif %}
+                                {% if user.is_superuser %}
+                                <li {% if menu.1 == "cashdiaryreport" %}class="active"{% endif %}>
+                                   <a href="{% url 'CDNX_invoicing_cashdiarys_report' %}">{% trans "Cash diary report" %}</a>
+                                </li>
+                                {% endif %}
+                                {% if user.person.is_posoperator %}
+                                <li {% if menu.1 == "cashdiaryreport" %}class="active"{% endif %}>
+                                   <a href="{% url 'CDNX_invoicing_cashdiarys_cashdiary' %}?action=open">{% trans "Apertura de caja" %}</a>
+                                </li>
+                                <li {% if menu.1 == "cashdiaryreport" %}class="active"{% endif %}>
+                                   <a href="{% url 'CDNX_invoicing_cashdiarys_cashdiary' %}?action=close">{% trans "Cierre de caja" %}</a>
+                                </li>
+                                {% endif %}
+
+                            </ul>
+                        </li>
+                    {% endif %}
+
+                    {% if perms.codenerix_invoicing.list_purchasesbudget or perms.codenerix_invoicing.list_purchasesorder or perms.codenerix_invoicing.list_purchasesalbaran or perms.codenerix_invoicing.list_purchasesinvoice or perms.codenerix_invoicing.list_purchasesinvoicerectification or perms.codenerix_invoicing.list_purchasesticket or perms.codenerix_invoicing.list_purchasesticketrectification or perms.codenerix_storages.list_storage or perms.codenerix_storages.list_storagezone %}
+                        <li class=" {%if menu.0 == "order"%}active{%endif%}" uib-dropdown>
+                            <a href="#" class="" data-toggle="dropdown" uib-dropdown-toggle>
+                                <span class="glyphicon glyphicon-shopping-cart"></span>
+                                {% trans "Purchases" %}
+                                <strong class="caret"></strong>
+                            </a>
+                            <ul class="" uib-dropdown-menu>
+                                {% if perms.codenerix_invoicing.list_provider %}
+                                <li {% if menu.1 == "provider" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_providers_list' %}">{% trans "Provider" %}</a>
+                                </li>
+                                {% endif %}
+                                {% if perms.codenerix_invoicing.list_purchasesbudget %}
+                                <li {% if menu.1 == "budgetpurchases" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_budgetpurchasess_list' %}">{% trans "Budget" %}</a>
+                                </li>
+                                {% endif %}
+                                {% if perms.codenerix_invoicing.list_purchasesorder %}
+                                <li {% if menu.1 == "orderpurchases" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_orderpurchasess_list' %}">{% trans "Purchases Order" %}</a>
+                                </li>
+                                {% endif %}
+                                {% if perms.codenerix_invoicing.list_purchasesalbaran %}
+                                <li {% if menu.1 == "albaranpurchases" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_albaranpurchasess_list' %}">{% trans "Albaran" %}</a>
+                                </li>
+                                {% endif %}
+                                {% if perms.codenerix_invoicing.list_purchasesinvoice %}
+                                <li {% if menu.1 == "invoicepurchases" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_invoicepurchasess_list' %}">{% trans "Invoice" %}</a>
+                                </li>
+                                {% endif %}
+                                {% if perms.codenerix_invoicing.list_purchasesinvoicerectification %}
+                                <li {% if menu.1 == "invoicerectificationpurchases" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_invoicerectificationpurchasess_list' %}">{% trans "Invoice Rectification" %}</a>
+                                </li>
+                                {% endif %}
+                                {% if perms.codenerix_invoicing.list_purchasesticket %}
+                                <li {% if menu.1 == "ticketpurchases" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_ticketpurchasess_list' %}">{% trans "Ticket" %}</a>
+                                </li>
+                                {% endif %}
+                                {% if perms.codenerix_invoicing.list_purchasesticketrectification %}
+                                <li {% if menu.1 == "ticketrectificationpurchases" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_ticketrectificationpurchasess_list' %}">{% trans "Ticket Rectification" %}</a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                    {% endif %}
+
+                    {% if perms.codenerix_products.list_typetax or perms.codenerix_products.list_family or perms.codenerix_products.list_category or perms.codenerix_products.list_subcategory or perms.codenerix_products.list_groupvaluefeature or perms.codenerix_products.list_groupvalueattribute or perms.codenerix_products.list_groupvaluefeaturespecial or perms.codenerix_products.list_feature or perms.codenerix_products.list_attribute or perms.codenerix_products.list_featurespecial or perms.codenerix_products.list_brand or perms.codenerix_products.list_product or perms.codenerix_products.list_productfinal or perms.codenerix_products.list_flagshipproduct %}
+                        <li class=" {%if menu.0 == "type"%}active{%endif%}" uib-dropdown>
+                            <a href="#" class="" data-toggle="dropdown" uib-dropdown-toggle>
+                                <span class="glyphicon glyphicon-tag"></span>
+                                {% trans "Product" %}
+                                <strong class="caret"></strong>
+                            </a>
+                             <ul class="" uib-dropdown-menu>
+                                {% if perms.codenerix_products.list_typetax %}
+                                <li {% if menu.1 == "typetax" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_products_typetaxs_list' %}">{% trans "Type tax" %}</a>
+                                </li>
+                                <li class="divider"></li>
+                                {% endif %}
+                                {% if perms.codenerix_products.list_family %}
+                                <li {% if menu.1 == "family" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_products_familys_list' %}">{% trans "Family" %}</a>
+                                </li>
+                                {% endif %}
+                                {% if perms.codenerix_products.list_category %}
+                                <li {% if menu.1 == "category" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_products_categorys_list' %}">{% trans "Category" %}</a>
+                                </li>
+                                {% endif %}
+                                {% if perms.codenerix_products.list_subcategory %}
+                                <li {% if menu.1 == "subcategory" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_products_subcategorys_list' %}">{% trans "Subcategory" %}</a>
+                                </li>
+                                <li class="divider"></li>
+                                {% endif %}
+                                {% if perms.codenerix_products.list_groupvaluefeature %}
+                                <li {% if menu.1 == "groupvalue" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_products_GroupValueFeatures_list' %}">{% trans "GroupValue Feature" %}</a>
+                                </li>
+                                {% endif %}
+                                {% if perms.codenerix_products.list_groupvalueattribute %}
+                                <li {% if menu.1 == "groupvalue" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_products_GroupValueAttributes_list' %}">{% trans "GroupValue Attribute" %}</a>
+                                </li>
+                                {% endif %}
+                                {% if perms.codenerix_products.list_groupvaluefeaturespecial %}
+                                <li {% if menu.1 == "groupvalue" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_products_GroupValueFeatureSpecials_list' %}">{% trans "GroupValue Feature Special" %}</a>
+                                </li>
+                                <li class="divider"></li>
+                                {% endif %}
+                                {% if perms.codenerix_products.list_feature %}
+                                <li {% if menu.1 == "feature" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_products_features_list' %}">{% trans "Feature" %}</a>
+                                </li>
+                                {% endif %}
+                                {% if perms.codenerix_products.list_attribute %}
+                                <li {% if menu.1 == "attribute" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_products_attributes_list' %}">{% trans "Attribute" %}</a>
+                                </li>
+                                {% endif %}
+                                {% if perms.codenerix_products.list_featurespecial %}
+                                <li {% if menu.1 == "featurespecial" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_products_featurespecials_list' %}">{% trans "FeatureSpecial" %}</a>
+                                </li>
+                                <li class="divider"></li>
+                                {% endif %}
+                                {% if perms.codenerix_products.list_brand %}
+    							<li {% if menu.1 == "brand" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_products_brand_list' %}">{% trans "Brand" %}</a>
+                                </li>
+                                <li class="divider"></li>
+                                {% endif %}
+                                {% if perms.codenerix_products.list_product %}
+                                <li {% if menu.1 == "product" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_products_products_list' %}">{% trans "Product" %}</a>
+                                </li>
+                                {% endif %}
+                                {% if perms.codenerix_products.list_productfinal %}
+                                <li {% if menu.1 == "productfinal" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_products_productfinals_list' %}">{% trans "ProductFinal" %}</a>
+                                </li>
+                                <li class="divider"></li>
+                                {% endif %}
+                                {% if perms.codenerix_products.list_flagshipproduct %}
+                                <li {% if menu.1 == "FlagshipProduct" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_products_flagshipproducts_list' %}">{% trans "FlagshipProduct" %}</a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                    {% endif %}
+
+                {% endif %}
+
+                {% if perms.codenerix_products.list_typetax or perms.codenerix_products.list_family or perms.codenerix_products.list_category or perms.codenerix_products.list_subcategory or perms.codenerix_products.list_groupvaluefeature or perms.codenerix_products.list_groupvalueattribute or perms.codenerix_products.list_groupvaluefeaturespecial or perms.codenerix_products.list_feature or perms.codenerix_products.list_attribute or perms.codenerix_products.list_featurespecial or perms.codenerix_products.list_brand or perms.codenerix_products.list_product or perms.codenerix_products.list_productfinal or perms.codenerix_products.list_flagshipproduct %}
+                <li class=" {%if menu.0 == "manager"%}active{%endif%}" uib-dropdown>
+                    <a href="#" class="" data-toggle="dropdown" uib-dropdown-toggle>
+                        <span class="glyphicon glyphicon-th"></span>
+                        {% trans "Storage" %}
+                        <strong class="caret"></strong>
+                    </a>
+                    <ul class="" uib-dropdown-menu>
+                        <li {% if menu.1 == "inventoryin" %}class="active"{% endif %}>
+                            <a href="{% url 'CDNX_storages_inventoryin_list' %}">
+                                <span class="glyphicon glyphicon-copy"></span>
+                                {% trans "Incoming stock" %}
+                            </a>
+                        </li>
+                        <li {% if menu.1 == "inventoryout" %}class="active"{% endif %}>
+                            <a href="{% url 'CDNX_storages_inventoryout_list' %}">
+                                <span class="glyphicon glyphicon-paste"></span>
+                                {% trans "Outgoing stock (Orders)" %}
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li {% if menu.1 == "inventory" %}class="active"{% endif %}>
+                            <a href="{% url 'CDNX_storages_inventory_list' %}">
+                                <span class="glyphicon glyphicon-equalizer"></span>
+                                {% trans "Inventory" %}
+                            </a>
+                      <li {% if menu.1 == "outgoingalbaran" %}class="active"{% endif %}>
+                            <a href="{% url 'CDNX_storages_outgoingalbaran_list' %}">
+                                <span class="glyphicon glyphicon-equalizer"></span>
+                                {% trans "Albaran Outgoing" %}
+                            </a>
+                        </li>
+                        </li>
+                        <li class="divider"></li>
+                        <li {% if menu.1 == "storage" %}class="active"{% endif %}>
+                            <a href="{% url 'CDNX_storages_storages_list' %}">
+                                <span class="fa fa-industry"></span>
+                                {% trans "Storage" %}
+                            </a>
+                        </li>
+                        <li {% if menu.1 == "storagezone" %}class="active"{% endif %}>
+                            <a href="{% url 'CDNX_storages_storagezones_list' %}">
+                                <span class="glyphicon glyphicon-pushpin"></span>
+                                {% trans "StorageZone" %}
+                            </a>
+                        </li>
+                        <li {% if menu.1 == "storageboxstructure" %}class="active"{% endif %}>
+                            <a href="{% url 'CDNX_storages_storageboxstructures_list' %}">
+                                <span class="glyphicon glyphicon-object-align-left"></span>
+                                {% trans "StorageBoxStructure" %}
+                            </a>
+                        </li>
+                        <li {% if menu.1 == "storageboxkind" %}class="active"{% endif %}>
+                            <a href="{% url 'CDNX_storages_storageboxkinds_list' %}">
+                                <span class="glyphicon glyphicon-tag"></span>
+                                {% trans "StorageBoxKind" %}
+                            </a>
+                        </li>
+                        <li {% if menu.1 == "storagebox" %}class="active"{% endif %}>
+                            <a href="{% url 'CDNX_storages_storageboxs_list' %}">
+                                <span class="glyphicon glyphicon-inbox"></span>
+                                {% trans "StorageBox" %}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                {% endif %}
+
+
+                {% if user.is_superuser or user.is_posoperator %}
+                <li class=" {%if menu.0 == "pos"%}active{%endif%}" uib-dropdown>
+                    <a href="#" class="" data-toggle="dropdown" uib-dropdown-toggle>
+                        <span class="glyphicon glyphicon-record"></span>
+                        {% trans "POS" %}
+                        <strong class="caret"></strong>
+                    </a>
+                    <ul class="" uib-dropdown-menu>
+                        {% if user.is_superuser or user.is_posoperator %}
+                        <li {% if menu.1 == "corporate_image" %}class="active"{% endif %}>
+                           <a href="{% url 'CDNX_vending_init' %}">{% trans "Vending" %}</a>
+                        </li>
+                        <li class="divider"></li>
+                        {% endif %}
+                        {% if perms.codenerix_pos.list_pos %}
+                        <li {% if menu.1 == "pos" %}class="active"{% endif %}>
+                            <a href="{% url 'CDNX_poss_list' %}">{% trans "Point of Service" %}</a>
+                        </li>
+                        {% endif %}
+                        {% if perms.codenerix_pos.list_posplant %}
+                        <li {% if menu.1 == "posplant" %}class="active"{% endif %}>
+                            <a href="{% url 'CDNX_posplants_list' %}">{% trans "Plant" %}</a>
+                        </li>
+                        {% endif %}
+                        {% if perms.codenerix_pos.list_poszone %}
+                        <li {% if menu.1 == "poszones" %}class="active"{% endif %}>
+                            <a href="{% url 'CDNX_poszones_list' %}">{% trans "Zones" %}</a>
+                        </li>
+                        {% endif %}
+                        {% if perms.codenerix_pos.list_poshardware %}
+                        <li {% if menu.1 == "poshardware" %}class="active"{% endif %}>
+                            <a href="{% url 'CDNX_poshardwares_list' %}">{% trans "Hardware" %}</a>
+                        </li>
+                        {% endif %}
+                        {% if perms.codenerix_pos.list_posslot %}
+                        <li {% if menu.1 == "posslots" %}class="active"{% endif %}>
+                            <a href="{% url 'CDNX_posslots_list' %}">{% trans "Slots" %}</a>
+                        </li>
+                        {% endif %}
+                        {% if perms.codenerix_pos.list_proupproduct %}
+                        <li {% if menu.1 == "posgroupproduct" %}class="active"{% endif %}>
+                            <a href="{% url 'CDNX_posgroupproducts_list' %}">{% trans "Group Product" %}</a>
+                        </li>
+                        {% endif %}
+                        {% if perms.codenerix_pos.list_posproduct %}
+                        <li {% if menu.1 == "posproduct" %}class="active"{% endif %}>
+                            <a href="{% url 'CDNX_posproducts_list' %}">{% trans "Product" %}</a>
+                        </li>
+                        {% endif %}
+                        {% if user.is_superuser %}
+                        <li {% if menu.1 == "poslog" %}class="active"{% endif %}>
+                            <a href="{% url 'CDNX_poslogs_list' %}">{% trans "Logs" %}</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </li>
+                {% endif %}
+
+
+                {% if perms.common.list_publiccontact or perms.codenerix_email.list_emailtemplate or perms.codenerix_reviews.list_reviews or perms.codenerix_products.list_flagshipproduct or perms.codenerix_cms.list_staticheader or perms.codenerix_cms.list_slider or perms.codenerix_cms.list_staticpage or perms.codenerix_cms.list_templatestaticpage or perms.codenerix_corporate.list_corporateimage %}
+                    <li class=" {%if menu.0 == "manager"%}active{%endif%}" uib-dropdown>
+                        <a href="#" class="" data-toggle="dropdown" uib-dropdown-toggle>
+                            <span class="glyphicon glyphicon-picture"></span>
+                            {% trans "Design" %}
+                            <strong class="caret"></strong>
+                        </a>
+                         <ul class="" uib-dropdown-menu>
+                            {% if perms.common.list_publiccontact %}
+                            <li {% if menu.1 == "public_contact" %}class="active"{% endif %}>
+                               <a href="{% url 'publiccontacts_list' %}">{% trans "Emails public" %}</a>
+                            </li>
+                            <li class="divider"></li>
+                            {% endif %}
+                            {% if perms.codenerix_email.list_emailtemplate %}
+                            <li {% if menu.1 == "EmailTemplate" %}class="active"{% endif %}>
+                               <a href="{% url 'CDNX_emails_emailtemplates_list' %}">{% trans "Email Templates" %}</a>
+                            </li>
+                            <li class="divider"></li>
+                            {% endif %}
+                            {% if perms.codenerix_reviews.list_reviews %}
+                            <li {% if menu.1 == "corporate_image" %}class="active"{% endif %}>
+                               <a href="{% url 'CDNX_reviews_reviewss_list' %}">{% trans "Reviews" %}</a>
+                            </li>
+                            <li class="divider"></li>
+                            {% endif %}
+
+                            {% if perms.codenerix_products.list_flagshipproduct or perms.codenerix_cms.list_staticheader or perms.codenerix_cms.list_slider or perms.codenerix_cms.list_staticpage or perms.codenerix_cms.list_templatestaticpage or perms.codenerix_corporate.list_corporateimage %}
+                                <li class="li_cdnx_title"><strong>{% trans "Design" %}</strong></li>
+                                {% if perms.codenerix_products.list_flagshipproduct %}
+                                    <li {% if menu.1 == "flagshipproduct" %}class="active"{% endif %}>
+                                        <a href="{% url 'CDNX_products_flagshipproducts_list' %}">{% trans "Flagship product" %}</a>
+                                    </li>
+                                {% endif %}
+                                {% if perms.codenerix_cms.list_staticheader %}
+                                    <li {% if menu.1 == "frontheader" %}class="active"{% endif %}>
+                                        <a href="{% url 'CDNX_cms_staticheader_list' %}">{% trans "Static Header" %}</a>
+                                    </li>
+                                {% endif %}
+                                {% if perms.codenerix_cms.list_slider %}
+                                    <li {% if menu.1 == "slider_group" %}class="active"{% endif %}>
+                                        <a href="{% url 'CDNX_cms_slider_list' %}">{% trans "Slider" %}</a>
+                                    </li>
+                                {% endif %}
+                                {% if perms.codenerix_cms.list_staticpage %}
+                                    <li {% if menu.1 == "static_page" %}class="active"{% endif %}>
+                                        <a href="{% url 'CDNX_cms_staticpages_list' %}">{% trans "Static page" %}</a>
+                                    </li>
+                                {% endif %}
+                                {% if perms.codenerix_cms.list_templatestaticpage %}
+                                    <li {% if menu.1 == "static_page" %}class="active"{% endif %}>
+                                        <a href="{% url 'CDNX_cms_templatestaticpages_list' %}">{% trans "Theme Static page" %}</a>
+                                    </li>
+                                {% endif %}
+                                {% if perms.codenerix_corporate.list_corporateimage %}
+                                <li {% if menu.1 == "corporate_image" %}class="active"{% endif %}>
+                                   <a href="{% url 'CDNX_EXT_corporateimages_list' %}">{% trans "Corporate image" %}</a>
+                                </li>
+                                {% endif %}
+                            {% endif %}
+
+                            <li class="divider"></li>
+                            <li class="li_cdnx_title">Geodata</li>
+                            <li {% if menu.1 == "continent" %}class="active"{% endif %}>
+                                <a href="{% url 'CDNX_geodata_continents_list' %}">{% trans "Continent" %}</a>
+                            </li>
+                            <li {% if menu.1 == "country" %}class="active"{% endif %}>
+                                <a href="{% url 'CDNX_geodata_countries_list' %}">{% trans "Country" %}</a>
+                            </li>
+                            <li {% if menu.1 == "regions" %}class="active"{% endif %}>
+                                <a href="{% url 'CDNX_geodata_regions_list' %}">{% trans "Regions" %}</a>
+                            </li>
+                            <li {% if menu.1 == "provinces" %}class="active"{% endif %}>
+                                <a href="{% url 'CDNX_geodata_provinces_list' %}">{% trans "Provinces" %}</a>
+                            </li>
+                            <li {% if menu.1 == "timezone" %}class="active"{% endif %}>
+                                <a href="{% url 'CDNX_geodata_timezones_list' %}">{% trans "TimeZone" %}</a>
+                            </li>
+                            <li {% if menu.1 == "city" %}class="active"{% endif %}>
+                                <a href="{% url 'CDNX_geodata_cities_list' %}">{% trans "City" %}</a>
+                            </li>
+                        </ul>
+                    </li>
+                {% endif %}
+
+    
+                {% if user.is_authenticated %}
+                    {% if user.is_superuser %}
+                        <li class=" {%if menu.0 == "payments"%}active{%endif%}" uib-dropdown>
+                            <a href="#" class="" data-toggle="dropdown" uib-dropdown-toggle>
+                                <span class="fa fa-superpowers"></span>
+                                {% trans "Manager" %}
+                                <strong class="caret"></strong>
+                            </a>
+                            <ul class="" uib-dropdown-menu>
+                                <li class="li_cdnx_title"><strong><span class="fa fa-credit-card"></span> {% trans "Payments" %}</strong></li>
+                                <li {% if menu.1 == "paymentrequest" %}class="active"{% endif %}>
+                                    <a href="{% url 'paymentrequest_list' %}">
+                                        <span class="fa fa-play"></span>
+                                        &nbsp;
+                                        {% trans "Payments Request" %}
+                                    </a>
+                                </li>
+                                <li {% if menu.1 == "paymentanswer" %}class="active"{% endif %}>
+                                    <a href="{% url 'paymentanswer_list' %}">
+                                        <span class="fa fa-file-text-o"></span>
+                                        &nbsp;
+                                        {% trans "Payments Answer (Remote)" %}
+                                    </a>
+                                </li>
+                                <li {% if menu.1 == "paymentconfirmation" %}class="active"{% endif %}>
+                                    <a href="{% url 'paymentconfirmation_list' %}">
+                                        <span class="fa fa-check"></span>
+                                        &nbsp;
+                                        {% trans "Payments Confirmation (Users)" %}
+                                    </a>
+                                </li>
+                                <li class="li_cdnx_title"><strong><span class="fa fa-truck"></span> {% trans "Transports" %}</strong></li>
+                                    {% if perms.codenerix_transports.list_transportzone or perms.codenerix_transports.list_transportrate %}
+                                        {% if perms.codenerix_transports.list_transportzone %}
+                                            <li {% if menu.1 == "transportzone" %}class="active"{% endif %}>
+                                                <a href="{% url 'transportzones_list' %}">
+                                                    <span class="fa fa-globe"></span>
+                                                    &nbsp;
+                                                    {% trans "TransportZone" %}
+                                                </a>
+                                            </li>
+                                        {% endif %}
+                                        {% if perms.codenerix_transports.list_transportrate %}
+                                            <li {% if menu.1 == "transportrate" %}class="active"{% endif %}>
+                                                <a href="{% url 'transportrates_list' %}">
+                                                    <span class="fa fa-money"></span>
+                                                    &nbsp;
+                                                    {% trans "TransportRate" %}
+                                                </a>
+                                            </li>
+                                        {% endif %}
+                                    {% endif %}
+                                    {% if perms.codenerix_invoicing.list_haulier %}
+                                        <li {% if menu.1 == "haulier" %}class="active"{% endif %}>
+                                            <a href="{% url 'CDNX_invoicing_hauliers_list' %}">
+                                                <span class="fa fa-truck"></span>
+                                                &nbsp;
+                                                {% trans "Haulier" %}
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                </li>
+                                <li class="li_cdnx_title"><strong><span class="fa fa-eye"></span> {% trans "Control" %}</strong></li>
+                                <li {% if menu.1 == "emailmessages" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_emails_emailmessages_list' %}">
+                                        <span class="fa fa-envelope-open-o"></span>
+                                        &nbsp;
+                                        {% trans "Email Queue" %}
+                                    </a>
+                                </li>
+                                {% if user.is_staff %}
+                                <li {% if menu.1 == "codenerix_remotelog" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_remotelog_list' %}">
+                                        <span class="fa fa-file-text-o"></span>
+                                        &nbsp;
+                                        {% trans "Remote Logs" %}
+                                    </a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                    {% endif %}
+                    
+                {% endif %}
+                </ul>
+
+                {% if user.is_authenticated %}
+                <ul class="nav navbar-nav navbar-right nav-pills" ng-controller="AlarmsCtrl">
+                    <li class="connection-error-mini">
+                        <span class="fa fa-warning btn btn-danger bliking" popover-placement="bottom" popover="{% trans "Connection lost" %} {%verbatim%}{{(now-lastconnection)/1000|number:0}}{%endverbatim%} {% trans "seconds ago" %}" popover-trigger="mouseenter" ng-show="now-lastconnection>{{cnf.connection_error}}"></span>
+                    </li>
+                    <li class=" {%if menu.0 == "user"%}active{%endif%}" uib-dropdown>
+                        <a href="#" class="" data-toggle="dropdown" ng-click="inotify('a','warning',1)" alt="Auth:{%verbatim%}{{pubdata.meta.permitsuser}}{%endverbatim%}" title="Auth:{%verbatim%}{{pubdata.meta.permitsuser}}{%endverbatim%}" uib-dropdown-toggle>
+                            <span class="glyphicon glyphicon-user"></span>
+                            <span class="hidden-xs hidden-sm hidden-md"
+                            ng-class="{'text-capitalize': {%verbatim%}pubdata.meta.superuser{%endverbatim%}}">{{user.username}}</span>
+                            <span id='alarms' class="badge"{# If you remove this line the click on Notifications will not work #}>{%verbatim%}{{pubdata.head.totalcp}}{%endverbatim%}</span>
+                            <strong class="caret"></strong>
+
+                        </a>
+                        <ul class="" uib-dropdown-menu>
+                            {% if user.is_superuser %}
+                            <li {% if menu.1 == "operator" %}class="active"{% endif %}>
+                               <a href="{% url 'CDNX_posoperators_list' %}">{% trans "POS Operators" %}</a>
+                            </li>
+                            <li {% if menu.1 == "operator" %}class="active"{% endif %}>
+                               <a href="{% url 'CDNX_storages_storageoperators_list' %}">{% trans "Storage Operators" %}</a>
+                            </li>
+                            <li {% if menu.1 == "authorships" %}class="active"{% endif %}>
+                                <a href="{% url 'authorships_list' %}">{% trans "Authorships" %}</a>
+                            </li>
+                            <li {% if menu.1 == "publicist" %}class="active"{% endif %}>
+                               <a href="{% url 'publicists_list' %}">{% trans "Publicists" %}</a>
+                            </li>
+
+                            <li class="divider"></li>
+                            {% endif %}
+                            <li>
+                                <a href="{% url 'logout' %}">
+                                    <span class="glyphicon glyphicon-off"></span>
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                {#<div class="navbar-form navbar-right" role="search"></div>#}
+                {#    <div class="form-group"> #}
+                {#        <input class="form-control" type="text"> #}
+                {#    </div> <button type="submit" class="btn btn-default">Search</button> #}
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+	{% endblock %}
+	
+	{% block body %}
+    <div class="container-fluid body-web">
+        {% if user.is_authenticated %}
+        <div class="row">
+                <div class="navbar-form navbar-left bread nav-breadcrumb">
+                <div class="col-sm-12">
+                    <ol class="breadcrumb">
+                        {% if menu.0 %} 
+                            {% if menu.1 %}
+                                <li>
+                                    {% if menu.0 == "manager" %}
+                                    <span class="glyphicon glyphicon-th" popover-trigger="mouseenter" popover="{{bread.0}}" popover-placement="bottom"></span>
+                                    {% else %}
+                                        {% if menu.0 == "companies" %}
+                                            <span class="fa fa-id-card-o" popover-trigger="mouseenter" popover="{{bread.0}}" popover-placement="bottom"></span>
+                                        {% else %}
+                                            {% if menu.0 == "InOut" %}
+                                                <span class="glyphicon glyphicon-sort" popover-trigger="mouseenter" popover="{{bread.0}}" popover-placement="bottom"></span>
+                                            {% else %}
+                                                {% if menu.0 == "Parameters" %}
+                                                    <span class="fa fa-wrench" popover-trigger="mouseenter" popover="{{bread.0}}" popover-placement="bottom"></span>
+                                                {% else %}
+                                                    {{bread.0}}
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endif %}
+                                </li>
+                                <li class="active end">{{bread.1}}</li>
+                            {% else %}
+                                <li class="active end">{{bread.0}}</li>
+                            {% endif %}
+                        {% endif %}
+                    </ol>
+                </div>
+                <div class="col-sm-12 pull-left {% block breadcrumb_element_hide %}hidden-xs hidden-sm{% endblock %} elementname normalelementname recortar_texto" ng-if="elementname">{% verbatim %}{{elementname}}{% endverbatim %}</div>
+            </div>
+        </div>
+        {% endif %}
+        
+        
+    {% block subbody %}<div ui-view class="body-view"></div>{% endblock %}
+        
+        
+    {% endblock %}
+
+    </div> <!-- END CONTAINER container-fluid body-web -->
+
+    {# {% cdnx_slider "A1235" request %} #}
+    {# {% cdnx_staticheader "234" request %} #}
+    
+    {% block base_footer %}
+    <footer id="footer">
+        <div class="col-sm-12">
+                <img src="{% static "img/codenerix.png" %}" alt="" title="Codenerix">
+                <span class="hidden-xs">- <a href="http://www.codenerix.com">http://www.codenerix.com</a> <span class="hidden-xs hidden-sm">- info@codenerix.com</span></span>
+                <span class="pull-right">-{{ info_project.name_project }}- v{{VERSION}}</span>
+        </div>
+    </footer>
+    {% endblock %}
+    
+    {% with langcode=LANGUAGE_CODE|default:"en" %}
+    <script type="text/javascript">
+        var cnf_alarms_looptime = {{cnf.alarms_looptime}};
+        var cnf_alarms_quickloop = {{cnf.alarms_quickloop}};
+        var cnf_alarms_errorloop = {{cnf.alarms_errorloop}};
+        var cnf_debug = {{cnf.debug}};
+        var cnf_debug_txt = "{% trans "An error has occurred, it is reported to the administrator" %}";
+        var withfocus=true;
+        {% if user.is_authenticated %}
+            {% if not user_settings.updatewithoutfocus %}
+                window.addEventListener("focus", function(event) { withfocus=true; }, false);
+                window.addEventListener("blur", function(event) { withfocus=false; }, false);
+            {% endif %}
+        {% endif %}
+
+        var cnf_daterangepicker = {{cnf.daterangepicker}};
+    </script>
+    <script type="text/javascript" src="{% static "js/mnotify.js" %}"></script>
+    <script type="text/javascript" src="{% static "codenerix_extensions/js/codenerix_extensions.js" %}"></script>
+
+    {{cnf.codenerix_js|safe}}
+    {% csrf_token %}
+    <script type="text/javascript" src="{% static "codenerix_pos/js/local_uuid.js" %}"></script>
+
+    {# SUBSCRIPTION SYSTEM DEFINITION - START #}
+    <script type="text/javascript" src="{% static "codenerix_extensions/lib/crypto-js/core.js" %}"></script>  
+    <script type="text/javascript" src="{% static "codenerix_extensions/lib/crypto-js/sha256.js" %}"></script>  
+    <script type="text/javascript" src="{% static "codenerix_extensions/lib/crypto-js/enc-base64.js" %}"></script>  
+    <script type="text/javascript" src="{% static "codenerix_extensions/lib/crypto-js/cipher-core.js" %}"></script>  
+    <script type="text/javascript" src="{% static "codenerix_extensions/lib/crypto-js/aes.js" %}"></script>  
+    <script type="text/javascript" src="{% static "codenerix_extensions/js/cryptography.js" %}"></script>  
+
+    <script type="text/javascript" src="{% static "codenerix_extensions/lib/reconnecting-websocket/reconnecting-websocket.js" %}"></script>  
+    <script type="text/javascript" src="{% static "codenerix_extensions/js/websocket.js" %}"></script>  
+    
+    <script type="text/javascript">
+        function CodenerixSubscribersWebsocket() {
+            if (uuid_websocket != undefined || key_websocket != undefined){
+                var ws = new CodenerixWebsocket(
+                    "{{WEBSOCKET_URL}}",
+                    "codenerix_pos/",
+                    uuid_websocket, // Obtener UUID, pedir al servidor UUID del DNIE de este POS
+                    key_websocket // Idem de la clave para comunicarnos leer el channel del DNIE
+                );
+
+                // Prepare debugger$
+                ws.set_name("POSWebSocket Subscribers");
+                {% if cnf.debug %}
+                    // ws.set_debug();
+                {% endif %}
+            }else{
+                var ws = null;
+            }
+
+            // Return WebSocket
+            return ws;
+        }
+    </script>
+    {# SUBSCRIPTION SYSTEM DEFINITION - END #}
+    {% endwith %}
+    {% block angular_app_libraries %}<script type="text/javascript" src="{% static "codenerix/js/base.js" %}"></script>{% endblock %}
+    {% block angular_app_services %}
+        {% if ws_entry_point %}
+            <script type="text/javascript">
+                angular.module('codenerixServices', ['ngResource'])
+                .factory('Register', ['$resource', function($resource){
+                    return $resource('/{{ws_entry_point}}/:pk/:action', { json:'{}', pk:null, action:null },{
+                        query:{ method: "GET", params: { json:'@json' }, isArray: false },
+                        get:{ method: "GET", params: { pk:'@pk', action:'@action' }, isArray: false },
+                    });
+                }]);
+            </script>
+        {% endif %}
+    {% endblock %}
+    {% block extra_pre_js %}{% endblock %}
+    {% block extra_msg_js %}{% endblock %}
+    {% block extra_base_js %}{% endblock %}
+    {% block extra_js %}{% endblock %}
+    {% block extra_more_js %}{% endblock %}
+
+
+</body>
+</html>{% endwith %}

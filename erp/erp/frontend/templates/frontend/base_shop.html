@@ -1,0 +1,200 @@
+{% extends "frontend/base.html" %}
+{% load static %}{% load i18n %}
+
+{% block slider %}
+
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+            <div class="item active" style="background: url({{MEDIA_URL}}{{head_image}}) no-repeat center bottom; background-size: cover; ">
+                <div class="container">
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div><!-- /.carousel -->
+{% endblock %}
+
+{% block header %}
+    <nav class="navbar navbar-fixed-top navbar-principal-tienda">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url "home" %}">
+            <img class="logo-project" src="{% static "imagenes/logo-project.png" %}">
+          </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse pull-right">
+          <ul class="nav navbar-nav">
+            <li><a href="/historia">{% trans "HISTORIA" %}</a></li>
+            {% comment %}
+            <li class="active"><a href="#">D.SANCHO MELERO</a></li>
+            <li><a href="#">LA FLOR DE ANTEQUERA</a></li>
+            <li><a href="#">LA CASTAÑA 1790</a></li>
+            {% endcomment %}
+            {% for family in menu.families %}
+                <li><a href="/{{ family.slug }}">{{ family.name }}</a></li>
+            {% endfor %}
+            <li><a href="{% url 'form_contact' %}#/add">{% trans "CONTACTO" %}</a></li>
+            
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+{% endblock %}
+
+{% block buscador %}
+
+    <nav class="navbar navbar-secundario-tienda">
+      <div class="container">
+        <div class="navbar-header">
+            <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button> -->
+            {% block logo_familia %}
+            <a class="navbar-brand" href="#">
+                <div class="logo-familia">
+                    <img class="img-responsive" src="{{MEDIA_URL}}{{ icon_image }}">
+                </div>
+            </a>
+            {% endblock %}
+        </div>
+            <ul class="nav navbar-nav">
+                <li class="dropdown hidden-xs" id="ul_family">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">{% trans "Familia" %}
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        {% for family in menu.families %}
+                            <li><a href="/{{ family.slug }}">{{ family.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li class="dropdown hidden-xs" id="ul_category">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">{% trans "Categorías" %}
+                  <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    {% for category in menu.categories %}
+                        <li class="{{ category.slug_family }}"><a href="/{{ category.slug }}">{{ category.name }}</a></li>
+                    {% endfor %}
+                  </ul>
+                </li>
+                {% if menu.subcategories %}
+                <li class="dropdown hidden-xs" id="ul_subcategory">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">{% trans "Subcategorías" %}
+                  <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    {% for subcategory in menu.subcategories %}
+                        <li><a href="/{{ subcategory.slug }}">{{ subcategory.label }}</a></li>
+                    {% endfor %}
+                  </ul>
+                </li>
+                {% endif %}
+                {% if menu.products %}
+                <li class="dropdown hidden-xs" id="ul_product">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">{% trans "Productos" %}
+                  <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    {% for product in menu.products %}
+                        <li><a href="/{{ product.slug }}">{{ product.name }}</a></li>
+                    {% endfor %}
+                  </ul>
+                </li>
+                {% endif %}
+                {% if menu.products_final %}
+                <li class="dropdown hidden-xs" id="ul_productfinal">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">{% trans "Envase" %}
+                  <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    {% for key, productfinal in menu.products_final.items %}
+                        <li><a href="/{{ productfinal.slug }}">{{ productfinal.label }}</a></li>
+                    {% endfor %}
+                  </ul>
+                </li>
+                {% endif %}
+                <form class="navbar-form navbar-left" action="{% url "buscar" %}" id="form_search" method="GET">
+                    <div class="form-group">
+                        <input type="text" name="query" class="form-control" placeholder="{% trans "Buscar" %}" id="txt_search">
+                    </div>
+                        <button type="submit" class="btn">{% trans "Buscar" %}</button>
+                </form>
+            </ul>
+      </div>
+    </nav>
+{% endblock %}
+
+{% block extra_js %}
+<script type="text/javascript">
+    var menu_family = '{{ select.0 }}';
+    var menu_category = '{{ select.1 }}';
+    var menu_subcategory = '{{ select.2 }}';
+    var menu_product = '{{ select.3 }}';
+
+    $(document).ready(function(){
+        var name_family = '';
+        var name_category = '';
+        var name_subcategory = '';
+        var name_product = '';
+
+        if (menu_family != ''){
+            $("#ul_category > ul.dropdown-menu > li").hide();
+            $("#ul_category > ul.dropdown-menu > li." + menu_family).show();
+            $("#ul_family > ul.dropdown-menu > li > a").each(function(){
+                if ($(this).attr('href') == '/' + menu_family){
+                    name_family = $(this).html();
+                }
+            });
+            if (name_family != ''){
+                $("#ul_family > a.dropdown-toggle").html(name_family);
+            }
+        }
+
+        if (menu_category != ''){
+            $("#ul_category > ul.dropdown-menu > li > a").each(function(){
+                if ($(this).attr('href') == '/' + menu_category){
+                    name_category = $(this).html();
+                }
+            });
+
+            if (name_category != ''){
+                $("#ul_category > a.dropdown-toggle").html(name_category);
+            }
+        }
+
+        if (menu_subcategory != ''){
+            $("#ul_subcategory > ul.dropdown-menu > li > a").each(function(){
+                if ($(this).attr('href').split('/')[2] == menu_subcategory){
+                    name_subcategory = $(this).html();
+                }
+            });
+            if (name_subcategory != ''){
+                $("#ul_subcategory > a.dropdown-toggle").html(name_subcategory);
+            }
+        }
+
+        if (menu_product != ''){
+            $("#ul_product > ul.dropdown-menu > li > a").each(function(){
+                if ($(this).attr('href') == '/' + menu_product){
+                    name_product = $(this).html();
+                }
+            });
+
+            if (name_product != ''){
+                $("#ul_product > a.dropdown-toggle").html(name_product);
+            }
+        }
+    });
+</script>
+    
+{% endblock %}

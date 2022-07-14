@@ -1,0 +1,994 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-19 07:58+0200\n"
+"PO-Revision-Date: 2022-06-19 08:08+0200\n"
+"Last-Translator:   <juanmi@juanmitaboada.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.9.8\n"
+
+#: erp/frontend/forms.py:46
+msgid "NID"
+msgstr "NID"
+
+#: erp/frontend/forms.py:47
+msgid "NID Type"
+msgstr ""
+
+#: erp/frontend/forms.py:48 erp/frontend/views.py:2311
+msgid "Name"
+msgstr "Nombre"
+
+#: erp/frontend/forms.py:49
+msgid "Surname"
+msgstr ""
+
+#: erp/frontend/forms.py:51
+msgid "Confirmo que los datos son correctos"
+msgstr ""
+
+#: erp/frontend/forms.py:67
+msgid "Information"
+msgstr ""
+
+#: erp/frontend/templates/frontend/backend_user.html:119
+msgid "My Profile"
+msgstr "Mi perfil"
+
+#: erp/frontend/templates/frontend/backend_user.html:122
+#: erp/frontend/templates/frontend/backend_user.html:158
+#: erp/frontend/templates/frontend/base_old.html:339
+msgid "My shopping card"
+msgstr "Mi carro de compra"
+
+#: erp/frontend/templates/frontend/backend_user.html:125
+#: erp/frontend/templates/frontend/backend_user.html:161
+#: erp/frontend/templates/frontend/base.html:89
+#: erp/frontend/templates/frontend/base_old.html:342
+msgid "My orders"
+msgstr "Mis pedidos"
+
+#: erp/frontend/templates/frontend/backend_user.html:128
+#: erp/frontend/templates/frontend/backend_user.html:164
+#: erp/frontend/templates/frontend/base.html:92
+#: erp/frontend/templates/frontend/base_old.html:345
+msgid "My invoices"
+msgstr "Mis facturas"
+
+#: erp/frontend/templates/frontend/backend_user.html:137
+#: erp/frontend/templates/frontend/backend_user.html:170
+#: erp/frontend/templates/frontend/base.html:101
+#: erp/frontend/templates/frontend/base_old.html:351
+msgid "Edit profile"
+msgstr "Editar perfil"
+
+#: erp/frontend/templates/frontend/backend_user.html:140
+msgid "Change password"
+msgstr "Cambiar contrraseña"
+
+#: erp/frontend/templates/frontend/backend_user.html:143
+msgid "Are you sure you want to logout?"
+msgstr "¿Seguro que quieres cerrar la sesión?"
+
+#: erp/frontend/templates/frontend/backend_user.html:143
+#: erp/frontend/templates/frontend/backend_user.html:173
+#: erp/frontend/templates/frontend/base.html:107
+#: erp/frontend/templates/frontend/base_old.html:354
+msgid "Logout"
+msgstr "Salir"
+
+#: erp/frontend/templates/frontend/backend_user.html:167
+#: erp/frontend/templates/frontend/base_old.html:348
+msgid "My wishlist"
+msgstr "Mi lista de deseos"
+
+#: erp/frontend/templates/frontend/base.html:84
+#: erp/frontend/templates/frontend/base_shop.html:129
+#: erp/frontend/templates/frontend/base_shop.html:131
+msgid "Buscar"
+msgstr "Buscar"
+
+#: erp/frontend/templates/frontend/base.html:115
+msgid "ACCESO"
+msgstr "ACCESO"
+
+#: erp/frontend/templates/frontend/base.html:115
+msgid "REGISTRO"
+msgstr "REGISTRO"
+
+#: erp/frontend/templates/frontend/base.html:146
+#: erp/frontend/templates/frontend/base_shop.html:37
+msgid "HISTORIA"
+msgstr "HISTORIA"
+
+#: erp/frontend/templates/frontend/base.html:156
+#: erp/frontend/templates/frontend/base.html:267
+#: erp/frontend/templates/frontend/base_shop.html:47
+msgid "CONTACTO"
+msgstr "CONTACTO"
+
+#: erp/frontend/templates/frontend/base.html:178
+msgid "CASA FUNDADA EN"
+msgstr "CASA FUNDADA EN"
+
+#: erp/frontend/templates/frontend/base.html:179
+msgid "ANTEQUERA"
+msgstr "ANTEQUERA"
+
+#: erp/frontend/templates/frontend/base.html:180
+msgid "EN 1948"
+msgstr "EN 1948"
+
+#: erp/frontend/templates/frontend/base.html:244
+msgid "SÍGUENOS"
+msgstr "SÍGUENOS"
+
+#: erp/frontend/templates/frontend/base.html:245
+msgid "EN RRSS"
+msgstr "EN RRSS"
+
+#: erp/frontend/templates/frontend/base.html:250
+msgid "SUSCRÍBETE"
+msgstr "SUSCRÍBETE"
+
+#: erp/frontend/templates/frontend/base.html:251
+msgid "A NUESTRA NEWSLETTER"
+msgstr "A NUESTRA NEWSLETTER"
+
+#: erp/frontend/templates/frontend/base.html:252
+msgid "INSCRÍBETE &raquo;"
+msgstr "INSCRÍBETE &raquo;"
+
+#: erp/frontend/templates/frontend/base.html:257
+msgid "FAMILIA DE PRODUCTOS"
+msgstr "FAMILIA DE PRODUCTOS"
+
+#: erp/frontend/templates/frontend/base.html:259
+#: erp/frontend/templates/frontend/base.html:260
+msgid "xxxx"
+msgstr ""
+
+#: erp/frontend/templates/frontend/base.html:280
+#, fuzzy
+#| msgid "&copy; CODENERIX. Todos los derechos reservados"
+msgid "Todos los derechos reservados"
+msgstr "&copy; CODENERIX. Todos los derechos reservados"
+
+#: erp/frontend/templates/frontend/base.html:280
+msgid "Términos de uso"
+msgstr "Términos de uso"
+
+#: erp/frontend/templates/frontend/base.html:291
+#: erp/frontend/templates/frontend/base_old.html:457
+msgid "An error has occurred, it is reported to the administrator"
+msgstr "Se ha producido un error, se informará al administrador"
+
+#: erp/frontend/templates/frontend/base_old.html:219
+msgid "View cart"
+msgstr "Ver carro"
+
+#: erp/frontend/templates/frontend/base_old.html:220
+#: erp/frontend/templates/frontend/partials/product_item.html:32
+#: erp/frontend/templates/frontend/producto.html:335
+#: erp/frontend/templates/frontend/producto_final.html:313
+msgid "Comprar"
+msgstr "Comprar"
+
+#: erp/frontend/templates/frontend/base_old.html:291
+msgid "Páginas"
+msgstr "Páginas"
+
+#: erp/frontend/templates/frontend/base_old.html:334
+msgid "My account"
+msgstr "Mi cuenta"
+
+#: erp/frontend/templates/frontend/base_old.html:361
+msgid "Acceso Usuarios"
+msgstr "Acceso Usuarios"
+
+#: erp/frontend/templates/frontend/base_shop.html:76
+msgid "Familia"
+msgstr "Familia"
+
+#: erp/frontend/templates/frontend/base_shop.html:86
+msgid "Categorías"
+msgstr "Cateogrías"
+
+#: erp/frontend/templates/frontend/base_shop.html:96
+msgid "Subcategorías"
+msgstr "Subcategorías"
+
+#: erp/frontend/templates/frontend/base_shop.html:107
+msgid "Productos"
+msgstr "Productos"
+
+#: erp/frontend/templates/frontend/base_shop.html:118
+msgid "Envase"
+msgstr "Envase"
+
+#: erp/frontend/templates/frontend/checkout-cancelado.html:13
+msgid "Checkout Cancelado"
+msgstr "Checkout Cancelado"
+
+#: erp/frontend/templates/frontend/checkout-cancelado.html:18
+msgid "El proceso de compra ha sido cancelado."
+msgstr "El proceso de compra ha sido cancelado."
+
+#: erp/frontend/templates/frontend/checkout-cancelado.html:20
+msgid "Volver a la página de inicio"
+msgstr "Volver a la página de inicio"
+
+#: erp/frontend/templates/frontend/checkout-completo.html:14
+msgid "Checkout Error"
+msgstr "Error al finalizar compra"
+
+#: erp/frontend/templates/frontend/checkout-completo.html:16
+msgid "Checkout Completo"
+msgstr "Checkout Completo"
+
+#: erp/frontend/templates/frontend/checkout-completo.html:37
+#, fuzzy
+#| msgid "¡Gracias por comprar en CODENERIX! Tu pago ha sido realizado."
+msgid "¡Gracias por comprar! Tu pago ha sido realizado."
+msgstr "¡Gracias por comprar en CODENERIX! Tu pago ha sido realizado."
+
+#: erp/frontend/templates/frontend/checkout-completo.html:41
+msgid "Para ver el estado de su pedido puede acceder desde aquí"
+msgstr "Para ver el estado de su pedido puede acceder desde aquí"
+
+#: erp/frontend/templates/frontend/checkout-temporal.html:13
+#: erp/frontend/views.py:1806 erp/frontend/views.py:2132
+#: erp/frontend/views.py:2516
+msgid "Checkout"
+msgstr "Checkout"
+
+#: erp/frontend/templates/frontend/checkout-temporal.html:25
+msgid "Le estamos redirigiendo hacia la pasarela de pago"
+msgstr "Le estamos redirigiendo hacia la pasarela de pago"
+
+#: erp/frontend/templates/frontend/checkout-temporal.html:28
+msgid ""
+"Este proceso es automático, si tarda demasiado pulse el siguiente botón."
+msgstr ""
+"Este proceso es automático, si tarda demasiado pulse el siguiente botón"
+
+#: erp/frontend/templates/frontend/checkout-temporal.html:30
+msgid "Ir a la pasarela de pago"
+msgstr "Ir a la pasarela de pago"
+
+#: erp/frontend/templates/frontend/checkout.html:26
+msgid "Datos del comprador"
+msgstr "Datos del comprador"
+
+#: erp/frontend/templates/frontend/checkout.html:32
+msgid "Nombre"
+msgstr "Nombre"
+
+#: erp/frontend/templates/frontend/checkout.html:43
+msgid "Apellidos"
+msgstr "Apellidos"
+
+#: erp/frontend/templates/frontend/checkout.html:91
+#: erp/frontend/templates/frontend/checkout.html:205
+msgid "Dirección"
+msgstr "Dirección"
+
+#: erp/frontend/templates/frontend/checkout.html:92
+#: erp/frontend/templates/frontend/checkout.html:206
+msgid "Calle, Número, Apartamento, piso, etc."
+msgstr "Calle, Número, Apartamento, piso, etc."
+
+#: erp/frontend/templates/frontend/checkout.html:99
+#: erp/frontend/templates/frontend/checkout.html:213
+msgid "País"
+msgstr "País"
+
+#: erp/frontend/templates/frontend/checkout.html:101
+#: erp/frontend/templates/frontend/checkout.html:215
+msgid "Selecciona opción..."
+msgstr "Selecciona opción..."
+
+#: erp/frontend/templates/frontend/checkout.html:126
+#: erp/frontend/templates/frontend/checkout.html:127
+#: erp/frontend/templates/frontend/checkout.html:240
+#: erp/frontend/templates/frontend/checkout.html:241
+msgid "Código Postal"
+msgstr "Código Postal"
+
+#: erp/frontend/templates/frontend/checkout.html:144
+#: erp/frontend/templates/frontend/checkout.html:145
+#: erp/frontend/templates/frontend/checkout.html:259
+#: erp/frontend/templates/frontend/checkout.html:260
+msgid "Localidad"
+msgstr "Localidad"
+
+#: erp/frontend/templates/frontend/checkout.html:153
+#: erp/frontend/templates/frontend/checkout.html:268
+msgid "Provincia"
+msgstr "Provincia"
+
+#: erp/frontend/templates/frontend/checkout.html:156
+#: erp/frontend/templates/frontend/checkout.html:271
+#, fuzzy
+#| msgid "Selecciona opción..."
+msgid "Selecciona un código postal..."
+msgstr "Selecciona opción..."
+
+#: erp/frontend/templates/frontend/checkout.html:160
+#: erp/frontend/templates/frontend/checkout.html:161
+#: erp/frontend/templates/frontend/checkout.html:276
+#: erp/frontend/templates/frontend/checkout.html:277
+msgid "Teléfono"
+msgstr "Teléfono"
+
+#: erp/frontend/templates/frontend/checkout.html:178
+msgid "Selecciona para enviar a otra dirección"
+msgstr "Selecciona para enviar a otra dirección"
+
+#: erp/frontend/templates/frontend/checkout.html:192
+msgid "Direcciones de envio"
+msgstr "Direcciones de envío"
+
+#: erp/frontend/templates/frontend/checkout.html:194
+msgid "Dirección nueva ..."
+msgstr "Dirección nueva ..."
+
+#: erp/frontend/templates/frontend/checkout.html:287
+msgid "Notas"
+msgstr "Notas"
+
+#: erp/frontend/templates/frontend/checkout.html:288
+msgid ""
+"Escriba aquí su preferencia de horario (mañana o tarde). La empresa de "
+"transportes tratará de cumplirlo dentro de sus posibilidades de horario y "
+"ruta."
+msgstr ""
+"Escriba aquí su preferencia de horario (mañana o tarde). La empresa de "
+"transportes tratará de cumplirlo dentro de sus posibilidades de horario y "
+"ruta."
+
+#: erp/frontend/templates/frontend/checkout.html:297
+msgid "Su pedido"
+msgstr "Su pedido"
+
+#: erp/frontend/templates/frontend/checkout.html:302
+msgid "Producto"
+msgstr "Producto"
+
+#: erp/frontend/templates/frontend/checkout.html:305
+#: erp/frontend/templates/frontend/checkout.html:374
+#: erp/frontend/templates/frontend/comprar.html:90
+#: erp/frontend/templates/frontend/comprar.html:129
+msgid "Total"
+msgstr "Total"
+
+#: erp/frontend/templates/frontend/checkout.html:324
+msgid "Subtotal base"
+msgstr "Subtotal base"
+
+#: erp/frontend/templates/frontend/checkout.html:332
+msgid "Impuestos"
+msgstr "Impuestos"
+
+#: erp/frontend/templates/frontend/checkout.html:340
+#: erp/frontend/templates/frontend/comprar.html:105
+msgid "Subtotal"
+msgstr "Subtotal"
+
+#: erp/frontend/templates/frontend/checkout.html:349
+msgid "Envío"
+msgstr "Envío"
+
+#: erp/frontend/templates/frontend/checkout.html:410
+msgid "He leído y acepto los Términos y Condiciones"
+msgstr "He leído y acepto los Términos y Condiciones"
+
+#: erp/frontend/templates/frontend/checkout.html:416
+msgid "Por favor, corrija los errores del formulario."
+msgstr "Por favor, corrija los errores del formulario."
+
+#: erp/frontend/templates/frontend/checkout.html:427
+msgid ""
+"Algunos de los productos seleccionados no se podrán entregar en el pedido "
+"por falta de stock"
+msgstr ""
+"Algunos de los productos seleccionados no se podrán entregar en el pedido "
+"por falta de stock"
+
+#: erp/frontend/templates/frontend/checkout.html:432
+#: erp/frontend/templates/frontend/comprar.html:139
+msgid "Pagar"
+msgstr "Pagar"
+
+#: erp/frontend/templates/frontend/checkout.html:437
+msgid "Actualmente no disponemos de stock para los productos seleccionados"
+msgstr "Actualmente no disponemos de stock para los productos seleccionados"
+
+#: erp/frontend/templates/frontend/checkout.html:442
+msgid "Cancelar"
+msgstr "Cancelar"
+
+#: erp/frontend/templates/frontend/comprar.html:16
+msgid "Carrito"
+msgstr "Carrito"
+
+#: erp/frontend/templates/frontend/comprar.html:66
+msgid "SKU"
+msgstr "Código"
+
+#: erp/frontend/templates/frontend/comprar.html:70
+msgid "QTY"
+msgstr "Cantidad"
+
+#: erp/frontend/templates/frontend/comprar.html:86
+msgid "Unit Price"
+msgstr "Precio unitario"
+
+#: erp/frontend/templates/frontend/comprar.html:95
+msgid "Remove item from Cart"
+msgstr "Eliminar artículo del carrito"
+
+#: erp/frontend/templates/frontend/comprar.html:138
+msgid "Continue Shopping"
+msgstr "Seguir comprando"
+
+#: erp/frontend/templates/frontend/comprar.html:212
+msgid "Envío Express"
+msgstr "Envío Express"
+
+#: erp/frontend/templates/frontend/comprar.html:213
+msgid "Tendrás tu producto en 3 días"
+msgstr "Tendrás tu producto en 3 días"
+
+#: erp/frontend/templates/frontend/comprar.html:220
+msgid "Estado del pedido"
+msgstr "Estado del pedido"
+
+#: erp/frontend/templates/frontend/comprar.html:221
+msgid "Lo podrás ver desde tu panel de usuario"
+msgstr "Lo podrás ver desde tu panel de usuario"
+
+#: erp/frontend/templates/frontend/comprar.html:228
+msgid "Disfrútalo"
+msgstr "¡Disfrútalo!"
+
+#: erp/frontend/templates/frontend/comprar.html:229
+msgid "Puedes valorar el producto en nuestra tienda"
+msgstr "Puedes valorar el producto en nuestra tienda"
+
+#: erp/frontend/templates/frontend/contact_form.html:44
+msgid "Email enviado"
+msgstr "Email enviado"
+
+#: erp/frontend/templates/frontend/error.html:14
+msgid ""
+"Se producido un error. Si persiste, por favor, pongase en contacto con "
+"nosotros"
+msgstr ""
+"Se producido un error. Si persiste, por favor, pongase en contacto con "
+"nosotros"
+
+#: erp/frontend/templates/frontend/index.html:65
+msgid "Productos recomendados"
+msgstr "Productos recomendados"
+
+#: erp/frontend/templates/frontend/index.html:97
+msgid "Ver más"
+msgstr "Ver más"
+
+#: erp/frontend/templates/frontend/not_authorized.html:6
+msgid "You are not authorized to access to this part of the page"
+msgstr "No está autorizado para acceder a esta parte de la página"
+
+#: erp/frontend/templates/frontend/not_authorized.html:6
+msgid "Click here to go back"
+msgstr "Haz clic aquí para regresar"
+
+#: erp/frontend/templates/frontend/partials/product_item.html:7
+#: erp/frontend/templates/frontend/producto.html:311
+#: erp/frontend/templates/frontend/producto_final.html:289
+msgid "Oferta"
+msgstr "Oferta"
+
+#: erp/frontend/templates/frontend/partials/product_item.html:27
+#: erp/frontend/templates/frontend/producto.html:330
+#: erp/frontend/templates/frontend/producto_final.html:308
+msgid "Lista de deseos"
+msgstr "Lista de deseos"
+
+#: erp/frontend/templates/frontend/producto.html:108
+#: erp/frontend/templates/frontend/producto.html:121
+msgid "Añadir a mi compra"
+msgstr "Añadir a mi compra"
+
+#: erp/frontend/templates/frontend/producto.html:300
+#: erp/frontend/templates/frontend/producto_final.html:278
+msgid "PRODUCTOS RELACIONADOS"
+msgstr "PRODUCTOS RELACIONADOS"
+
+#: erp/frontend/templates/frontend/producto_final.html:64
+#: erp/frontend/views.py:2476
+msgid "True"
+msgstr "Verdad"
+
+#: erp/frontend/templates/frontend/producto_final.html:64
+#: erp/frontend/views.py:2476
+msgid "False"
+msgstr "Falso"
+
+#: erp/frontend/templates/frontend/producto_final.html:82
+msgid "Quantity:"
+msgstr "Cantidad:"
+
+#: erp/frontend/templates/frontend/producto_final.html:135
+msgid "Escribe una opinión"
+msgstr "Escribe una opinión"
+
+#: erp/frontend/templates/frontend/producto_final.html:138
+msgid "Ver opiniones"
+msgstr "Ver opiniones"
+
+#: erp/frontend/templates/frontend/producto_final.html:142
+msgid "Añadir a Mi compra"
+msgstr "Añadir a Mi compra"
+
+#: erp/frontend/templates/frontend/producto_final.html:181
+msgid "Opiniones"
+msgstr "Opiniones"
+
+#: erp/frontend/templates/frontend/producto_final.html:186
+msgid "Documentación"
+msgstr "Documentación"
+
+#: erp/frontend/templates/frontend/producto_final.html:206
+msgid "Reviews for"
+msgstr "Comentarios para"
+
+#: erp/frontend/templates/frontend/producto_final.html:250
+msgid "Documents for"
+msgstr "Documentos para"
+
+#: erp/frontend/templates/frontend/producto_final.html:258
+msgid "Download"
+msgstr "Descargas"
+
+#: erp/frontend/templates/frontend/requestinvoice_formmodal.html:29
+#: erp/frontend/templates/frontend/requestinvoice_formmodal.html:30
+#, fuzzy
+#| msgid "My invoices"
+msgid "Request invoice"
+msgstr "Mis facturas"
+
+#: erp/frontend/templates/frontend/requestinvoice_formmodal.html:31
+#, fuzzy
+#| msgid "Cancelar"
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: erp/frontend/templates/frontend/subcategoria.html:384
+msgid "Show"
+msgstr "Mostrar"
+
+#: erp/frontend/templates/frontend/subcategoria.html:393
+msgid "Sort By"
+msgstr "Ordenar por"
+
+#: erp/frontend/templates/frontend/subcategoria.html:395
+msgid "Name (A - Z)"
+msgstr "Nombre (A - Z)"
+
+#: erp/frontend/templates/frontend/subcategoria.html:396
+msgid "Name (Z - A)"
+msgstr "Nombre (Z - A)"
+
+#: erp/frontend/templates/frontend/subcategoria.html:411
+msgid "Buscado:"
+msgstr "Buscado:"
+
+#: erp/frontend/templates/frontend/subcategoria.html:423
+msgid "No hay resultados para: "
+msgstr "No hay resultados para:"
+
+#: erp/frontend/templates/frontend/subcategoria.html:424
+msgid ""
+"Lo sentimos. No se han encontrado resultados con el criterio de búsqueda "
+"seleccionado. Prueba con otra búsqueda similar o más simple."
+msgstr ""
+"Lo sentimos. No se han encontrado resultados con el criterio de búsqueda "
+"seleccionado. Prueba con otra búsqueda similar o más simple."
+
+#: erp/frontend/views.py:278
+msgid "Datos para la facturación"
+msgstr ""
+
+#: erp/frontend/views.py:341
+msgid "Factura solicitada, en breve estará disponible en su area personal"
+msgstr ""
+
+#: erp/frontend/views.py:345
+#, fuzzy
+#| msgid "Tranport rate not found"
+msgid "Order not found!"
+msgstr "Tarifa de transporte no encontrada"
+
+#: erp/frontend/views.py:349
+msgid "Invalid parameters"
+msgstr ""
+
+#: erp/frontend/views.py:365
+#, fuzzy
+#| msgid "My invoices"
+msgid " Request Invoice"
+msgstr "Mis facturas"
+
+#: erp/frontend/views.py:606
+msgid "Function deprecated!"
+msgstr "¡Función en desuso!"
+
+#: erp/frontend/views.py:896 erp/frontend/views.py:1018
+#: erp/frontend/views.py:1214 erp/frontend/views.py:1270
+#: erp/frontend/views.py:1295 erp/frontend/views.py:1325
+#: erp/frontend/views.py:1786 erp/frontend/views.py:1805
+#: erp/frontend/views.py:2131 erp/frontend/views.py:2515
+msgid "Home"
+msgstr "Inicio"
+
+#: erp/frontend/views.py:1400
+msgid "No"
+msgstr "No"
+
+#: erp/frontend/views.py:1401
+msgid "Yes"
+msgstr "Si"
+
+#: erp/frontend/views.py:1599
+msgid "Consulta no definida"
+msgstr "Consulta no definida"
+
+#: erp/frontend/views.py:1787
+msgid "Shopping Cart"
+msgstr "Carro de compra"
+
+#: erp/frontend/views.py:1918
+msgid "Country of billing is required"
+msgstr "País de facturación requerido"
+
+#: erp/frontend/views.py:1930
+msgid "Country of shipping is required"
+msgstr "País de envío requerido"
+
+#: erp/frontend/views.py:2001
+msgid "Email address already registered"
+msgstr "Cuenta de correo ya registrada"
+
+#: erp/frontend/views.py:2037
+msgid "shipping POST parameter must be a dictionary"
+msgstr "El parámetro POST de envío debe ser un diccionario"
+
+#: erp/frontend/views.py:2093
+msgid "Transporte"
+msgstr "Transporte"
+
+#: erp/frontend/views.py:2101
+msgid "Tranport rate not found"
+msgstr "Tarifa de transporte no encontrada"
+
+#: erp/frontend/views.py:2104
+msgid "Transport rate error"
+msgstr "Error en la tarifa de error"
+
+#: erp/frontend/views.py:2114
+msgid "Missing billing address from request dictionary"
+msgstr "Falta la dirección de facturación del diccionario de solicitud"
+
+#: erp/frontend/views.py:2117
+msgid "Could not decode the json from POST"
+msgstr "No se pudo descodificar el json de POST"
+
+#: erp/frontend/views.py:2161
+msgid "Metodo de pago desconocido"
+msgstr "Método de pago desconocido"
+
+#: erp/frontend/views.py:2164
+msgid "No hay carrito de la compra"
+msgstr "No hay carrito de la compra"
+
+#: erp/frontend/views.py:2175
+#, fuzzy
+#| msgid "[CODENERIX] Checkout Payment Error"
+msgid "Checkout Payment Error"
+msgstr "[CODENERIX] Checkout Payment Error"
+
+#: erp/frontend/views.py:2205
+msgid "Hay un error de tipo: {}"
+msgstr "Hay un error de tipo: {}"
+
+#: erp/frontend/views.py:2208
+msgid "Pago realizado correctamente"
+msgstr "Pago realizado correctamente"
+
+#: erp/frontend/views.py:2210
+msgid "Pago cancelado"
+msgstr "Pago cancelado"
+
+#: erp/frontend/views.py:2271
+msgid "Payment request does not exist"
+msgstr "Payment request does not exist"
+
+#: erp/frontend/views.py:2272
+#, python-brace-format
+msgid ""
+"\n"
+"Hello:\n"
+"\n"
+"There was an exception while using payment_paid() function in class ConfirmPayment, the paymentrequest doesn't exist. Locator is: {locator}\n"
+"\n"
+"Thank you"
+msgstr ""
+"\n"
+"Hola:\n"
+"\n"
+"Hubo una excepción al usar la función payment_paid () en la clase ConfirmPayment, no existe la solicitud de pago. El localizador es: {locator}\n"
+"\n"
+"Gracias,"
+
+#: erp/frontend/views.py:2286
+msgid "Unknown code (pk=%(pk))"
+msgstr "Código desconocido (pk=%(pk))"
+
+#: erp/frontend/views.py:2293
+msgid "Payment Exception"
+msgstr "Payment Exception"
+
+#: erp/frontend/views.py:2302
+msgid "Buy"
+msgstr "Comprar"
+
+#: erp/frontend/views.py:2303
+msgid "New"
+msgstr "Nuevo"
+
+#: erp/frontend/views.py:2304
+msgid "Wish list"
+msgstr "Mi lista de deseos"
+
+#: erp/frontend/views.py:2305
+msgid "Shopping cart"
+msgstr "Carro de compra"
+
+#: erp/frontend/views.py:2312
+msgid "Slug"
+msgstr "Slug"
+
+#: erp/frontend/views.py:2313
+msgid "Image"
+msgstr "Imagen"
+
+#: erp/frontend/views.py:2314
+msgid "Principal"
+msgstr "Principal"
+
+#: erp/frontend/views.py:2320
+msgid "Created"
+msgstr "Creado"
+
+#~ msgid "Details"
+#~ msgstr "Detalles"
+
+#~ msgid "Surtidos"
+#~ msgstr "Surtidos"
+
+#~ msgid "Navidad"
+#~ msgstr "Navidad"
+
+#~ msgid "Destacados"
+#~ msgstr "Destacados"
+
+#~ msgid "Productos sin Azúcar"
+#~ msgstr "Productos sin Azúcar"
+
+#~ msgid "Sin Azúcar"
+#~ msgstr "Sin Azúcar"
+
+#~ msgid "Colines, Picos y Rosquillas"
+#~ msgstr "Colines, Picos y Rosquillas"
+
+#~ msgid "Products"
+#~ msgstr "Productos"
+
+#~ msgid "Code"
+#~ msgstr "Código"
+
+#~ msgid "Date"
+#~ msgstr "Fecha"
+
+#~ msgid "Status"
+#~ msgstr "Estatus"
+
+#, fuzzy
+#~ msgid "Invoices"
+#~ msgstr "Mis facturas"
+
+#~ msgid "Quantity"
+#~ msgstr "Cantidad"
+
+#~ msgid "Description"
+#~ msgstr "Descripción"
+
+#~ msgid "Price base"
+#~ msgstr "Price base"
+
+#~ msgid "Discount (%)"
+#~ msgstr "Descuento (%)"
+
+#~ msgid "Total Discount"
+#~ msgstr "Total descuento"
+
+#~ msgid "Tax (%)"
+#~ msgstr "IVA (%)"
+
+#~ msgid "Total Tax"
+#~ msgstr "IVA Total"
+
+#~ msgid "Product"
+#~ msgstr "Producto"
+
+#~ msgid "Default"
+#~ msgstr "Defecto"
+
+#~ msgid "Payment detail"
+#~ msgstr "Detalles de pago"
+
+#~ msgid "Notas sobre su pedido, ej. notas específicas de la entrega."
+#~ msgstr "Notas sobre su pedido, ej. notas específicas de la entrega."
+
+#~ msgid "Escribe tu búsqueda..."
+#~ msgstr "Escribe tu búsqueda.."
+
+#~ msgid "Los más vendidos"
+#~ msgstr "Los más vendidos"
+
+#~ msgid "¿Ya tienes una cuenta?"
+#~ msgstr "¿Ya tienes una cuenta?"
+
+#~ msgid " Entra aquí"
+#~ msgstr "Entra aquí"
+
+#~ msgid "Email"
+#~ msgstr "Email"
+
+#~ msgid "Dirección Email"
+#~ msgstr "Dirección Email"
+
+#~ msgid "Selecciona para crear una cuenta"
+#~ msgstr "Selecciona para crear una cuenta"
+
+#~ msgid "Contraseña"
+#~ msgstr "Contraseña"
+
+#~ msgid "Región"
+#~ msgstr "Región"
+
+#~ msgid "Ciudad"
+#~ msgstr "Ciudad"
+
+#~ msgid "REF"
+#~ msgstr "REF"
+
+#~ msgid "Qty"
+#~ msgstr "Cantidad"
+
+#~ msgid "Ver descripción completa"
+#~ msgstr "Ver descripción completa"
+
+#~ msgid "Envío gratuito a partir de 50€. Tiempo de envío 48h."
+#~ msgstr "Envío gratuito a partir de 50€. Tiempo de envío 48h."
+
+#~ msgid "Características"
+#~ msgstr "Características"
+
+#~ msgid "Navigation"
+#~ msgstr "Navegación"
+
+#~ msgid "All"
+#~ msgstr "Todos"
+
+#~ msgid "Marcas"
+#~ msgstr "Marcas"
+
+#~ msgid "Rango del precio"
+#~ msgstr "Rango del precio"
+
+#~ msgid "Rango del precio Slider"
+#~ msgstr "Rango del precio Slider"
+
+#~ msgid "Price (Low &gt; High)"
+#~ msgstr "Precio (Bajo - Alto)"
+
+#~ msgid "Price (High &gt; Low)"
+#~ msgstr "Precio (Alto - Bajo)"
+
+#~ msgid "Model (A - Z)"
+#~ msgstr "Modelo (A - Z)"
+
+#~ msgid "Model (Z - A)"
+#~ msgstr "Modelo (Z - A)"
+
+#~ msgid ""
+#~ "Hello:\n"
+#~ "\n"
+#~ "There was an exception while using CheckoutPayment, code: (error_code), there is some problem :\n"
+#~ "\n"
+#~ "(error_message)\n"
+#~ "\n"
+#~ "Thank you,\n"
+#~ "\n"
+#~ "--\\CODENERIX Helper v(version)"
+#~ msgstr ""
+#~ "Hola:\n"
+#~ "\n"
+#~ "Hubo una excepción al usar CheckoutPayment, código: (error_code), hay algún problema:\n"
+#~ "\n"
+#~ "(error_message)\n"
+#~ "\n"
+#~ "Gracias,\n"
+#~ "\n"
+#~ "--\\ CODENERIX Ayuda v(versión)"
+
+#~ msgid "[CODENERIX] Order placed"
+#~ msgstr "[CODENERIX] Pedido realizado"
+
+#~ msgid ""
+#~ "Hola:\n"
+#~ "\n"
+#~ "Tu pedido es (order_code).\n"
+#~ "\n"
+#~ "Nos ponemos manos a la obra para que te llegue cuanto antes.\n"
+#~ "\n"
+#~ "Gracias por confiar en nosotros.\n"
+#~ "\n"
+#~ "--\\CODENERIX Helper v(version)"
+#~ msgstr ""
+#~ "Hola:\n"
+#~ "\n"
+#~ "Tu pedido es (order_code).\n"
+#~ "\n"
+#~ "Nos ponemos manos a la obra para que te llegue cuanto antes.\n"
+#~ "\n"
+#~ "¡Gracias por confiar en nosotros!\n"
+#~ "\n"
+#~ "--\\CODENERIX Ayuda v(version)"
+
+#~ msgid "[CODENERIX] Intento fallido de pago"
+#~ msgstr "[CODENERIX] Intento fallido de pago"
+
+#~ msgid ""
+#~ "Hola:\n"
+#~ "\n"
+#~ "Se ha recibido un intento fallido de pago del presupuesto (budget_code).\n"
+#~ "\n"
+#~ "--\\CODENERIX Helper v(version)"
+#~ msgstr ""
+#~ "Hola:\n"
+#~ "\n"
+#~ "Se ha recibido un intento fallido de pago del presupuesto (budget_code).\n"
+#~ "\n"
+#~ "--\\CODENERIX Ayuda v(version)"
+
+#~ msgid "Si ya eres un cliente registrado: "
+#~ msgstr "Si ya eres un cliente registrado:"
+
+#~ msgid "Ahora con gastos de envío GRATIS. Eligiendo modo de envío 3-5 días."
+#~ msgstr "Ahora con gastos de envío GRATIS. Eligiendo modo de envío 3-5 días."

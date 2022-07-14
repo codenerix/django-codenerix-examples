@@ -1,0 +1,127 @@
+{% extends "frontend/base_shop.html" %}
+{% load static %}
+{% load i18n %}
+{% load cdnxcms_tags %}
+
+
+{% block contenido %}
+<!-- BEGIN: CONTENT/SHOPS/SHOP-5-1 -->
+{% if category.code %}
+
+    {# {% cdnx_staticheader category.code LANGUAGE_CODE|default:"en" 'frontend/staticheaders/staticheader.html' %} #}
+
+{% endif %}
+{# -- {{ subcategories }} -- #}
+<!-- END: CONTENT/SHOPS/SHOP-5-1 -->
+<!-- BEGIN: CONTENT/FEATURES/FEATURES-5 -->
+<section class="rejilla-productos-project">
+<div class="c-content-box">
+    <div class="container listado-subcategoria">
+        <div class="c-content-title-1">
+            <h3 class="c-left">{{category.name}}</h3>
+            <div class="c-line-leftNO c-theme-bgNO"></div>
+        </div>
+        <div class="row c-margin-b-30">
+            {% for subcategory in subcategories %}
+                <div class="col-md-6">
+                    <div class="c-content-feature-5 c-bg-white c-content-title-3 c-theme-border">
+                        <div class="c-text c-font-16 c-font-sbold">
+                            <div class="c-content-title-1">
+                                <h4 class="c-left c-font-dark c-font-uppercase c-font-bold">
+                                <a href="{{subcategory.slug}}">
+                                    {{subcategory.label}}
+                                </a>
+                                </h4>
+                            </div>
+                            {% comment %}
+                            <ul class="c-content-list-1 c-separator-dot c-square">
+                                {% for brand in subcategory.brands %}
+                                    <li><a href="/{{brand.slug}}">{{brand.label}}</a></li>
+                                {% endfor %}
+                            </ul>
+                            {% endcomment %}
+                        </div>
+                        {% comment %}
+                        <a href="{{subcategory.slug}}">
+                            <img class="c-photo img-responsive" style="height: 250px" src="/media/{{subcategory.image}}" alt="" />
+                        </a>
+                        {% endcomment %}
+
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+
+    <div class="container text-center">
+        <div class="row" >
+        {% for product in products %}
+            <div class="col-sm-6 col-md-4 col-lg-3" >
+                <div class="celda-producto-project" >
+                    <a href="/{{ product.slug }}">
+                        <div class="descripcion-producto-project">{{ product.name }}</div>
+                        <div class="foto-producto-project" style="background: url({{ MEDIA_URL}}{{ product.image }}) no-repeat center center;background-size: contain; "></div>
+                        <div class="peso-producto-project">
+                            {% for attr in product.attributes %}
+                                {{ attr }}{% if not forloop.last %} / {% endif %}
+                            {% endfor %}
+                        </div>
+                        {% comment %}<img class="img-responsive" src="{{ MEDIA_URL}}{{ product.image }}">{% endcomment %}
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+  </div>
+</section>
+<!-- END: CONTENT/FEATURES/FEATURES-5 -->
+<!-- BEGIN: CONTENT/SHOPS/SHOP-2-2 -->
+<!-- END: CONTENT/SHOPS/SHOP-2-2 -->
+    {% comment %}
+    <div class="c-content-box c-size-md c-overflow-hide c-bs-grid-small-space">
+        <div class="container">
+            <div class="c-content-title-4">
+                <h3 class="c-font-uppercase c-center c-font-bold c-line-strike">
+                    <span class="c-bg-white">{% trans "Productos recomendados" %}</span>
+                </h3>
+            </div>
+            <div class="row">
+                <div data-slider="owl" data-items="4" data-auto-play="8000">
+                    <div class="owl-carousel owl-theme c-theme owl-small-space">
+                        {% for product in outstanding %}
+                        {% include 'frontend/partials/product_item.html' %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BEGIN: CONTENT/SHOPS/SHOP-2-2 -->
+    <div class="c-content-box c-size-md c-overflow-hide c-bs-grid-small-space">
+        <div class="container">
+            <div class="c-content-title-4">
+                <h3 class="c-font-uppercase c-center c-font-bold c-line-strike">
+                    <span class="c-bg-white">{% trans "Los más vendidos" %}</span>
+                </h3>
+            </div>
+            <div class="row">
+                <div data-slider="owl" data-items="4" data-auto-play="8000">
+                    <div class="owl-carousel owl-theme c-theme owl-small-space">
+                        {% for product in outstanding %}
+                        {% include 'frontend/partials/product_item.html' %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endcomment %}
+    <!-- END: CONTENT/SHOPS/SHOP-2-2 -->
+
+{% endblock %}

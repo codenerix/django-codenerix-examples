@@ -1,0 +1,23 @@
+<div class="c-content-box c-overflow-hide c-bs-grid-reset-space">
+    <div class="row">
+        {% for element in staticheader_list %}
+        <div class="col-md-{{element.column_size}}">
+            <div class="c-content-product-5">
+                <div class="c-bg-img-center c-center onclick" onclick="location.href='/{{element.url}}'" style="height:400px;background-image: url(/media/{{element.image}})">
+                    <div class="c-wrapper c-center-vertical">
+                        <h3 class="c-title c-margin-tb-30 c-font-30 c-font-uppercase c-font-thin c-font-white">
+                         <span class="c-line">
+                            {% if element.show_title %}{{element.title}}{% endif %}</h3>
+                        <h4 class="c-font-bold c-font-18 c-font-white">{{element.description}}</h4>
+                        {% if element.button and element.url %}
+                        <a href="{{element.url}}" class="btn btn-md c-btn-grey c-btn-uppercase c-btn-bold c-btn-square c-margin-t-20">Ver más</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+

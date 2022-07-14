@@ -1,0 +1,117 @@
+{% extends "frontend/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block body %}
+
+<!-- BEGIN: PAGE CONTENT -->
+<div class="container">
+    <div class="c-layout-sidebar-content ">
+        <!-- BEGIN: PAGE CONTENT -->
+        <div class="c-shop-product-compare">
+            <div class="c-content-title-1">
+                <h4 class="c-font-uppercase c-font-bold">Factura</h4>
+            </div>
+            <div class="c-product-compare-content">
+                <div class="c-product-data c-compare-products clearfix">
+                    <div class="table-wrapper-responsive">
+                        <table class="c-product-compare-table c-factura-print" summary="Detalles de facturación">
+                            <tr>
+                                <th colspan="2" class="c-compare-info c-bg-white">
+                                    <img src="{% static "assets/base/img/layout/logos/logo-project.png" %}" alt="{{ name_project }}" class="c-print-logo">
+                                </th>
+                                <th class="">
+                                    <p><strong>{{ name_project }} (Razón Social)</strong></p>
+                                    <p><strong>CIF: XXX</strong></p>
+                                    <p>Dirección.</p>
+                                    <p>Teléfono.</p>
+                                </th>
+                                <th class="c-print-encabezado">
+                                    <h1 class="c-font-uppercase c-font-bold c-theme-font">FACTURA</h1>
+                                    <h2>Número</h2>
+                                    <h4>Fecha</h4>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h2>Detalles del Producto</h2>
+                                </td>
+                                <td class="c-compare-item">
+                                    <h2>Cantidad</h2>
+                                </td>
+                                <td class="c-compare-item">
+                                    <h2>Precio</h2>
+                                </td>
+                                 <td class="c-compare-item">
+                                    <h2>Importe</h2>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="c-compare-info"> Modelo 1</td>
+                                <td class="c-compare-item"> 1 </td>
+                                <td class="c-compare-item"> XXX </td>
+                                <td class="c-compare-item"> XXX </td>
+                            </tr>
+                            <tr>
+                                <td class="c-compare-info">  Modelo 2 </td>
+                                <td class="c-compare-item"> 3 </td>
+                                <td class="c-compare-item"> XXX </td>
+                                <td class="c-compare-item"> XXX </td>
+                            </tr>
+                            <tr>
+                                <td class="c-compare-info">  Modelo 3 </td>
+                                <td class="c-compare-item"> 3 </td>
+                                <td class="c-compare-item"> XXX </td>
+                                <td class="c-compare-item"> XXX </td>
+                            </tr>
+                            <tr>
+                                <td class="c-compare-info">  Modelo 4 </td>
+                                <td class="c-compare-item"> 1 </td>
+                                <td class="c-compare-item"> XXX </td>
+                                <td class="c-compare-item"> XXX </td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td class="c-compare-item"> <h4 class="c-font-bold c-theme-font">TOTAL</h4> </td>
+                            </tr>
+                            	<td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td class="c-compare-item"> <h4 class="c-font-bold c-theme-font">XXX</h4> </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="c-factura-print-40">
+	                                <p><strong>Dirección de Facturación:</strong> </p>
+	                                <p>Lorem ipsum dolor sit amet. </p>
+	                                <p>Lorem ipsum dolor sit amet. </p>
+                                </td>
+                                <td colspan="2" class="c-factura-print-40">
+	                                <p><strong>Dirección de Envío:</strong> </p>
+	                                <p>Lorem ipsum dolor sit amet. </p>
+	                                <p>Lorem ipsum dolor sit amet. </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" class="c-factura-print-40">
+	                                <p><strong>Nota:</strong> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam sit nonummy nibh euismod tincidunt ut laoreet dolore magna aliquarm erat sit volutpat. Nostrud exerci tation ullamcorper suscipit
+                            lobortis nisl aliquip commodo consequat. </p>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td colspan="4" class="c-compare-item c-factura-print-40">
+	                                <a class="btn c-theme-btn c-btn-square btn-xlg c-margin-b-10" href="javascript:;">IMPRIMIR</a>
+                             </td>
+                            </tr>
+                        </table>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END: PAGE CONTENT -->
+    </div>
+</div>
+    
+{% endblock %}

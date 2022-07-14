@@ -1,0 +1,675 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-05-22 09:48+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: frontend/templates/frontend/backend_user.html:120
+msgid "My Profile"
+msgstr ""
+
+#: frontend/templates/frontend/backend_user.html:123
+#: frontend/templates/frontend/backend_user.html:153
+#: frontend/templates/frontend/base.html:310
+msgid "My shopping card"
+msgstr ""
+
+#: frontend/templates/frontend/backend_user.html:126
+#: frontend/templates/frontend/backend_user.html:156
+#: frontend/templates/frontend/base.html:313
+msgid "My orders"
+msgstr ""
+
+#: frontend/templates/frontend/backend_user.html:129
+#: frontend/templates/frontend/backend_user.html:159
+#: frontend/templates/frontend/base.html:316
+msgid "My invoices"
+msgstr ""
+
+#: frontend/templates/frontend/backend_user.html:132
+#: frontend/templates/frontend/backend_user.html:162
+#: frontend/templates/frontend/base.html:319
+msgid "My wishlist"
+msgstr ""
+
+#: frontend/templates/frontend/backend_user.html:135
+#: frontend/templates/frontend/backend_user.html:165
+#: frontend/templates/frontend/base.html:322
+msgid "Edit profile"
+msgstr ""
+
+#: frontend/templates/frontend/backend_user.html:138
+msgid "Are you sure you want to logout?"
+msgstr ""
+
+#: frontend/templates/frontend/backend_user.html:138
+#: frontend/templates/frontend/backend_user.html:168
+#: frontend/templates/frontend/base.html:325
+msgid "Logout"
+msgstr ""
+
+#: frontend/templates/frontend/base.html:113
+msgid "Escribe tu búsqueda..."
+msgstr ""
+
+#: frontend/templates/frontend/base.html:195
+msgid "View cart"
+msgstr ""
+
+#: frontend/templates/frontend/base.html:196
+#: frontend/templates/frontend/comprar.html:195
+#: frontend/templates/frontend/partials/product_item.html:32
+#: frontend/templates/frontend/producto.html:287
+msgid "Comprar"
+msgstr ""
+
+#: frontend/templates/frontend/base.html:267
+msgid "Páginas"
+msgstr ""
+
+#: frontend/templates/frontend/base.html:305
+msgid "My account"
+msgstr ""
+
+#: frontend/templates/frontend/base.html:332
+msgid "Acceso Usuarios"
+msgstr ""
+
+#: frontend/templates/frontend/base.html:435
+msgid "An error has occurred, it is reported to the administrator"
+msgstr ""
+
+#: frontend/templates/frontend/categoria.html:56
+#: frontend/templates/frontend/comprar.html:157
+#: frontend/templates/frontend/index.html:66
+msgid "Productos recomendados"
+msgstr ""
+
+#: frontend/templates/frontend/categoria.html:75
+msgid "Los más vendidos"
+msgstr ""
+
+#: frontend/templates/frontend/checkout-cancelado.html:14
+msgid "Checkout Cancelado"
+msgstr ""
+
+#: frontend/templates/frontend/checkout-cancelado.html:19
+msgid "El proceso de compra ha sido cancelado."
+msgstr ""
+
+#: frontend/templates/frontend/checkout-cancelado.html:21
+msgid "Volver a la página de inicio"
+msgstr ""
+
+#: frontend/templates/frontend/checkout-completo.html:14
+msgid "Checkout Completo"
+msgstr ""
+
+#: frontend/templates/frontend/checkout-completo.html:34
+msgid "¡Gracias por comprar en CODENERIX! Tu pago ha sido realizado."
+msgstr ""
+
+#: frontend/templates/frontend/checkout-completo.html:38
+msgid "Para ver el estado de su pedido puede acceder desde aquí"
+msgstr ""
+
+#: frontend/templates/frontend/checkout-temporal.html:14
+#: frontend/templates/frontend/comprar.html:146 frontend/views.py:1177
+#: frontend/views.py:1396
+msgid "Checkout"
+msgstr ""
+
+#: frontend/templates/frontend/checkout-temporal.html:26
+msgid "Le estamos redirigiendo hacia la pasarela de pago"
+msgstr ""
+
+#: frontend/templates/frontend/checkout-temporal.html:29
+msgid ""
+"Este proceso es automático, si tarda demasiado pulse el siguiente botón."
+msgstr ""
+
+#: frontend/templates/frontend/checkout-temporal.html:31
+msgid "Ir a la paserela de pago"
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:13
+msgid "¿Ya tienes una cuenta?"
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:13
+msgid " Entra aquí"
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:19
+msgid "Datos del comprador"
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:25
+#: frontend/templates/frontend/checkout.html:29
+msgid "Nombre"
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:33
+#: frontend/templates/frontend/checkout.html:37
+msgid "Apellidos"
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:46
+msgid "Email"
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:47
+msgid "Dirección Email"
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:61
+msgid "Selecciona para crear una cuenta"
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:69
+msgid "Contraseña"
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:75
+#: frontend/templates/frontend/checkout.html:205
+msgid "Dirección"
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:76
+#: frontend/templates/frontend/checkout.html:206
+msgid "Calle, Número, Apartamento, piso, etc."
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:83
+#: frontend/templates/frontend/checkout.html:213
+msgid "País"
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:85
+#: frontend/templates/frontend/checkout.html:95
+#: frontend/templates/frontend/checkout.html:111
+#: frontend/templates/frontend/checkout.html:121
+#: frontend/templates/frontend/checkout.html:215
+#: frontend/templates/frontend/checkout.html:225
+#: frontend/templates/frontend/checkout.html:241
+#: frontend/templates/frontend/checkout.html:251
+msgid "Selecciona opción..."
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:93
+#: frontend/templates/frontend/checkout.html:223
+msgid "Región"
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:109
+#: frontend/templates/frontend/checkout.html:239
+msgid "Provincia"
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:119
+#: frontend/templates/frontend/checkout.html:249
+msgid "Ciudad"
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:133
+#: frontend/templates/frontend/checkout.html:134
+#: frontend/templates/frontend/checkout.html:263
+#: frontend/templates/frontend/checkout.html:264
+msgid "Localidad"
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:142
+#: frontend/templates/frontend/checkout.html:143
+#: frontend/templates/frontend/checkout.html:272
+#: frontend/templates/frontend/checkout.html:273
+msgid "Código Postal"
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:146
+#: frontend/templates/frontend/checkout.html:147
+#: frontend/templates/frontend/checkout.html:276
+#: frontend/templates/frontend/checkout.html:277
+msgid "Teléfono"
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:164
+msgid "Selecciona para enviar a otra dirección"
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:175
+msgid "Direcciones de envio"
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:177
+msgid "Dirección nueva ..."
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:287
+msgid "Notas"
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:288
+msgid "Notas sobre su pedido, ej. notas específicas de la entrega."
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:297
+msgid "Su pedido"
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:302
+msgid "Producto"
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:305
+#: frontend/templates/frontend/checkout.html:380
+#: frontend/templates/frontend/comprar.html:38
+#: frontend/templates/frontend/comprar.html:99
+#: frontend/templates/frontend/comprar.html:136
+msgid "Total"
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:324
+msgid "Subtotal base"
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:332
+msgid "Impuestos"
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:340
+#: frontend/templates/frontend/comprar.html:112
+msgid "Subtotal"
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:349
+msgid "Envío"
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:416
+msgid "He leído y acepto los Términos y Condiciones"
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:422
+msgid "Por favor, corrija los errores del formulario."
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:434
+msgid "Actualmente no disponemos de stock para los productos seleccionados"
+msgstr ""
+
+#: frontend/templates/frontend/checkout.html:444
+msgid ""
+"Algunos de los productos seleccionados no se podrán entregar en el pedido "
+"por falta de stock"
+msgstr ""
+
+#: frontend/templates/frontend/comprar.html:18 frontend/views.py:252
+msgid "Product"
+msgstr ""
+
+#: frontend/templates/frontend/comprar.html:22
+msgid "Description"
+msgstr ""
+
+#: frontend/templates/frontend/comprar.html:26
+msgid "REF"
+msgstr ""
+
+#: frontend/templates/frontend/comprar.html:30
+msgid "Qty"
+msgstr ""
+
+#: frontend/templates/frontend/comprar.html:34
+#: frontend/templates/frontend/comprar.html:95
+msgid "Unit Price"
+msgstr ""
+
+#: frontend/templates/frontend/comprar.html:104
+msgid "Remove item from Cart"
+msgstr ""
+
+#: frontend/templates/frontend/comprar.html:145
+msgid "Continue Shopping"
+msgstr ""
+
+#: frontend/templates/frontend/comprar.html:168
+#: frontend/templates/frontend/partials/product_item.html:7
+#: frontend/templates/frontend/producto.html:263
+msgid "Oferta"
+msgstr ""
+
+#: frontend/templates/frontend/comprar.html:171
+msgid "New"
+msgstr ""
+
+#: frontend/templates/frontend/comprar.html:190
+#: frontend/templates/frontend/partials/product_item.html:27
+#: frontend/templates/frontend/producto.html:282
+msgid "Lista de deseos"
+msgstr ""
+
+#: frontend/templates/frontend/comprar.html:216
+msgid "Envío Express"
+msgstr ""
+
+#: frontend/templates/frontend/comprar.html:217
+msgid "Tendrás tu producto en 3 días"
+msgstr ""
+
+#: frontend/templates/frontend/comprar.html:224
+msgid "Estado del pedido"
+msgstr ""
+
+#: frontend/templates/frontend/comprar.html:225
+msgid "Lo podrás ver desde tu panel de usuario"
+msgstr ""
+
+#: frontend/templates/frontend/comprar.html:232
+msgid "Disfrútalo"
+msgstr ""
+
+#: frontend/templates/frontend/comprar.html:233
+msgid "Puedes valorar el producto en nuestra tienda"
+msgstr ""
+
+#: frontend/templates/frontend/index.html:98
+msgid "Ver más"
+msgstr ""
+
+#: frontend/templates/frontend/not_authorized.html:6
+msgid "You are not authorized to access to this part of the page"
+msgstr ""
+
+#: frontend/templates/frontend/not_authorized.html:6
+msgid "Click here to go back"
+msgstr ""
+
+#: frontend/templates/frontend/producto.html:58
+msgid "Escribe una opinión"
+msgstr ""
+
+#: frontend/templates/frontend/producto.html:61
+msgid "Ver opiniones"
+msgstr ""
+
+#: frontend/templates/frontend/producto.html:65
+msgid "Añadir a Mi compra"
+msgstr ""
+
+#: frontend/templates/frontend/producto.html:84
+msgid "Ver descripción completa"
+msgstr ""
+
+#: frontend/templates/frontend/producto.html:92
+msgid "Quantity:"
+msgstr ""
+
+#: frontend/templates/frontend/producto.html:125
+msgid "Envío gratuito a partir de 50€. Tiempo de envío 48h."
+msgstr ""
+
+#: frontend/templates/frontend/producto.html:155
+msgid "Características"
+msgstr ""
+
+#: frontend/templates/frontend/producto.html:159
+msgid "Opiniones"
+msgstr ""
+
+#: frontend/templates/frontend/producto.html:164
+msgid "Documentación"
+msgstr ""
+
+#: frontend/templates/frontend/producto.html:181
+msgid "Reviews for"
+msgstr ""
+
+#: frontend/templates/frontend/producto.html:225
+msgid "Documents for"
+msgstr ""
+
+#: frontend/templates/frontend/producto.html:233
+msgid "Download"
+msgstr ""
+
+#: frontend/templates/frontend/producto.html:252
+msgid "PRODUCTOS RELACIONADOS"
+msgstr ""
+
+#: frontend/templates/frontend/subcategoria.html:333
+msgid "Navigation"
+msgstr ""
+
+#: frontend/templates/frontend/subcategoria.html:342
+#: frontend/templates/frontend/subcategoria.html:358
+#: frontend/templates/frontend/subcategoria.html:397
+msgid "All"
+msgstr ""
+
+#: frontend/templates/frontend/subcategoria.html:446
+msgid "Marcas"
+msgstr ""
+
+#: frontend/templates/frontend/subcategoria.html:468
+msgid "Rango del precio"
+msgstr ""
+
+#: frontend/templates/frontend/subcategoria.html:481
+msgid "Rango del precio Slider"
+msgstr ""
+
+#: frontend/templates/frontend/subcategoria.html:482
+msgid "Price Range:"
+msgstr ""
+
+#: frontend/templates/frontend/subcategoria.html:596
+msgid "Show"
+msgstr ""
+
+#: frontend/templates/frontend/subcategoria.html:605
+msgid "Sort By"
+msgstr ""
+
+#: frontend/templates/frontend/subcategoria.html:607
+msgid "Name (A - Z)"
+msgstr ""
+
+#: frontend/templates/frontend/subcategoria.html:608
+msgid "Name (Z - A)"
+msgstr ""
+
+#: frontend/templates/frontend/subcategoria.html:609
+msgid "Price (Low &gt; High)"
+msgstr ""
+
+#: frontend/templates/frontend/subcategoria.html:610
+msgid "Price (High &gt; Low)"
+msgstr ""
+
+#: frontend/templates/frontend/subcategoria.html:613
+msgid "Model (A - Z)"
+msgstr ""
+
+#: frontend/templates/frontend/subcategoria.html:614
+msgid "Model (Z - A)"
+msgstr ""
+
+#: frontend/templates/frontend/subcategoria.html:629
+msgid "No hay resultados para "
+msgstr ""
+
+#: frontend/templates/frontend/subcategoria.html:630
+msgid ""
+"Lo sentimos. No se han encontrado resultados con el criterio de búsqueda "
+"seleccionado. Prueba con otra búsqueda similar o más simple."
+msgstr ""
+
+#: frontend/views.py:110 frontend/views.py:166 frontend/views.py:203
+#: frontend/views.py:366
+msgid "Products"
+msgstr ""
+
+#: frontend/views.py:150 frontend/views.py:353
+msgid "Code"
+msgstr ""
+
+#: frontend/views.py:151 frontend/views.py:354
+msgid "Date"
+msgstr ""
+
+#: frontend/views.py:153
+msgid "Status"
+msgstr ""
+
+#: frontend/views.py:154
+msgid "Payment detail"
+msgstr ""
+
+#: frontend/views.py:241
+msgid "Buy"
+msgstr ""
+
+#: frontend/views.py:253
+msgid "Quantity"
+msgstr ""
+
+#: frontend/views.py:278 frontend/views.py:300
+msgid "Default"
+msgstr ""
+
+#: frontend/views.py:512 frontend/views.py:660 frontend/views.py:715
+#: frontend/views.py:730 frontend/views.py:1162 frontend/views.py:1176
+#: frontend/views.py:1395
+msgid "Home"
+msgstr ""
+
+#: frontend/views.py:803
+msgid "No"
+msgstr ""
+
+#: frontend/views.py:804
+msgid "Yes"
+msgstr ""
+
+#: frontend/views.py:1163
+msgid "Shopping Cart"
+msgstr ""
+
+#: frontend/views.py:1351
+msgid "shipping POST parameter must be a dictionary"
+msgstr ""
+
+#: frontend/views.py:1364
+msgid "Email address already registered"
+msgstr ""
+
+#: frontend/views.py:1378
+msgid "Missing billing address from request dictionary"
+msgstr ""
+
+#: frontend/views.py:1381
+msgid "Could not decode the json from POST"
+msgstr ""
+
+#: frontend/views.py:1424
+msgid "Metodo de pago desconocido"
+msgstr ""
+
+#: frontend/views.py:1428
+msgid "[CODENERIX] Checkout Payment Error"
+msgstr ""
+
+#: frontend/views.py:1429
+msgid ""
+"Hello:\n"
+"\n"
+"There was an exception while using CheckoutPayment, code: (error_code), "
+"there is some problem :\n"
+"\n"
+"(error_message)\n"
+"\n"
+"Thank you,\n"
+"\n"
+"--\\CODENERIX Helper v(version)"
+msgstr ""
+
+#: frontend/views.py:1452
+msgid "Hay un error de tipo: {}"
+msgstr ""
+
+#: frontend/views.py:1455
+msgid "Pago realizado correctamente"
+msgstr ""
+
+#: frontend/views.py:1457
+msgid "Pago cancelado"
+msgstr ""
+
+#: frontend/views.py:1492
+msgid "[CODENERIX] Payment request does not exist"
+msgstr ""
+
+#: frontend/views.py:1493
+msgid ""
+"Hello:\n"
+"\n"
+"There was an exception while using payment_paid() function in class "
+"ConfirmPayment, there is some problem :\n"
+"\n"
+"(e)\n"
+"\n"
+"Thank you,\n"
+"\n"
+"--\\CODENERIX Helper v(version)"
+msgstr ""
+
+#: frontend/views.py:1533
+msgid "[CODENERIX] Order placed"
+msgstr ""
+
+#: frontend/views.py:1534
+msgid ""
+"Hola:\n"
+"\n"
+"Tu pedido es (order_code).\n"
+"\n"
+"Nos ponemos manos a la obra para que te llegue cuanto antes.\n"
+"\n"
+"Gracias por confiar en nosotros.\n"
+"\n"
+"--\\CODENERIX Helper v(version)"
+msgstr ""
+
+#: frontend/views.py:1583
+msgid "[CODENERIX] Intento fallido de pago"
+msgstr ""
+
+#: frontend/views.py:1584
+msgid ""
+"Hola:\n"
+"\n"
+"Se ha recibido un intento fallido de pago del presupuesto (budget_code).\n"
+"\n"
+"--\\CODENERIX Helper v(version)"
+msgstr ""
+
+#: frontend/views.py:1607
+msgid "Unknown code (pk=%(pk))"
+msgstr ""
+
+#: frontend/views.py:1616
+msgid "[CODENERIX] Payment Exception"
+msgstr ""

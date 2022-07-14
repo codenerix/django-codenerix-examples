@@ -1,0 +1,187 @@
+{% extends "frontend/base_cart.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block extra_css %}
+<link href="{% static "css/frontend.css" %}" id="style_components" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block contenido %}
+<script type="text/javascript">
+var brand = [];
+var feature = {};
+var attribute = {};
+
+// actualiza el listado de marcas a buscar
+function refresh_brand(pk){
+    var pos = brand.indexOf(pk);
+    if (pos==-1){
+        brand.push(pk);
+    }else{
+        brand.pop(pk);
+    }
+    refresh_list();
+}
+
+// actualiza el listado de caracteristicas a buscar
+function refresh_feature(fpk, vpk){
+    if (feature[fpk] == undefined){
+        feature[fpk] = [];
+    }
+    var pos = feature[fpk].indexOf(vpk);
+    if (pos==-1){
+        feature[fpk].push(vpk);
+    }else{
+        feature[fpk].pop(vpk);
+    }
+    refresh_list();
+}
+// borra caracteristicas a buscar
+function delete_feature(fpk){
+    delete feature[fpk];
+    refresh_list();
+}
+
+// actualiza el listado de atributos a buscar
+function refresh_attribute(fpk, vpk){
+    if (attribute[fpk] == undefined){
+        attribute[fpk] = [];
+    }
+    var pos = attribute[fpk].indexOf(vpk);
+    if (pos==-1){
+        attribute[fpk].push(vpk);
+    }else{
+        attribute[fpk].pop(vpk);
+    }
+    refresh_list();
+}
+// borra attributos a buscar
+function delete_attribute(fpk){
+    delete attribute[fpk];
+    refresh_list();
+}
+// 
+function refresh_list(){
+    var url = "{{ url }}";
+    var json = {
+        "search": "",
+        "page": 1,
+        "rowsperpage": $("#rowsperpage").val(),
+        "filters": {
+            "brand": brand,
+            "feature": feature,
+            "attribute": attribute
+        },
+        "ordering": [],
+    }
+    var ruta = url+"?json="+JSON.stringify(json);
+
+    $.get(ruta, function(data){
+        console.log(data);
+        $("#list").html('').append("<ul id='result'></ul>");
+        $.each(data.table.body, function(key, item){
+            $("#result").append("<li>"+item.product+"</li>");
+        });
+    }).done(function(data){
+
+    }).fail(function(data){
+        alert(data);
+    }).always(function(data){
+
+    });
+}
+
+function confirmLogout(txt,location){
+    var res;
+    var r = confirm(txt);
+    if (r == true) {
+        window.location.href = location;
+    }
+
+}
+
+ /** ********************* **/
+ // test login user
+ 
+ /** ********************* **/
+</script>
+
+	<!-- BEGIN: LAYOUT/BREADCRUMBS/BREADCRUMBS-2 -->
+	{% block breadcrumbs %}
+	{% endblock %}	
+	<!-- END: LAYOUT/BREADCRUMBS/BREADCRUMBS-2 -->  
+
+<div class="container c-margin-t-20 c-margin-b-100">
+    <div class="c-layout-sidebar-menu c-theme ">
+        <!-- BEGIN: LAYOUT/SIDEBARS/SIDEBAR-MENU-2 -->
+        <ul class="c-sidebar-menu c-option-2 collapse" id="sidebar-menu-1">
+            <li class="c-dropdown c-active c-open">
+                <a href="{% url "profile_list" %}#2">{% trans "My Profile" %}</a>
+                <ul class="c-dropdown-menu">
+                    <li class="{% if status == 'shopping_cart' %}c-active{% endif %}">
+                        <a href="{% url "shopping_cart" %}">{% trans "My shopping card" %}</a>
+                    </li>
+                    <li class="{% if status == 'orders' %}c-active{% endif %}">
+                        <a href="{% url "orders_list" %}">{% trans "My orders" %}</a>
+                    </li>
+                    <li class="{% if status == 'invoices' %}c-active{% endif %}">
+                        <a href="{% url "invoices_list" %}">{% trans "My invoices" %}</a>
+                    </li>
+                    {% comment %}
+                    <li class="{% if status == 'wishlist' %}c-active{% endif %}">
+                        <a href="{% url "wishlistproduct_list" %}">{% trans "My wishlist" %}</a>
+                    </li>
+                    {% endcomment %}
+                    <li class="{% if status == 'profile' %}c-active{% endif %}">
+                        <a href="{% url "profile_list" %}#2">{% trans "Edit profile" %}</a>
+                    </li>
+                    <li class="">
+                        <a href="{% url "password_change" %}#2">{% trans "Change password" %}</a>
+                    </li>
+                    <li class="{% if status == 'logout' %}c-active{% endif %}">
+                        <a onclick="javascript:confirmLogout('{% trans 'Are you sure you want to logout?'%}', '{% url 'logout'%}?next={% url 'home'%}')"  >{% trans "Logout" %}</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!-- END: LAYOUT/SIDEBARS/SIDEBAR-MENU-2 -->
+    </div>
+    <!-- BEGIN: PAGE CONTENT -->
+    <!-- BEGIN: CONTENT/SHOPS/SHOP-CUSTOMER-DASHBOARD-1 -->
+    <div class="c-layout-sidebar-content " id="list_backend">
+	    
+	    {% block body_backenduser %}
+        <div class="c-content-title-1">
+            <h4 class="c-font-bold">
+                {% if status == 'shopping_cart' %}
+                    {% trans "My shopping card" %}
+                {% endif %}
+                {% if status == 'orders' %}
+                    {% trans "My orders" %}
+                {% endif %}
+                {% if status == 'invoices' %}
+                    {% trans "My invoices" %}  
+                {% endif %}
+                {% if status == 'wishlistproduct' %}
+                    {% trans "My wishlist" %}
+                {% endif %}
+                {% if status == 'profile' %}
+                    {% trans "Edit profile" %}
+                {% endif %}
+                {% if status == 'logout' %} 
+                    {% trans "Logout" %}
+                {% endif %}
+            </h4>
+            <div class="c-line-left"></div>
+        </div>
+        
+        {% endblock %}
+
+        <div ui-view>
+        </div>
+        <!-- END: CONTENT/SHOPS/SHOP-CUSTOMER-DASHBOARD-1 -->
+        <!-- END: PAGE CONTENT -->
+    </div>
+</div>
+{% block body_backenduser_js %}{% endblock %}
+{% endblock %}

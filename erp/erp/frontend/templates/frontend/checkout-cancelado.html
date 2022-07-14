@@ -1,0 +1,26 @@
+{% extends "frontend/base_cart.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block contenido %}
+
+
+<!-- BEGIN: PAGE CONTENT -->
+<div class="c-content-box c-size-lg c-overflow-hide c-bg-white">
+	<div class="container">
+		<div class="c-shop-order-complete-1 c-content-bar-1 c-align-left c-bordered c-theme-border c-shadow">
+			<div class="c-content-title-1">
+				<h3 class="c-center c-font-uppercase c-font-bold">{% trans "Checkout Cancelado" %}</h3>
+				<div class="c-line-center c-theme-bg"></div>
+			</div>	
+			<div class="c-bg-grey-3">
+				<p class="c-message c-center c-font-white c-font-20 c-font-sbold">
+					<i class="fa fa-info"></i> {% trans "El proceso de compra ha sido cancelado." %} ({{budget.code}}) </p>
+			</div>	
+			<a href="/" class="btn c-theme-btn c-theme-border c-btn-square c-btn-uppercase c-font-16 c-margin-t-40">{% trans "Volver a la página de inicio" %}</a>	
+		</div>
+	</div>
+</div>
+<!-- END: PAGE CONTENT -->
+
+{% endblock %}

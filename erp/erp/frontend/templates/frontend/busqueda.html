@@ -1,0 +1,521 @@
+{% extends "frontend/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block body %}
+
+<!-- BEGIN: PAGE CONTENT -->
+<div class="container-fluid">
+    <div class="c-layout-sidebar-menu c-theme ">
+        <!-- BEGIN: LAYOUT/SIDEBARS/SHOP-SIDEBAR-MENU-2 -->
+        <div class="c-sidebar-menu-toggler">
+            <h3 class="c-title c-font-uppercase c-font-bold">Navigation</h3>
+            <a href="javascript:;" class="c-content-toggler" data-toggle="collapse" data-target="#sidebar-menu-1">
+                <span class="c-line"></span>
+                <span class="c-line"></span>
+                <span class="c-line"></span>
+            </a>
+        </div>
+        <!-- BEGIN: CONTENT/SHOPS/SHOP-FILTER-SEARCH-1 -->
+        <ul class="c-shop-filter-search-1 list-unstyled">
+            <li>
+                <label class="control-label c-font-uppercase c-font-bold">Categoría</label>
+                <select class="form-control c-square c-theme">
+                    <option value="0">Informática</option>
+                    <option value="1">Imagen y sonido</option>
+                    <option value="2">Smartphones</option>
+                    <option value="3">Smartwatch</option>
+                </select>
+            </li>
+            <li>
+                <label class="control-label c-font-uppercase c-font-bold">Precio</label>
+                <div class="input-group">
+                    <div class="c-checkbox">
+                        <input type="checkbox" id="checkbox-sidebar-1-1" class="c-check">
+                        <label for="checkbox-sidebar-1-1">
+                            <span class="inc"></span>
+                            <span class="check"></span>
+                            <span class="box"></span> 0€ - 10€ (15) </label>
+                    </div>
+                    <div class="c-checkbox">
+                        <input type="checkbox" id="checkbox-sidebar-1-2" class="c-check">
+                        <label for="checkbox-sidebar-1-2">
+                            <span class="inc"></span>
+                            <span class="check"></span>
+                            <span class="box"></span> 11€ - 20€ (17) </label>
+                    </div>
+                    <div class="c-checkbox">
+                        <input type="checkbox" id="checkbox-sidebar-1-3" class="c-check">
+                        <label for="checkbox-sidebar-1-3">
+                            <span class="inc"></span>
+                            <span class="check"></span>
+                            <span class="box"></span> 21€ - 30€ (23) </label>
+                    </div>
+                    <div class="c-checkbox c-checkbox-height">
+                        <input type="checkbox" id="checkbox-sidebar-1-4" class="c-check">
+                        <label for="checkbox-sidebar-1-4">
+                            <span class="inc"></span>
+                            <span class="check"></span>
+                            <span class="box"></span> 31€ - 40€ (19) </label>
+                    </div>
+                </div>
+            </li>
+            <li class="c-margin-b-40">
+                <label class="control-label c-font-uppercase c-font-bold">Puntuación</label>
+                <div class="c-checkbox">
+                    <input type="checkbox" id="checkbox-sidebar-2-1" class="c-check">
+                    <label for="checkbox-sidebar-2-1">
+                        <span class="inc"></span>
+                        <span class="check"></span>
+                        <span class="box"></span>
+                        <p class="c-review-star">
+                            <span class="fa fa-star c-theme-font"></span>
+                            <span class="fa fa-star c-theme-font"></span>
+                            <span class="fa fa-star c-theme-font"></span>
+                            <span class="fa fa-star c-theme-font"></span>
+                            <span class="fa fa-star c-theme-font"></span> (18) </p>
+                    </label>
+                </div>
+                <div class="c-checkbox">
+                    <input type="checkbox" id="checkbox-sidebar-2-2" class="c-check">
+                    <label for="checkbox-sidebar-2-2">
+                        <span class="inc"></span>
+                        <span class="check"></span>
+                        <span class="box"></span>
+                        <p class="c-review-star">
+                            <span class="fa fa-star c-theme-font"></span>
+                            <span class="fa fa-star c-theme-font"></span>
+                            <span class="fa fa-star c-theme-font"></span>
+                            <span class="fa fa-star c-theme-font"></span> (20) </p>
+                    </label>
+                </div>
+                <div class="c-checkbox">
+                    <input type="checkbox" id="checkbox-sidebar-2-3" class="c-check">
+                    <label for="checkbox-sidebar-2-3">
+                        <span class="inc"></span>
+                        <span class="check"></span>
+                        <span class="box"></span>
+                        <p class="c-review-star">
+                            <span class="fa fa-star c-theme-font"></span>
+                            <span class="fa fa-star c-theme-font"></span>
+                            <span class="fa fa-star c-theme-font"></span> (9) </p>
+                    </label>
+                </div>
+                <div class="c-checkbox">
+                    <input type="checkbox" id="checkbox-sidebar-2-4" class="c-check">
+                    <label for="checkbox-sidebar-2-4">
+                        <span class="inc"></span>
+                        <span class="check"></span>
+                        <span class="box"></span>
+                        <p class="c-review-star">
+                            <span class="fa fa-star c-theme-font"></span>
+                            <span class="fa fa-star c-theme-font"></span> (4) </p>
+                    </label>
+                </div>
+                <div class="c-checkbox">
+                    <input type="checkbox" id="checkbox-sidebar-2-5" class="c-check">
+                    <label for="checkbox-sidebar-2-5">
+                        <span class="inc"></span>
+                        <span class="check"></span>
+                        <span class="box"></span>
+                        <p class="c-review-star">
+                            <span class="fa fa-star c-theme-font"></span> (1) </p>
+                    </label>
+                </div>
+                <div class="c-checkbox">
+                    <input type="checkbox" id="checkbox-sidebar-2-6" class="c-check">
+                    <label for="checkbox-sidebar-2-6">
+                        <span class="inc"></span>
+                        <span class="check"></span>
+                        <span class="box"></span>
+                        <p class="c-review-star">Sin puntuación (10)</p>
+                    </label>
+                </div>
+            </li>
+        </ul>
+        <!-- END: CONTENT/SHOPS/SHOP-FILTER-SEARCH-1 -->
+    </div>
+    <div class="c-layout-sidebar-content ">
+        <!-- BEGIN: PAGE CONTENT -->
+        <!-- BEGIN: CONTENT/SHOPS/SHOP-ADVANCED-SEARCH-1 -->
+        <form class="c-shop-advanced-search-1">
+                            <div class="row">
+                <div class="form-group col-md-12">
+                    <label class="control-label">Categoría</label>
+                    <select class="form-control c-square c-theme input-lg">
+                        <option value="0">All Categories</option>
+                        <option value="1">Art</option>
+                        <option value="2">Baby</option>
+                        <option value="3">Books</option>
+                        <option value="4">Business &amp; Industrial</option>
+                        <option value="5">Cameras &amp; Photo</option>
+                        <option value="6">Cell Phones &amp; Accessories</option>
+                        <option value="7">Clothing, Shoes &amp; Accessories</option>
+                        <option value="8">Coins &amp; Paper Money</option>
+                        <option value="9">Collectibles</option>
+                        <option value="10">Computers/Tablets &amp; Networking</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="control-label">Número de referencia</label>
+                            <input type="text" class="form-control c-square c-theme input-lg" placeholder="Enter keywords or item number"> </div>
+                        <div class="col-md-6">
+                            <label class="control-label">&nbsp;</label>
+                            <select class="form-control c-square c-theme input-lg">
+                                <option value="1">All words, any order</option>
+                                <option value="2">Any words, any order</option>
+                                <option value="3">Exact words, exact order</option>
+                                <option value="4">Exact words, any order</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row c-margin-t-15">
+                <div class="form-group col-md-12">
+                    <div class="c-checkbox c-toggle-hide" data-object-selector="c-advanced-search" data-animation-speed="600">
+                        <input type="checkbox" id="checkbox-1" class="c-check">
+                        <label for="checkbox-1">
+                            <span class="inc"></span>
+                            <span class="check"></span>
+                            <span class="box"></span> Búsqueda avanzada </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row c-advanced-search">
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <h3 class="c-font-sbold c-font-uppercase c-font-20">Buscar</h3>
+                        <div class="c-checkbox">
+                            <input type="checkbox" id="checkbox-1-1" class="c-check">
+                            <label for="checkbox-1-1">
+                                <span class="inc"></span>
+                                <span class="check"></span>
+                                <span class="box"></span> Title and description </label>
+                        </div>
+                        <div class="c-checkbox">
+                            <input type="checkbox" id="checkbox-1-2" class="c-check">
+                            <label for="checkbox-1-2">
+                                <span class="inc"></span>
+                                <span class="check"></span>
+                                <span class="box"></span> Completed listing </label>
+                        </div>
+                        <div class="c-checkbox">
+                            <input type="checkbox" id="checkbox-1-3" class="c-check">
+                            <label for="checkbox-1-3">
+                                <span class="inc"></span>
+                                <span class="check"></span>
+                                <span class="box"></span> Sold listing </label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="c-font-sbold c-font-uppercase c-font-20">Shipping options</h3>
+                        <div class="c-checkbox">
+                            <input type="checkbox" id="checkbox-2-1" class="c-check">
+                            <label for="checkbox-2-1">
+                                <span class="inc"></span>
+                                <span class="check"></span>
+                                <span class="box"></span> Flat rate </label>
+                        </div>
+                        <div class="c-checkbox">
+                            <input type="checkbox" id="checkbox-2-2" class="c-check">
+                            <label for="checkbox-2-2">
+                                <span class="inc"></span>
+                                <span class="check"></span>
+                                <span class="box"></span> Local delivery </label>
+                        </div>
+                        <div class="c-checkbox">
+                            <input type="checkbox" id="checkbox-2-3" class="c-check">
+                            <label for="checkbox-2-3">
+                                <span class="inc"></span>
+                                <span class="check"></span>
+                                <span class="box"></span> Local pickup </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label">Ordenar por</label>
+                        <select class="form-control c-square c-theme input-lg">
+                            <option value="#?sort=p.sort_order&amp;order=ASC" selected="selected">Default</option>
+                            <option value="#?sort=pd.name&amp;order=ASC">Name (A - Z)</option>
+                            <option value="#?sort=pd.name&amp;order=DESC">Name (Z - A)</option>
+                            <option value="#?sort=p.price&amp;order=ASC">Price (Low &gt; High)</option>
+                            <option value="#?sort=p.price&amp;order=DESC" selected>Price (High &gt; Low)</option>
+                            <option value="#?sort=rating&amp;order=DESC">Rating (Highest)</option>
+                            <option value="#?sort=rating&amp;order=ASC">Rating (Lowest)</option>
+                            <option value="#?sort=p.model&amp;order=ASC">Model (A - Z)</option>
+                            <option value="#?sort=p.model&amp;order=DESC">Model (Z - A)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="control-label">Ver resultados</label>
+                                <select class="form-control c-square c-theme input-lg">
+                                    <option value="1">All Items</option>
+                                    <option value="2">Picture Gallery</option>
+                                    <option value="3">Show Item Numbers</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="control-label">Resultados por página</label>
+                                <select class="form-control c-square c-theme input-lg">
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="75">75</option>
+                                    <option value="100">100</option>
+                                    <option value="150">150</option>
+                                    <option value="200">200</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" role="group">
+                <button type="submit" class="btn btn-lg c-theme-btn c-btn-square c-btn-uppercase c-btn-bold">
+                    <i class="fa fa-search"></i>Buscar</button>
+                <button type="submit" class="btn btn-lg btn-default c-btn-square c-btn-uppercase c-btn-bold">Limpiar</button>
+            </div>
+        </form>
+        <!-- END: CONTENT/SHOPS/SHOP-ADVANCED-SEARCH-1 -->
+        <div class="c-margin-t-30"></div>
+        <!-- BEGIN: CONTENT/SHOPS/SHOP-RESULT-FILTER-1 -->
+        <div class="c-shop-result-filter-1 clearfix form-inline">
+            <div class="c-filter">
+                <label class="control-label c-font-16">Mostrar:</label>
+                <select class="form-control c-square c-theme c-input">
+                    <option value="#?limit=24" selected="selected">24</option>
+                    <option value="#?limit=25">25</option>
+                    <option value="#?limit=50">50</option>
+                    <option value="#?limit=75">75</option>
+                    <option value="#?limit=100" selected>100</option>
+                </select>
+            </div>
+            <div class="c-filter">
+                <label class="control-label c-font-16">Buscar&nbsp;por:</label>
+                <select class="form-control c-square c-theme c-input">
+                    <option value="#?sort=p.sort_order&amp;order=ASC" selected="selected">Default</option>
+                    <option value="#?sort=pd.name&amp;order=ASC">Name (A - Z)</option>
+                    <option value="#?sort=pd.name&amp;order=DESC">Name (Z - A)</option>
+                    <option value="#?sort=p.price&amp;order=ASC">Price (Low &gt; High)</option>
+                    <option value="#?sort=p.price&amp;order=DESC" selected>Price (High &gt; Low)</option>
+                    <option value="#?sort=rating&amp;order=DESC">Rating (Highest)</option>
+                    <option value="#?sort=rating&amp;order=ASC">Rating (Lowest)</option>
+                    <option value="#?sort=p.model&amp;order=ASC">Model (A - Z)</option>
+                    <option value="#?sort=p.model&amp;order=DESC">Model (Z - A)</option>
+                </select>
+            </div>
+        </div>
+        <!-- END: CONTENT/SHOPS/SHOP-RESULT-FILTER-1 -->
+        <div class="c-margin-t-20"></div>
+        <!-- BEGIN: CONTENT/SHOPS/SHOP-2-8 -->
+        <div class="row c-margin-b-40">
+            <div class="c-content-product-2 c-bg-white">
+                <div class="col-md-4">
+                    <div class="c-content-overlay">
+                        <div class="c-label c-bg-red c-font-uppercase c-font-white c-font-13 c-font-bold">Oferta</div>
+                        <div class="c-label c-bg-red c-font-uppercase c-font-white c-font-13 c-font-bold">Oferta</div>
+                        <div class="c-overlay-wrapper">
+                            <div class="c-overlay-content">
+                                <a href="producto.html" class="btn btn-md c-btn-grey-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">Ver más</a>
+                            </div>
+                        </div>
+                        <div class="c-bg-img-center c-overlay-object" data-height="height" style="height: 230px; background-image: url(assets/base/img/content/shop2/69.jpg);"></div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="c-info-list">
+                        <h3 class="c-title c-font-bold c-font-22 c-font-dark">
+                            <a class="c-theme-link" href="producto.html">Smartwach</a>
+                        </h3>
+                        <p class="c-desc c-font-16 c-font-thin">Lorem ipsum dolor sit amet, consectetur adipiscing elit, eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet.</p>
+                        <p class="c-price c-font-26 c-font-thin">548€ &nbsp;
+                            <span class="c-font-26 c-font-line-through c-font-red">600€</span>
+                        </p>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-sm c-theme-btn c-btn-square c-btn-uppercase c-btn-bold">
+                            <i class="fa fa-shopping-cart"></i>Comprar </button>
+                        <button type="submit" class="btn btn-sm btn-default c-btn-square c-btn-uppercase c-btn-bold">
+                            <i class="fa fa-heart-o"></i>Añadir Favorito </button>
+                        <button type="submit" class="btn btn-sm btn-default c-btn-square c-btn-uppercase c-btn-bold">
+							<i class="icon-layers"></i>Comparar </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row c-margin-b-40">
+            <div class="c-content-product-2 c-bg-white">
+                <div class="col-md-4">
+                    <div class="c-content-overlay">
+                        <div class="c-label c-label-right c-theme-bg c-font-uppercase c-font-white c-font-13 c-font-bold">Nuevo</div>
+                        <div class="c-overlay-wrapper">
+                            <div class="c-overlay-content">
+                                <a href="producto.html" class="btn btn-md c-btn-grey-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">Ver más</a>
+                            </div>
+                        </div>
+                        <div class="c-bg-img-center c-overlay-object" data-height="height" style="height: 230px; background-image: url(assets/base/img/content/shop2/71.jpg);"></div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="c-info-list">
+                        <h3 class="c-title c-font-bold c-font-22 c-font-dark">
+                            <a class="c-theme-link" href="producto.html">Tablet</a>
+                        </h3>
+                        <p class="c-desc c-font-16 c-font-thin">Lorem ipsum dolor sit amet, consectetur adipiscing elit, eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet.</p>
+                        <p class="c-price c-font-26 c-font-thin">548€ &nbsp;
+                            <span class="c-font-26 c-font-line-through c-font-red">600€</span>
+                        </p>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-sm c-theme-btn c-btn-square c-btn-uppercase c-btn-bold">
+                            <i class="fa fa-shopping-cart"></i>Comprar </button>
+                        <button type="submit" class="btn btn-sm btn-default c-btn-square c-btn-uppercase c-btn-bold">
+                            <i class="fa fa-heart-o"></i>Añadir Favorito </button>
+                        <button type="submit" class="btn btn-sm btn-default c-btn-square c-btn-uppercase c-btn-bold">
+							<i class="icon-layers"></i>Comparar </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row c-margin-b-40">
+            <div class="c-content-product-2 c-bg-white">
+                <div class="col-md-4">
+                    <div class="c-content-overlay">
+                        <div class="c-overlay-wrapper">
+                            <div class="c-overlay-content">
+                                <a href="producto.html" class="btn btn-md c-btn-grey-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">Ver más</a>
+                            </div>
+                        </div>
+                        <div class="c-bg-img-center c-overlay-object" data-height="height" style="height: 230px; background-image: url(assets/base/img/content/shop2/68.jpg);"></div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="c-info-list">
+                        <h3 class="c-title c-font-bold c-font-22 c-font-dark">
+                            <a class="c-theme-link" href="producto.html">Smartphone</a>
+                        </h3>
+                        <p class="c-desc c-font-16 c-font-thin">Lorem ipsum dolor sit amet, consectetur adipiscing elit, eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet.</p>
+                        <p class="c-price c-font-26 c-font-thin">548€ &nbsp;
+                            <span class="c-font-26 c-font-line-through c-font-red">600€</span>
+                        </p>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-sm c-theme-btn c-btn-square c-btn-uppercase c-btn-bold">
+                            <i class="fa fa-shopping-cart"></i>Comprar </button>
+                        <button type="submit" class="btn btn-sm btn-default c-btn-square c-btn-uppercase c-btn-bold">
+                            <i class="fa fa-heart-o"></i>Añadir Favorito </button>
+                        <button type="submit" class="btn btn-sm btn-default c-btn-square c-btn-uppercase c-btn-bold">
+							<i class="icon-layers"></i>Comparar </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row c-margin-b-40">
+            <div class="c-content-product-2 c-bg-white">
+                <div class="col-md-4">
+                    <div class="c-content-overlay">
+                        <div class="c-label c-bg-red c-font-uppercase c-font-white c-font-13 c-font-bold">Oferta</div>
+                        <div class="c-overlay-wrapper">
+                            <div class="c-overlay-content">
+                                <a href="producto.html" class="btn btn-md c-btn-grey-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">Ver más</a>
+                            </div>
+                        </div>
+                        <div class="c-bg-img-center c-overlay-object" data-height="height" style="height: 230px; background-image: url(assets/base/img/content/shop2/70.jpg);"></div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="c-info-list">
+                        <h3 class="c-title c-font-bold c-font-22 c-font-dark">
+                            <a class="c-theme-link" href="producto.html">Smartwach</a>
+                        </h3>
+                        <p class="c-desc c-font-16 c-font-thin">Lorem ipsum dolor sit amet, consectetur adipiscing elit, eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet.</p>
+                        <p class="c-price c-font-26 c-font-thin">548€ &nbsp;
+                            <span class="c-font-26 c-font-line-through c-font-red">600€</span>
+                        </p>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-sm c-theme-btn c-btn-square c-btn-uppercase c-btn-bold">
+                            <i class="fa fa-shopping-cart"></i>Comprar </button>
+                        <button type="submit" class="btn btn-sm btn-default c-btn-square c-btn-uppercase c-btn-bold">
+                            <i class="fa fa-heart-o"></i>Añadir Favorito </button>
+                        <button type="submit" class="btn btn-sm btn-default c-btn-square c-btn-uppercase c-btn-bold">
+							<i class="icon-layers"></i>Comparar </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row c-margin-b-40">
+            <div class="c-content-product-2 c-bg-white">
+                <div class="col-md-4">
+                    <div class="c-content-overlay">
+                        <div class="c-label c-bg-red c-font-uppercase c-font-white c-font-13 c-font-bold">Oferta</div>
+                        <div class="c-label c-label-right c-theme-bg c-font-uppercase c-font-white c-font-13 c-font-bold">Nuevo</div>
+                        <div class="c-overlay-wrapper">
+                            <div class="c-overlay-content">
+                                <a href="producto.html" class="btn btn-md c-btn-grey-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">Ver más</a>
+                            </div>
+                        </div>
+                        <div class="c-bg-img-center c-overlay-object" data-height="height" style="height: 230px; background-image: url(assets/base/img/content/shop2/69.jpg);"></div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="c-info-list">
+                        <h3 class="c-title c-font-bold c-font-22 c-font-dark">
+                            <a class="c-theme-link" href="producto.html">Smartwach</a>
+                        </h3>
+                        <p class="c-desc c-font-16 c-font-thin">Lorem ipsum dolor sit amet, consectetur adipiscing elit, eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet.</p>
+                        <p class="c-price c-font-26 c-font-thin">548€ &nbsp;
+                            <span class="c-font-26 c-font-line-through c-font-red">600€</span>
+                        </p>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-sm c-theme-btn c-btn-square c-btn-uppercase c-btn-bold">
+                            <i class="fa fa-shopping-cart"></i>Comprar </button>
+                        <button type="submit" class="btn btn-sm btn-default c-btn-square c-btn-uppercase c-btn-bold">
+                            <i class="fa fa-heart-o"></i>Añadir Favorito </button>
+                        <button type="submit" class="btn btn-sm btn-default c-btn-square c-btn-uppercase c-btn-bold">
+							<i class="icon-layers"></i>Comparar </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END: CONTENT/SHOPS/SHOP-2-8 -->
+        <div class="c-margin-t-20"></div>
+        <ul class="c-content-pagination c-square c-theme pull-right">
+            <li class="c-prev">
+                <a href="#">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#">1</a>
+            </li>
+            <li class="c-active">
+                <a href="#">2</a>
+            </li>
+            <li>
+                <a href="#">3</a>
+            </li>
+            <li>
+                <a href="#">4</a>
+            </li>
+            <li class="c-next">
+                <a href="#">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+        <!-- END: PAGE CONTENT -->
+    </div>
+</div>
+<!-- END: CONTENT/SHOPS/SHOP-2-2 -->
+<!-- END: PAGE CONTENT -->
+
+{% endblock %}

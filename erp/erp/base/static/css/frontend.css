@@ -1,0 +1,48 @@
+.body{
+
+}
+.panel-body.listfilters {
+
+}
+.c-layout-page {
+	background: #ffffff;
+}
+/* SIDEBAR */
+#sidebar-menu-1 {
+	font-size: 15px;
+}
+.c-layout-sidebar-menu.c-theme .c-sidebar-menu li.c-active > a {
+	text-transform: none;
+	font-weight: bold;
+}
+.c-layout-sidebar-menu .c-sidebar-menu li .c-dropdown-menu li:first-child > a {
+	padding-top: 10px;
+}
+.c-layout-sidebar-menu .c-sidebar-menu li .c-dropdown-menu li:last-child > a {
+	padding-bottom: 10px;
+}
+/* FORMULARIOS */
+.btn-default.btn-no-focus:hover, .btn-default:hover, .btn-default.btn-no-focus:active, .btn-default:active, .btn-default.active, .open > .btn-default.dropdown-toggle {
+    background: #ffffff;
+    border-color: #8998b5;
+}
+/*.internal-buttons-top #submit_savehere, .internal-buttons-top #submit_reload, .internal-buttons-top #submit_details {
+	display: none;
+}
+.internal-buttons-bottom #submit_savehere, .internal-buttons-top #submit_reload, .internal-buttons-top #submit_details {
+	display: none;
+}*/
+/* TABLAS */
+ .table > thead > tr > th {
+    font-weight: 500;
+    font-size: 15px;
+    color: #3f444a;
+}
+/* MODAL */
+.modal {
+	z-index: 9999!important;
+}
+
+#list_backend .internal-name h4 {
+	display: none;
+}

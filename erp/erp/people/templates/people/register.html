@@ -1,0 +1,61 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+
+{% block body %}
+
+	<div class="row" style="margin-bottom: 30px">
+		<div class="col-lg-2"></div>
+		<div class="col-lg-8">
+			{{form.errors}}
+			<form action="" method="post">
+			{% csrf_token %}
+				<div class="row">
+				    <div class="col-lg-12">
+					    <h1>{% trans 'Basic user information'%}</h1>
+				    </div>
+			        <div class="col-lg-6">
+					    <h3>{{form.username.label}}</h2>
+				    </div>
+				    <div class="col-lg-6">
+					    <h3>{{form.username}}</h3>
+				    </div>
+				    <div class="col-lg-6">
+					    <h3>{{form.password.label}}</h2>
+				    </div>
+				    <div class="col-lg-6">
+					    <h3>{{form.password}}</h3>
+				    </div>
+				    <div class="col-lg-6">
+					    <h3>{{form.password2.label}}</h2>
+				    </div>
+				    <div class="col-lg-6">
+					    <h3>{{form.password2}}</h3>
+				    </div>
+				    <div class="col-lg-6">
+					    <h3>{{form.email.label}}</h2>
+				    </div>
+				    <div class="col-lg-6">
+					    <h3>{{form.email}}</h3>
+				    </div>
+				    <div class="col-lg-6">
+					    <h3>{{form.name.label}}</h2>
+				    </div>
+				    <div class="col-lg-6">
+					    <h3>{{form.name}}</h3>
+				    </div>
+				    <div class="col-lg-6">
+					    <h3>{{form.surname.label}}</h2>
+				    </div>
+				    <div class="col-lg-6">
+					    <h3>{{form.surname}}</h3>
+				    </div>
+			    </div>
+			    <div class="col-lg-12">
+				    <input type="submit" value="Entrar"/>
+			    </div>
+				    
+			 </form>
+		</div>
+		<div class="col-lg-2"></div>
+    </div>
+{% endblock %}

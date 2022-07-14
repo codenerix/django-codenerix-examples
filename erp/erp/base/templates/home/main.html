@@ -1,0 +1,89 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% block body %}
+<!-- BEGIN DASHBOARD STATS 1-->
+<br><br>
+<br><br>
+<div class="row">
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"></div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <a class="dashboard-stat dashboard-stat-v2 yellow-gold" href="{% url "servicepersons_list" %}">
+            <div class="visual">
+                <i class="fa fa-dribbble"></i>
+            </div>
+            <div class="details">
+                <div class="number"> {% trans "Parque" %} </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"></div>
+        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"></div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <a class="dashboard-stat dashboard-stat-v2 blue" href="#">
+            <div class="visual">
+                <i class="fa fa-birthday-cake"></i>
+            </div>
+            <div class="details">
+                <div class="number"> {% trans "Birthday" %} </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"></div>
+</div>
+<div class="row">
+        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"></div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <a class="dashboard-stat dashboard-stat-v2 red" href="{% url "vending_start" %}">
+            <div class="visual">
+                <i class="icon-ghost"></i>
+            </div>
+            <div class="details">
+                <div class="number"> {% trans "Chuches" %} </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"></div>
+        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"></div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <a class="dashboard-stat dashboard-stat-v2 yellow" href="{% url "vending_start" %}">
+            <div class="visual">
+                <i class="fa fa-coffee"></i>
+            </div>
+            <div class="details">
+                <div class="number"> {% trans "Cafeteria" %} </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"></div>
+    {% comment %}
+    
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <a class="dashboard-stat dashboard-stat-v2 green" href="#">
+            <div class="visual">
+                <i class="fa fa-gamepad"></i>
+            </div>
+            <div class="details">
+                <div class="number"> {% trans "Games" %} </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <a class="dashboard-stat dashboard-stat-v2 green" href="#">
+            <div class="visual">
+                <i class="icon-users"></i>
+            </div>
+            <div class="details">
+                <div class="number"> {% trans "Fitness" %} </div>
+            </div>
+        </a>
+    </div>
+    {% endcomment %}
+</div>
+<div class="clearfix"></div>
+<!-- END DASHBOARD STATS 1-->
+
+
+{% endblock %}

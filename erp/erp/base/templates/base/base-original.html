@@ -1,0 +1,538 @@
+{% load static %}{% load i18n %}{% with user_settings=user.settings.all.0 %}{{settings}}<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:"en" }}" ng-app="codenerixApp">
+<head>
+    <meta charset="utf-8">
+    <title>{{ info_project.title }}, {% trans info_project.subtitle %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% trans info_project.description %}">
+    <meta name="author" content="Codenerix">
+
+    {% block pre_extra_css %}{% endblock %}
+    {{cnf.codenerix_css|safe}}
+    <link href="{% static "css/base.css" %}" rel="stylesheet">
+    {% block extra_css %}{% endblock %}
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="{% static "codenerix/lib/bootstrap/js/html5shiv.js" %}"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static "img/apple-touch-icon-144-precomposed.png" %}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static "img/apple-touch-icon-114-precomposed.png" %}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static "img/apple-touch-icon-72-precomposed.png" %}">
+    <link rel="apple-touch-icon-precomposed" href="{% static "img/apple-touch-icon-57-precomposed.png" %}">
+    <link rel="shortcut icon" href="{% static "img/favicon.png" %}">
+    {% block javascript_constants %}
+        {% if ws_entry_point or static_partial_row %}
+            <script type="text/javascript">
+                {% if ws_entry_point %}var ws_entry_point="{{ws_entry_point}}";{% endif %}
+                {% if static_partial_row %}var static_partial_row="{{static_partial_row}}";{% endif %}
+            </script>
+        {% endif %}
+    {% endblock %}
+</head>
+
+<body ng-cloack ng-init="now=0;lastconnection=0" class="ng-cloak">
+    <div class="container-fluid">
+        <div class="row clearfix">&nbsp;</div>
+        <div class="row clearfix">&nbsp;</div>
+        <div class="row clearfix">&nbsp;</div>
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+                <div class="navbar-header">
+                    <div class="pull-right">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainmenu" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="pull-right hidden-md hidden-lg connection-error-mini">
+                        <span class="fa fa-warning btn btn-danger bliking" popover-placement="bottom" popover="{% trans "Connection lost" %} {%verbatim%}{{(now-lastconnection)/1000|number:0}}{%endverbatim%} {% trans "seconds ago" %}" popover-trigger="mouseenter" ng-show="now-lastconnection>{{cnf.connection_error}}"></span>
+                    </div>
+                    <div class="pull-left">
+                        <a href="{% url 'home' %}"><img src="{% static "img/logo_small.png" %}" class="img-responsive"></a>
+                    </div>
+                    <div class="pull-left navbar-brand-r hidden-xs">
+                        <a class="navbar-brand" href="{% url 'home' %}">{{ info_project.title }}</a>
+                    </div>
+                    <div class="pull-left bread">
+                        <div class="pull-left {% block breadcrumb_mini_hide %}hidden-md hidden-lg{% endblock %}">
+                            <ol class="breadcrumb breadcrumb_miniblock">
+                                {% if menu.0 %}
+                                    <li class="start"><a href="/"><span class="glyphicon glyphicon-home" popover-trigger="mouseenter" popover="{% trans "Home" %}" popover-placement="bottom"></span></a></li>
+                                    {% if menu.1 %}
+                                        <li>
+                                            {% if menu.0 == "manager" %}
+                                                <span class="glyphicon glyphicon-th" popover-trigger="mouseenter" popover="{{bread.0}}" popover-placement="bottom"></span>
+                                            {% else %}
+                                                {% if menu.0 == "documents" %}
+                                                    <span class="glyphicon glyphicon-file" popover-trigger="mouseenter" popover="{{bread.0}}" popover-placement="bottom"></span>
+                                                {% else %}
+                                                    {% if menu.0 == "config" %}
+                                                        <span class="glyphicon glyphicon-cog" popover-trigger="mouseenter" popover="{{bread.0}}" popover-placement="bottom"></span>
+                                                    {% else %}
+                                                        {% if menu.0 == "user" %}
+                                                            <span class="glyphicon glyphicon-user" popover-trigger="mouseenter" popover="{{bread.0}}" popover-placement="bottom"></span>
+                                                        {% else %}
+                                                            {{bread.0}}
+                                                        {% endif %}
+                                                    {% endif %}
+                                                {% endif %}
+                                            {% endif %}
+                                        </li>
+                                        <li class="active end">{{bread.1}}</li>
+                                    {% else %}
+                                        <li class="active end">{{bread.0}}</li>
+                                    {% endif %}
+                                {% else %}
+                                    <li class="start end">Home</li>
+                                {% endif %}
+                            </ol>
+                        </div>
+                        <div class="pull-left {% block breadcrumb_minie_hide %}hidden-md hidden-lg{% endblock %} elementname" ng-if="elementname">{% verbatim %}{{elementname}}{% endverbatim %}</div>
+                    </div>
+                    <div class="pull-left">{% block navbar_mini %}{% endblock %}</div>
+                </div>
+
+                <div class="collapse navbar-collapse" id="mainmenu" ng-class="{'in':!navCollapsed}">
+                    <ul class="nav navbar-nav">
+                        {% if user.is_authenticated %}
+                        <li {% if menu.0 == "home" %}class="active"{% endif %}>
+                            <a href="{% url 'home' %}">
+                                <span class="glyphicon glyphicon-road"></span>
+                                {% trans "Start" %}
+                            </a>
+                        </li>
+                        {%endif%}
+
+                    {% if user.is_authenticated %}
+                        <li class=" {%if menu.0 == "manager"%}active{%endif%}" uib-dropdown>
+                            <a href="#" class="" data-toggle="dropdown" uib-dropdown-toggle>
+                                <span class="glyphicon glyphicon-th"></span>
+                                {% trans "Billing" %}
+                                <strong class="caret"></strong>
+                            </a>
+                            <ul class="" uib-dropdown-menu>
+                                <li {% if menu.1 == "billingseries" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_billingseriess_list' %}">{% trans "Series" %}</a>
+                                </li>
+                                <li {% if menu.1 == "billingseries" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_legalnotes_list' %}">{% trans "Legal notes" %}</a>
+                                </li>
+                                <li {% if menu.1 == "billingseries" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_typedocuments_list' %}">{% trans "Type documents" %}</a>
+                                </li>
+                                <li {% if menu.1 == "customer" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_customers_list' %}">{% trans "Customer" %}</a>
+                                </li>
+                                <li {% if menu.1 == "provider" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_providers_list' %}">{% trans "Provider" %}</a>
+                                </li>
+                                <li {% if menu.1 == "company" %}class="active"{% endif %}>
+                                    <a href="{% url 'company_list' %}">{% trans "Company" %}</a>
+                                </li>
+                                <li {% if menu.1 == "POS" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_poss_list' %}">{% trans "POS" %}</a>
+                                </li>
+                                <li {% if menu.1 == "haulier" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_hauliers_list' %}">{% trans "Haulier" %}</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class=" {%if menu.0 == "manager"%}active{%endif%}" uib-dropdown>
+                            <a href="#" class="" data-toggle="dropdown" uib-dropdown-toggle>
+                                <span class="glyphicon glyphicon-th"></span>
+                                {% trans "Sales" %}
+                                <strong class="caret"></strong>
+                            </a>
+                            <ul class="" uib-dropdown-menu>
+                                <li {% if menu.1 == "SalesReservedProduct" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_reservedproducts_list' %}">{% trans "Reserved products" %}</a>
+                                </li>
+                                <li {% if menu.1 == "SalesReservedProduct" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_salesbaskets_shoppingcart_list' %}">{% trans "Shopping carts" %}</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li {% if menu.1 == "basketsales" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_salesbaskets_shoppingcart_list' %}">{% trans "new shopping carts" %}</a>
+                                </li>
+                                <li {% if menu.1 == "basketsales" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_salesbaskets_budget_list' %}">{% trans "new budgets" %}</a>
+                                </li>
+                                <li {% if menu.1 == "basketsales" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_salesbaskets_wishlist_list' %}">{% trans "new wishlist" %}</a>
+                                </li>
+                                <li class="divider"></li>
+                                {% comment %}
+                                <li {% if menu.1 == "budgetsales" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_budgetsaless_list' %}">{% trans "Budget" %}</a>
+                                </li>
+                                {% endcomment %}
+                                <li {% if menu.1 == "ordersales" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_ordersaless_list' %}">{% trans "Order" %}</a>
+                                </li>
+                                <li {% if menu.1 == "albaransales" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_albaransaless_list' %}">{% trans "Albaran" %}</a>
+                                </li>
+                                <li {% if menu.1 == "invoicesales" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_invoicesaless_list' %}">{% trans "Invoice" %}</a>
+                                </li>
+                                <li {% if menu.1 == "invoicerectificationsales" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_invoicerectificationsaless_list' %}">{% trans "Invoice Rectification" %}</a>
+                                </li>
+                                <li {% if menu.1 == "ticketsales" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_ticketsaless_list' %}">{% trans "Ticket" %}</a>
+                                </li>
+                                <li {% if menu.1 == "ticketrectificationsales" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_ticketrectificationsaless_list' %}">{% trans "Ticket Rectification" %}</a>
+                                </li>
+                                {% comment %}
+                                <li {% if menu.1 == "receipt" %}class="active"{% endif %}>
+                                    <a href="{% url 'receipts_list' %}">{% trans "Receipt" %}</a>
+                                </li>
+                                {% endcomment %}
+                            </ul>
+                        </li>
+
+                        <li class=" {%if menu.0 == "manager"%}active{%endif%}" uib-dropdown>
+                            <a href="#" class="" data-toggle="dropdown" uib-dropdown-toggle>
+                                <span class="glyphicon glyphicon-th"></span>
+                                {% trans "Product" %}
+                                <strong class="caret"></strong>
+                            </a>
+                             <ul class="" uib-dropdown-menu>
+                                <li {% if menu.1 == "typetax" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_products_typetaxs_list' %}">{% trans "Type tax" %}</a>
+                                </li>
+                                <li {% if menu.1 == "typerecargoequivalencias" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_products_typerecargoequivalencias_list' %}">{% trans "Type recargo equivalencias" %}</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li {% if menu.1 == "family" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_products_familys_list' %}">{% trans "Family" %}</a>
+                                </li>
+                                <li {% if menu.1 == "category" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_products_categorys_list' %}">{% trans "Category" %}</a>
+                                </li>
+                                <li {% if menu.1 == "subcategory" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_products_subcategorys_list' %}">{% trans "Subcategory" %}</a>
+                                </li>
+                                <li class="divider"></li>
+
+                                <li {% if menu.1 == "groupvalue" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_products_GroupValueFeatures_list' %}">{% trans "GroupValue Feature" %}</a>
+                                </li>
+                                <li {% if menu.1 == "groupvalue" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_products_GroupValueAttributes_list' %}">{% trans "GroupValue Attribute" %}</a>
+                                </li>
+                                <li {% if menu.1 == "groupvalue" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_products_GroupValueFeatureSpecials_list' %}">{% trans "GroupValue Feature Special" %}</a>
+                                </li>
+                                <li class="divider"></li>
+                                {% comment %}
+                                <li {% if menu.1 == "optionvalue" %}class="active"{% endif %}>
+                                    <a href="{% url 'optionvalues_list' %}">{% trans "OptionValue" %}</a>
+                                </li>
+                                {% endcomment %}
+                                <li {% if menu.1 == "feature" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_products_features_list' %}">{% trans "Feature" %}</a>
+                                </li>
+                                <li {% if menu.1 == "attribute" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_products_attributes_list' %}">{% trans "Attribute" %}</a>
+                                </li>
+                                <li {% if menu.1 == "featurespecial" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_products_featurespecials_list' %}">{% trans "FeatureSpecial" %}</a>
+                                </li>
+                                <li class="divider"></li>
+								<li {% if menu.1 == "brand" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_products_brand_list' %}">{% trans "Brand" %}</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li {% if menu.1 == "product" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_products_products_list' %}">{% trans "Product" %}</a>
+                                </li>
+                                {% comment %}
+                                <li {% if menu.1 == "productrelationsold" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_products_productrelationsolds_list' %}">{% trans "ProductRelationSold" %}</a>
+                                </li>
+                                <li {% if menu.1 == "productimage" %}class="active"{% endif %}>
+                                    <a href="{% url 'productimages_list' %}">{% trans "ProductImage" %}</a>
+                                </li>
+                                <li {% if menu.1 == "productdocument" %}class="active"{% endif %}>
+                                    <a href="{% url 'productdocuments_list' %}">{% trans "ProductDocument" %}</a>
+                                </li>
+                                {% endcomment %}
+                                <li {% if menu.1 == "productfinal" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_products_productfinals_list' %}">{% trans "ProductFinal" %}</a>
+                                </li>
+                                {% comment %}
+                                <li {% if menu.1 == "productfeature" %}class="active"{% endif %}>
+                                    <a href="{% url 'productfeatures_list' %}">{% trans "ProductFeature" %}</a>
+                                </li>
+                                <li {% if menu.1 == "productcategory" %}class="active"{% endif %}>
+                                    <a href="{% url 'productcategorys_list' %}">{% trans "ProductCategory" %}</a>
+                                </li>
+                                <li {% if menu.1 == "reviews" %}class="active"{% endif %}>
+                                    <a href="{% url 'reviewss_list' %}">{% trans "Reviews" %}</a>
+                                </li>
+                                {% endcomment %}
+                            </ul>
+                        </li>
+
+                        <li class=" {%if menu.0 == "manager"%}active{%endif%}" uib-dropdown>
+                            <a href="#" class="" data-toggle="dropdown" uib-dropdown-toggle>
+                                <span class="glyphicon glyphicon-th"></span>
+                                {% trans "Purchases" %}
+                                <strong class="caret"></strong>
+                            </a>
+                            <ul class="" uib-dropdown-menu>
+                                <li {% if menu.1 == "budgetpurchases" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_budgetpurchasess_list' %}">{% trans "Budget" %}</a>
+                                </li>
+                                <li {% if menu.1 == "orderpurchases" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_orderpurchasess_list' %}">{% trans "Order" %}</a>
+                                </li>
+                                <li {% if menu.1 == "albaranpurchases" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_albaranpurchasess_list' %}">{% trans "Albaran" %}</a>
+                                </li>
+                                <li {% if menu.1 == "invoicepurchases" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_invoicepurchasess_list' %}">{% trans "Invoice" %}</a>
+                                </li>
+                                <li {% if menu.1 == "invoicerectificationpurchases" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_invoicerectificationpurchasess_list' %}">{% trans "Invoice Rectification" %}</a>
+                                </li>
+                                <li {% if menu.1 == "ticketpurchases" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_ticketpurchasess_list' %}">{% trans "Ticket" %}</a>
+                                </li>
+                                <li {% if menu.1 == "ticketrectificationpurchases" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_ticketrectificationpurchasess_list' %}">{% trans "Ticket Rectification" %}</a>
+                                </li>
+                                {% comment %}
+                                <li {% if menu.1 == "justificantepago" %}class="active"{% endif %}>
+                                    <a href="{% url 'justificantepagos_list' %}">{% trans "JustificantePago" %}</a>
+                                </li>
+                                {% endcomment %}
+                            </ul>
+                        </li>
+                        <li class=" {%if menu.0 == "manager"%}active{%endif%}" uib-dropdown>
+                            <a href="#" class="" data-toggle="dropdown" uib-dropdown-toggle>
+                                <span class="glyphicon glyphicon-th"></span>
+                                {% trans "Storage" %}
+                                <strong class="caret"></strong>
+                            </a>
+                             <ul class="" uib-dropdown-menu>
+                                <li {% if menu.1 == "storage" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_storages_storages_list' %}">{% trans "Storage" %}</a>
+                                </li>
+                                <li {% if menu.1 == "storagezone" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_storages_storagezones_list' %}">{% trans "StorageZone" %}</a>
+                                </li>
+                                <li {% if menu.1 == "storagebatch" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_storages_storagebatchs_list' %}">{% trans "StorageBatch" %}</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li {% if menu.1 == "productstock" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_productstocks_list' %}">{% trans "ProductStock" %}</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li {% if menu.1 == "stockmovement" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_invoicing_stockmovements_list' %}">{% trans "StockMovement" %}</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class=" {%if menu.0 == "pos"%}active{%endif%}" uib-dropdown>
+                            <a href="#" class="" data-toggle="dropdown" uib-dropdown-toggle>
+                                <span class="glyphicon glyphicon-th"></span>
+                                {% trans "POS" %}
+                                <strong class="caret"></strong>
+                            </a>
+                             <ul class="" uib-dropdown-menu>
+                                <li {% if menu.1 == "pos" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_pos_list' %}">{% trans "POS" %}</a>
+                                </li>
+                                <li {% if menu.1 == "posslot" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_posslot_list' %}">{% trans "POSSlot" %}</a>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        <li class=" {%if menu.0 == "manager"%}active{%endif%}" uib-dropdown>
+                            <a href="#" class="" data-toggle="dropdown" uib-dropdown-toggle>
+                                <span class="glyphicon glyphicon-th"></span>
+                                {% trans "Public Config" %}
+                                <strong class="caret"></strong>
+                            </a>
+                             <ul class="" uib-dropdown-menu>
+                                <li {% if menu.1 == "corporate_image" %}class="active"{% endif %}>
+                                   <a href="{% url 'CDNX_products_emailtemplates_list' %}">{% trans "Email templates" %}</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li class="li_cdnx_title">{% trans "Design" %}</li>
+                                <li {% if menu.1 == "flagshipproduct" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_products_flagshipproducts_list' %}">{% trans "Flagship product" %}</a>
+                                </li>
+                                <li {% if menu.1 == "corporate_image" %}class="active"{% endif %}>
+                                   <a href="{% url 'CDNX_EXT_corporateimages_list' %}">{% trans "Corporate image" %}</a>
+                                </li>	                              
+                                <li class="divider"></li>
+                                <li class="li_cdnx_title">Geodata</li>
+                                <li {% if menu.1 == "continent" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_geodata_continents_list' %}">{% trans "Continent" %}</a>
+                                </li>
+                                <li {% if menu.1 == "country" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_geodata_countries_list' %}">{% trans "Country" %}</a>
+                                </li>
+                                <li {% if menu.1 == "regions" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_geodata_regions_list' %}">{% trans "Regions" %}</a>
+                                </li>
+                                <li {% if menu.1 == "provinces" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_geodata_provinces_list' %}">{% trans "Provinces" %}</a>
+                                </li>
+                                <li {% if menu.1 == "timezone" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_geodata_timezones_list' %}">{% trans "TimeZone" %}</a>
+                                </li>
+                                <li {% if menu.1 == "city" %}class="active"{% endif %}>
+                                    <a href="{% url 'CDNX_geodata_cities_list' %}">{% trans "City" %}</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    {% endif %}
+                    </ul>
+
+                    {% if user.is_authenticated %}
+                    <ul class="nav navbar-nav navbar-right nav-pills" ng-controller="AlarmsCtrl">
+                        <li class="connection-error-mini">
+                            <span class="fa fa-warning btn btn-danger bliking" popover-placement="bottom" popover="{% trans "Connection lost" %} {%verbatim%}{{(now-lastconnection)/1000|number:0}}{%endverbatim%} {% trans "seconds ago" %}" popover-trigger="mouseenter" ng-show="now-lastconnection>{{cnf.connection_error}}"></span>
+                        </li>
+                        <li class=" {%if menu.0 == "user"%}active{%endif%}" uib-dropdown>
+                            <a href="#" class="" data-toggle="dropdown" ng-click="inotify('a','warning',1)" alt="Auth:{%verbatim%}{{pubdata.meta.permitsuser}}{%endverbatim%}" title="Auth:{%verbatim%}{{pubdata.meta.permitsuser}}{%endverbatim%}" uib-dropdown-toggle>
+                                <span class="glyphicon glyphicon-user"></span>
+                                <span class="hidden-xs hidden-sm hidden-md"
+                                ng-class="{'text-capitalize': {%verbatim%}pubdata.meta.superuser{%endverbatim%}}">{{user.username}}</span>
+                                <span id='alarms' class="badge"{# If you remove this line the click on Notifications will not work #}>{%verbatim%}{{pubdata.head.totalcp}}{%endverbatim%}</span>
+                                <strong class="caret"></strong>
+
+                            </a>
+                            <ul class="" uib-dropdown-menu>
+                                <li>
+                                    <a href="#"></a>
+                                </li>
+
+                                <li>
+                                    <a href="{% url 'logout' %}">
+                                        <span class="glyphicon glyphicon-off"></span>
+                                        Logout
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    {#<div class="navbar-form navbar-right" role="search"></div>#}
+                    {#    <div class="form-group"> #}
+                    {#        <input class="form-control" type="text"> #}
+                    {#    </div> <button type="submit" class="btn btn-default">Search</button> #}
+                    {% endif %}
+                </div>
+            </nav>
+
+            {% block body %}
+	            <div class="navbar-form navbar-left bread">
+	                <div class="pull-left {% block breadcrumb_hide %}hidden-xs hidden-sm{% endblock %}">
+	                    <ol class="breadcrumb">
+	                        {% if menu.0 %}
+	                            <li class="start"><a href="/"><span class="glyphicon glyphicon-home" popover-trigger="mouseenter" popover="{% trans "Home" %}" popover-placement="bottom"></span></a></li>
+	                            {% if menu.1 %}
+	                                <li>
+	                                    {% if menu.0 == "manager" %}
+	                                    <span class="glyphicon glyphicon-th" popover-trigger="mouseenter" popover="{{bread.0}}" popover-placement="bottom">
+	                                    {% else %}
+	                                        {% if menu.0 == "documents" %}
+	                                            <span class="glyphicon glyphicon-file" popover-trigger="mouseenter" popover="{{bread.0}}" popover-placement="bottom">
+	                                        {% else %}
+	                                            {% if menu.0 == "config" %}
+	                                                <span class="glyphicon glyphicon-cog" popover-trigger="mouseenter" popover="{{bread.0}}" popover-placement="bottom">
+	                                            {% else %}
+	                                                {% if menu.0 == "user" %}
+	                                                    <span class="glyphicon glyphicon-user" popover-trigger="mouseenter" popover="{{bread.0}}" popover-placement="bottom">
+	                                                {% else %}
+	                                                    {{bread.0}}
+	                                                {% endif %}
+	                                            {% endif %}
+	                                        {% endif %}
+	                                    {% endif %}
+	                                </li>
+	                                <li class="active end">{{bread.1}}</li>
+	                            {% else %}
+	                                <li class="active end">{{bread.0}}</li>
+	                            {% endif %}
+	                        {% else %}
+	                            <li class="start end">Home</li>
+	                        {% endif %}
+	                    </ol>
+	                </div>
+	                <div class="pull-left {% block breadcrumb_element_hide %}hidden-xs hidden-sm{% endblock %} elementname normalelementname recortar_texto" ng-if="elementname">{% verbatim %}{{elementname}}{% endverbatim %}</div>
+	            </div>
+	            
+	            
+                <div ui-view class="body-view"></div>
+                
+                
+            {% endblock %}
+
+    </div> <!-- END CONTAINER -->
+
+    {# {% cdnx_slider "A1235" request %} #}
+    {# {% cdnx_staticheader "234" request %} #}
+    <footer id="footer">
+        <div class="col-sm-12">
+                <img src="{% static "img/codenerix.png" %}" alt="Codenerix" title="Codenerix">
+                <span class="hidden-xs">- <a href="http://www.codenerix.com">http://www.codenerix.com</a> <span class="hidden-xs hidden-sm">- info@codenerix.com</span></span>
+                <span class="pull-right">{{ info_project.name_project }} v{{VERSION}}</span>
+        </div>
+    </footer>
+    {% with langcode=LANGUAGE_CODE|default:"en" %}
+    <script type="text/javascript">
+        var cnf_alarms_looptime = {{cnf.alarms_looptime}};
+        var cnf_alarms_quickloop = {{cnf.alarms_quickloop}};
+        var cnf_alarms_errorloop = {{cnf.alarms_errorloop}};
+        var cnf_debug = {{cnf.debug}};
+        var cnf_debug_txt = "{% trans "An error has occurred, it is reported to the administrator" %}";
+        var withfocus=true;
+        {% if user.is_authenticated %}
+            {% if not user_settings.updatewithoutfocus %}
+                window.addEventListener("focus", function(event) { withfocus=true; }, false);
+                window.addEventListener("blur", function(event) { withfocus=false; }, false);
+            {% endif %}
+        {% endif %}
+
+        var cnf_daterangepicker = {{cnf.daterangepicker}};
+    </script>
+    <script type="text/javascript" src="{% static "js/mnotify.js" %}"></script>
+    <script type="text/javascript" src="{% static "codenerix_extensions/js/codenerix_extensions.js" %}"></script>
+
+    {{cnf.codenerix_js|safe}}
+    {% endwith %}
+    {% block angular_app_libraries %}<script type="text/javascript" src="{% static "codenerix/js/base.js" %}"></script>{% endblock %}
+    {% block angular_app_services %}
+        {% if ws_entry_point %}
+            <script type="text/javascript">
+                angular.module('codenerixServices', ['ngResource'])
+                .factory('Register', ['$resource', function($resource){
+                    return $resource('/{{ws_entry_point}}/:pk/:action', { json:'{}', pk:null, action:null },{
+                        query:{ method: "GET", params: { json:'@json' }, isArray: false },
+                        get:{ method: "GET", params: { pk:'@pk', action:'@action' }, isArray: false },
+                    });
+                }]);
+            </script>
+        {% endif %}
+    {% endblock %}
+    {% block extra_js %}{% endblock %}
+
+</div>
+</body>
+</html>{% endwith %}

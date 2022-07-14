@@ -1,0 +1,105 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-19 07:58+0200\n"
+"PO-Revision-Date: 2022-06-19 08:01+0200\n"
+"Last-Translator:   <juanmi@juanmitaboada.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.9.8\n"
+
+#: erp/common/forms.py:13
+msgid "Acepto los <a href='/terminos-de-uso' target='_blank'>terminos</a>"
+msgstr "Acepto los <a href='/terminos-de-uso' target='_blank'>terminos</a>"
+
+#: erp/common/forms.py:25 erp/common/views.py:37
+msgid "Contact"
+msgstr "Contacto"
+
+#: erp/common/forms.py:34
+msgid "Code secure"
+msgstr "Código de seguridad"
+
+#: erp/common/forms.py:43
+msgid "Details"
+msgstr "Detalles"
+
+#: erp/common/helpers.py:227
+msgid "Payment Request: ERROR - faltan parametros de configuracion"
+msgstr "Solicitud de pago: ERROR - faltan parametros de configuración"
+
+#: erp/common/helpers.py:233
+msgid "Payment Request: ERROR - configuracion erronea"
+msgstr "Solicitud de pago: ERROR - configuración errónea"
+
+#: erp/common/helpers.py:242
+msgid "Payment Request: ERROR - estructura de configuracion erronea"
+msgstr "Solicitud de pago: ERROR - estructura de configuración errónea"
+
+#: erp/common/helpers.py:265 erp/common/helpers.py:275
+msgid "Payment Request: ERROR - (e)"
+msgstr "Solicitud de pago: ERROR - (e)"
+
+#: erp/common/models.py:24 erp/common/models.py:37
+msgid "Name"
+msgstr "Nombre"
+
+#: erp/common/models.py:25 erp/common/models.py:38
+msgid "Last name"
+msgstr "Apellidos"
+
+#: erp/common/models.py:26 erp/common/models.py:39
+msgid "Phone"
+msgstr "Teléfono"
+
+#: erp/common/models.py:27 erp/common/models.py:40
+msgid "Email"
+msgstr "Email"
+
+#: erp/common/models.py:28 erp/common/models.py:41
+msgid "Subject"
+msgstr "Asunto"
+
+#: erp/common/models.py:29
+msgid "Body"
+msgstr "Cuerpo"
+
+#: erp/common/models.py:30 erp/common/models.py:43
+msgid "IP"
+msgstr "IP"
+
+#: erp/common/models.py:31 erp/common/models.py:36
+msgid "Date"
+msgstr "Fecha"
+
+#: erp/common/models.py:42
+msgid "Email Message"
+msgstr "Mensaje"
+
+#: erp/common/models.py:92
+#| msgid "[CODENERIX] Formulario de contacto"
+msgid " Formulario de contacto"
+msgstr "[CODENERIX] Formulario de contacto"
+
+#: erp/common/views.py:21 erp/common/views.py:77
+msgid "People"
+msgstr "Persona"
+
+#: erp/common/views.py:21 erp/common/views.py:77
+msgid "PublicContact"
+msgstr "Contacto"
+
+#: erp/common/views.py:40
+msgid "Send"
+msgstr "Enviar"

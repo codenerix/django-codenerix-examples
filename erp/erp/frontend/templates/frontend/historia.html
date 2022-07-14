@@ -1,0 +1,132 @@
+{% extends "frontend/base_shop.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block slider %}
+
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+            <div class="item active" style="background: url(static/imagenes/historia.jpg) no-repeat center center; background-size: cover; ">
+                <div class="container">
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div><!-- /.carousel -->
+{% endblock %}
+
+{% block buscador %}
+
+    
+{% endblock %}
+
+
+{% block contenido %}
+
+<section class="intro-timeline">
+
+    <div class="container text-center">
+    
+    Empresa fundada en Antequera en el año 1948, gracias al esfuerzo y la constancia del matrimonio fundador, el Sr. Diego Sancho Melero, la Sra. Rosario Ruiz Paradas y sus hijos. Constancia y entrega que ha ido pasando de generación en generación, hasta hoy día. Actualmente es la tercera generación la que dirige la empresa. Generación con un aire actual y con ganas de que el mundo conozca nuestros productos artesanales. 
+    <br><br>Productos que no han variado su esencia y su sabor desde que se fundó la empresa y es por ello, por lo que son muy conocidos a nivel de España  y sus marcas son emblema y un signo de distinción en nuestro mercado.
+
+    </div>
+
+</section>
+
+{% comment %}
+
+<section id="cd-timeline" style="background: #bbdccb url(/static/imagenes/fondo-timeline.jpg) no-repeat center center; background-size: contain;" class="cd-container">
+        <div class="cd-timeline-block">
+            <div class="cd-timeline-img cd-picture">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-picture.svg" alt="Picture">
+            </div> <!-- cd-timeline-img -->
+
+            <div class="cd-timeline-content">
+                <h2>Nace Stephen Hawking</h2>
+                <span class="cd-date">1942</span>
+            </div> <!-- cd-timeline-content -->
+        </div> <!-- cd-timeline-block -->
+
+        <div class="cd-timeline-block">
+            <div class="cd-timeline-img cd-movie">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-movie.svg" alt="Movie">
+            </div> <!-- cd-timeline-img -->
+
+            <div class="cd-timeline-content">
+                <h2>Fin de la II Guerra Mundial</h2>
+                <span class="cd-date">1945</span>
+            </div> <!-- cd-timeline-content -->
+        </div> <!-- cd-timeline-block -->
+
+        <div class="cd-timeline-block">
+            <div class="cd-timeline-img cd-picture">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-picture.svg" alt="Picture">
+            </div> <!-- cd-timeline-img -->
+
+            <div class="cd-timeline-content">
+                <h2>Title of section 3</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, obcaecati, quisquam id molestias eaque asperiores voluptatibus cupiditate error assumenda delectus odit similique earum voluptatem doloremque dolorem ipsam quae rerum quis. Odit, itaque, deserunt corporis vero ipsum nisi eius odio natus ullam provident pariatur temporibus quia eos repellat consequuntur perferendis enim amet quae quasi repudiandae sed quod veniam dolore possimus rem voluptatum eveniet eligendi quis fugiat aliquam sunt similique aut adipisci.</p>
+                <a href="#0" class="cd-read-more">Read more</a>
+                <span class="cd-date">Jan 24</span>
+            </div> <!-- cd-timeline-content -->
+        </div> <!-- cd-timeline-block -->
+
+        <div class="cd-timeline-block">
+            <div class="cd-timeline-img cd-location">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.svg" alt="Location">
+            </div> <!-- cd-timeline-img -->
+
+            <div class="cd-timeline-content">
+                <h2>Title of section 4</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
+                <a href="#0" class="cd-read-more">Read more</a>
+                <span class="cd-date">Feb 14</span>
+            </div> <!-- cd-timeline-content -->
+        </div> <!-- cd-timeline-block -->
+
+        <div class="cd-timeline-block">
+            <div class="cd-timeline-img cd-location">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.svg" alt="Location">
+            </div> <!-- cd-timeline-img -->
+
+            <div class="cd-timeline-content">
+                <h2>Title of section 5</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum.</p>
+                <a href="#0" class="cd-read-more">Read more</a>
+                <span class="cd-date">Feb 18</span>
+            </div> <!-- cd-timeline-content -->
+        </div> <!-- cd-timeline-block -->
+
+        <div class="cd-timeline-block">
+            <div class="cd-timeline-img cd-movie">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-movie.svg" alt="Movie">
+            </div> <!-- cd-timeline-img -->
+
+            <div class="cd-timeline-content">
+                <h2>Final Section</h2>
+                <p>This is the content of the last section</p>
+                <span class="cd-date">Feb 26</span>
+            </div> <!-- cd-timeline-content -->
+        </div> <!-- cd-timeline-block -->
+    </section> <!-- cd-timeline -->
+
+{% endcomment %}
+
+
+
+
+{% endblock %}
+
+
+{% block extra_more_js %}
+<script type="text/javascript">
+    $(document).ready(function() {
+        shopping_cart.get_list_products();
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "frontend/base_shop.html" %}
+{% load static %}{% load i18n %}
+
+{% block slider %}
+
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel short slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+            <div class="item active" style="background: url({% static "imagenes/cabecera-home.jpg" %}) no-repeat center bottom; background-size: cover; ">
+                <div class="container">
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div><!-- /.carousel -->
+{% endblock %}
+
+{% block logo_familia %}
+            <a class="navbar-brand" href="#">
+                <!-- <div class="logo-familia">
+                    <img class="img-responsive" src="{{MEDIA_URL}}{{ icon_image }}">
+                </div> -->
+            </a>
+{% endblock %}

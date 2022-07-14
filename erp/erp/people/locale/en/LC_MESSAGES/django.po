@@ -1,0 +1,332 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-25 14:48+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: people/forms.py:28 people/models.py:98 people/models.py:110
+#: people/models.py:128 people/models.py:215 people/models.py:226
+#: people/views.py:561
+msgid "Name"
+msgstr ""
+
+#: people/forms.py:29 people/models.py:97 people/models.py:109
+#: people/models.py:127 people/models.py:214 people/models.py:225
+#: people/views.py:562
+msgid "Surname"
+msgstr ""
+
+#: people/forms.py:30
+msgid "E-Mail"
+msgstr ""
+
+#: people/forms.py:31 people/forms.py:209
+msgid "Password"
+msgstr ""
+
+#: people/forms.py:32 people/forms.py:85
+msgid "Confirm password"
+msgstr ""
+
+#: people/forms.py:39
+msgid "Email or user alredy exist"
+msgstr ""
+
+#: people/forms.py:49 people/forms.py:160 people/forms.py:161
+#: people/forms.py:201 people/forms.py:202
+#: people/templates/people/settings.html:81
+msgid "Passwords do not match"
+msgstr ""
+
+#: people/forms.py:53
+msgid ""
+"There is an error with registration system, please contact with "
+"administration. (Missing BS)"
+msgstr ""
+
+#: people/forms.py:58
+msgid "Service Person PK"
+msgstr ""
+
+#: people/forms.py:70 people/forms.py:104 people/forms.py:127
+#: people/forms.py:256
+msgid "Personal data"
+msgstr ""
+
+#: people/forms.py:83 people/models.py:96 people/models.py:108
+#: people/models.py:126 people/models.py:213 people/models.py:224
+msgid "Username"
+msgstr ""
+
+#: people/forms.py:84
+msgid "New password"
+msgstr ""
+
+#: people/forms.py:86 people/forms.py:211 people/forms.py:237
+#: people/models.py:99 people/models.py:111 people/models.py:129
+#: people/models.py:216 people/models.py:227 people/views.py:563
+msgid "Email"
+msgstr ""
+
+#: people/forms.py:96 people/forms.py:119
+msgid "System access"
+msgstr ""
+
+#: people/forms.py:155
+msgid "This field is required"
+msgstr ""
+
+#: people/forms.py:174
+msgid "Username already in use"
+msgstr ""
+
+#: people/forms.py:185 people/forms.py:190 people/forms.py:196
+msgid "Required for new users"
+msgstr ""
+
+#: people/forms.py:210
+msgid "Confirmation"
+msgstr ""
+
+#: people/forms.py:219
+#, python-format
+msgid ""
+"You have specified '%(field)s', if you want to assign a new user you must "
+"fill the username field, otherwise leave 'Password, Confirmation and Email' "
+"empty"
+msgstr ""
+
+#: people/forms.py:271 people/models.py:153
+#: people/templates/people/customer_personaddress_sublist.html:10
+#: people/templates/people/provider_personaddress_sublist.html:10
+#: people/views.py:352
+msgid "Country"
+msgstr ""
+
+#: people/forms.py:272 people/models.py:154 people/views.py:353
+msgid "Region"
+msgstr ""
+
+#: people/forms.py:273 people/models.py:155
+#: people/templates/people/customer_personaddress_sublist.html:11
+#: people/templates/people/provider_personaddress_sublist.html:11
+#: people/views.py:354
+msgid "Province"
+msgstr ""
+
+#: people/forms.py:287 people/forms.py:303
+msgid "PersonAddress"
+msgstr ""
+
+#: people/forms.py:326 people/forms.py:336 people/forms.py:351
+#: people/forms.py:362 people/forms.py:378
+msgid "Details"
+msgstr ""
+
+#: people/models.py:20
+msgid "Unspecified"
+msgstr ""
+
+#: people/models.py:21
+msgid "Passport"
+msgstr ""
+
+#: people/models.py:22
+msgid "DNI"
+msgstr ""
+
+#: people/models.py:23
+msgid "NIE"
+msgstr ""
+
+#: people/models.py:24
+msgid "CIF"
+msgstr ""
+
+#: people/models.py:30 people/models.py:39 people/views.py:564
+msgid "NID"
+msgstr ""
+
+#: people/models.py:31
+msgid "NID Type"
+msgstr ""
+
+#: people/models.py:32
+msgid "Birthdate"
+msgstr ""
+
+#: people/models.py:33
+msgid "Language"
+msgstr ""
+
+#: people/models.py:34 people/models.py:41 people/models.py:138
+msgid "Zip code"
+msgstr ""
+
+#: people/models.py:35 people/models.py:40 people/models.py:140
+#: people/models.py:159
+#: people/templates/people/customer_personaddress_sublist.html:15
+#: people/templates/people/provider_personaddress_sublist.html:15
+#: people/views.py:358
+msgid "Phone"
+msgstr ""
+
+#: people/models.py:92 people/models.py:104 people/models.py:122
+#: people/models.py:136 people/models.py:151 people/models.py:199
+msgid "Person"
+msgstr ""
+
+#: people/models.py:95 people/models.py:107 people/models.py:125
+#: people/models.py:211
+msgid "Nid"
+msgstr ""
+
+#: people/models.py:135 people/models.py:152
+#: people/templates/people/customer_personaddress_sublist.html:9
+#: people/templates/people/provider_personaddress_sublist.html:9
+#: people/views.py:351
+msgid "Alias"
+msgstr ""
+
+#: people/models.py:137 people/models.py:156
+#: people/templates/people/customer_personaddress_sublist.html:12
+#: people/templates/people/provider_personaddress_sublist.html:12
+#: people/views.py:355
+msgid "City"
+msgstr ""
+
+#: people/models.py:139 people/models.py:158
+#: people/templates/people/customer_personaddress_sublist.html:14
+#: people/templates/people/provider_personaddress_sublist.html:14
+#: people/views.py:72 people/views.py:357
+msgid "Address"
+msgstr ""
+
+#: people/models.py:141 people/models.py:160
+#: people/templates/people/customer_personaddress_sublist.html:16
+#: people/templates/people/provider_personaddress_sublist.html:16
+#: people/views.py:359
+msgid "Main"
+msgstr ""
+
+#: people/models.py:157
+#: people/templates/people/customer_personaddress_sublist.html:13
+#: people/templates/people/provider_personaddress_sublist.html:13
+#: people/views.py:356
+msgid "Postal code"
+msgstr ""
+
+#: people/models.py:175 people/models.py:187
+msgid "Person responsable"
+msgstr ""
+
+#: people/models.py:176
+msgid "Date"
+msgstr ""
+
+#: people/models.py:177 people/models.py:189 people/views.py:578
+msgid "Person dependents"
+msgstr ""
+
+#: people/models.py:188
+msgid "date"
+msgstr ""
+
+#: people/models.py:194 people/models.py:208 people/models.py:221
+#: people/models.py:232 people/models.py:235
+msgid "Company"
+msgstr ""
+
+#: people/models.py:195 people/models.py:200 people/models.py:212
+msgid "Active"
+msgstr ""
+
+#: people/templates/people/customer_personaddress_sublist.html:51
+#: people/templates/people/provider_personaddress_sublist.html:51
+msgid "Delete file?"
+msgstr ""
+
+#: people/templates/people/register.html:14
+msgid "Basic user information"
+msgstr ""
+
+#: people/templates/people/settings.html:12
+msgid "Configure your settings"
+msgstr ""
+
+#: people/templates/people/settings.html:24
+#: people/templates/people/settings.html:61
+msgid "Information"
+msgstr ""
+
+#: people/templates/people/settings.html:39
+#: people/templates/people/settings.html:40
+msgid "Save settings"
+msgstr ""
+
+#: people/templates/people/settings.html:49
+msgid "Change your password"
+msgstr ""
+
+#: people/templates/people/settings.html:76
+#: people/templates/people/settings.html:78
+msgid "Set new password"
+msgstr ""
+
+#: people/views.py:73 people/views.py:580
+msgid "Documents"
+msgstr ""
+
+#: people/views.py:168
+msgid "The user must be a active costumer"
+msgstr ""
+
+#: people/views.py:171
+msgid "Wrong user or password"
+msgstr ""
+
+#: people/views.py:209
+msgid "Manager"
+msgstr ""
+
+#: people/views.py:209 people/views.py:487 people/views.py:527
+#: people/views.py:556
+msgid "People"
+msgstr ""
+
+#: people/views.py:487 people/views.py:527 people/views.py:556
+msgid "PersonDependent"
+msgstr ""
+
+#: people/views.py:579
+msgid "Person addresses"
+msgstr ""
+
+#: people/views.py:627
+msgid "BillingSeries invalid"
+msgstr ""
+
+#: people/views.py:633
+msgid "TypeTax invalid"
+msgstr ""
+
+#: people/views.py:667
+msgid "Type document"
+msgstr ""
+
+#: people/views.py:668
+msgid "Name file"
+msgstr ""

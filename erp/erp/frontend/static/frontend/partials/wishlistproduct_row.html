@@ -1,0 +1,8 @@
+<td class="text-center" ng-click="$event.stopPropagation()" ng-show="data.table.head.extra_fields.field_check!=None">
+   <input type="checkbox" name="checkline" value="{{ row.pk }}" ng-checked="CDNX_checkline_head" ng-model="CDNX_checkline[row.pk]" />
+</td>
+<td ng-click="$location.href = '/{{row.slug}}'; $event.stopPropagation();"><a href="/{{row.slug}}">{{row.product}}</a></td>
+<td ng-click="$location.href = '/{{row.slug}}'; $event.stopPropagation();">{{row.quantity}}</td>
+<td class="text-center" ng-click="$event.stopPropagation()" ng-show="data.table.head.extra_fields.field_delete">
+    <i ng-click="removerecord(row.pk, 'Delete items?');$event.stopPropagation()" class="glyphicon glyphicon-trash pointer"></i>
+</td>

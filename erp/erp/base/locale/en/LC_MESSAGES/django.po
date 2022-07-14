@@ -1,0 +1,605 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-25 14:48+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: base/admin.py:13
+msgid "Change"
+msgstr ""
+
+#: base/templates/base/base-original.html:5 base/templates/base/base.html:5
+#: base/templates/base/pistolita.html:7 base/templates/base/signature2.html:7
+msgid "A happy day!!"
+msgstr ""
+
+#: base/templates/base/base-original.html:7 base/templates/base/base.html:7
+#: base/templates/base/pistolita.html:9 base/templates/base/signature.html:9
+#: base/templates/base/signature2.html:9
+msgid "ERP for Codenerix company"
+msgstr ""
+
+#: base/templates/base/base-original.html:52
+#: base/templates/base/base-original.html:415 base/templates/base/base.html:68
+#: base/templates/base/base.html:411
+msgid "Connection lost"
+msgstr ""
+
+#: base/templates/base/base-original.html:52
+#: base/templates/base/base-original.html:415 base/templates/base/base.html:68
+#: base/templates/base/base.html:411
+msgid "seconds ago"
+msgstr ""
+
+#: base/templates/base/base-original.html:64
+#: base/templates/base/base-original.html:454 base/views.py:40
+msgid "Home"
+msgstr ""
+
+#: base/templates/base/base-original.html:105
+msgid "Start"
+msgstr ""
+
+#: base/templates/base/base-original.html:114 base/templates/base/base.html:85
+msgid "Billing"
+msgstr ""
+
+#: base/templates/base/base-original.html:119 base/templates/base/base.html:90
+msgid "Series"
+msgstr ""
+
+#: base/templates/base/base-original.html:122 base/templates/base/base.html:93
+msgid "Legal notes"
+msgstr ""
+
+#: base/templates/base/base-original.html:125 base/templates/base/base.html:96
+msgid "Type documents"
+msgstr ""
+
+#: base/templates/base/base-original.html:128 base/templates/base/base.html:99
+msgid "Customer"
+msgstr ""
+
+#: base/templates/base/base-original.html:131 base/templates/base/base.html:102
+msgid "Provider"
+msgstr ""
+
+#: base/templates/base/base-original.html:134 base/templates/base/base.html:105
+msgid "Company"
+msgstr ""
+
+#: base/templates/base/base-original.html:137
+#: base/templates/base/base-original.html:355
+#: base/templates/base/base-original.html:360 base/templates/base/base.html:346
+msgid "POS"
+msgstr ""
+
+#: base/templates/base/base-original.html:140 base/templates/base/base.html:114
+msgid "Haulier"
+msgstr ""
+
+#: base/templates/base/base-original.html:147 base/templates/base/base.html:125
+msgid "Sales"
+msgstr ""
+
+#: base/templates/base/base-original.html:152 base/templates/base/base.html:130
+msgid "Reserved products"
+msgstr ""
+
+#: base/templates/base/base-original.html:155 base/templates/base/base.html:133
+msgid "Shopping carts"
+msgstr ""
+
+#: base/templates/base/base-original.html:159 base/templates/base/base.html:137
+msgid "new shopping carts"
+msgstr ""
+
+#: base/templates/base/base-original.html:162 base/templates/base/base.html:140
+msgid "new budgets"
+msgstr ""
+
+#: base/templates/base/base-original.html:165 base/templates/base/base.html:143
+msgid "new wishlist"
+msgstr ""
+
+#: base/templates/base/base-original.html:175
+#: base/templates/base/base-original.html:300 base/templates/base/base.html:153
+#: base/templates/base/base.html:299
+msgid "Order"
+msgstr ""
+
+#: base/templates/base/base-original.html:178
+#: base/templates/base/base-original.html:303 base/templates/base/base.html:156
+#: base/templates/base/base.html:302
+msgid "Albaran"
+msgstr ""
+
+#: base/templates/base/base-original.html:181
+#: base/templates/base/base-original.html:306 base/templates/base/base.html:159
+#: base/templates/base/base.html:305
+msgid "Invoice"
+msgstr ""
+
+#: base/templates/base/base-original.html:184
+#: base/templates/base/base-original.html:309 base/templates/base/base.html:162
+#: base/templates/base/base.html:308
+msgid "Invoice Rectification"
+msgstr ""
+
+#: base/templates/base/base-original.html:187
+#: base/templates/base/base-original.html:312 base/templates/base/base.html:165
+#: base/templates/base/base.html:311
+msgid "Ticket"
+msgstr ""
+
+#: base/templates/base/base-original.html:190
+#: base/templates/base/base-original.html:315 base/templates/base/base.html:168
+#: base/templates/base/base.html:314
+msgid "Ticket Rectification"
+msgstr ""
+
+#: base/templates/base/base-original.html:204
+#: base/templates/base/base-original.html:257 base/templates/base/base.html:182
+#: base/templates/base/base.html:235 base/templates/base/base.html:371
+msgid "Product"
+msgstr ""
+
+#: base/templates/base/base-original.html:209 base/templates/base/base.html:187
+msgid "Type tax"
+msgstr ""
+
+#: base/templates/base/base-original.html:212 base/templates/base/base.html:190
+msgid "Type recargo equivalencias"
+msgstr ""
+
+#: base/templates/base/base-original.html:216 base/templates/base/base.html:194
+msgid "Family"
+msgstr ""
+
+#: base/templates/base/base-original.html:219 base/templates/base/base.html:197
+msgid "Category"
+msgstr ""
+
+#: base/templates/base/base-original.html:222 base/templates/base/base.html:200
+msgid "Subcategory"
+msgstr ""
+
+#: base/templates/base/base-original.html:227 base/templates/base/base.html:205
+msgid "GroupValue Feature"
+msgstr ""
+
+#: base/templates/base/base-original.html:230 base/templates/base/base.html:208
+msgid "GroupValue Attribute"
+msgstr ""
+
+#: base/templates/base/base-original.html:233 base/templates/base/base.html:211
+msgid "GroupValue Feature Special"
+msgstr ""
+
+#: base/templates/base/base-original.html:243 base/templates/base/base.html:221
+msgid "Feature"
+msgstr ""
+
+#: base/templates/base/base-original.html:246 base/templates/base/base.html:224
+msgid "Attribute"
+msgstr ""
+
+#: base/templates/base/base-original.html:249 base/templates/base/base.html:227
+msgid "FeatureSpecial"
+msgstr ""
+
+#: base/templates/base/base-original.html:253 base/templates/base/base.html:231
+msgid "Brand"
+msgstr ""
+
+#: base/templates/base/base-original.html:272 base/templates/base/base.html:250
+msgid "ProductFinal"
+msgstr ""
+
+#: base/templates/base/base-original.html:292 base/templates/base/base.html:291
+msgid "Purchases"
+msgstr ""
+
+#: base/templates/base/base-original.html:297 base/templates/base/base.html:296
+msgid "Budget"
+msgstr ""
+
+#: base/templates/base/base-original.html:328
+#: base/templates/base/base-original.html:333 base/templates/base/base.html:324
+msgid "Storage"
+msgstr ""
+
+#: base/templates/base/base-original.html:336 base/templates/base/base.html:327
+msgid "StorageZone"
+msgstr ""
+
+#: base/templates/base/base-original.html:339 base/templates/base/base.html:330
+msgid "StorageBatch"
+msgstr ""
+
+#: base/templates/base/base-original.html:343 base/templates/base/base.html:334
+msgid "ProductStock"
+msgstr ""
+
+#: base/templates/base/base-original.html:347 base/templates/base/base.html:338
+msgid "StockMovement"
+msgstr ""
+
+#: base/templates/base/base-original.html:363
+msgid "POSSlot"
+msgstr ""
+
+#: base/templates/base/base-original.html:371
+msgid "Public Config"
+msgstr ""
+
+#: base/templates/base/base-original.html:376
+msgid "Email templates"
+msgstr ""
+
+#: base/templates/base/base-original.html:379
+msgid "Design"
+msgstr ""
+
+#: base/templates/base/base-original.html:381
+msgid "Flagship product"
+msgstr ""
+
+#: base/templates/base/base-original.html:384
+msgid "Corporate image"
+msgstr ""
+
+#: base/templates/base/base-original.html:389
+msgid "Continent"
+msgstr ""
+
+#: base/templates/base/base-original.html:392
+msgid "Country"
+msgstr ""
+
+#: base/templates/base/base-original.html:395
+msgid "Regions"
+msgstr ""
+
+#: base/templates/base/base-original.html:398
+msgid "Provinces"
+msgstr ""
+
+#: base/templates/base/base-original.html:401
+msgid "TimeZone"
+msgstr ""
+
+#: base/templates/base/base-original.html:404
+msgid "City"
+msgstr ""
+
+#: base/templates/base/base-original.html:510 base/templates/base/base.html:515
+msgid "An error has occurred, it is reported to the administrator"
+msgstr ""
+
+#: base/templates/base/base.html:118
+msgid "Cash diary"
+msgstr ""
+
+#: base/templates/base/base.html:255
+msgid "FlagshipProduct"
+msgstr ""
+
+#: base/templates/base/base.html:271
+msgid "Service"
+msgstr ""
+
+#: base/templates/base/base.html:274
+msgid "ServiceHour"
+msgstr ""
+
+#: base/templates/base/base.html:277
+msgid "ServiceDay"
+msgstr ""
+
+#: base/templates/base/base.html:351
+msgid "Vending"
+msgstr ""
+
+#: base/templates/base/base.html:355
+msgid "Point of Service"
+msgstr ""
+
+#: base/templates/base/base.html:358
+msgid "Plant"
+msgstr ""
+
+#: base/templates/base/base.html:361
+msgid "Zones"
+msgstr ""
+
+#: base/templates/base/base.html:364
+msgid "Hardware"
+msgstr ""
+
+#: base/templates/base/base.html:368
+msgid "Slots"
+msgstr ""
+
+#: base/templates/base/base.html:374
+msgid "Logs"
+msgstr ""
+
+#: base/templates/base/base.html:381
+msgid "Clients"
+msgstr ""
+
+#: base/templates/base/base.html:387
+msgid "ServicePerson"
+msgstr ""
+
+#: base/templates/base/base.html:434
+msgid "Operators"
+msgstr ""
+
+#: base/templates/base/not_authorized.html:6
+msgid "You are not authorized to access to this part of the page"
+msgstr ""
+
+#: base/templates/base/not_authorized.html:6 base/templates/error.html:14
+msgid "Click here to go back"
+msgstr ""
+
+#: base/templates/base/signature.html:7
+msgid "A happy day!"
+msgstr ""
+
+#: base/templates/base/signature.html:49
+msgid "Signature"
+msgstr ""
+
+#: base/templates/base/signature.html:68
+#: base/templates/base/signature2.html:128
+msgid "Clear"
+msgstr ""
+
+#: base/templates/base/signature.html:69
+#: base/templates/base/signature2.html:129
+msgid "Save"
+msgstr ""
+
+#: base/templates/base/signature.html:80
+msgid "No hay nada que firmar"
+msgstr ""
+
+#: base/templates/error.html:7
+msgid "ERROR detected in your request"
+msgstr ""
+
+#: base/templates/home/main.html:15
+msgid "Parque"
+msgstr ""
+
+#: base/templates/home/main.html:25
+msgid "Birthday"
+msgstr ""
+
+#: base/templates/home/main.html:35
+msgid "Chuches"
+msgstr ""
+
+#: base/templates/home/main.html:45
+msgid "Cafeteria"
+msgstr ""
+
+#: base/templates/home/main.html:56
+msgid "Games"
+msgstr ""
+
+#: base/templates/home/main.html:66
+msgid "Fitness"
+msgstr ""
+
+#: base/templates/nopage.html:4
+msgid "News"
+msgstr ""
+
+#: base/templates/nopage.html:7
+msgid "Page not found in the selected language"
+msgstr ""
+
+#: base/templates/registration/logged_out.html:4
+msgid "Loggued out!"
+msgstr ""
+
+#: base/templates/registration/logged_out.html:6
+msgid "Thanks for spending some quality time with the Web site today."
+msgstr ""
+
+#: base/templates/registration/logged_out.html:8
+msgid "Log in again"
+msgstr ""
+
+#: base/templates/registration/login.html:11
+#: base/templates/registration/login.old.html:13
+msgid "Gestor corporativo"
+msgstr ""
+
+#: base/templates/registration/login.html:19
+msgid ""
+"Datos introducidos no válidos, si persiste el error contacte con soporte"
+msgstr ""
+
+#: base/templates/registration/login.html:39
+#: base/templates/registration/login.old.html:17
+msgid "Username:"
+msgstr ""
+
+#: base/templates/registration/login.html:52
+#: base/templates/registration/login.old.html:21
+msgid "Password:"
+msgstr ""
+
+#: base/templates/registration/login.html:67
+#: base/templates/registration/login.old.html:31
+#: base/templates/registration/password_reset_complete.html:13
+msgid "Log in"
+msgstr ""
+
+#: base/templates/registration/login.html:77
+msgid "Ir al login de Vending"
+msgstr ""
+
+#: base/templates/registration/password_change_done.html:4
+#: base/templates/registration/password_change_done.html:8
+msgid "Password change successful"
+msgstr ""
+
+#: base/templates/registration/password_change_done.html:10
+msgid "Your password was changed."
+msgstr ""
+
+#: base/templates/registration/password_change_form.html:4
+#: base/templates/registration/password_change_form.html:16
+msgid "Password change"
+msgstr ""
+
+#: base/templates/registration/password_change_form.html:12
+msgid "Please correct the error below."
+msgstr ""
+
+#: base/templates/registration/password_change_form.html:12
+msgid "Please correct the errors below."
+msgstr ""
+
+#: base/templates/registration/password_change_form.html:18
+msgid ""
+"Please enter your old password, for security's sake, and then enter your new "
+"password twice so we can verify you typed it in correctly."
+msgstr ""
+
+#: base/templates/registration/password_change_form.html:24
+msgid "Old password"
+msgstr ""
+
+#: base/templates/registration/password_change_form.html:29
+msgid "New password"
+msgstr ""
+
+#: base/templates/registration/password_change_form.html:34
+msgid "Password (again)"
+msgstr ""
+
+#: base/templates/registration/password_change_form.html:40
+#: base/templates/registration/password_reset_confirm.html:25
+msgid "Change my password"
+msgstr ""
+
+#: base/templates/registration/password_reset_complete.html:4
+#: base/templates/registration/password_reset_complete.html:9
+msgid "Password reset complete"
+msgstr ""
+
+#: base/templates/registration/password_reset_complete.html:11
+msgid "Your password has been set.  You may go ahead and log in now."
+msgstr ""
+
+#: base/templates/registration/password_reset_confirm.html:4
+#: base/templates/registration/password_reset_form.html:4
+#: base/templates/registration/password_reset_form.html:8
+msgid "Password reset"
+msgstr ""
+
+#: base/templates/registration/password_reset_confirm.html:8
+msgid "Enter new password"
+msgstr ""
+
+#: base/templates/registration/password_reset_confirm.html:10
+msgid ""
+"Please enter your new password twice so we can verify you typed it in "
+"correctly."
+msgstr ""
+
+#: base/templates/registration/password_reset_confirm.html:17
+msgid "New password:"
+msgstr ""
+
+#: base/templates/registration/password_reset_confirm.html:22
+msgid "Confirm password:"
+msgstr ""
+
+#: base/templates/registration/password_reset_confirm.html:31
+msgid "Password reset unsuccessful"
+msgstr ""
+
+#: base/templates/registration/password_reset_confirm.html:33
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a new password reset."
+msgstr ""
+
+#: base/templates/registration/password_reset_done.html:4
+#: base/templates/registration/password_reset_done.html:8
+msgid "Password reset successful"
+msgstr ""
+
+#: base/templates/registration/password_reset_done.html:10
+msgid ""
+"We've e-mailed you instructions for setting your password to the e-mail "
+"address you submitted. You should be receiving it shortly."
+msgstr ""
+
+#: base/templates/registration/password_reset_email.html:2
+#, python-format
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr ""
+
+#: base/templates/registration/password_reset_email.html:4
+msgid "Please go to the following page and choose a new password:"
+msgstr ""
+
+#: base/templates/registration/password_reset_email.html:8
+msgid "Your username, in case you've forgotten:"
+msgstr ""
+
+#: base/templates/registration/password_reset_email.html:10
+msgid "Thanks for using our site!"
+msgstr ""
+
+#: base/templates/registration/password_reset_email.html:12
+#, python-format
+msgid "The %(site_name)s team"
+msgstr ""
+
+#: base/templates/registration/password_reset_form.html:10
+msgid ""
+"Forgotten your password? Enter your e-mail address below, and we'll e-mail "
+"instructions for setting a new one."
+msgstr ""
+
+#: base/templates/registration/password_reset_form.html:14
+msgid "E-mail address:"
+msgstr ""
+
+#: base/templates/registration/password_reset_form.html:14
+msgid "Reset my password"
+msgstr ""
+
+#: base/views.py:111
+msgid "Form invalid"
+msgstr ""
+
+#: base/views.py:115
+msgid "Service person invalid"
+msgstr ""

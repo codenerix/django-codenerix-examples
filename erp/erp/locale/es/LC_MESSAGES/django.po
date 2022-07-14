@@ -1,0 +1,173 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-19 07:58+0200\n"
+"PO-Revision-Date: 2022-06-19 08:10+0200\n"
+"Last-Translator:   <juanmi@juanmitaboada.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.9.8\n"
+
+#: erp/config.py:227
+msgid "A Domicilio"
+msgstr ""
+
+#: erp/config.py:235
+msgid ""
+"A Domicilio (Gasto de envio gratuito para pedidos superiores a 50 euros, "
+"siempre y cuando el envio se realice dentro de la peninsula. No se realizan "
+"envios a canarias)  Para envios a Europa el coste sera de 8,90 euros"
+msgstr ""
+
+#: erp/settings_base.py:99
+msgid "Spanish"
+msgstr "Español"
+
+#~ msgid "Reservation"
+#~ msgstr "Reserva"
+
+#~ msgid "Not Confirm"
+#~ msgstr "No confirmar"
+
+#~ msgid "Confirm"
+#~ msgstr "Confirmar"
+
+#~ msgid "Person responsable"
+#~ msgstr "Persona responsable"
+
+#~ msgid "Date"
+#~ msgstr "Fecha"
+
+#~ msgid "Start time"
+#~ msgstr "Hora de inicio"
+
+#~ msgid "Ending time"
+#~ msgstr "Hora de fin"
+
+#~ msgid "Number of people"
+#~ msgstr "Número de personas"
+
+#~ msgid "Status"
+#~ msgstr "Estado"
+
+#~ msgid "Título"
+#~ msgstr "Título"
+
+#~ msgid "Persona"
+#~ msgstr "Persona"
+
+#~ msgid "Tipo de cita"
+#~ msgstr "Tipo de cita"
+
+#~ msgid "Acciones"
+#~ msgstr "Acciones"
+
+#~ msgid "Notas"
+#~ msgstr "Notas"
+
+#~ msgid "Hechos"
+#~ msgstr "Hechos"
+
+#~ msgid "Ramos"
+#~ msgstr "Ramos"
+
+#~ msgid "Acta"
+#~ msgstr "Acta"
+
+#~ msgid "Tareas pendientes"
+#~ msgstr "Tareas pendientes"
+
+#~ msgid "Notas Públicas"
+#~ msgstr "Notas públicas"
+
+#~ msgid "Página"
+#~ msgstr "Pàgina"
+
+#~ msgid "de"
+#~ msgstr "de"
+
+#~ msgid "File"
+#~ msgstr "Fichero"
+
+#~ msgid "Download"
+#~ msgstr "Descargar"
+
+#~ msgid "Delete"
+#~ msgstr "Borrar"
+
+#~ msgid "Delete file?"
+#~ msgstr "¿Borrar fichero?"
+
+#~ msgid "Editing"
+#~ msgstr "Editando"
+
+#~ msgid "Are you sure you would like to delete this register?"
+#~ msgstr "¿Está seguro que desea borrar este registro?"
+
+#~ msgid "View PDF"
+#~ msgstr "Ver PDF"
+
+#~ msgid "Enviar Acta"
+#~ msgstr "Enviar Acta"
+
+#~ msgid "Save"
+#~ msgstr "Guardar"
+
+#~ msgid "Cancel"
+#~ msgstr "Cancelar"
+
+#~ msgid "Action"
+#~ msgstr "Acción"
+
+#~ msgid "Tratada"
+#~ msgstr "Tratada"
+
+#~ msgid "Delete action?"
+#~ msgstr "¿Borrar acción?"
+
+#~ msgid "Department"
+#~ msgstr "Departamento"
+
+#~ msgid "Fact"
+#~ msgstr "Hecho"
+
+#~ msgid "Delete fact?"
+#~ msgstr "¿Borrar hecho?"
+
+#~ msgid "Agenda"
+#~ msgstr "Agenda"
+
+#~ msgid "Calendario"
+#~ msgstr "Calendario"
+
+#~ msgid "Add"
+#~ msgstr "Añadir"
+
+#~ msgid "Edit"
+#~ msgstr "Editar"
+
+#~ msgid "Search"
+#~ msgstr "Buscar"
+
+#~ msgid "Clean filters"
+#~ msgstr "Borrar filtros"
+
+#~ msgid "Change"
+#~ msgstr "Cambiar"
+
+#~ msgid "View"
+#~ msgstr "Ver"
+
+#~ msgid "English"
+#~ msgstr "English"

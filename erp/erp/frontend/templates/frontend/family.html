@@ -1,0 +1,59 @@
+{% extends "frontend/base_shop.html" %}
+{% load static %}{% load i18n %}
+
+
+{% block contenido %}
+
+    {% comment %}
+    <section class="familia">
+        <div class="container text-center">
+        {{ family.description|safe }}
+        </div>
+    </section>
+    {% endcomment %}
+
+    <section class="rejilla-productos-project">
+        <div class="container text-center">
+            <div class="row" >
+            {% comment %}
+            {% for product in products %}
+                <div class="col-sm-6 col-md-4 col-lg-3" >
+                    <div class="celda-producto-project" >
+                        <a href="/{{ product.slug }}">
+                            <div class="descripcion-producto-project">{{ product.name }}</div>
+                            <div class="foto-producto-project" style="background: url({{ MEDIA_URL}}{{ product.image }}) no-repeat center center;background-size: contain; "></div>
+                            <div class="peso-producto-project">
+                            {% for attr in product.attributes %}
+                                {{ attr }}{% if not forloop.last %} / {% endif %}
+                            {% endfor %}
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+            {% endcomment %}
+  
+
+            {% for category in categories %}
+                <div class="col-sm-6 col-md-4 col-lg-3" >
+                    <div class="celda-producto-project" >
+                        <a href="/{{ category.slug }}">
+                            <div class="descripcion-producto-project">{{ category.name }}</div>
+                            <div class="foto-producto-project" style="background: url({{ MEDIA_URL}}{{ category.icon }}) no-repeat center center;background-size: contain; "></div>
+                            {% comment %}
+                            <div class="peso-producto-project">
+                            {% for attr in product.attributes %}
+                                {{ attr }}{% if not forloop.last %} / {% endif %}
+                            {% endfor %}
+                            </div>
+                            {% endcomment %}
+                            {% comment %}<img class="img-responsive" src="{{ MEDIA_URL}}{{ product.image }}">{% endcomment %}
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "frontend/backend_user.html" %}
+{% block extra_more_js %}
+<script type="text/javascript">
+
+var thead_html = "<th>{0}</th>";
+var tbody_html = "<td>{0}</td>";
+
+function refresh_list(){
+    var url = "{{ url }}";
+    var json = {
+        "search": "",
+        "page": 1,
+        "rowsperpage": 10,
+        "filters": {
+        },
+        "ordering": [],
+    }
+    var ruta = url+"?json="+JSON.stringify(json);
+
+    $.get(ruta, function(data){
+        console.log(ruta);
+        // console.log(data);
+
+        $("#list_backend").html('').append("<table class='table table-striped' id='result'></table>");
+        $("#result").append("<thead></thead>");
+        var cols = [];
+        $.each(data.table.head.columns, function(key, item){
+            $("#result > thead").append(String.format(thead_html, item.name));
+            cols.push(item.id);
+        });
+        $("#result").append("<tbody></tbody>");
+        $.each(data.table.body, function(key, item){
+            var str_row = '';
+            $.each(cols, function(key, col_id){
+                if (typeof(item[col_id])=="object"){
+                    str_row += "<td><ul>";
+                    $.each(item[col_id], function(key, elements){
+                        str_row += '<li>' + elements + '</li>';
+                    });
+                    str_row += "</ul></td>";
+                }else{
+                    str_row += String.format(tbody_html, item[col_id]);
+                }
+            });
+            $("#result > tbody").append("<tr>" + str_row + "</tr>");
+        });
+    }).done(function(data){
+
+    }).fail(function(data){
+        alert(data);
+    }).always(function(data){
+
+    });
+}
+$(document).ready(function(){
+    refresh_list();
+});
+</script>
+
+{% endblock %}

@@ -1,0 +1,457 @@
+{% extends "frontend/base_shop.html" %}
+{% load static %}
+{% load i18n %}
+{% load cdnxcms_tags %}
+
+
+{% block slider %}
+    {% if head_image %}
+        {{ block.super }}
+    {% else %}
+     <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+            <div class="item active" style="background: url({% static "imagenes/cabecera-home.jpg" %}) no-repeat center bottom; background-size: cover; ">
+                <div class="container">
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div><!-- /.carousel -->
+    {% endif %}
+{% endblock %}
+
+
+{% block logo_familia %}
+    {% if head_image %}
+        {{ block.super }}
+    {% endif %}
+{% endblock %}
+
+{% block extra_more_js %}
+<script type="text/javascript">
+
+    var brand = [{{brand_default.pk}}];
+    var rating = [];
+    var subcategory = [{{subcategory.pk}}];
+    var feature = {};
+    var attribute = {};
+    var page = 1;
+
+    // 0 => precio_old
+    var template_price_old = '<span class="c-font-14 c-font-line-through c-font-yellow">{0}&euro;</span>';
+    // 0 => texto 'Nuevo'
+    var template_text_new = '<div class="c-label c-bg-green c-font-uppercase c-font-white c-font-13 c-font-bold">{0}</div>';
+    /*
+    0 => slug
+    1 => texto nuevo (con html)
+    2 => image (con /media/)
+    3 => nombre producto
+    4 => price_new
+    5 => price_old (con html)
+    6 => starts reviews (con html)
+    7 => numero de reviews
+    8 => pk del producto
+    9 => texto de lista de deseos
+    10 => pk del producto
+    11 => texto de carrito de la compra
+    */
+    var template_product = ''+
+    '    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 c-margin-b-20">'+
+    '        <div class="c-content-product-2 c-bg-white c-border">'+
+    '            <div class="" onclick="location.href=\'/{0}\';">'+
+    '                {1}'+
+    '                <div class="c-bg-img-center c-overlay-object" data-height="height" style="text-align: center;padding-top:20px;">'+
+	'			 		<img src="{2}" style="height: 230px;" />'+
+    '			 	 </div>'+
+    '            </div>'+
+    '            <div class="c-info text-center">'+
+    '                <p class="c-title c-font-16 c-font-slim">{3}</p>'+
+    // '                <p class="c-price c-font-14 c-font-slim">{4}&euro; &nbsp;{5}</p>'+
+    //'                <p class="c-price c-font-14 c-font-slim">{6}&nbsp;({7})</p>'+
+    '            </div>'+
+    /*
+    '            <div class="btn-group btn-group-justified" role="group">'+
+    '                <div class="btn-group c-border-top" role="group">'+
+    '                    <a href="#" onclick="wishlist.addOneProduct({8})" class="btn btn-sm c-btn-white c-btn-uppercase c-btn-square c-font-grey-3 c-font-white-hover c-bg-yellow-hover c-btn-product">'+
+    '                        {9}'+
+    '                    </a>'+
+    '                </div>'+
+    '                <div class="btn-group c-border-left c-border-top" role="group">'+
+    '                    <a href="#" onclick="shoppingCart.addOneProduct({10})" class="btn btn-sm c-btn-white c-btn-uppercase c-btn-square c-font-grey-3 c-font-white-hover c-bg-yellow-hover c-btn-product">'+
+    '                        {11}'+
+    '                    </a>'+
+    '                </div>'+
+    '            </div>'+
+    */
+    '        </div>'+
+    '    </div>';
+
+    var template_product_simple = ''+
+    '    <div class="col-sm-6 col-md-4 col-lg-3" >'+
+    '        <div class="celda-producto-project">'+
+    '            <a href="/{0}">'+
+    '                <div class="descripcion-producto-project">{1}</div>'+
+    '                <div class="foto-producto-project" style="background: url({2}) no-repeat center center;background-size: contain; "></div>'+
+    '                    <div class="peso-producto-project">{3}</div>'+
+    '            </a>'+
+    '        </div>'+
+    '    </div>';
+
+    // actualiza el listado de marcas a buscar
+    function refresh_brand(pk){
+        pk = parseInt(pk);
+        var pos = brand.indexOf(pk);
+        if (pos==-1){
+            brand.push(pk);
+        }else{
+            brand.splice(pos, 1);
+        }
+        page = 1;
+        refresh_list();
+    }
+    // actualiza el listado de rating
+    function refresh_rating(pk){
+        var pos = rating.indexOf(pk);
+        if (pos==-1){
+            rating.push(pk);
+        }else{
+            rating.splice(pos, 1);
+        }
+        page = 1;
+        refresh_list();
+    }
+    // actualiza el listado de caracteristicas a buscar
+    function refresh_feature(fpk, vpk){
+        if (feature[fpk] == undefined){
+            feature[fpk] = [];
+        }
+        var pos = feature[fpk].indexOf(vpk);
+        if (pos==-1){
+            feature[fpk].push(vpk);
+        }else{
+            feature[fpk].splice(pos, 1);
+        }
+        page = 1;
+        refresh_list();
+    }
+    // borra caracteristicas a buscar
+    function delete_feature(fpk){
+        delete feature[fpk];
+        page = 1;
+        refresh_list();
+    }
+
+    // actualiza el listado de subcategorias a buscar
+    function refresh_subcategory(subpk){
+        var pos = subcategory.indexOf(subpk);
+        if (pos==-1){
+            subcategory.push(subpk);
+        }else{
+            subcategory.splice(pos, 1);
+        }
+        page = 1;
+        refresh_list();
+    }
+
+    // actualiza el listado de atributos a buscar
+    function refresh_attribute(fpk, vpk){
+        if (attribute[fpk] == undefined){
+            attribute[fpk] = [];
+        }
+        var pos = attribute[fpk].indexOf(vpk);
+        if (pos==-1){
+            attribute[fpk].push(vpk);
+        }else{
+            attribute[fpk].splice(pos, 1);
+        }
+        page = 1;
+        refresh_list();
+    }
+    // borra attributos a buscar
+    function delete_attribute(fpk){
+        delete attribute[fpk];
+        page = 1;
+        refresh_list();
+    }
+    function order_by(){
+        // {"product":-1
+        var order_by = {};
+        if ($("#ordering").val()[0] == '-'){
+            order_by[$("#ordering").val().substring(1)] = -1;
+        }else{
+            order_by[$("#ordering").val()] = 1;
+        }
+        return order_by;
+    }
+    function change_page(number_page){
+        page = number_page;
+        refresh_list();
+    }
+    function paint_stars(value){
+        var stars = parseFloat(value);
+        var puntuacion = stars/2
+        var stars_entera = parseInt(puntuacion);
+        var stars_media = 0;
+        var paint = '';
+        var parte_decimal = (puntuacion - stars_entera) * 10;
+
+        if (parte_decimal>5){
+            stars_entera += 1;
+        }else if (parte_decimal!= 0){
+            stars_media = 1;
+        }
+        // estrellas enteras
+        for (var i=0; i<stars_entera; i++){
+            paint += '<i class="fa fa-star c-font-red"></i>';
+        }
+        // estrellas medias
+        if (stars_media == 1){
+            paint += '<i class="fa fa-star-half-o c-font-red"></i>';
+        }
+        // estrellas vacias
+        for (var i=(stars_media + stars_entera); i<5; i++){
+            paint += '<i class="fa fa-star-o c-font-red"></i>';
+        }
+        return paint;
+    }
+    //
+    function refresh_list(){
+        // $("#slider_price").slider('setValue', [$("#price_from").val(),$("#price_to").val()]);
+        var url = "{{ url }}";
+        var json = {
+            "search": "",
+            "page": page,
+            "rowsperpage": $("#rowsperpage").val(),
+            "filters": {
+                "brand": brand,
+                "feature": feature,
+                "attribute": attribute,
+                "rating": rating,
+                "subcategory": subcategory,
+                "query": $("#query").val(),
+                "price_from": $("#price_from").val(),
+                "price_to": $("#price_to").val(),
+                "force_image": 0
+            },
+            "ordering": order_by(),
+        }
+        var ruta = url+"?json="+JSON.stringify(json);
+
+        $("#div_noresult").hide();
+        $("#div_products").show();
+
+        $.get(ruta, function(data){
+            $("#div_products").html('');
+            if (data.table.body.length > 0){
+                var i = 0;
+                $.each(data.table.body, function(key, item){
+                    if (i==0 || i%4==0){
+                        $("#div_products").append("<div class='row'></div>");
+                    console.log("n r");
+
+                    }
+                    console.log(i);
+                    i++;
+                    var attributes = Array();
+                    if (item.attrs != undefined){
+                        $.each(item.attrs, function(key, attr){
+                            console.log(key);
+                            console.log(attr);
+                            attributes.push(attr);
+                        });
+                    }
+
+                    $("#div_products div.row:last-child").append(String.format(template_product_simple,
+                        item.slug,
+                        item.name,
+                        '{{ MEDIA_URL}}' + item.image,
+                        attributes.join('/')
+                        )
+                    );
+                        // parseFloat(item.price.toString()).toFixed(2),
+                        // price_old,
+                        // stars_reviews,
+                        // item.reviews_count,
+                        //data.meta.gentranslate.wishlist,
+                        //item.pk,
+                        // data.meta.gentranslate.shoppingcart
+                });
+            }else{
+                $("#div_noresult").show();
+                $("#div_products").hide();
+            }
+            $("#pagination > li").remove();
+            var num_pages = data.meta.pages.length;
+            if (num_pages > 0){
+                $("#pagination").append(''+
+                    '<li class="c-prev">'+
+                    '    <a href="#" onclick="javascript:change_page(1); return false">'+
+                    '        <i class="fa fa-angle-left"></i>'+
+                    '    </a>'+
+                    '</li>'
+                );
+            }
+            $.each(data.meta.pages, function(key, item){
+                if (item == data.meta.page){
+                    clss = "c-active";
+                }else{
+                    clss = "";
+                }
+                $("#pagination").append(''+
+                    '<li class="'+clss+'">'+
+                    '    <a href="#" onclick="javascript:change_page('+item+'); return false">'+item+'</a>'+
+                    '</li>'
+                );
+            });
+
+            if (num_pages > 0){
+                $("#pagination").append(''+
+                    '<li class="c-next">'+
+                    '    <a href="#" onclick="javascript:change_page('+data.meta.pages[num_pages -1 ]+'); return false">'+
+                    '        <i class="fa fa-angle-right"></i>'+
+                    '    </a>'+
+                    '</li>'
+                );
+            }
+        }).done(function(data){
+
+        }).fail(function(data){
+            alert(data);
+        }).always(function(data){
+
+        });
+    }
+    function clear_filter(){
+        brand = [];
+        rating = [];
+        feature = {};
+        attribute = {};
+        $("#sidebar-menu-1 input[type=checkbox]").each(function(){
+            $(this).prop( "checked", false );
+        });
+        page = 1;
+        refresh_list();
+    }
+    function change_price(){
+        /*
+        var priceDiff = parseFloat($("#price_to").val()) - parseFloat($("#price_from").val());
+        if (priceDiff > 0.0) {
+            var value = $("#slider_price").slider('getValue')[0].value;
+            if (value != undefined && value.indexOf(',') != -1){
+                var values = value.split(',');
+                if (!value[0].startsWith('None') && ! !value[1].startsWith('None')) {
+                    $("#price_from").val(values[0]);
+                    $("#price_to").val(values[1]);
+                    page = 1;
+                    refresh_list();
+                }
+            }
+        }
+        */
+    }
+    $(document).ready(function(){
+        page = 1;
+        refresh_list();
+        // $('#slider_price').slider().on('slideStop', change_price);
+    });
+</script>
+{% endblock %}
+
+{% block contenido %}
+{% csrf_token %}
+
+<!-- BEGIN: CONTENT/SHOPS/SHOP-5-1 -->
+{% if subcategory.code %}
+
+	{# {% cdnx_staticheader subcategory.code LANGUAGE_CODE|default:"en" 'frontend/staticheaders/staticheader.html' %} #}
+	
+{% endif %}
+
+<!-- END: CONTENT/SHOPS/SHOP-5-1 -->
+<!-- BEGIN: PAGE CONTENT -->
+<!-- BEGIN: CONTENT/SHOPS/SHOP-2-2 -->
+<div class="container">
+    <input type="hidden" value="{{query}}" name="query" id="query" />
+    <div class="c-layout-sidebar-content ">
+        <!-- BEGIN: PAGE CONTENT -->
+        <!-- BEGIN: CONTENT/SHOPS/SHOP-RESULT-FILTER-1 -->
+        <div class="c-shop-result-filter-1 clearfix form-inline">
+            <div class="c-filter">
+                <label class="control-label c-font-16">{% trans "Show" %}:</label>
+                <select class="form-control c-square c-theme c-input" id="rowsperpage" onchange="javascript:change_page(1)">
+                    <option value="24" selected>24</option>
+                    <option value="48">48</option>
+                    <option value="72">72</option>
+                    <option value="96">96</option>
+                </select>
+            </div>
+            <div class="c-filter">
+                <label class="control-label c-font-16">{% trans "Sort By" %}:</label>
+                <select class="form-control c-square c-theme c-input" onchange="javascript:change_page(1)" id="ordering">
+                    <option value="{{LANGUAGE_CODE|default:"en"}}__name">{% trans "Name (A - Z)" %}</option>
+                    <option value="-{{LANGUAGE_CODE|default:"en"}}__name">{% trans "Name (Z - A)" %}</option>
+                    {# <option value="price">{% trans "Price (Low &gt; High)" %}</option> #}
+                    {# <option value="-price">{% trans "Price (High &gt; Low)" %}</option> #}
+                    {# <option value="rating">Rating (Highest)</option> #}
+                    {# <option value="-rating">Rating (Lowest)</option> #}
+                    {# <option value="product__model">{% trans "Model (A - Z)" %}</option> #}
+                    {# <option value="-product__model">{% trans "Model (Z - A)" %}</option> #}
+                </select>
+            </div>
+        </div>
+        <div class="c-content-title-1 c-margin-b-30">
+            <h3 class="c-left">
+            {% if subcategory.name %}
+                {{subcategory.name}}
+            {% else %}
+                {% trans "Buscado:" %} {{ query }}
+            {% endif %}
+            </h3>
+            <div class="c-line-left c-theme-bg"></div>
+        </div>
+        <!-- END: CONTENT/SHOPS/SHOP-RESULT-FILTER-1 -->
+        <div class="c-margin-t-20">
+        </div>
+        <!-- BEGIN: CONTENT/SHOPS/SHOP-2-7 -->
+        <div class="c-bs-grid-small-space onclick">
+            <div class="row" id="div_products"></div>
+            <div class="row" id="div_noresult" style="display:none">
+                <h4>{% trans "No hay resultados para: " %} {{ query }}</h4>
+                <p>{% trans "Lo sentimos. No se han encontrado resultados con el criterio de búsqueda seleccionado. Prueba con otra búsqueda similar o más simple." %}</p>
+            </div>
+        </div>
+        <!-- END: CONTENT/SHOPS/SHOP-2-7 -->
+        <div class="c-margin-t-20"></div>
+        <ul class="c-content-pagination c-square c-theme pull-right" id="pagination">
+            <li class="c-prev">
+                <a href="#">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+            </li>
+            <li class="c-next">
+                <a href="#">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+        <!-- END: PAGE CONTENT -->
+    </div>
+</div>
+<!-- END: CONTENT/SHOPS/SHOP-2-2 -->
+<!-- END: PAGE CONTENT -->
+
+{% if subcategory.code %}
+
+    {# {% cdnx_slider subcategory.code LANGUAGE_CODE|default:"en" "frontend/slider/slider.html" %} #}
+
+{% endif %}
+
+{% endblock %}
+
+
+
+

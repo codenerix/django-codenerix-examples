@@ -1,0 +1,10 @@
+{% extends "frontend/backend_user.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block angular_app_libraries %}
+  <script type="text/javascript" src="{% static "codenerix/js/app.js" %}"></script>
+  <script type="text/javascript" src="{% static "codenerix/js/controllers.js" %}"></script>
+  <script type="text/javascript" src="{% static "frontend/js/app.js" %}"></script>
+  <script type="text/javascript" src="{% static "frontend/js/controllers.js" %}"></script>
+{% endblock %}

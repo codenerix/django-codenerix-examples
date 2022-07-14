@@ -1,0 +1,51 @@
+{% extends "base/vending.html" %}
+{% load i18n %}
+
+
+{% block vending_funciones %}  
+    <div class="col-md-2 well">
+        <button class="w3-button w3-block w3-green w3-section" title=""><i class="fa fa-check"></i> ACEPTAR </button>
+        <button class="w3-button w3-block w3-grey w3-section" title=""><i class="fa fa-chevron-left"></i> PREVIO </button>              
+    </div>
+    <div class="col-md-4">
+      <div class="row">
+        <div class="col-md-12">
+			<div class="calculator calculator-funciones">
+			    <div class="screen"><input type="text" /></div>    
+					<button class="w3-button w3-grey w3-section" title="Accept">BACKSPACE </button>
+			        <button class="w3-button w3-blue w3-section" title="Accept">CLEAR </button>
+			        <button class="w3-button w3-green w3-section" title="Accept">ENTER </button>	
+			    <div class="keypad">
+			        <div class="keys keys-funciones">
+			            <button type="button" class="btn btn-info btn-lg">1</button>
+			            <button type="button" class="btn btn-info btn-lg">2</button>
+			            <button type="button" class="btn btn-info btn-lg">3</button>
+			            <button type="button" class="btn btn-info btn-lg">4</button>
+			            <button type="button" class="btn btn-info btn-lg">5</button>
+			            <button type="button" class="btn btn-info btn-lg">6</button>
+			            <button type="button" class="btn btn-info btn-lg">7</button>
+			            <button type="button" class="btn btn-info btn-lg">8</button>
+			            <button type="button" class="btn btn-info btn-lg">9</button>
+			            <button type="button" class="btn btn-info btn-lg">0</button>
+			            <button type="button" class="btn btn-info btn-lg">.</button>
+			            <button type="button" class="btn btn-info btn-lg">00</button>
+			        </div>
+			    </div>
+			</div>
+			<div class="well w3-section">
+				<button class="w3-button w3-black w3-section w3-padding-24" title="Accept">EXACT CASH </button>
+				<button class="w3-button w3-black w3-section w3-padding-24" title="Accept">CASH </button>	
+				<button class="w3-button w3-black w3-section w3-padding-24" title="Accept">TARJET </button>	
+			</div>
+        </div>
+      </div>    
+    </div>
+    <div class="col-md-2 bg-grey">
+    	<button class="w3-button w3-block w3-purple w3-section w3-padding-24" title="Accept">PAGAR </button>
+		<button class="w3-button w3-block w3-purple w3-section w3-padding-24" title="Accept">DESCUENTOS </button>
+    </div>
+  </div>
+{% endblock %}	 
+	
+
+

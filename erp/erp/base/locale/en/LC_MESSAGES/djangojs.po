@@ -1,0 +1,135 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-25 14:48+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: base/static/metronic/global/plugins/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js:99
+#: base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:216
+msgid "Select files"
+msgstr ""
+
+#: base/static/metronic/global/plugins/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js:100
+#: base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:217
+msgid "Add files to the upload queue and click the start button."
+msgstr ""
+
+#: base/static/metronic/global/plugins/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js:106
+#: base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:227
+msgid "Filename"
+msgstr ""
+
+#: base/static/metronic/global/plugins/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js:108
+#: base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:228
+msgid "Status"
+msgstr ""
+
+#: base/static/metronic/global/plugins/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js:109
+#: base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:229
+msgid "Size"
+msgstr ""
+
+#: base/static/metronic/global/plugins/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js:118
+#: base/static/metronic/global/plugins/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js:248
+#: base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:244
+#: base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:886
+msgid "Add Files"
+msgstr ""
+
+#: base/static/metronic/global/plugins/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js:119
+#: base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:245
+msgid "Start Upload"
+msgstr ""
+
+#: base/static/metronic/global/plugins/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js:201
+#: base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:857
+#: base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:971
+#, javascript-format
+msgid "Uploaded %d/%d files"
+msgstr ""
+
+#: base/static/metronic/global/plugins/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js:250
+#: base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:888
+#, javascript-format
+msgid "%d files queued"
+msgstr ""
+
+#: base/static/metronic/global/plugins/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js:262
+#: base/static/metronic/global/plugins/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js:361
+#: base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:235
+msgid "Drag files here."
+msgstr ""
+
+#: base/static/metronic/global/plugins/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js:340
+msgid "Error: File too large:"
+msgstr ""
+
+#: base/static/metronic/global/plugins/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js:344
+msgid "Error: Invalid file extension:"
+msgstr ""
+
+#: base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:219
+msgid "List"
+msgstr ""
+
+#: base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:220
+msgid "Thumbnails"
+msgstr ""
+
+#: base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:246
+msgid "Stop Upload"
+msgstr ""
+
+#: base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:437
+msgid "File count error."
+msgstr ""
+
+#: base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:454
+#, javascript-format
+msgid "File: %s"
+msgstr ""
+
+#: base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:458
+#, javascript-format
+msgid "File: %s, size: %d, max file size: %d"
+msgstr ""
+
+#: base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:462
+#, javascript-format
+msgid "%s already present in the queue."
+msgstr ""
+
+#: base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:466
+#, javascript-format
+msgid ""
+"Upload element accepts only %d file(s) at a time. Extra files were stripped."
+msgstr ""
+
+#: base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:470
+msgid "Image format either wrong or not supported."
+msgstr ""
+
+#: base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:474
+msgid "Runtime ran out of available memory."
+msgstr ""
+
+#: base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:483
+msgid "Upload URL might be wrong or doesn't exist."
+msgstr ""
+
+#: base/static/metronic/global/plugins/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js:780
+msgid "Close"
+msgstr ""

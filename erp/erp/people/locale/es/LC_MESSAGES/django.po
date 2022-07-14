@@ -1,0 +1,405 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-19 07:58+0200\n"
+"PO-Revision-Date: 2022-06-19 08:11+0200\n"
+"Last-Translator:   <juanmi@juanmitaboada.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.9.8\n"
+
+#: erp/people/forms.py:55 erp/people/models.py:143 erp/people/models.py:176
+#: erp/people/models.py:194 erp/people/models.py:206 erp/people/models.py:368
+#: erp/people/models.py:377
+msgid "Name"
+msgstr "Nombre"
+
+#: erp/people/forms.py:56 erp/people/models.py:142 erp/people/models.py:175
+#: erp/people/models.py:193 erp/people/models.py:205 erp/people/models.py:367
+#: erp/people/models.py:376
+msgid "Surname"
+msgstr "Apellidos"
+
+#: erp/people/forms.py:57
+msgid "E-Mail"
+msgstr "Email"
+
+#: erp/people/forms.py:58 erp/people/forms.py:262
+msgid "Password"
+msgstr "Contraseña"
+
+#: erp/people/forms.py:59 erp/people/forms.py:131
+msgid "Confirm password"
+msgstr "Confirmar contraseña"
+
+#: erp/people/forms.py:60 erp/people/models.py:242 erp/people/models.py:245
+#: erp/people/templates/people/customer_personaddress_sublist.html:14
+#: erp/people/templates/people/provider_personaddress_sublist.html:14
+#: erp/people/views.py:120 erp/people/views.py:475
+msgid "Address"
+msgstr "Dirección"
+
+#: erp/people/forms.py:61 erp/people/forms.py:309
+#: erp/people/templates/people/customer_personaddress_sublist.html:10
+#: erp/people/templates/people/provider_personaddress_sublist.html:10
+#: erp/people/views.py:470
+msgid "Country"
+msgstr "País"
+
+#: erp/people/forms.py:63 erp/people/forms.py:311
+#: erp/people/templates/people/customer_personaddress_sublist.html:11
+#: erp/people/templates/people/provider_personaddress_sublist.html:11
+#: erp/people/views.py:472
+msgid "Province"
+msgstr "Provincia"
+
+#: erp/people/forms.py:64
+msgid "Town"
+msgstr ""
+
+#: erp/people/forms.py:65
+msgid "Zip code"
+msgstr "Código Postal"
+
+#: erp/people/forms.py:66 erp/people/models.py:42 erp/people/models.py:47
+#: erp/people/models.py:145
+#: erp/people/templates/people/customer_personaddress_sublist.html:15
+#: erp/people/templates/people/provider_personaddress_sublist.html:15
+msgid "Phone"
+msgstr "Teléfono"
+
+#: erp/people/forms.py:73
+msgid "Email or user alredy exist"
+msgstr "El email o usuario ya existe"
+
+#: erp/people/forms.py:83 erp/people/forms.py:216 erp/people/forms.py:217
+#: erp/people/forms.py:254 erp/people/forms.py:255
+#: erp/people/templates/people/settings.html:81
+msgid "Passwords do not match"
+msgstr "Las contraseñas no coinciden"
+
+#: erp/people/forms.py:87
+msgid ""
+"There is an error with registration system, please contact with "
+"administration. (Missing BS)"
+msgstr ""
+"Hay un error con el sistema de registro, por favor póngase en contacto con "
+"la administración. (Ausente BS)"
+
+#: erp/people/forms.py:91 erp/people/forms.py:132 erp/people/forms.py:264
+#: erp/people/forms.py:287 erp/people/models.py:144 erp/people/models.py:177
+#: erp/people/models.py:195 erp/people/models.py:207 erp/people/models.py:369
+#: erp/people/models.py:378
+msgid "Email"
+msgstr "Email"
+
+#: erp/people/forms.py:100 erp/people/forms.py:116 erp/people/forms.py:141
+#: erp/people/forms.py:171 erp/people/forms.py:296
+msgid "Personal data"
+msgstr "Información personal"
+
+#: erp/people/forms.py:129 erp/people/models.py:141 erp/people/models.py:174
+#: erp/people/models.py:192 erp/people/models.py:204 erp/people/models.py:366
+#: erp/people/models.py:375
+msgid "Username"
+msgstr "Nombre de usuario"
+
+#: erp/people/forms.py:130
+msgid "New password"
+msgstr "Nueva contraseña"
+
+#: erp/people/forms.py:150
+msgid "System access (Optional)"
+msgstr "Acceso al sistema (opcional)"
+
+#: erp/people/forms.py:163
+msgid "System access"
+msgstr "Acceso al sistema"
+
+#: erp/people/forms.py:211
+msgid "This field is required"
+msgstr "Este campo es requerido"
+
+#: erp/people/forms.py:227
+msgid "Username already in use"
+msgstr "El nombre de usuario ya está en uso"
+
+#: erp/people/forms.py:238 erp/people/forms.py:243 erp/people/forms.py:249
+msgid "Required for new users"
+msgstr "Requerido para nuevos usuarios"
+
+#: erp/people/forms.py:263
+msgid "Confirmation"
+msgstr "Confirmación"
+
+#: erp/people/forms.py:272
+#, python-format
+msgid ""
+"You have specified '%(field)s', if you want to assign a new user you must "
+"fill the username field, otherwise leave 'Password, Confirmation and Email' "
+"empty"
+msgstr ""
+"Si ha especificado '%(field)s', si desea asignar un nuevo usuario debe "
+"rellenar el campo de nombre de usuario, de lo contrario, deje 'Contraseña, "
+"Confirmación y Email' en blanco"
+
+#: erp/people/forms.py:310 erp/people/views.py:471
+msgid "Region"
+msgstr "Región"
+
+#: erp/people/forms.py:325 erp/people/forms.py:344
+msgid "PersonAddress"
+msgstr "Dirección de la persona"
+
+#: erp/people/forms.py:370 erp/people/forms.py:380 erp/people/forms.py:395
+#: erp/people/forms.py:405 erp/people/forms.py:420
+msgid "Details"
+msgstr "Detalles"
+
+#: erp/people/models.py:27
+msgid "Unspecified"
+msgstr "No especificado"
+
+#: erp/people/models.py:28
+msgid "Passport"
+msgstr "Pasaporte"
+
+#: erp/people/models.py:29
+msgid "DNI"
+msgstr "DNI"
+
+#: erp/people/models.py:30
+msgid "NIE"
+msgstr "NIE"
+
+#: erp/people/models.py:31
+msgid "CIF"
+msgstr "CIF"
+
+#: erp/people/models.py:38 erp/people/models.py:46
+msgid "NID"
+msgstr "NID"
+
+#: erp/people/models.py:39
+msgid "NID Type"
+msgstr "Tipo NID"
+
+#: erp/people/models.py:40
+msgid "Birthdate"
+msgstr "Fecha de nacimiento"
+
+#: erp/people/models.py:41
+msgid "Language"
+msgstr "Lenguaje"
+
+#: erp/people/models.py:92
+msgid "NID duplicated"
+msgstr "NID duplicado"
+
+#: erp/people/models.py:136 erp/people/models.py:170 erp/people/models.py:188
+#: erp/people/models.py:200 erp/people/models.py:213 erp/people/models.py:249
+#: erp/people/models.py:280 erp/people/models.py:332 erp/people/models.py:343
+msgid "Person"
+msgstr "Persona"
+
+#: erp/people/models.py:140 erp/people/models.py:173 erp/people/models.py:191
+#: erp/people/models.py:203 erp/people/models.py:365 erp/people/models.py:374
+msgid "Nid"
+msgstr "NID"
+
+#: erp/people/models.py:151
+msgid "Info customer"
+msgstr ""
+
+#: erp/people/models.py:159
+#, fuzzy
+#| msgid "Address"
+msgid "Address delivery"
+msgstr "Dirección"
+
+#: erp/people/models.py:162
+#, fuzzy
+#| msgid "Address"
+msgid "Address invoice"
+msgstr "Dirección"
+
+#: erp/people/models.py:214 erp/people/models.py:250
+#: erp/people/templates/people/customer_personaddress_sublist.html:9
+#: erp/people/templates/people/provider_personaddress_sublist.html:9
+#: erp/people/views.py:469
+msgid "Alias"
+msgstr "Alias"
+
+#: erp/people/models.py:215 erp/people/models.py:251
+msgid "Mobile Phone"
+msgstr ""
+
+#: erp/people/models.py:216 erp/people/models.py:252 erp/people/views.py:478
+msgid "Main delivery"
+msgstr ""
+
+#: erp/people/models.py:217 erp/people/models.py:253 erp/people/views.py:477
+msgid "Main invoice"
+msgstr ""
+
+#: erp/people/models.py:275
+msgid "Corporate Image"
+msgstr ""
+
+#: erp/people/models.py:276 erp/people/models.py:281
+msgid "Active"
+msgstr "Activo"
+
+#: erp/people/models.py:333 erp/people/models.py:344
+msgid "Enable"
+msgstr "Activado"
+
+#: erp/people/models.py:354
+msgid "Author"
+msgstr "Autor"
+
+#: erp/people/templates/people/customer_personaddress_sublist.html:12
+#: erp/people/templates/people/provider_personaddress_sublist.html:12
+#: erp/people/views.py:473
+msgid "City"
+msgstr "Ciudad"
+
+#: erp/people/templates/people/customer_personaddress_sublist.html:13
+#: erp/people/templates/people/provider_personaddress_sublist.html:13
+msgid "Postal code"
+msgstr "Código Postal"
+
+#: erp/people/templates/people/customer_personaddress_sublist.html:16
+#: erp/people/templates/people/provider_personaddress_sublist.html:16
+msgid "Main"
+msgstr "Principal"
+
+#: erp/people/templates/people/customer_personaddress_sublist.html:51
+#: erp/people/templates/people/provider_personaddress_sublist.html:51
+msgid "Delete file?"
+msgstr "¿Borrar archivo?"
+
+#: erp/people/templates/people/register.html:14
+msgid "Basic user information"
+msgstr "Información básica del usuario"
+
+#: erp/people/templates/people/settings.html:12
+msgid "Configure your settings"
+msgstr "Editar configuración"
+
+#: erp/people/templates/people/settings.html:24
+#: erp/people/templates/people/settings.html:61
+msgid "Information"
+msgstr "Información"
+
+#: erp/people/templates/people/settings.html:39
+#: erp/people/templates/people/settings.html:40
+msgid "Save settings"
+msgstr "Guardar ajustes"
+
+#: erp/people/templates/people/settings.html:49
+msgid "Change your password"
+msgstr "Cambia tu contraseña"
+
+#: erp/people/templates/people/settings.html:76
+#: erp/people/templates/people/settings.html:78
+msgid "Set new password"
+msgstr "Establecer nueva contraseña"
+
+#: erp/people/views.py:126
+msgid "Documents"
+msgstr "Documentos"
+
+#: erp/people/views.py:171
+#, fuzzy
+#| msgid "Email or user alredy exist"
+msgid "Email already exists!"
+msgstr "El email o usuario ya existe"
+
+#: erp/people/views.py:252
+msgid "The user must be a active costumer"
+msgstr "El usuario debe ser un cliente activo"
+
+#: erp/people/views.py:255
+msgid "Wrong user or password"
+msgstr "Usuario o contraseña incorrectos"
+
+#: erp/people/views.py:313
+msgid "Manager"
+msgstr "Gerente"
+
+#: erp/people/views.py:313 erp/people/views.py:790 erp/people/views.py:849
+#: erp/people/views.py:874
+msgid "People"
+msgstr "Persona"
+
+#: erp/people/views.py:617
+msgid "Type document"
+msgstr "Tipo de documento"
+
+#: erp/people/views.py:618
+msgid "Name file"
+msgstr "Nombre del fichero"
+
+#: erp/people/views.py:790
+msgid "Publicist"
+msgstr ""
+
+#: erp/people/views.py:804 erp/people/views.py:826
+msgid ""
+"You can not refresh permissions for a Person wich doesn't have an associated"
+" user"
+msgstr ""
+"No puede refrescar los permisos para una persona que no dispone de un "
+"usuario asociado"
+
+#: erp/people/views.py:849
+msgid "Reception"
+msgstr "Recepción"
+
+#: erp/people/views.py:874
+#, fuzzy
+#| msgid "Author"
+msgid "Authorship"
+msgstr "Autor"
+
+#~ msgid "Person responsable"
+#~ msgstr "Persona responsable"
+
+#~ msgid "Date"
+#~ msgstr "Fecha"
+
+#~ msgid "Person dependents"
+#~ msgstr "Persona dependiente"
+
+#~ msgid "date"
+#~ msgstr "fecha"
+
+#~ msgid "Company"
+#~ msgstr "Compañía"
+
+#~ msgid "PersonDependent"
+#~ msgstr "Persona dependiente"
+
+#~ msgid "Person addresses"
+#~ msgstr "Dirección de la persona"
+
+#~ msgid "BillingSeries invalid"
+#~ msgstr "Serie de facturación inválida"
+
+#~ msgid "TypeTax invalid"
+#~ msgstr "Tipo de impuesto inválido"
+
+#~ msgid "Service Person PK"
+#~ msgstr "PK del servicio por persona"

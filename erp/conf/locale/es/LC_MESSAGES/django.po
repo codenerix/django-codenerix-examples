@@ -1,0 +1,342 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-19 07:58+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: codenerix_email/forms.py:35 codenerix_email/forms.py:43
+#: codenerix_email/forms.py:55 codenerix_email/forms.py:69
+#: codenerix_geodata/forms.py:37 codenerix_geodata/forms.py:52
+#: codenerix_geodata/forms.py:67 codenerix_geodata/forms.py:82
+#: codenerix_geodata/forms.py:97 codenerix_geodata/forms.py:111
+msgid "Details"
+msgstr ""
+
+#: codenerix_email/forms.py:79 codenerix_email/models.py:42
+#: codenerix_email/models.py:258 codenerix_email/models.py:263
+msgid "Body"
+msgstr ""
+
+#: codenerix_email/models.py:39 codenerix_email/models.py:58
+#: codenerix_email/models.py:202 codenerix_email/models.py:208
+msgid "From"
+msgstr ""
+
+#: codenerix_email/models.py:40 codenerix_email/models.py:59
+msgid "To"
+msgstr ""
+
+#: codenerix_email/models.py:41 codenerix_email/models.py:60
+#: codenerix_email/models.py:257 codenerix_email/models.py:262
+msgid "Subject"
+msgstr ""
+
+#: codenerix_email/models.py:43 codenerix_email/models.py:56
+msgid "Priority"
+msgstr ""
+
+#: codenerix_email/models.py:44 codenerix_email/views.py:84
+msgid "Sending"
+msgstr ""
+
+#: codenerix_email/models.py:45 codenerix_email/views.py:84
+msgid "Sent"
+msgstr ""
+
+#: codenerix_email/models.py:46 codenerix_transports/models.py:52
+msgid "Error"
+msgstr ""
+
+#: codenerix_email/models.py:47 codenerix_email/models.py:61
+msgid "Retries"
+msgstr ""
+
+#: codenerix_email/models.py:48 codenerix_email/models.py:62
+msgid "Next retry"
+msgstr ""
+
+#: codenerix_email/models.py:49
+msgid "Log"
+msgstr ""
+
+#: codenerix_email/models.py:55
+msgid "Send"
+msgstr ""
+
+#: codenerix_email/models.py:57
+msgid "Created"
+msgstr ""
+
+#: codenerix_email/models.py:63
+msgid "ID"
+msgstr ""
+
+#: codenerix_email/models.py:187 codenerix_email/models.py:194
+msgid "Filename"
+msgstr ""
+
+#: codenerix_email/models.py:188 codenerix_email/models.py:195
+msgid "Mimetype"
+msgstr ""
+
+#: codenerix_email/models.py:189 codenerix_email/models.py:196
+msgid "Path"
+msgstr ""
+
+#: codenerix_email/models.py:193
+msgid "Email"
+msgstr ""
+
+#: codenerix_email/models.py:201 codenerix_email/models.py:207
+msgid "CID"
+msgstr ""
+
+#: codenerix_email/models.py:206
+msgid "PK"
+msgstr ""
+
+#: codenerix_email/models.py:250
+msgid "CID can contains only number and letters with no spaces"
+msgstr ""
+
+#: codenerix_email/views.py:49
+msgid "EmailTemplate"
+msgstr ""
+
+#: codenerix_email/views.py:49 codenerix_email/views.py:87
+msgid "People"
+msgstr ""
+
+#: codenerix_email/views.py:84
+msgid "Not sent!"
+msgstr ""
+
+#: codenerix_email/views.py:84
+msgid "Waiting"
+msgstr ""
+
+#: codenerix_email/views.py:87
+msgid "EmailMessage"
+msgstr ""
+
+#: codenerix_geodata/management/commands/populate_geodata.py:155
+msgid "Populates Continent, Country and City models"
+msgstr ""
+
+#: codenerix_geodata/models.py:36 codenerix_geodata/models.py:46
+#: codenerix_geodata/models.py:115 codenerix_geodata/models.py:125
+#: codenerix_geodata/models.py:135 codenerix_geodata/views.py:78
+#: codenerix_geodata/views.py:95 codenerix_geodata/views.py:155
+#: codenerix_geodata/views.py:181 codenerix_geodata/views.py:261
+#: codenerix_geodata/views.py:297 codenerix_geodata/views.py:389
+#: codenerix_geodata/views.py:435 codenerix_geodata/views.py:577
+#: codenerix_geodata/views.py:624
+msgid "Name"
+msgstr ""
+
+#: codenerix_geodata/models.py:51 codenerix_geodata/models.py:67
+#: codenerix_geodata/models.py:77 codenerix_geodata/models.py:82
+#: codenerix_geodata/models.py:99 codenerix_geodata/models.py:110
+#: codenerix_geodata/models.py:141 codenerix_geodata/models.py:158
+#: codenerix_geodata/models.py:168 codenerix_geodata/models.py:174
+#: codenerix_geodata/models.py:191 codenerix_geodata/models.py:201
+#: codenerix_geodata/views.py:154 codenerix_geodata/views.py:260
+#: codenerix_geodata/views.py:388
+msgid "Code"
+msgstr ""
+
+#: codenerix_geodata/models.py:83 codenerix_geodata/models.py:100
+msgid "Continent"
+msgstr ""
+
+#: codenerix_geodata/models.py:140 codenerix_geodata/models.py:157
+#: codenerix_geodata/models.py:206 codenerix_geodata/models.py:225
+#: codenerix_geodata/models.py:234 codenerix_geodata/models.py:254
+#: codenerix_geodata/views.py:582
+msgid "Country"
+msgstr ""
+
+#: codenerix_geodata/models.py:173 codenerix_geodata/models.py:190
+#: codenerix_geodata/models.py:207 codenerix_geodata/models.py:235
+#: codenerix_geodata/models.py:255
+msgid "Region"
+msgstr ""
+
+#: codenerix_geodata/models.py:208 codenerix_geodata/models.py:236
+#: codenerix_geodata/models.py:256 codenerix_geodata/views.py:580
+msgid "Province"
+msgstr ""
+
+#: codenerix_geodata/models.py:209
+msgid "Timezone"
+msgstr ""
+
+#: codenerix_geodata/models.py:226
+msgid "Time zone"
+msgstr ""
+
+#: codenerix_geodata/models.py:237 codenerix_geodata/models.py:258
+msgid "City"
+msgstr ""
+
+#: codenerix_geodata/models.py:238 codenerix_geodata/models.py:257
+msgid "Town"
+msgstr ""
+
+#: codenerix_geodata/models.py:239
+msgid "Zip code"
+msgstr ""
+
+#: codenerix_geodata/models.py:240 codenerix_geodata/models.py:260
+msgid "Address"
+msgstr ""
+
+#: codenerix_geodata/models.py:241 codenerix_geodata/models.py:261
+msgid "Phone"
+msgstr ""
+
+#: codenerix_geodata/models.py:259
+msgid "Zipcode"
+msgstr ""
+
+#: codenerix_geodata/views.py:156 codenerix_geodata/views.py:182
+#: codenerix_geodata/views.py:264 codenerix_geodata/views.py:302
+#: codenerix_geodata/views.py:394 codenerix_geodata/views.py:443
+#: codenerix_geodata/views.py:583 codenerix_geodata/views.py:632
+msgid "Code continent"
+msgstr ""
+
+#: codenerix_geodata/views.py:157 codenerix_geodata/views.py:265
+#: codenerix_geodata/views.py:303 codenerix_geodata/views.py:395
+#: codenerix_geodata/views.py:444 codenerix_geodata/views.py:584
+#: codenerix_geodata/views.py:633
+msgid "Name continent"
+msgstr ""
+
+#: codenerix_geodata/views.py:183
+msgid "Continent name"
+msgstr ""
+
+#: codenerix_geodata/views.py:262 codenerix_geodata/views.py:392
+#: codenerix_geodata/views.py:581
+msgid "Code country"
+msgstr ""
+
+#: codenerix_geodata/views.py:263 codenerix_geodata/views.py:300
+#: codenerix_geodata/views.py:393 codenerix_geodata/views.py:441
+#: codenerix_geodata/views.py:630
+msgid "Name country"
+msgstr ""
+
+#: codenerix_geodata/views.py:299 codenerix_geodata/views.py:437
+#: codenerix_geodata/views.py:440 codenerix_geodata/views.py:626
+#: codenerix_geodata/views.py:629
+msgid "Code self"
+msgstr ""
+
+#: codenerix_geodata/views.py:390
+msgid "Code region"
+msgstr ""
+
+#: codenerix_geodata/views.py:391 codenerix_geodata/views.py:438
+#: codenerix_geodata/views.py:627
+msgid "Name region"
+msgstr ""
+
+#: codenerix_geodata/views.py:578
+msgid "Time Zone"
+msgstr ""
+
+#: codenerix_geodata/views.py:579
+msgid "Code province"
+msgstr ""
+
+#: codenerix_transports/models.py:32
+msgid "MRW"
+msgstr ""
+
+#: codenerix_transports/models.py:33
+msgid "SEUR"
+msgstr ""
+
+#: codenerix_transports/models.py:47 codenerix_transports/models.py:77
+msgid "Reference"
+msgstr ""
+
+#: codenerix_transports/models.py:48
+msgid "Reverse"
+msgstr ""
+
+#: codenerix_transports/models.py:49 codenerix_transports/models.py:78
+msgid "Platform"
+msgstr ""
+
+#: codenerix_transports/models.py:50 codenerix_transports/models.py:79
+msgid "Protocol"
+msgstr ""
+
+#: codenerix_transports/models.py:51
+msgid "Real"
+msgstr ""
+
+#: codenerix_transports/models.py:53
+msgid "Error Text"
+msgstr ""
+
+#: codenerix_transports/models.py:54
+msgid "Cancelled"
+msgstr ""
+
+#: codenerix_transports/models.py:55
+msgid "Notes"
+msgstr ""
+
+#: codenerix_transports/models.py:58
+msgid "Origin Address"
+msgstr ""
+
+#: codenerix_transports/models.py:59
+msgid "Origin Country"
+msgstr ""
+
+#: codenerix_transports/models.py:60
+msgid "Destination Address"
+msgstr ""
+
+#: codenerix_transports/models.py:61
+msgid "Destination Country"
+msgstr ""
+
+#: codenerix_transports/models.py:64
+msgid "Request"
+msgstr ""
+
+#: codenerix_transports/models.py:65
+msgid "Answer"
+msgstr ""
+
+#: codenerix_transports/models.py:66
+msgid "Request date"
+msgstr ""
+
+#: codenerix_transports/models.py:67
+msgid "Answer date"
+msgstr ""
+
+#: codenerix_transports/models.py:224
+msgid "Locator"
+msgstr ""
