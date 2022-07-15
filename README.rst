@@ -13,9 +13,12 @@ Here you can find examples using `CODENERIX <https://github.com/codenerix/django
 Demo
 ****
 
-You can have a look to our `demo online <http://demo.codenerix.com>`_.
+You can have a look to our demos online:
 
-You can get in touch with us `here <https://codenerix.com/contact/>`_.
+* `CODENERIX Simple Agenda DEMO <http://demo.codenerix.com>`_.
+* `CODENERIX Full ERP DEMO <https://erp.codenerix.com>`_.
+
+You can find some working examples in GITHUB at `django-codenerix-examples <https://github.com/codenerix/django-codenerix-examples>`_ project.
 
 
 **********
