@@ -39,6 +39,11 @@
     ./manage.py runserver backend
 ```
 
+9. Launch the frontend::
+```
+    ./manage.py runserver frontend
+```
+
 
 ## Extras
 
