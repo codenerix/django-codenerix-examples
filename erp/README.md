@@ -47,7 +47,7 @@
 
 ## Extras
 
-If you would like to launche several environments you may use the port number after the choosen environment, example::
+If you would like to launch several environments you may use the port number after the choosen environment, example::
 
 ```
     ./manage.py runserver backend          # It will start backend on port 8000
