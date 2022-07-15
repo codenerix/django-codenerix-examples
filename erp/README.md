@@ -53,4 +53,4 @@ If you would like to launche several environments you may use the port number af
 
 **Juanmi Taboada** <juanmi@juanmitaboada.com> - https://github.com/juanmitaboada
 
-** Juan Soler** <soleronline@gmail.com> - https://github.com/soleronline
+**Juan Soler** <soleronline@gmail.com> - https://github.com/soleronline
