@@ -50,10 +50,5 @@ If you would like to launche several environments you may use the port number af
 ```
 
 ## About the authors
-- **Name:** Juanmi Taboada
-- **E-Mail:** juanmi@juanmitaboada.com
-- **GitHub:** https://github.com/juanmitaboada
-
-- **Name:** Juan Soler
-- **E-Mail:** soleronline@gmail.com
-- **GitHub:** https://github.com/soleronline
+**Juanmi Taboada** <juanmi@juanmitaboada.com> - https://github.com/juanmitaboada
+** Juan Soler** <soleronline@gmail.com> - https://github.com/soleronline
