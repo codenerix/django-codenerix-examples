@@ -1,12 +1,12 @@
-django-codenerix>=4.0.11
+django-codenerix>=4.0.12
 django-codenerix-email
 django-codenerix-extensions
 django-codenerix-invoicing
-django-codenerix-payments
+django-codenerix-payments>=4.0.2
 django-codenerix-products
 django-codenerix-storages
 django-codenerix-geodata
-django-codenerix-transports
+django-codenerix-transports>=4.0.2
 django-codenerix-corporate
 django-codenerix-pos
 django-codenerix-cms

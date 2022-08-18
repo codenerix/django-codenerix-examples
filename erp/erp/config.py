@@ -165,6 +165,14 @@ PAYMENTS = {
         "urlssl": "https://localhost:444",
         "real": False,
         "taxes": 21,
+        "redirects_default": "https://localhost/algunlado/",
+        "redirects": {},
+    },
+    "paypal": {
+        "name": "Paypal",
+        "protocol": "paypal",
+        "id": "123412341234",
+        "secret": "MTIzNDEzMjM0MTIzNAo=",
     },
     "redsys": {
         "name": "Redsys",
@@ -179,6 +187,15 @@ PAYMENTS = {
         # 'endpoint': 'https://sis-t.redsys.es:25443/sis/services/SerClsWSEntrada', # XML
         "merchant_code": "123456789",
         "auth_key": "asdfasfdasdfasdfasdfasdfasdfasdf",
+    },
+    "yeepay": {
+        "name": "Yeepay",
+        "protocol": "yeepay",
+        "endpoint": "https://cashdesk.yeepay.com",
+        "customerNo": 123412341234,
+        "customerId": "irt_123412341234",
+        "private_key": "MIICXgIBAAKBgQCCMfXBc/TFqOpI5enjcAfWtrko/EK5g9hJmyDApyQiQrjIZEY+tOYRQk1BfVvy3ZY6N+YC+JNrxw19GbHemthNjtjv3jUkguBCY55d+YAsnEi0rJmC14DO0lo17Z6jAWsIQbke5BIwn0bRA/samYRSLgzVK7wU7OHLru4jqtiNWwIDAQABAoGAcRWr/GgXh0f8l2z8BkzcwibcFTlnS3O1fdl8TVngDNIfZg+S5AyEeSE5sVSNdRn6zn6XDqWSht7SXILg+BVPImXcrTjAz2v809dGHKWaHdjE1I+FloBwZjZqx0umUKNgLr6NMYSHReF8JsrHV9Bb+MdEW6FPeUrt8enJXjgnj8ECQQDvE861vgBE+CDUJKhR68fKAZu4NQUSA4oztNoDiRujwLu4+uvs+nSuQ5FA+6QGKAGQQemM/ewQgL/nJ+BdXMMDAkEAi2koCpg9h9cK26ZN7pHFGl182G2aQbnAtmMGud3aEjvtc1YiDEMYM/6ESUaB9sSp06V0WKBJTVEao/GdudvQyQJBAJeyicbn+GPKzYnOeL8CTJLw0k3f1ofHlzmX133G0bLl6DdHf8uuX7rzRIdnJHyDhfpy2C6OL+uIxjt2IfcblOECQQCEXhoIxThXDFVg7Oy+AmZVfEKX9KksksRp6GhwfjcabRAuHLBDWElYxOax9GJd/akKLeTkaXxwDvvugfEykYYRAkEAwoboYL/G6c04w+ntSEsF5GakEJ7onYOr2sxyrxehdkgwoZ2CYoEEp03vtxUa2qzNAnHq8MI0HCJVMI6RhxAU0A==",
+        "public_key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCCMfXBc/TFqOpI5enjcAfWtrko/EK5g9hJmyDApyQiQrjIZEY+tOYRQk1BfVvy3ZY6N+YC+JNrxw19GbHemthNjtjv3jUkguBCY55d+YAsnEi0rJmC14DO0lo17Z6jAWsIQbke5BIwn0bRA/samYRSLgzVK7wU7OHLru4jqtiNWwIDAQAB",
     },
 }
 

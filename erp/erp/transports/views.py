@@ -338,7 +338,7 @@ class TransportCalculate(View):
                                             if logic_province.pk == province:
                                                 if (
                                                     protocol in tmp
-                                                    and [protocol]["weight"]
+                                                    and protocol["weight"]
                                                     > logic_weight
                                                 ):
                                                     tmp[protocol] = {
