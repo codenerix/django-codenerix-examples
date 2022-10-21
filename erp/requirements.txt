@@ -1,4 +1,4 @@
-django-codenerix>=4.0.12
+django-codenerix>=4.0.15
 django-codenerix-email
 django-codenerix-extensions
 django-codenerix-invoicing
