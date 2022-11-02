@@ -1,11 +1,11 @@
-Basic
-=====
+Basic Double GenList
+====================
 
 # Django Codenerix  Examples - Basic with double GenList over the same model
 
 *Basic Double GenList* extends the example *Basic* with an extra GenList pointing to the same model.
 
-You can aproach this setting 'modelname' and 'appname' attributes in your custom GenList.
+You can aproach this setting *'modelname'* and *'appname'* attributes in your custom *GenList*.
 
 
 ## Installation
