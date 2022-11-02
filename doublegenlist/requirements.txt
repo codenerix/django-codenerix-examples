@@ -1,0 +1,1 @@
+django-codenerix>=4.0.13

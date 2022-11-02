@@ -1,5 +1,8 @@
 *pyc
 *swp
+*db
+env/
+__pycache__
 agenda/static/
 exchange/static/
 erp/static/
