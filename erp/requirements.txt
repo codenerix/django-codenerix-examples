@@ -1,3 +1,4 @@
+codenerix-lib
 django-codenerix>=4.0.16
 django-codenerix-email
 django-codenerix-extensions

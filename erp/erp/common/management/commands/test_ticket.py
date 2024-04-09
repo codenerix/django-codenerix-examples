@@ -3,7 +3,7 @@ import base64
 from django.core.management.base import BaseCommand  # , CommandError
 
 from codenerix_invoicing.models_sales import SalesBasket
-from codenerix.lib.debugger import Debugger
+from codenerix_lib.debugger import Debugger
 
 
 class Command(BaseCommand, Debugger):

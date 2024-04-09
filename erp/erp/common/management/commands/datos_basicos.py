@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 from django.conf import settings
 
-from codenerix.lib.debugger import Debugger
+from codenerix_lib.debugger import Debugger
 from codenerix_products.models import TypeTax, Family, Category, Subcategory, MODELS_SLUG, MODELS_BRANDS, MODELS_PRODUCTS, Product, ProductFinal
 
 from codenerix_invoicing.models import BillingSeries

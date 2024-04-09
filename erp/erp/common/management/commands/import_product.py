@@ -16,33 +16,64 @@ from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 from codenerix.helpers import nameunify
-from codenerix.lib.debugger import Debugger
-from codenerix_products.models import TypeTax, Family, Category, Subcategory, MODELS_SLUG, MODELS_BRANDS, MODELS_PRODUCTS, MODELS_PRODUCTS_FINAL, Product, ProductFinal, Attribute, MODELS, TYPE_VALUE_LIST, GroupValueAttribute, OptionValueAttribute, ProductFinalImage, ProductFinalAttribute, ProductImage, ProductUnique
-for info in MODELS_SLUG + MODELS_BRANDS + MODELS_PRODUCTS + MODELS + MODELS_PRODUCTS_FINAL:
+from codenerix_lib.debugger import Debugger
+from codenerix_products.models import (
+    TypeTax,
+    Family,
+    Category,
+    Subcategory,
+    MODELS_SLUG,
+    MODELS_BRANDS,
+    MODELS_PRODUCTS,
+    MODELS_PRODUCTS_FINAL,
+    Product,
+    ProductFinal,
+    Attribute,
+    MODELS,
+    TYPE_VALUE_LIST,
+    GroupValueAttribute,
+    OptionValueAttribute,
+    ProductFinalImage,
+    ProductFinalAttribute,
+    ProductImage,
+    ProductUnique,
+)
+
+for info in (
+    MODELS_SLUG
+    + MODELS_BRANDS
+    + MODELS_PRODUCTS
+    + MODELS
+    + MODELS_PRODUCTS_FINAL
+):
     field = info[0]
     model = info[1]
     for lang_code in settings.LANGUAGES_DATABASES:
-        query = "from codenerix_products.models import {}Text{}\n".format(model, lang_code)
+        query = "from codenerix_products.models import {}Text{}\n".format(
+            model, lang_code
+        )
         print(query)
         exec(query)
 
 
 class Command(BaseCommand, Debugger):
-    PROJECT = 'urbangest'
-    PATH = 'common/management/commands/'
-    PATH_IMAGES = 'images/'
-    PATH_IMAGES_DEFAULT = 'images_default/'
-    IMAGES_PRODUCT_DEFAULT = 'product.jpg'
-    IMAGES_PRODUCTFINAL_DEFAULT = 'productfinal.jpg'
-    FILE_IMPORT = 'data/products.xlsx'
-    FILE_IMPORT_TMP = 'data/products_tmp.xlsx'
-    MSG_PRODUCT_SAMPLE = u'Este producto lo encontrarás en exclusiva en Carrefour España'
+    PROJECT = "urbangest"
+    PATH = "common/management/commands/"
+    PATH_IMAGES = "images/"
+    PATH_IMAGES_DEFAULT = "images_default/"
+    IMAGES_PRODUCT_DEFAULT = "product.jpg"
+    IMAGES_PRODUCTFINAL_DEFAULT = "productfinal.jpg"
+    FILE_IMPORT = "data/products.xlsx"
+    FILE_IMPORT_TMP = "data/products_tmp.xlsx"
+    MSG_PRODUCT_SAMPLE = (
+        "Este producto lo encontrarás en exclusiva en Carrefour España"
+    )
 
     def handle(self, *args, **options):
         # Set debugger
         self.set_debug()
-        self.set_name('URBAN LIVING')
-        self.debug("Init", color='blue')
+        self.set_name("URBAN LIVING")
+        self.debug("Init", color="blue")
 
         filename_src = self.FILE_IMPORT
 
@@ -51,9 +82,12 @@ class Command(BaseCommand, Debugger):
             filename_src = "{}{}".format(self.PATH, filename_src)
 
         if os.path.isfile(filename_src) is False:
-            self.debug("Fichero no encontrado!!! ({})".format(filename_src), color="red")
+            self.debug(
+                "Fichero no encontrado!!! ({})".format(filename_src),
+                color="red",
+            )
         else:
-            filename_dst = '{}{}'.format(self.PATH, self.FILE_IMPORT_TMP)
+            filename_dst = "{}{}".format(self.PATH, self.FILE_IMPORT_TMP)
 
             self.DELETE_ALL()
 
@@ -65,7 +99,7 @@ class Command(BaseCommand, Debugger):
             self.image_default()
 
     def DELETE_ALL(self):
-        self.debug("DELETE ALL ...", color='red')
+        self.debug("DELETE ALL ...", color="red")
         OptionValueAttribute.objects.all().delete()
         OptionValueAttribute.objects.all().delete()
         ProductUnique.objects.all().delete()
@@ -81,7 +115,7 @@ class Command(BaseCommand, Debugger):
         Family.objects.all().delete()
 
     def regenerate_file(self, filename_src, filename_dst):
-        self.debug("Regenerate file ...", color='blue')
+        self.debug("Regenerate file ...", color="blue")
         wb_new = openpyxl.Workbook()
         name_sheet = wb_new.get_sheet_names()
         sheet_new = wb_new.get_sheet_by_name(name_sheet[0])
@@ -92,8 +126,8 @@ class Command(BaseCommand, Debugger):
 
         last_column = sheet.max_column + 1
         for row in range(2, sheet.max_row + 1):
-            self.debug(row, color='cyan')
-            description = sheet['F{}'.format(row)].value
+            self.debug(row, color="cyan")
+            description = sheet["F{}".format(row)].value
             if description:
                 name, peso, unit = self.split_description(description)
                 for col in range(1, sheet.max_column):
@@ -109,23 +143,26 @@ class Command(BaseCommand, Debugger):
         wb_new.save(filename_dst)
 
     def split_description(self, description):
-        tmp = description.strip().split(' ')
-        unit = tmp[-1:][0].upper().replace(')', '')
+        tmp = description.strip().split(" ")
+        unit = tmp[-1:][0].upper().replace(")", "")
         peso = tmp[-2:-1][0].upper()
-        if unit != 'G' and unit != 'KG':
-            if 'KG' in unit:
-                peso = unit.split('KG')[0]
-                unit = 'KG'
-            elif 'G' in unit:
-                peso = unit.split('G')[0]
-                unit = 'G'
-        peso = float(peso.replace(',', '.'))
+        if unit != "G" and unit != "KG":
+            if "KG" in unit:
+                peso = unit.split("KG")[0]
+                unit = "KG"
+            elif "G" in unit:
+                peso = unit.split("G")[0]
+                unit = "G"
+        peso = float(peso.replace(",", "."))
         name = " ".join(tmp[:-2])
-        self.debug(u"{}\t{} -- {} -- {}".format(description, name, peso, unit), color="green")
+        self.debug(
+            "{}\t{} -- {} -- {}".format(description, name, peso, unit),
+            color="green",
+        )
         return (name, peso, unit)
 
     def import_excel(self, filename):
-        self.debug("Import from excel ...", color='blue')
+        self.debug("Import from excel ...", color="blue")
         # open file
         wb = openpyxl.load_workbook(filename)
         name_sheet = wb.get_sheet_names()
@@ -134,7 +171,7 @@ class Command(BaseCommand, Debugger):
         sheet = wb.get_sheet_by_name(name_sheet[0])
 
         self.families = {}
-        str_group_value = ['Tipo de envase', 'Unidades', 'Kg']
+        str_group_value = ["Tipo de envase", "Unidades", "Kg"]
 
         for str_group in str_group_value:
             gva = GroupValueAttribute.objects.filter(name=str_group).first()
@@ -142,7 +179,9 @@ class Command(BaseCommand, Debugger):
                 gva = GroupValueAttribute()
                 gva.name = str_group
                 gva.save()
-            attribute = Attribute.objects.filter(es__description=str_group).first()
+            attribute = Attribute.objects.filter(
+                es__description=str_group
+            ).first()
             if attribute is None:
                 attribute = Attribute()
                 attribute.type_value = TYPE_VALUE_LIST
@@ -157,7 +196,7 @@ class Command(BaseCommand, Debugger):
                     obj.save()
 
         for row in range(2, sheet.max_row + 1):
-            self.debug(row, color='cyan')
+            self.debug(row, color="cyan")
             # Disponibilidad    Unds o KG Caja  Tipo Envase Vida Útil   Código  Descripción/Ficha Producto  Familia Categoría   Subcategoría    Alérgenos   Ingredientes    Valor energético    Grasas  Grasa saturadas Hidratos de carbono Azúcares    Proteinas   Sal Modo conservación   PVP Unds o KG   PVP Caja    iva no incluido iva no incluido
             # A Disponibilidad
             # B Unds o KG Caja
@@ -184,49 +223,88 @@ class Command(BaseCommand, Debugger):
             # W PVP Caja
             # X iva no incluido
             # Y iva no incluido
-            if sheet['A{}'.format(row)].value:
-                peso = self.get_peso(sheet['H{}'.format(row)].value)
-                code = sheet['E{}'.format(row)].value
+            if sheet["A{}".format(row)].value:
+                peso = self.get_peso(sheet["H{}".format(row)].value)
+                code = sheet["E{}".format(row)].value
 
-                family_i = sheet['I{}'.format(row)].value
-                category_i = sheet['J{}'.format(row)].value
-                subcategory_i = sheet['K{}'.format(row)].value
-                tipo_envase = sheet['C{}'.format(row)].value
-                unidades_kg = sheet['B{}'.format(row)].value
-                peso = self.get_peso(sheet['H{}'.format(row)].value)
-                code = sheet['E{}'.format(row)].value
+                family_i = sheet["I{}".format(row)].value
+                category_i = sheet["J{}".format(row)].value
+                subcategory_i = sheet["K{}".format(row)].value
+                tipo_envase = sheet["C{}".format(row)].value
+                unidades_kg = sheet["B{}".format(row)].value
+                peso = self.get_peso(sheet["H{}".format(row)].value)
+                code = sheet["E{}".format(row)].value
 
                 family = self.get_family(family_i)
                 category = self.get_category(family_i, category_i)
-                subcategory = self.get_subcategory(family_i, category_i, subcategory_i)
+                subcategory = self.get_subcategory(
+                    family_i, category_i, subcategory_i
+                )
 
                 tax = self.get_tax()
 
-                vida_util = sheet['D{}'.format(row)].value
-                price_base = self.get_price_base(tax, sheet['V{}'.format(row)].value, sheet['W{}'.format(row)].value)
-                name_product = sheet['F{}'.format(row)].value
-                name_product_final = sheet['G{}'.format(row)].value
-                alergenos = sheet['L{}'.format(row)].value
-                disponibilidad = sheet['A{}'.format(row)].value
-                ingredientes = sheet['M{}'.format(row)].value
-                valor_energetico = sheet['N{}'.format(row)].value
-                grasas = sheet['O{}'.format(row)].value
-                grasas_saturadas = sheet['P{}'.format(row)].value
-                hidratos = sheet['Q{}'.format(row)].value
-                azucar = sheet['R{}'.format(row)].value
-                proteinas = sheet['S{}'.format(row)].value
-                sal = sheet['T{}'.format(row)].value
-                modo_conservacion = sheet['U{}'.format(row)].value
-                description_long = self.get_description_long(name_product_final, alergenos, disponibilidad, ingredientes, valor_energetico, grasas, grasas_saturadas, hidratos, azucar, proteinas, sal, modo_conservacion, vida_util)
-                description_long_product = self.get_description_long(name_product, alergenos, disponibilidad, ingredientes, valor_energetico, grasas, grasas_saturadas, hidratos, azucar, proteinas, sal, modo_conservacion, vida_util)
+                vida_util = sheet["D{}".format(row)].value
+                price_base = self.get_price_base(
+                    tax,
+                    sheet["V{}".format(row)].value,
+                    sheet["W{}".format(row)].value,
+                )
+                name_product = sheet["F{}".format(row)].value
+                name_product_final = sheet["G{}".format(row)].value
+                alergenos = sheet["L{}".format(row)].value
+                disponibilidad = sheet["A{}".format(row)].value
+                ingredientes = sheet["M{}".format(row)].value
+                valor_energetico = sheet["N{}".format(row)].value
+                grasas = sheet["O{}".format(row)].value
+                grasas_saturadas = sheet["P{}".format(row)].value
+                hidratos = sheet["Q{}".format(row)].value
+                azucar = sheet["R{}".format(row)].value
+                proteinas = sheet["S{}".format(row)].value
+                sal = sheet["T{}".format(row)].value
+                modo_conservacion = sheet["U{}".format(row)].value
+                description_long = self.get_description_long(
+                    name_product_final,
+                    alergenos,
+                    disponibilidad,
+                    ingredientes,
+                    valor_energetico,
+                    grasas,
+                    grasas_saturadas,
+                    hidratos,
+                    azucar,
+                    proteinas,
+                    sal,
+                    modo_conservacion,
+                    vida_util,
+                )
+                description_long_product = self.get_description_long(
+                    name_product,
+                    alergenos,
+                    disponibilidad,
+                    ingredientes,
+                    valor_energetico,
+                    grasas,
+                    grasas_saturadas,
+                    hidratos,
+                    azucar,
+                    proteinas,
+                    sal,
+                    modo_conservacion,
+                    vida_util,
+                )
                 # name_product = sheet['AF{}'.format(row)].value
-                self.debug(name_product, color='blue')
-                self.debug(name_product_final, color='cyan')
-                if name_product is None or name_product == '':
+                self.debug(name_product, color="blue")
+                self.debug(name_product_final, color="cyan")
+                if name_product is None or name_product == "":
                     name_product = name_product_final
 
                 code_product = nameunify(name_product)
-                product = Product.objects.filter(code=code_product, family=family, category=category, subcategory=subcategory).first()
+                product = Product.objects.filter(
+                    code=code_product,
+                    family=family,
+                    category=category,
+                    subcategory=subcategory,
+                ).first()
                 if not product:
                     product = Product()
                     product.code = code_product
@@ -243,7 +321,7 @@ class Command(BaseCommand, Debugger):
                         product.save()
                         saved = True
                     except IntegrityError:
-                        product.code = u"{}{}".format(code_product, i)
+                        product.code = "{}{}".format(code_product, i)
                         i += 1
 
                 slug_product = nameunify(name_product)
@@ -267,10 +345,12 @@ class Command(BaseCommand, Debugger):
                             obj.save()
                             saved = True
                         except IntegrityError:
-                            obj.slug = u"{}{}".format(slug_product, i)
+                            obj.slug = "{}{}".format(slug_product, i)
                             i += 1
 
-                pf = ProductFinal.objects.filter(product=product, code=code).first()
+                pf = ProductFinal.objects.filter(
+                    product=product, code=code
+                ).first()
                 if not pf:
                     pf = ProductFinal()
                     pf.product = product
@@ -284,7 +364,7 @@ class Command(BaseCommand, Debugger):
                         pf.save()
                         saved = True
                     except IntegrityError:
-                        pf.code = u"{}{}".format(code, i)
+                        pf.code = "{}{}".format(code, i)
                         i += 1
 
                 slug_product_final = nameunify(name_product_final)
@@ -308,23 +388,36 @@ class Command(BaseCommand, Debugger):
                             obj.save()
                             saved = True
                         except IntegrityError:
-                            obj.slug = u"{}{}".format(slug_product_final, i)
+                            obj.slug = "{}{}".format(slug_product_final, i)
                             i += 1
-                gva = GroupValueAttribute.objects.filter(name=str_group_value[0]).first()
-                if gva.options_value_attribute.filter(es__description=tipo_envase).exists() is False:
+                gva = GroupValueAttribute.objects.filter(
+                    name=str_group_value[0]
+                ).first()
+                if (
+                    gva.options_value_attribute.filter(
+                        es__description=tipo_envase
+                    ).exists()
+                    is False
+                ):
                     opt = OptionValueAttribute()
                     opt.group = gva
                     opt.save()
                     for lang_code in settings.LANGUAGES_DATABASES:
-                        model = eval("OptionValueAttributeText{}".format(lang_code))
+                        model = eval(
+                            "OptionValueAttributeText{}".format(lang_code)
+                        )
                         obj = model()
                         obj.option_value = opt
                         obj.description = tipo_envase
                         obj.save()
                 else:
-                    opt = OptionValueAttribute.objects.filter(es__description=tipo_envase).first()
+                    opt = OptionValueAttribute.objects.filter(
+                        es__description=tipo_envase
+                    ).first()
                 attribute = gva.attributes.first()
-                pfa = ProductFinalAttribute.objects.filter(product=pf, attribute=attribute).first()
+                pfa = ProductFinalAttribute.objects.filter(
+                    product=pf, attribute=attribute
+                ).first()
                 if not pfa:
                     pfa = ProductFinalAttribute()
                     pfa.product = pf
@@ -332,29 +425,42 @@ class Command(BaseCommand, Debugger):
                 pfa.value = opt.pk
                 pfa.save()
 
-                if 'caja' == tipo_envase.lower():
+                if "caja" == tipo_envase.lower():
                     gva_description = str_group_value[2]  # 'Kg'
                     formato = "{} Kg"
                 else:
                     gva_description = str_group_value[1]  # 'Unidades'
                     formato = "{} Uds"
 
-                gva = GroupValueAttribute.objects.filter(name=gva_description).first()
+                gva = GroupValueAttribute.objects.filter(
+                    name=gva_description
+                ).first()
                 description_op = formato.format(unidades_kg)
-                if gva.options_value_attribute.filter(es__description=description_op).exists() is False:
+                if (
+                    gva.options_value_attribute.filter(
+                        es__description=description_op
+                    ).exists()
+                    is False
+                ):
                     op = OptionValueAttribute()
                     op.group = gva
                     op.save()
                     for lang_code in settings.LANGUAGES_DATABASES:
-                        model = eval("OptionValueAttributeText{}".format(lang_code))
+                        model = eval(
+                            "OptionValueAttributeText{}".format(lang_code)
+                        )
                         obj = model()
                         obj.option_value = op
                         obj.description = description_op
                         obj.save()
                 else:
-                    op = OptionValueAttribute.objects.filter(es__description=description_op).first()
+                    op = OptionValueAttribute.objects.filter(
+                        es__description=description_op
+                    ).first()
                 attribute = gva.attributes.first()
-                pfa = ProductFinalAttribute.objects.filter(product=pf, attribute=attribute).first()
+                pfa = ProductFinalAttribute.objects.filter(
+                    product=pf, attribute=attribute
+                ).first()
                 if not pfa:
                     pfa = ProductFinalAttribute()
                     pfa.product = pf
@@ -365,7 +471,7 @@ class Command(BaseCommand, Debugger):
     def get_family(self, family_i):
         # self.debug(family_i, color="white")
         if family_i not in self.families:
-            code = nameunify(family_i, True).replace('-', '')
+            code = nameunify(family_i, True).replace("-", "")
             family = Family.objects.filter(code__istartswith=code).first()
             if family is None:
                 family = Family()
@@ -383,41 +489,46 @@ class Command(BaseCommand, Debugger):
                 obj.description = family_i
                 obj.save()
             self.families[family_i] = {
-                'object': family,
-                'categories': {},
+                "object": family,
+                "categories": {},
             }
         else:
-            family = self.families[family_i]['object']
+            family = self.families[family_i]["object"]
         # self.debug(family.pk, color="red")
         return family
 
     def get_category(self, family_i, category_i):
         # self.debug(category_i, color="white")
         # self.debug(family_i, color="white")
-        if category_i not in self.families[family_i]['categories']:
-            code = nameunify(category_i, True).replace('-', '')
-            category = Category.objects.filter(code__istartswith=code, family=self.families[family_i]['object']).first()
+        if category_i not in self.families[family_i]["categories"]:
+            code = nameunify(category_i, True).replace("-", "")
+            category = Category.objects.filter(
+                code__istartswith=code,
+                family=self.families[family_i]["object"],
+            ).first()
             if category is None:
                 category = Category()
-                category.family = self.families[family_i]['object']
+                category.family = self.families[family_i]["object"]
                 category.code = code
                 try:
                     category.save()
                 except IntegrityError:
-                    category.code = u"{}-{}".format(code, self.families[family_i]['object'].code)
+                    category.code = "{}-{}".format(
+                        code, self.families[family_i]["object"].code
+                    )
                     try:
                         category.save()
                     except IntegrityError:
                         saved = False
                         i = 0
-                        category.code = u"{}{}".format(code, i)
+                        category.code = "{}{}".format(code, i)
                         while not saved:
                             try:
                                 category.save()
                                 saved = True
                             except IntegrityError:
                                 i += 1
-                                category.code = u"{}{}".format(code, i)
+                                category.code = "{}{}".format(code, i)
 
                 for lang_code in settings.LANGUAGES_DATABASES:
                     model = eval("CategoryText{}".format(lang_code))
@@ -429,27 +540,31 @@ class Command(BaseCommand, Debugger):
                     try:
                         obj.save()
                     except IntegrityError:
-                        obj.slug = u"{}-{}".format(category_i, self.families[family_i]['object'].code)
+                        obj.slug = "{}-{}".format(
+                            category_i, self.families[family_i]["object"].code
+                        )
                         try:
                             obj.save()
                         except IntegrityError:
                             saved = False
                             i = 0
-                            obj.slug = u'{}{}'.format(category_i, i)
+                            obj.slug = "{}{}".format(category_i, i)
                             while not saved:
                                 try:
                                     obj.save()
                                     saved = True
                                 except IntegrityError:
                                     i += 1
-                                    obj.slug = u'{}{}'.format(category_i, i)
+                                    obj.slug = "{}{}".format(category_i, i)
 
-            self.families[family_i]['categories'][category_i] = {
-                'object': category,
-                'subcategories': {},
+            self.families[family_i]["categories"][category_i] = {
+                "object": category,
+                "subcategories": {},
             }
         else:
-            category = self.families[family_i]['categories'][category_i]['object']
+            category = self.families[family_i]["categories"][category_i][
+                "object"
+            ]
         # self.debug(category.pk, color="red")
         return category
 
@@ -459,38 +574,65 @@ class Command(BaseCommand, Debugger):
             subcategory_i = category_i
 
         # self.debug(subcategory_i, color="white")
-        if subcategory_i not in self.families[family_i]['categories'][category_i]['subcategories']:
-            code = nameunify(subcategory_i, True).replace('-', '')
-            subcategory = Subcategory.objects.filter(code__istartswith=code, category=self.families[family_i]['categories'][category_i]['object']).first()
+        if (
+            subcategory_i
+            not in self.families[family_i]["categories"][category_i][
+                "subcategories"
+            ]
+        ):
+            code = nameunify(subcategory_i, True).replace("-", "")
+            subcategory = Subcategory.objects.filter(
+                code__istartswith=code,
+                category=self.families[family_i]["categories"][category_i][
+                    "object"
+                ],
+            ).first()
             if subcategory is None:
                 subcategory = Subcategory()
-                subcategory.category = self.families[family_i]['categories'][category_i]['object']
+                subcategory.category = self.families[family_i]["categories"][
+                    category_i
+                ]["object"]
                 subcategory.code = code
                 try:
                     subcategory.save()
                 except IntegrityError:
-                    subcategory.code = u'{}-{}'.format(code, self.families[family_i]['categories'][category_i]['object'].code)
+                    subcategory.code = "{}-{}".format(
+                        code,
+                        self.families[family_i]["categories"][category_i][
+                            "object"
+                        ].code,
+                    )
                     try:
                         subcategory.save()
                     except IntegrityError:
-                        subcategory.code = u'{}-{}'.format(code, self.families[family_i]['object'].code)
+                        subcategory.code = "{}-{}".format(
+                            code, self.families[family_i]["object"].code
+                        )
                         try:
                             subcategory.save()
                         except IntegrityError:
-                            subcategory.code = u'{}-{}-{}'.format(code, self.families[family_i]['categories'][category_i]['object'], self.families[family_i]['object'].code)
+                            subcategory.code = "{}-{}-{}".format(
+                                code,
+                                self.families[family_i]["categories"][
+                                    category_i
+                                ]["object"],
+                                self.families[family_i]["object"].code,
+                            )
                             try:
                                 subcategory.save()
                             except IntegrityError:
                                 saved = False
                                 i = 0
-                                subcategory.code = u"{}{}".format(code, i)
+                                subcategory.code = "{}{}".format(code, i)
                                 while not saved:
                                     try:
                                         subcategory.save()
                                         saved = True
                                     except IntegrityError:
                                         i += 1
-                                        subcategory.code = u"{}{}".format(code, i)
+                                        subcategory.code = "{}{}".format(
+                                            code, i
+                                        )
 
                 for lang_code in settings.LANGUAGES_DATABASES:
                     model = eval("SubcategoryText{}".format(lang_code))
@@ -506,15 +648,17 @@ class Command(BaseCommand, Debugger):
                             obj.save()
                             saved = True
                         except IntegrityError:
-                            obj.slug = u'{}{}'.format(subcategory.code, i)
+                            obj.slug = "{}{}".format(subcategory.code, i)
                             i += 1
         else:
-            subcategory = self.families[family_i]['categories'][category_i]['subcategories']['object']
+            subcategory = self.families[family_i]["categories"][category_i][
+                "subcategories"
+            ]["object"]
         # self.debug(subcategory.pk, color="red")
         return subcategory
 
     def get_tax(self):
-        code = '21'
+        code = "21"
         # self.debug(code, color="white")
         tax = TypeTax.objects.filter(name=code).first()
         if not tax:
@@ -545,20 +689,20 @@ class Command(BaseCommand, Debugger):
         return price_base
 
     def get_peso(self, peso):
-        peso = str(peso).lower().replace(',', '.')
-        tmp = peso.split(' ')
+        peso = str(peso).lower().replace(",", ".")
+        tmp = peso.split(" ")
         if len(tmp) > 1:
             new_peso = tmp[0]
-            if 'k' in tmp[1]:
+            if "k" in tmp[1]:
                 unidad = 1000
             else:
                 unidad = 1
         else:
-            if 'k' in tmp[0]:
-                tmp = tmp[0].split('k')
+            if "k" in tmp[0]:
+                tmp = tmp[0].split("k")
                 unidad = 1000
             else:
-                tmp = tmp[0].split('g')
+                tmp = tmp[0].split("g")
                 unidad = 1
             new_peso = tmp[0]
 
@@ -566,8 +710,23 @@ class Command(BaseCommand, Debugger):
 
         return new_peso
 
-    def get_description_long(self, description, alergenos, disponibilidad, ingredientes, valor_energetico, grasas, grasas_saturadas, hidratos, azucar, proteinas, sal, modo_conservacion, vida_util):
-        text = u"""
+    def get_description_long(
+        self,
+        description,
+        alergenos,
+        disponibilidad,
+        ingredientes,
+        valor_energetico,
+        grasas,
+        grasas_saturadas,
+        hidratos,
+        azucar,
+        proteinas,
+        sal,
+        modo_conservacion,
+        vida_util,
+    ):
+        text = """
         <div class="ingredientes_product">
         <h3>Ingredientes</h3>
         <p>{ingredientes}</p>
@@ -620,26 +779,31 @@ class Command(BaseCommand, Debugger):
         <h3>Disponibilidad</h3>
         <p>{disponibilidad}</p>
         </div>
-        """.format(**{
-            'description': description,
-            'alergenos': alergenos,
-            'ingredientes': ingredientes,
-            'valor_energetico': valor_energetico,
-            'grasas': grasas,
-            'grasas_saturadas': grasas_saturadas,
-            'hidratos': hidratos,
-            'azucar': azucar,
-            'proteinas': proteinas,
-            'sal': sal,
-            'disponibilidad': disponibilidad,
-            'modo_conservacion': modo_conservacion,
-            'vida_util': vida_util,
-        })
+        """.format(
+            **{
+                "description": description,
+                "alergenos": alergenos,
+                "ingredientes": ingredientes,
+                "valor_energetico": valor_energetico,
+                "grasas": grasas,
+                "grasas_saturadas": grasas_saturadas,
+                "hidratos": hidratos,
+                "azucar": azucar,
+                "proteinas": proteinas,
+                "sal": sal,
+                "disponibilidad": disponibilidad,
+                "modo_conservacion": modo_conservacion,
+                "vida_util": vida_util,
+            }
+        )
         return text
 
     def product_samples(self, msg):
-        self.debug(u"Todos los productos de la familia ORIGN 1948 son de muestras..", color="green")
-        family = Family.objects.filter(es__name__icontains='1948').first()
+        self.debug(
+            "Todos los productos de la familia ORIGN 1948 son de muestras..",
+            color="green",
+        )
+        family = Family.objects.filter(es__name__icontains="1948").first()
         for pf in ProductFinal.objects.filter(product__family=family):
             pf.sample = True
             pf.save()
@@ -650,9 +814,14 @@ class Command(BaseCommand, Debugger):
                 obj.save()
 
     def image_default(self):
-        self.debug(u"Asignando imagen por defecto a productos y productos finales sin imagenes", color="green")
-        image_product = '{}{}{}'.format(self.PATH, self.PATH_IMAGES_DEFAULT, self.IMAGES_PRODUCT_DEFAULT)
-        FILE = File(open(image_product, 'rb'))
+        self.debug(
+            "Asignando imagen por defecto a productos y productos finales sin imagenes",
+            color="green",
+        )
+        image_product = "{}{}{}".format(
+            self.PATH, self.PATH_IMAGES_DEFAULT, self.IMAGES_PRODUCT_DEFAULT
+        )
+        FILE = File(open(image_product, "rb"))
         # Prepare file in memory
         MEM = io.BytesIO()
         MEM.write(FILE.read())
@@ -669,10 +838,16 @@ class Command(BaseCommand, Debugger):
             pi.image = File(MEM)
             pi.name_file = self.IMAGES_PRODUCT_DEFAULT
             pi.save()
-        self.debug(u"Resumen: --> Productos {}".format(queryset.count()), color="blue")
+        self.debug(
+            "Resumen: --> Productos {}".format(queryset.count()), color="blue"
+        )
 
-        image_product_final = '{}{}{}'.format(self.PATH, self.PATH_IMAGES_DEFAULT, self.IMAGES_PRODUCTFINAL_DEFAULT)
-        FILE = File(open(image_product_final, 'rb'))
+        image_product_final = "{}{}{}".format(
+            self.PATH,
+            self.PATH_IMAGES_DEFAULT,
+            self.IMAGES_PRODUCTFINAL_DEFAULT,
+        )
+        FILE = File(open(image_product_final, "rb"))
         # Prepare file in memory
         MEM = io.BytesIO()
         MEM.write(FILE.read())
@@ -680,7 +855,9 @@ class Command(BaseCommand, Debugger):
         MEM.seek(0)
         FILE.close()
 
-        queryset = ProductFinal.objects.filter(productfinals_image__isnull=True)
+        queryset = ProductFinal.objects.filter(
+            productfinals_image__isnull=True
+        )
         for product in queryset:
             pi = ProductFinalImage()
             pi.product_final = product
@@ -688,11 +865,13 @@ class Command(BaseCommand, Debugger):
             pi.image = File(MEM)
             pi.name_file = self.IMAGES_PRODUCTFINAL_DEFAULT
             pi.save()
-        self.debug(u"Resumen: --> Productos {}".format(queryset.count()), color="blue")
+        self.debug(
+            "Resumen: --> Productos {}".format(queryset.count()), color="blue"
+        )
 
     def relation_image(self):
-        self.debug(u"Relacionando imagenes de productos finales", color="green")
-        path = '{}{}'.format(self.PATH, self.PATH_IMAGES)
+        self.debug("Relacionando imagenes de productos finales", color="green")
+        path = "{}{}".format(self.PATH, self.PATH_IMAGES)
         total = 0
         new = 0
         update = 0
@@ -701,7 +880,7 @@ class Command(BaseCommand, Debugger):
             filename = join(path, arch)
             if isfile(join(path, arch)):
                 total += 1
-                codes = arch.split('.')[0].split('_')[0].split('-')
+                codes = arch.split(".")[0].split("_")[0].split("-")
                 code = codes[0].split("+")[0]
                 code = code.split(" ")[0]
                 if len(codes) != 1:
@@ -714,7 +893,7 @@ class Command(BaseCommand, Debugger):
                 if pf is None:
                     notexists += 1
                 else:
-                    FILE = File(open(filename, 'rb'))
+                    FILE = File(open(filename, "rb"))
                     # Prepare file in memory
                     MEM = io.BytesIO()
                     MEM.write(FILE.read())
@@ -722,22 +901,32 @@ class Command(BaseCommand, Debugger):
                     MEM.seek(0)
                     FILE.close()
                     if image_product_final:
-                        pfi = ProductFinalImage.objects.filter(product_final=pf, name_file=filename).first()
+                        pfi = ProductFinalImage.objects.filter(
+                            product_final=pf, name_file=filename
+                        ).first()
                         text_model = "ProductFinalImageText"
                     else:
-                        pfi = ProductImage.objects.filter(product=pf.product, name_file=filename).first()
+                        pfi = ProductImage.objects.filter(
+                            product=pf.product, name_file=filename
+                        ).first()
                         text_model = "ProductImageText"
 
                     if pfi is None:
                         new += 1
                         if image_product_final:
-                            img_tmp = ProductFinalImage.objects.filter(product_final=pf, name_file=self.IMAGES_PRODUCTFINAL_DEFAULT).first()
+                            img_tmp = ProductFinalImage.objects.filter(
+                                product_final=pf,
+                                name_file=self.IMAGES_PRODUCTFINAL_DEFAULT,
+                            ).first()
                             if img_tmp:
                                 img_tmp.delete()
                             pfi = ProductFinalImage()
                             pfi.product_final = pf
                         else:
-                            img_tmp = ProductImage.objects.filter(product=pf.product, name_file=self.IMAGES_PRODUCTFINAL_DEFAULT).first()
+                            img_tmp = ProductImage.objects.filter(
+                                product=pf.product,
+                                name_file=self.IMAGES_PRODUCTFINAL_DEFAULT,
+                            ).first()
                             if img_tmp:
                                 img_tmp.delete()
                             pfi = ProductImage()
@@ -755,9 +944,13 @@ class Command(BaseCommand, Debugger):
                     for lang_code in settings.LANGUAGES_DATABASES:
                         model = eval("{}{}".format(text_model, lang_code))
                         if image_product_final:
-                            obj = model.objects.filter(product_final_image=pfi).first()
+                            obj = model.objects.filter(
+                                product_final_image=pfi
+                            ).first()
                         else:
-                            obj = model.objects.filter(product_image=pfi).first()
+                            obj = model.objects.filter(
+                                product_image=pfi
+                            ).first()
                         if obj is None:
                             obj = model()
                         obj.name = file_description
@@ -768,7 +961,11 @@ class Command(BaseCommand, Debugger):
                             obj.product_image = pfi
                         obj.save()
 
-        self.debug(u"Resumen: --> Total: {}".format(total), color="blue")
-        self.debug(u"Resumen: --> Nuevos: {}".format(new), color="blue")
-        self.debug(u"Resumen: --> Actualizados: {}".format(update), color="blue")
-        self.debug(u"Resumen: --> No existen: {}".format(notexists), color="red")
+        self.debug("Resumen: --> Total: {}".format(total), color="blue")
+        self.debug("Resumen: --> Nuevos: {}".format(new), color="blue")
+        self.debug(
+            "Resumen: --> Actualizados: {}".format(update), color="blue"
+        )
+        self.debug(
+            "Resumen: --> No existen: {}".format(notexists), color="red"
+        )

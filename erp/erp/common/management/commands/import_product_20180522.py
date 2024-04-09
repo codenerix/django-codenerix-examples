@@ -15,7 +15,7 @@ from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 from codenerix.helpers import nameunify
-from codenerix.lib.debugger import Debugger
+from codenerix_lib.debugger import Debugger
 from codenerix_products.models import (
     TypeTax,
     Family,
@@ -48,7 +48,11 @@ from codenerix_storages.models import (
 )
 
 for info in (
-    MODELS_SLUG + MODELS_BRANDS + MODELS_PRODUCTS + MODELS + MODELS_PRODUCTS_FINAL
+    MODELS_SLUG
+    + MODELS_BRANDS
+    + MODELS_PRODUCTS
+    + MODELS
+    + MODELS_PRODUCTS_FINAL
 ):
     field = info[0]
     model = info[1]
@@ -85,7 +89,8 @@ class Command(BaseCommand, Debugger):
         # """
         if os.path.isfile(filename_src) is False:
             self.debug(
-                "Fichero no encontrado!!! ({})".format(filename_src), color="red"
+                "Fichero no encontrado!!! ({})".format(filename_src),
+                color="red",
             )
         else:
             self.families_categories_subcategories(filename_src)
@@ -98,7 +103,8 @@ class Command(BaseCommand, Debugger):
         # """
         if os.path.isfile(filename_src) is False:
             self.debug(
-                "Fichero no encontrado!!! ({})".format(filename_src), color="red"
+                "Fichero no encontrado!!! ({})".format(filename_src),
+                color="red",
             )
         else:
             self.products(filename_src)
@@ -110,7 +116,8 @@ class Command(BaseCommand, Debugger):
 
         if os.path.isfile(filename_src) is False:
             self.debug(
-                "Fichero no encontrado!!! ({})".format(filename_src), color="red"
+                "Fichero no encontrado!!! ({})".format(filename_src),
+                color="red",
             )
         else:
             self.stocks(filename_src)
@@ -179,7 +186,9 @@ class Command(BaseCommand, Debugger):
                 talla = sheet["E{}".format(row)].value
                 stock = sheet["K{}".format(row)].value
 
-                self.debug("{} - {}".format(ean13, code_product_final), color="red")
+                self.debug(
+                    "{} - {}".format(ean13, code_product_final), color="red"
+                )
 
                 if isinstance(ean13, float):
                     ean13 = int(ean13)
@@ -189,7 +198,9 @@ class Command(BaseCommand, Debugger):
                     code_product_final = int(code_product_final)
                 code_product_final = str(code_product_final).strip()
 
-                self.debug("{} - {}".format(ean13, code_product_final), color="green")
+                self.debug(
+                    "{} - {}".format(ean13, code_product_final), color="green"
+                )
                 pf = ProductFinal.objects.filter(ean13=ean13).first()
                 if pf:
                     pu = ProductUnique()
@@ -252,7 +263,9 @@ class Command(BaseCommand, Debugger):
                 nombre_talla = sheet["J{}".format(row)].value
                 nombre_color = sheet["K{}".format(row)].value
                 ean13 = sheet["L{}".format(row)].value
-                tarifa_pvp = decimal.Decimal(str(sheet["O{}".format(row)].value))
+                tarifa_pvp = decimal.Decimal(
+                    str(sheet["O{}".format(row)].value)
+                )
 
                 if isinstance(code_producf_final, float):
                     code_producf_final = int(code_producf_final)
@@ -268,22 +281,27 @@ class Command(BaseCommand, Debugger):
 
                 family_obj = Family.objects.filter(es__name=family).first()
                 if family_obj is None:
-                    self.debug("Familia no encontrada. {}".format(family), color="red")
+                    self.debug(
+                        "Familia no encontrada. {}".format(family), color="red"
+                    )
                     raise
 
                 if category == "C/CAJA":
                     self.debug(
-                        "Categoria truncada. {}".format(category), color="yellow"
+                        "Categoria truncada. {}".format(category),
+                        color="yellow",
                     )
                     category = "C/ CAJA"
                 if category == "BAÑADORES ESTAMPADO":
                     self.debug(
-                        "Categoria truncada. {}".format(category), color="yellow"
+                        "Categoria truncada. {}".format(category),
+                        color="yellow",
                     )
                     category = "BAÑADOR ESTAMPADO"
                 if category == "BAÑADORES LISO":
                     self.debug(
-                        "Categoria truncada. {}".format(category), color="yellow"
+                        "Categoria truncada. {}".format(category),
+                        color="yellow",
                     )
                     category = "BAÑADOR LISO"
 
@@ -292,11 +310,13 @@ class Command(BaseCommand, Debugger):
                 ).first()
                 if category == "BERMUDA CHINO SPORT":
                     self.debug(
-                        "Categoria no encontrada. {}".format(category), color="red"
+                        "Categoria no encontrada. {}".format(category),
+                        color="red",
                     )
                 elif category_obj is None:
                     self.debug(
-                        "Categoria no encontrada. {}".format(category), color="red"
+                        "Categoria no encontrada. {}".format(category),
+                        color="red",
                     )
                     raise
 
@@ -306,7 +326,8 @@ class Command(BaseCommand, Debugger):
                 if subcategory is None:
                     subcategory = category
                     self.debug(
-                        "Subcategoria truncada. {}".format(category), color="yellow"
+                        "Subcategoria truncada. {}".format(category),
+                        color="yellow",
                     )
                 subcategory_obj = None
                 if subcategory:
@@ -318,13 +339,16 @@ class Command(BaseCommand, Debugger):
                         and subcategory != "TRAJES CON CHALECO LISO"
                     ):
                         self.debug(
-                            "Subcategoria no encontrada. {}".format(subcategory),
+                            "Subcategoria no encontrada. {}".format(
+                                subcategory
+                            ),
                             color="yellow",
                         )
 
                 if subcategory_obj is None:
                     self.debug(
-                        "Creando subcategoria. {}".format(category), color="cyan"
+                        "Creando subcategoria. {}".format(category),
+                        color="cyan",
                     )
                     subcategory_obj = self.get_subcategory(
                         category_obj.code, subcategory, subcategory
@@ -333,7 +357,9 @@ class Command(BaseCommand, Debugger):
                 # ##############
                 if subcategory_obj is None:
                     self.debug(
-                        "Subcategoria no encontrada!!!! {}".format(subcategory),
+                        "Subcategoria no encontrada!!!! {}".format(
+                            subcategory
+                        ),
                         color="yellow",
                     )
                     raise
@@ -431,7 +457,11 @@ class Command(BaseCommand, Debugger):
                                 obj.slug = "{}{}".format(slug_product_final, i)
                                 i += 1
 
-                    self.debug("Product: {} \t\t\tProductFinal: {}".format(product, pf))
+                    self.debug(
+                        "Product: {} \t\t\tProductFinal: {}".format(
+                            product, pf
+                        )
+                    )
 
                     # ###########
 
@@ -445,7 +475,9 @@ class Command(BaseCommand, Debugger):
                         op.group = group_color
                         op.save()
                         for lang_code in settings.LANGUAGES_DATABASES:
-                            model = eval("OptionValueAttributeText{}".format(lang_code))
+                            model = eval(
+                                "OptionValueAttributeText{}".format(lang_code)
+                            )
                             obj = model()
                             obj.option_value = op
                             obj.description = nombre_color
@@ -475,7 +507,9 @@ class Command(BaseCommand, Debugger):
                         op.group = group_talla
                         op.save()
                         for lang_code in settings.LANGUAGES_DATABASES:
-                            model = eval("OptionValueAttributeText{}".format(lang_code))
+                            model = eval(
+                                "OptionValueAttributeText{}".format(lang_code)
+                            )
                             obj = model()
                             obj.option_value = op
                             obj.description = nombre_talla
@@ -712,9 +746,13 @@ class Command(BaseCommand, Debugger):
                     "object": category,
                     "subcategories": {},
                 }
-                self.categories[code] = self.families[code_family]["categories"][code]
+                self.categories[code] = self.families[code_family][
+                    "categories"
+                ][code]
             else:
-                category = self.families[code_family]["categories"][code]["object"]
+                category = self.families[code_family]["categories"][code][
+                    "object"
+                ]
                 self.categories[code] = category
         else:
             category = None
@@ -725,7 +763,10 @@ class Command(BaseCommand, Debugger):
         if code_category and code and name:
 
             # self.debug(subcategory_i, color="white")
-            if code_category not in self.categories[code_category]["subcategories"]:
+            if (
+                code_category
+                not in self.categories[code_category]["subcategories"]
+            ):
                 category = self.categories[code_category]["object"]
                 subcategory = Subcategory.objects.filter(
                     code=code, category=category
@@ -762,7 +803,9 @@ class Command(BaseCommand, Debugger):
                                             saved = True
                                         except IntegrityError:
                                             i += 1
-                                            subcategory.code = "{}{}".format(code, i)
+                                            subcategory.code = "{}{}".format(
+                                                code, i
+                                            )
 
                     for lang_code in settings.LANGUAGES_DATABASES:
                         model = eval("SubcategoryText{}".format(lang_code))
@@ -781,9 +824,9 @@ class Command(BaseCommand, Debugger):
                                 obj.slug = "{}{}".format(subcategory.code, i)
                                 i += 1
             else:
-                subcategory = self.families[category.family.code]["categories"][
-                    code_category
-                ]["subcategories"]["object"]
+                subcategory = self.families[category.family.code][
+                    "categories"
+                ][code_category]["subcategories"]["object"]
         else:
             subcategory = None
 

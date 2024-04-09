@@ -2,7 +2,7 @@
 from django.conf import settings
 from django.core.management.base import BaseCommand
 
-from codenerix.lib.debugger import Debugger
+from codenerix_lib.debugger import Debugger
 from erp.common.helpers import PaymentMethod
 
 
